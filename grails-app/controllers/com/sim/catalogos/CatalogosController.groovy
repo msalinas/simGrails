@@ -11,7 +11,7 @@ class CatalogosController {
 			[action:'irAccesorio', order:30, title:'Accesorio'],
 			[action:'irBanco', order:40, title:'Banco'],
 			[action:'irDescTelefono', order:50, title:'Descripcion Telefono'],
-			[action:'irDiaFestivo', order:60, title:'Dia festivo'],
+			[action:'irDiaFestivo', order:60, title:'Dia Festivo'],
 			[action:'irTipoDocumento', order:70, title:'Tipo Documento'],
 			[action:'irReporte', order:70, title:'Reporte'],
 			[action:'irDocumento', order:70, title:'Documento']
