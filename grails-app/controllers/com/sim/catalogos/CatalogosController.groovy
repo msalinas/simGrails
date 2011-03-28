@@ -49,7 +49,7 @@ class CatalogosController {
 	}
 
 	def irTipoDocumento ={ 
-		redirect (controller:'simTipoDocumentacion', action:'list')
+		redirect (controller:'simCatTipoDocumento', action:'list')
 	}
 
 	def irReporte ={ 

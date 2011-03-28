@@ -17,6 +17,6 @@ class SimCatTipoAccesorio {
 	static hasMany = [ simCatAccesorio : SimCatAccesorio ]
 	
 	String toString() {
-		"Tipo Accesorio ${nombreTipoAccesorio}"
+		"${nombreTipoAccesorio}"
 	}
 }

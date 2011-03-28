@@ -2,7 +2,7 @@ package com.sim.catalogo
 
 import com.sim.empresa.RsConfEmpresa
 
-class SimTipoDocumentacion {
+class SimCatTipoDocumento {
 
 	String  claveTipoDocumentacion
 	String  nombreTipoDocumentacion
@@ -16,8 +16,7 @@ class SimTipoDocumentacion {
 		rsConfEmpresa(nullable: false)
     }
 
-
 	String toString() {
-		"Tipo Documentacion: ${nombreTipoDocumentacion}"
+		"${nombreTipoDocumentacion}"
 	}
 }

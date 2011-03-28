@@ -10,20 +10,20 @@ class SimCatDocumento {
 	RsConfEmpresa rsConfEmpresa
 	Boolean esReporte = false
 
-	static belongsTo = [ simTipoDocumentacion : SimTipoDocumentacion , simCatReporte : SimCatReporte ]
+	static belongsTo = [ simCatTipoDocumento : SimCatTipoDocumento , simCatReporte : SimCatReporte ]
 
     static constraints = {
 		claveDocumento(size:5..15, unique: true, nullable: false, blank: false)
 		nombreDocumento(size:5..50, unique: true, nullable: false, blank: false)
 		descripcion(size:10..300, unique: true, nullable: false, blank: false)
-		simTipoDocumentacion(nullable:true)
+		simCatTipoDocumento(nullable:true)
 		esReporte()
 		simCatReporte(nullable:true)
 		rsConfEmpresa(nullable: false)
     }
 
 	String toString() {
-		"Documento: ${nombreDocumento}"
+		"${nombreDocumento}"
 	}
 
 }

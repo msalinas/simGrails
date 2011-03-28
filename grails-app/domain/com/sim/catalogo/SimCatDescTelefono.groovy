@@ -10,12 +10,12 @@ class SimCatDescTelefono {
 
     static constraints = {
 		claveDescripcionTelefono(size:5..15, unique: true, nullable: false, blank: false)
-		nombreDescripcionTelefono(size:5..50, unique: true, nullable: false, blank: false)
+		nombreDescripcionTelefono(size:4..50, unique: true, nullable: false, blank: false)
 		rsConfEmpresa(nullable: false)
     }
 
 
 	String toString() {
-		"Desc. Telefono: ${nombreDescripcionTelefono}"
+		"${nombreDescripcionTelefono}"
 	}
 }

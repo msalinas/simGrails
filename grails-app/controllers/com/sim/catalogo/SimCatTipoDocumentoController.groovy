@@ -1,6 +1,6 @@
 package com.sim.catalogo
 
-class SimTipoDocumentacionController {
+class SimCatTipoDocumentoController {
 
     def scaffold = true
 }

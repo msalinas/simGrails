@@ -16,7 +16,7 @@ class RsConfEmpresa {
 	static belongsTo = [ rsConfGpoEmpresa : RsConfGpoEmpresa ]
 
 	String toString() {
-		"${rsConfGpoEmpresa.nombreGrupoEmpresa}, ${nombreEmpresa}"
+		"${nombreEmpresa}"
 	}
 
 

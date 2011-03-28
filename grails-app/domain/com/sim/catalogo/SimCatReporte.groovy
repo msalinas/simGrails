@@ -21,7 +21,7 @@ class SimCatReporte {
     }
 
 	String toString() {
-		"Reporte: ${nombreReporte}"
+		"${nombreReporte}"
 	}
 
 }

@@ -25,6 +25,6 @@ class SimCatAccesorio {
 
 
 	String toString() {
-		"Accesorio ${nombreAccesorio}"
+		"${nombreAccesorio}"
 	}
 }

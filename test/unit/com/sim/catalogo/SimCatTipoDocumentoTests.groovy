@@ -2,7 +2,7 @@ package com.sim.catalogo
 
 import grails.test.*
 
-class SimTipoDocumentacionTests extends GrailsUnitTestCase {
+class SimCatTipoDocumentoTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
     }

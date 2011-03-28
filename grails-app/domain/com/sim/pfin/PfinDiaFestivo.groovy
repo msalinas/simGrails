@@ -16,6 +16,6 @@ class PfinDiaFestivo {
 
 
 	String toString() {
-		"Dia Festivo: ${descripcionDia}"
+		"${descripcionDia}"
 	}
 }
