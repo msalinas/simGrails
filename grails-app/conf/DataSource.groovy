@@ -13,7 +13,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "update" 
+            dbCreate = "create" 
             url = "jdbc:hsqldb:file:devDB;shutdown=true"
         }
     }

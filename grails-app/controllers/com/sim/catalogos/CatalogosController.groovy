@@ -11,7 +11,10 @@ class CatalogosController {
 			[action:'irAccesorio', order:30, title:'Accesorio'],
 			[action:'irBanco', order:40, title:'Banco'],
 			[action:'irDescTelefono', order:50, title:'Descripcion Telefono'],
-			[action:'irDiaFestivo', order:60, title:'Dia festivo']
+			[action:'irDiaFestivo', order:60, title:'Dia festivo'],
+			[action:'irTipoDocumento', order:70, title:'Tipo Documento'],
+			[action:'irReporte', order:70, title:'Reporte'],
+			[action:'irDocumento', order:70, title:'Documento']
 		]
     ]
 
@@ -42,7 +45,20 @@ class CatalogosController {
 	}
 
 	def irDiaFestivo ={ 
-		redirect (controller:'pFinDiaFestivo', action:'list')
+		redirect (controller:'pfinDiaFestivo', action:'list')
 	}
+
+	def irTipoDocumento ={ 
+		redirect (controller:'simTipoDocumentacion', action:'list')
+	}
+
+	def irReporte ={ 
+		redirect (controller:'simCatReporte', action:'list')
+	}
+
+	def irDocumento ={ 
+		redirect (controller:'simCatDocumento', action:'list')
+	}
+
 
 }
