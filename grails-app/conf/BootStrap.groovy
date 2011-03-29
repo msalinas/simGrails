@@ -120,8 +120,6 @@ class BootStrap {
 								esReporte : 'true',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
-
-
     }
 
     def destroy = {
