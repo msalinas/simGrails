@@ -1,1 +1,2 @@
-Este archivo contiene los archivos modificados de los plugins descargados
+Este archivo contiene los archivos modificados de los plugins descargados, contiene también los archivos ocultos propios para generar el proyecto
+en el SpringSource Tool Suite (.classpath y .project)
