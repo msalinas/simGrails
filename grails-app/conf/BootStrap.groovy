@@ -127,8 +127,19 @@ class BootStrap {
 		new SimCatEscolaridad(claveEscolaridad:  'CLAVE_2',
 								nombreEscolaridad: 'SECUNDARIA',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
-	
+
+		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'CLAVE_1',
+								nombreEtapaPrestamo: 'SOLICITADO',
+								descripcionEtapaPrestamo: 'SOLICITADO',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+		
+		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'CLAVE_2',
+								nombreEtapaPrestamo: 'BURO DE CREDITO',
+								descripcionEtapaPrestamo: 'BURO DE CREDITO',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+		
 									
+																		
     }
 
     def destroy = {
