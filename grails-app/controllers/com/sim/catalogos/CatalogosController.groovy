@@ -13,8 +13,9 @@ class CatalogosController {
 			[action:'irDescTelefono', order:50, title:'Descripcion Telefono'],
 			[action:'irDiaFestivo', order:60, title:'Dia Festivo'],
 			[action:'irTipoDocumento', order:70, title:'Tipo Documento'],
-			[action:'irReporte', order:70, title:'Reporte'],
-			[action:'irDocumento', order:70, title:'Documento']
+			[action:'irReporte', order:80, title:'Reporte'],
+			[action:'irDocumento', order:90, title:'Documento'],
+			[action:'irEscolaridad', order:100, title:'Escolaridad']
 		]
     ]
 
@@ -60,5 +61,7 @@ class CatalogosController {
 		redirect (controller:'simCatDocumento', action:'list')
 	}
 
-
+	def irEscolaridad ={
+		redirect (controller:'simCatEscolaridad', action:'list')
+	}
 }

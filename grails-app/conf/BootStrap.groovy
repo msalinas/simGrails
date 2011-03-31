@@ -120,6 +120,15 @@ class BootStrap {
 								esReporte : 'true',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
+		new SimCatEscolaridad(claveEscolaridad:  'CLAVE_1',
+								nombreEscolaridad: 'PRIMARIA',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
+		new SimCatEscolaridad(claveEscolaridad:  'CLAVE_2',
+								nombreEscolaridad: 'SECUNDARIA',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
+									
     }
 
     def destroy = {

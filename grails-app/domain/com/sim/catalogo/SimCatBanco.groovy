@@ -16,6 +16,6 @@ class SimCatBanco {
 
 
 	String toString() {
-		"Banco: ${nombreBanco}"
+		"${nombreBanco}"
 	}
 }
