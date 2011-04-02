@@ -132,3 +132,4 @@ class LoginController {
 		render([error: 'access denied'] as JSON)
 	}
 }
+

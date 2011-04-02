@@ -1,4 +1,4 @@
-package org.example
+package com.sim.usuario
 
 import org.apache.commons.lang.builder.HashCodeBuilder
 

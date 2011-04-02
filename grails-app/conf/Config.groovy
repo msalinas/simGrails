@@ -92,9 +92,14 @@ log4j = {
 }
 
 // Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'org.example.SecUser'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'org.example.SecUserSecRole'
-grails.plugins.springsecurity.authority.className = 'org.example.SecRole'
+//grails.plugins.springsecurity.userLookup.userDomainClassName = 'org.example.SecUser'
+//grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'org.example.SecUserSecRole'
+//grails.plugins.springsecurity.authority.className = 'org.example.SecRole'
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.sim.usuario.SecUser'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.sim.usuario.SecUserSecRole'
+grails.plugins.springsecurity.authority.className = 'com.sim.usuario.SecRole'
 
 grails.plugins.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
 grails.plugins.springsecurity.interceptUrlMap = [
@@ -103,3 +108,4 @@ grails.plugins.springsecurity.interceptUrlMap = [
 
 grails.plugins.springsecurity.auth.loginFormUrl = '/login/login.gsp'
 grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/login.gsp'
+
