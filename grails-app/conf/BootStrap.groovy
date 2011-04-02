@@ -1,10 +1,59 @@
 import com.sim.empresa.*
 import com.sim.catalogo.*
 import com.sim.pfin.*
+import org.example.*
 
 class BootStrap {
+	
+	def springSecurityService
 
     def init = { servletContext ->
+		
+		def samples = [
+			'chuck_norris' : [ fullName: 'Chuck Norris', email: "chuck@example.org" ],
+			'mike' : [ fullName: 'Miguel Rugerio', email: "mike@example.org" ],
+			'peter' : [ fullName: 'Peter Ledbrook', email: "peter@somewhere.net" ],
+			'sven' : [ fullName: 'Sven Haiges', email: "sven@example.org" ],
+			'burt' : [fullName : 'Burt Beckwith', email: "burt@somewhere.net" ] ]
+		
+		def userRole = getOrCreateRole("ROLE_USER")
+		def adminRole = getOrCreateRole("ROLE_ADMIN")
+		
+		def users = User.list() ?: []
+		if (!users) {
+			// Start with the admin user.
+			def adminUser = new User(
+					username: "admin",
+					password: springSecurityService.encodePassword("4321"),
+					enabled: true).save()
+			SecUserSecRole.create adminUser, adminRole
+			
+			// Now the normal users.
+			samples.each { username, profileAttrs ->
+				def user = new User(
+						username: username,
+						password: springSecurityService.encodePassword("1234"),
+						enabled: true)
+				if (user.validate()) {
+					println "Creating user ${username}..."
+
+					user.save(flush:true)
+					
+					def rel = SecUserSecRole.create(user, userRole)
+					if (rel.hasErrors()) println "Failed to assign user role to ${user.username}: ${rel.errors}"
+					
+					users << user
+				}
+				else {
+					println("\n\n\nError in account bootstrap for ${username}!\n\n\n")
+					user.errors.each {err ->
+						println err
+					}
+				}
+			}
+		}
+
+		
 		new RsConfGpoEmpresa(claveGrupoEmpresa: 'SIM',
 							nombreGrupoEmpresa: 'SIM CREDITOS',
 							fechaCreacion: new Date('01/01/2011')).save()
@@ -144,5 +193,12 @@ class BootStrap {
 
     def destroy = {
     }
+	
+	private getOrCreateRole(name) {
+		def role = SecRole.findByAuthority(name)
+		if (!role) role = new SecRole(authority: name).save()
+		if (!role)  println "Unable to save role ${name}"
+		return role
+	}
 
 }
