@@ -1,6 +1,4 @@
-package org.example
-
-import com.sim.usuario.SecUser
+package com.sim.usuario
 
 class User extends SecUser {
 

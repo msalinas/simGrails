@@ -2,7 +2,6 @@ import com.sim.empresa.*
 import com.sim.catalogo.*
 import com.sim.pfin.*
 import com.sim.usuario.*
-import org.example.User
 
 class BootStrap {
 	
