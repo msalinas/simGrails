@@ -101,5 +101,5 @@ grails.plugins.springsecurity.interceptUrlMap = [
 		'/simCatEscolaridad/*':         ['ROLE_USER']
 ]
 
-grails.plugins.springsecurity.auth.loginFormUrl = '/'
-grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/'
+grails.plugins.springsecurity.auth.loginFormUrl = '/login/login.gsp'
+grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/login.gsp'

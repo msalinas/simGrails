@@ -1,10 +1,10 @@
 <head>
 <meta name='layout' content='main' />
-<title>Denied</title>
+<title>Denegado</title>
 </head>
 
 <body>
 <div class='body'>
-	<div class='errors'>Sorry, you're not authorized to view this page.</div>
+	<div class='errors'>Lo sentimos, usted no esta autorizado para ver este recurso</div>
 </div>
 </body>
