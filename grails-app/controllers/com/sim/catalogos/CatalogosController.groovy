@@ -16,7 +16,8 @@ class CatalogosController {
 			[action:'irReporte', order:80, title:'Reporte'],
 			[action:'irDocumento', order:90, title:'Documento'],
 			[action:'irEscolaridad', order:100, title:'Escolaridad'],
-			[action:'irEtapaPrestamo', order:100, title:'Etapa Prestamo']
+			[action:'irEtapaPrestamo', order:110, title:'Etapa Prestamo'],
+			[action:'irFondeador', order:120, title:'Fondeador']
 		]
     ]
 
@@ -69,5 +70,10 @@ class CatalogosController {
 	def irEtapaPrestamo ={
 		redirect (controller:'simCatEtapaPrestamo', action:'list')
 	}
-	
+
+	def irFondeador ={
+		redirect (controller:'simCatFondeador', action:'list')
+	}
+
+		
 }
