@@ -2,3 +2,6 @@ Proyecto Grails SIM
 
 You can use the generate-i18n-messages script to ouput all needed messages for a domain class to your command line interface.
 grails generate-i18n-messages <domainClass>
+
+http://localhost:8080/sim/requestmap/search
+http://localhost:8080/sim/requestmap/create

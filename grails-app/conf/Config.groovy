@@ -105,5 +105,6 @@ grails.plugins.springsecurity.interceptUrlMap = [
 grails.plugins.springsecurity.auth.loginFormUrl = '/login/login.gsp'
 grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/login.gsp'
 
-grails.plugins.springsecurity.securityConfigType = SecurityConfigType.Requestmap
-grails.plugins.springsecurity.requestMap.className = 'com.sim.usuario.Requestmap'
+//Ejemplo para implementar roles a nivel base de datos
+//grails.plugins.springsecurity.securityConfigType = SecurityConfigType.Requestmap
+//grails.plugins.springsecurity.requestMap.className = 'com.sim.usuario.Requestmap'

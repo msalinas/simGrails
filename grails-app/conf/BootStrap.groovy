@@ -187,7 +187,8 @@ class BootStrap {
 								descripcionEtapaPrestamo: 'BURO DE CREDITO',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 		
-		new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
+		//Ejemplo para implementar roles a nivel de base de datos
+		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
 								
 																		
     }

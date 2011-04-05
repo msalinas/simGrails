@@ -1,5 +1,7 @@
 package com.sim.catalogo
 
+//import grails.plugins.springsecurity.Secured
+
 class SimCatEscolaridadController {
 
     def index = { redirect(action: "list", params: params) }
@@ -11,8 +13,11 @@ class SimCatEscolaridadController {
         params.max = Math.min(params.max ? params.max.toInteger() : 10,  100)
         [simCatEscolaridadInstanceList: SimCatEscolaridad.list(params), simCatEscolaridadInstanceTotal: SimCatEscolaridad.count()]
     }
-
+	
+	//Ejemplo para implementar roles por anotaciones
+	//@Secured(['ROLE_USER'])
     def create = {
+		System.out.println("paso 1")
         def simCatEscolaridadInstance = new SimCatEscolaridad()
         simCatEscolaridadInstance.properties = params
         return [simCatEscolaridadInstance: simCatEscolaridadInstance]
