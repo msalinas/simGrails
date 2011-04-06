@@ -2,7 +2,7 @@ package com.sim.catalogo
 
 import com.sim.empresa.RsConfEmpresa;
 
-class SimCatFondeador {
+class SimCatLineaFondeo {
 	
 	String  numeroLinea
 	Double monto

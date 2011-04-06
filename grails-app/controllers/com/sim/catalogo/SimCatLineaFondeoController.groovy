@@ -1,6 +1,6 @@
 package com.sim.catalogo
 
-class SimCatFondeadorController {
+class SimCatLineaFondeoController {
 
     def scaffold = true
 }

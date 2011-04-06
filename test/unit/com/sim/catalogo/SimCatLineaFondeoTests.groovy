@@ -2,7 +2,7 @@ package com.sim.catalogo
 
 import grails.test.*
 
-class SimCatFondeadorControllerTests extends ControllerUnitTestCase {
+class SimCatLineaFondeoTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
     }

@@ -73,7 +73,7 @@ class CatalogosController {
 	}
 
 	def irFondeador ={
-		redirect (controller:'simCatFondeador', action:'list')
+		redirect (controller:'simCatLineaFondeo', action:'list')
 	}
 	
 	def irMetodoCalculo ={
