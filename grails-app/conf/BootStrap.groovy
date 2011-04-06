@@ -186,7 +186,28 @@ class BootStrap {
 								nombreEtapaPrestamo: 'BURO DE CREDITO',
 								descripcionEtapaPrestamo: 'BURO DE CREDITO',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
-		
+								
+
+		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_01',
+								nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL E INTERES',
+								descripcionMetodoCalculo: 'INTERES GLOBAL',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								
+		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_02',
+								nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL, CALCULO DE INTERES SOBRE EL SALDO INSOLUTO',
+								descripcionMetodoCalculo: 'INTERES SOBRE SALDO INSOLUTO',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_05',
+								nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL MAS INTERES, CALCULO DE INTERES SOBRE EL SALDO INSOLUTO',
+								descripcionMetodoCalculo: 'SIN RECALCULO DE INTERESES POR PAGOS ADELANTADOS, CONOCIDO COMO METODO FRANCES',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
+		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_06',
+								nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL MAS INTERES, CALCULO DE INTERES SOBRE EL SALDO INSOLUTO RI',
+								descripcionMetodoCalculo: 'RECALCULO DE INTERESES POR PAGOS ADELANTADOS, CONOCIDO COMO METODO FRANCES',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
 		//Ejemplo para implementar roles a nivel de base de datos
 		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
 								
