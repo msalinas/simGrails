@@ -98,8 +98,8 @@ grails.plugins.springsecurity.authority.className = 'com.sim.usuario.SecRole'
 
 grails.plugins.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
 grails.plugins.springsecurity.interceptUrlMap = [
-		'/simCatEscolaridad/*':         ['ROLE_USER'],
-		'/user/*':         ['ROLE_ADMIN']
+		'/simCatEscolaridad/*': ['ROLE_USER'],
+		'/user/*':         		['ROLE_ADMIN']
 ]
 
 grails.plugins.springsecurity.auth.loginFormUrl = '/login/login.gsp'
