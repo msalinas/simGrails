@@ -18,7 +18,8 @@ class CatalogosController {
 			[action:'irEscolaridad', order:100, title:'Escolaridad'],
 			[action:'irEtapaPrestamo', order:110, title:'Etapa Prestamo'],
 			[action:'irFondeador', order:120, title:'Fondeador'],
-			[action:'irMetodoCalculo', order:130, title:'Metodo Calculo']
+			[action:'irLineaFondeo', order:130, title:'Linea de Fondeo'],
+			[action:'irMetodoCalculo', order:140, title:'Metodo Calculo']
 		]
     ]
 
@@ -73,6 +74,10 @@ class CatalogosController {
 	}
 
 	def irFondeador ={
+		redirect (controller:'simCatFondeador', action:'list')
+	}
+	
+	def irLineaFondeo ={
 		redirect (controller:'simCatLineaFondeo', action:'list')
 	}
 	
