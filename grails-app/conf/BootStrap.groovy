@@ -186,7 +186,29 @@ class BootStrap {
 								nombreEtapaPrestamo: 'BURO DE CREDITO',
 								descripcionEtapaPrestamo: 'BURO DE CREDITO',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
-								
+
+		new SimCatFondeador(claveFondeador:  'CLAVE_1',
+								nombreFondeador: 'PRONAFIN',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimCatLineaFondeo(numeroLinea:  'LINEA 1',
+								monto: 5000,
+								montoDisponible: 5000,
+								tasa: 15,
+								fechaInicio: new Date('01/01/2011'),
+								fechaVigencia : new Date('01/01/2015'),
+								simCatFondeador : SimCatFondeador.findByClaveFondeador('CLAVE_1'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimCatLineaFondeo(numeroLinea:  'LINEA 2',
+								monto: 25000,
+								montoDisponible: 5000,
+								tasa: 10,
+								fechaInicio: new Date('01/01/2011'),
+								fechaVigencia : new Date('01/01/2019'),
+								simCatFondeador : SimCatFondeador.findByClaveFondeador('CLAVE_1'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
 
 		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_01',
 								nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL E INTERES',
