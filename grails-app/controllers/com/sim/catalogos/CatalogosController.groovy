@@ -19,7 +19,8 @@ class CatalogosController {
 			[action:'irEtapaPrestamo', order:110, title:'Etapa Prestamo'],
 			[action:'irFondeador', order:120, title:'Fondeador'],
 			[action:'irLineaFondeo', order:130, title:'Linea de Fondeo'],
-			[action:'irMetodoCalculo', order:140, title:'Metodo Calculo']
+			[action:'irMetodoCalculo', order:140, title:'Metodo Calculo'],
+			[action:'irParentesco', order:140, title:'Parentesco']
 		]
     ]
 
@@ -84,6 +85,11 @@ class CatalogosController {
 	def irMetodoCalculo ={
 		redirect (controller:'simCatMetodoCalculo', action:'list')
 	}
+	def irParentesco ={
+		redirect (controller:'simCatParentesco', action:'list')
+	}
+	
+	
 
 		
 }

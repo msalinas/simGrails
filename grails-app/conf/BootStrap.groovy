@@ -229,6 +229,15 @@ class BootStrap {
 								nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL MAS INTERES, CALCULO DE INTERES SOBRE EL SALDO INSOLUTO RI',
 								descripcionMetodoCalculo: 'RECALCULO DE INTERESES POR PAGOS ADELANTADOS, CONOCIDO COMO METODO FRANCES',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								
+		new SimCatParentesco(claveParentesco:  'MADRE',
+								nombreParentesco: 'MADRE',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimCatParentesco(claveParentesco:  'PADRE',
+								nombreParentesco: 'PADRE',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
 	
 		//Ejemplo para implementar roles a nivel de base de datos
 		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
