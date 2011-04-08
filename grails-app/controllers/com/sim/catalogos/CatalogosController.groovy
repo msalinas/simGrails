@@ -22,7 +22,8 @@ class CatalogosController {
 			[action:'irMetodoCalculo', order:140, title:'Metodo Calculo'],
 			[action:'irParentesco', order:150, title:'Parentesco'],
 			[action:'irPerfil', order:160, title:'Perfil'],
-			[action:'irPeriodicidad', order:170, title:'Periodicidad']
+			[action:'irPeriodicidad', order:170, title:'Periodicidad'],
+			[action:'irPuesto', order:180, title:'Puesto']
 		]
     ]
 
@@ -98,7 +99,7 @@ class CatalogosController {
 	def irPeriodicidad ={
 		redirect (controller:'simCatPeriodicidad', action:'list')
 	}
-	
-
-		
+	def irPuesto ={
+		redirect (controller:'simCatPuesto', action:'list')
+	}
 }

@@ -257,7 +257,25 @@ class BootStrap {
 								cantidadPagos: 12,
 								numeroDias: 30,
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								
+		new SimCatPuesto(clavePuesto:  'DirGen',
+								nombrePuesto: 'DIRECTOR GENERAL',
+								descripcionPuesto: 'DIRECTOR GENERAL MICRO',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 	
+		new SimCatPuesto(clavePuesto:  'GerRie',
+								nombrePuesto: 'GERENTE DE RIESGOS',
+								descripcionPuesto: 'GERENTE DE RIESGOS',
+								dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimCatPuesto(clavePuesto:  'CooRie',
+								nombrePuesto: 'COORDINADOR DE RIESGOS',
+								descripcionPuesto: 'COORDINADOR DE RIESGOS',
+								dependeDe : SimCatPuesto.findByClavePuesto('GerRie'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
+
 		//Ejemplo para implementar roles a nivel de base de datos
 		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
 								
