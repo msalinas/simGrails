@@ -274,8 +274,18 @@ class BootStrap {
 								descripcionPuesto: 'COORDINADOR DE RIESGOS',
 								dependeDe : SimCatPuesto.findByClavePuesto('GerRie'),
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
-	
 
+		new SimCatRechazoComite(claveRechazoComite:  '101',
+								nombreRechazoComite: 'FALTA DE DOCUMENTOS',
+								descripcionRechazoComite: 'FALTA DE DOCUMENTOS',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
+		new SimCatRechazoComite(claveRechazoComite:  '102',
+								nombreRechazoComite: 'ANTECEDENTES PENALES ',
+								descripcionRechazoComite: 'ANTECEDENTES PENALES ',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
+								
 		//Ejemplo para implementar roles a nivel de base de datos
 		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
 								

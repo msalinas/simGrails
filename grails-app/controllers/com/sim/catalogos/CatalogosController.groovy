@@ -23,7 +23,8 @@ class CatalogosController {
 			[action:'irParentesco', order:150, title:'Parentesco'],
 			[action:'irPerfil', order:160, title:'Perfil'],
 			[action:'irPeriodicidad', order:170, title:'Periodicidad'],
-			[action:'irPuesto', order:180, title:'Puesto']
+			[action:'irPuesto', order:180, title:'Puesto'],
+			[action:'irRechazoComite', order:190, title:'Rechazo Comite']
 		]
     ]
 
@@ -101,5 +102,8 @@ class CatalogosController {
 	}
 	def irPuesto ={
 		redirect (controller:'simCatPuesto', action:'list')
+	}
+	def irRechazoComite ={
+		redirect (controller:'simCatRechazoComite', action:'list')
 	}
 }
