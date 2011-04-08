@@ -1,7 +1,10 @@
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Import;
+
 import com.sim.empresa.*
 import com.sim.catalogo.*
 import com.sim.pfin.*
 import com.sim.usuario.*
+import com.rs.gral.*
 
 class BootStrap {
 	
@@ -285,7 +288,37 @@ class BootStrap {
 								descripcionRechazoComite: 'ANTECEDENTES PENALES ',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 	
-								
+		new SimCatTipoAsentamiento(claveTipoAsentamiento:  'CIUDAD',
+								nombreTipoAsentamiento: 'CIUDAD',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+		new SimCatTipoAsentamiento(claveTipoAsentamiento:  'COLONIA',
+								nombreTipoAsentamiento: 'COLONIA',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+		new SimCatTipoAsentamiento(claveTipoAsentamiento:  'URBANA',
+								nombreTipoAsentamiento: 'URBANA',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+									
+		new RsGralCodigoPostal(codigoPostal:  '06860',
+								codigo: '06860',
+								tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA'),
+								asentamiento: 'COLONIA',
+								ciudad: 'DISTRITO FEDERAL',
+								estado: 'DISTRITO FEDERAL',
+								municipio: 'CUAUHTEMOC',
+								oficina: 'UNO').save()
+	
+		new RsGralCodigoPostal(codigoPostal:  '09370',
+								codigo: '09370',
+								tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA'),
+								asentamiento: 'COLONIA',
+								ciudad: 'DISTRITO FEDERAL',
+								estado: 'DISTRITO FEDERAL',
+								municipio: 'BENITO JUAREZ',
+								oficina: 'DOS').save()
+
+		
+	
+																
 		//Ejemplo para implementar roles a nivel de base de datos
 		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
 								

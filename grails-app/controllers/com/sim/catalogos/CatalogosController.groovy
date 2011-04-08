@@ -24,7 +24,10 @@ class CatalogosController {
 			[action:'irPerfil', order:160, title:'Perfil'],
 			[action:'irPeriodicidad', order:170, title:'Periodicidad'],
 			[action:'irPuesto', order:180, title:'Puesto'],
-			[action:'irRechazoComite', order:190, title:'Rechazo Comite']
+			[action:'irRechazoComite', order:190, title:'Rechazo Comite'],
+			[action:'irTipoAsentamiento', order:190, title:'Tipo Asentamiento'],
+			[action:'irCodigoPostal', order:200, title:'Codigo Postal'],
+			
 		]
     ]
 
@@ -105,5 +108,12 @@ class CatalogosController {
 	}
 	def irRechazoComite ={
 		redirect (controller:'simCatRechazoComite', action:'list')
+	}
+	
+	def irTipoAsentamiento ={
+		redirect (controller:'simCatTipoAsentamiento', action:'list')
+	}
+	def irCodigoPostal ={
+		redirect (controller:'rsGralCodigoPostal', action:'list')
 	}
 }
