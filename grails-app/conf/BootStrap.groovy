@@ -237,7 +237,26 @@ class BootStrap {
 		new SimCatParentesco(claveParentesco:  'PADRE',
 								nombreParentesco: 'PADRE',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimCatPerfil(clavePerfil:  'CAJERO',
+								nombrePerfil: 'CAJERO',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								
+		new SimCatPerfil(clavePerfil:  'EJECRE',
+								nombrePerfil: 'EJECUTIVO DE CREDITO',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 	
+		new SimCatPeriodicidad(clavePeriodicidad:  'CLAVE_1',
+								nombrePeriodicidad: 'ANUAL',
+								cantidadPagos: 1,
+								numeroDias: 360,
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
+		new SimCatPeriodicidad(clavePeriodicidad:  'CLAVE_2',
+								nombrePeriodicidad: 'MENSUAL',
+								cantidadPagos: 12,
+								numeroDias: 30,
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 	
 		//Ejemplo para implementar roles a nivel de base de datos
 		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()

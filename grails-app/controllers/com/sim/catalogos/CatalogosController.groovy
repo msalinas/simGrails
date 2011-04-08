@@ -20,7 +20,9 @@ class CatalogosController {
 			[action:'irFondeador', order:120, title:'Fondeador'],
 			[action:'irLineaFondeo', order:130, title:'Linea de Fondeo'],
 			[action:'irMetodoCalculo', order:140, title:'Metodo Calculo'],
-			[action:'irParentesco', order:140, title:'Parentesco']
+			[action:'irParentesco', order:150, title:'Parentesco'],
+			[action:'irPerfil', order:160, title:'Perfil'],
+			[action:'irPeriodicidad', order:170, title:'Periodicidad']
 		]
     ]
 
@@ -89,6 +91,13 @@ class CatalogosController {
 		redirect (controller:'simCatParentesco', action:'list')
 	}
 	
+	def irPerfil ={
+		redirect (controller:'simCatPerfil', action:'list')
+	}
+	
+	def irPeriodicidad ={
+		redirect (controller:'simCatPeriodicidad', action:'list')
+	}
 	
 
 		
