@@ -28,8 +28,11 @@ class CatalogosController {
 			[action:'irTipoAsentamiento', order:200, title:'Tipo Asentamiento'],
 			[action:'irCodigoPostal', order:210, title:'Codigo Postal'],
 			[action:'irTipoDomicilio', order:220, title:'Tipo Domicilio'],
-			[action:'irTipoGarantia', order:220, title:'Tipo Garantia']
-			
+			[action:'irTipoGarantia', order:230, title:'Tipo Garantia'],
+			[action:'irTipoIdentificador', order:240, title:'Tipo Identificador'],
+			[action:'irTipoNegocio', order:250, title:'Tipo Negocio'],
+			[action:'irTipoPersona', order:260, title:'Tipo Persona'],
+			[action:'irTipoReferencia', order:270, title:'Tipo Referencia']
 		]
     ]
 
@@ -126,4 +129,23 @@ class CatalogosController {
 	def irTipoGarantia ={
 		redirect (controller:'simCatTipoGarantia', action:'list')
 	}
+	def irTipoIdentificador ={
+		redirect (controller:'simCatTipoIdentificador', action:'list')
+	}
+	def irTipoNegocio ={
+		redirect (controller:'simCatTipoNegocio', action:'list')
+	}
+
+	def irTipoPersona ={
+		redirect (controller:'simCatTipoPersona', action:'list')
+	}
+	
+	def irTipoReferencia ={
+		redirect (controller:'simCatVerificacionReferencia', action:'list')
+	}
+	
+	
+	
+
+		
 }

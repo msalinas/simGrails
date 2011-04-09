@@ -335,6 +335,46 @@ class BootStrap {
 								descripcionTipoGarantia: 'DESCRIPCION QUIFOGRAFARIA',
 								requisitosTipoGarantia: 'REQUISITOS QUIFOGRAFARIA',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								
+		new SimCatTipoIdentificador(claveTipoIdentificador:  'AVAL',
+								nombreTipoIdentificador: 'AVAL O FIADOR',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimCatTipoIdentificador(claveTipoIdentificador:  'CLIENTE',
+								nombreTipoIdentificador: 'CLIENTE',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								
+		new SimCatTipoNegocio(claveTipoNegocio:  'CLAVE1',
+								nombreTipoNegocio: 'FIJO',
+								descripcionTipoNegocio: 'DESCRIPCION FIJO',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								
+		new SimCatTipoNegocio(claveTipoNegocio:  'CLAVE2',
+								nombreTipoNegocio: 'SEMIFIJO',
+								descripcionTipoNegocio: 'DESCRIPCION SEMIFIJO',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
+		new SimCatTipoPersona(claveTipoPersona:  'AVAL',
+								nombreTipoPersona: 'AVAL',
+								descripcionTipoPersona: 'DESCRIPCION AVAL',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
+		new SimCatTipoPersona(claveTipoPersona:  'CLIENTE',
+								nombreTipoPersona: 'CLIENTE',
+								descripcionTipoPersona: 'DESCRIPCION CLIENTE',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimCatVerificacionReferencia(claveTipoReferencia:  'CLAVE1',
+								nombreTipoReferencia: 'REPUTACIÓN DE BUEN TRABAJADOR',
+								descripcionTipoReferencia: 'REPUTACIÓN DE BUEN TRABAJADOR',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
+
+		new SimCatVerificacionReferencia(claveTipoReferencia:  'CLAVE4',
+								nombreTipoReferencia: 'LO CONOCEN PERO NO SABEN SU CALIDAD COMO PERSONA',
+								descripcionTipoReferencia: 'LO CONOCEN PERO NO SABEN SU CALIDAD COMO PERSONA',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
 	
 		//Ejemplo para implementar roles a nivel de base de datos
 		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
