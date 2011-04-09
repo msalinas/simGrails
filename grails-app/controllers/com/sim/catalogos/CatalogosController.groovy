@@ -25,8 +25,10 @@ class CatalogosController {
 			[action:'irPeriodicidad', order:170, title:'Periodicidad'],
 			[action:'irPuesto', order:180, title:'Puesto'],
 			[action:'irRechazoComite', order:190, title:'Rechazo Comite'],
-			[action:'irTipoAsentamiento', order:190, title:'Tipo Asentamiento'],
-			[action:'irCodigoPostal', order:200, title:'Codigo Postal'],
+			[action:'irTipoAsentamiento', order:200, title:'Tipo Asentamiento'],
+			[action:'irCodigoPostal', order:210, title:'Codigo Postal'],
+			[action:'irTipoDomicilio', order:220, title:'Tipo Domicilio'],
+			[action:'irTipoGarantia', order:220, title:'Tipo Garantia']
 			
 		]
     ]
@@ -115,5 +117,13 @@ class CatalogosController {
 	}
 	def irCodigoPostal ={
 		redirect (controller:'rsGralCodigoPostal', action:'list')
+	}
+	
+	def irTipoDomicilio ={
+		redirect (controller:'simCatTipoDomicilio', action:'list')
+	}
+	
+	def irTipoGarantia ={
+		redirect (controller:'simCatTipoGarantia', action:'list')
 	}
 }
