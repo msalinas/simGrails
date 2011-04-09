@@ -9,6 +9,8 @@ class SimCatPeriodicidad {
 	Integer cantidadPagos
 	Integer numeroDias
 	RsConfEmpresa rsConfEmpresa
+	
+	static hasMany = SimCatTasaReferencia 
 
     static constraints = {
 		clavePeriodicidad(size:5..15, unique: true, nullable: false, blank: false)
@@ -17,7 +19,6 @@ class SimCatPeriodicidad {
 		numeroDias(range:1..999,nullable:false)
 		rsConfEmpresa(nullable: false)
     }
-
 
 	String toString() {
 		"${nombrePeriodicidad}"
