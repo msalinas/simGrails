@@ -4,6 +4,7 @@ import com.sim.empresa.*
 import com.sim.catalogo.*
 import com.sim.pfin.*
 import com.sim.usuario.*
+import com.sim.regional.* 
 import com.rs.gral.*
 
 class BootStrap {
@@ -118,14 +119,18 @@ class BootStrap {
 								nombreBanco: 'BANAMEX',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
-		new SimCatDescTelefono(claveDescripcionTelefono: 'CLAVE_1',
+		new SimCatDescTelefono(claveDescripcionTelefono: 'CLAVE1',
 								nombreDescripcionTelefono: 'CASA',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
-		new SimCatDescTelefono(claveDescripcionTelefono: 'CLAVE_2',
+		new SimCatDescTelefono(claveDescripcionTelefono: 'CLAVE2',
 								nombreDescripcionTelefono: 'OFICINA',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
+		new SimCatDescTelefono(claveDescripcionTelefono: 'CLAVE3',
+								nombreDescripcionTelefono: 'FAX',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
 		new PfinDiaFestivo(diaFestivo:  new Date('01/01/2011'),
 								descripcionDia: 'AÑO NUEVO',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
@@ -406,6 +411,65 @@ class BootStrap {
 								valorTasaPapel: 8.85,
 								tasaReferencia: SimCatTasaReferencia.findByClaveTasaReferencia('CLAVE2'),
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimRegional(claveRegional:  'REGION1',
+								nombreRegional: 'TOLUCA',
+								gerente: 'LUIS',
+								coordinador: 'ALBERTO',
+								claveIdentificador : SimCatTipoIdentificador.findByClaveTipoIdentificador('REGIONAL'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimRegional(claveRegional:  'REGION2',
+								nombreRegional: 'PUEBLA',
+								gerente: 'ARMANDO',
+								coordinador: 'GILBERTO',
+								claveIdentificador : SimCatTipoIdentificador.findByClaveTipoIdentificador('REGIONAL'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								
+		new SimSucursal(claveSucursal:  'SUCURSAL1',
+								nombreSucursal: 'SAN MATEO',
+								gerente: 'ARMANDO',
+								coordinador: 'GILBERTO',
+								regional : SimRegional.findByClaveRegional('REGION1'),
+								claveIdentificador : SimCatTipoIdentificador.findByClaveTipoIdentificador('SUCURSAL'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimSucursal(claveSucursal:  'SUCURSAL2',
+								nombreSucursal: 'SANTIAGO TIANGUISTENCO',
+								gerente: 'MARIO',
+								coordinador: 'GUSTAVO',
+								regional : SimRegional.findByClaveRegional('REGION1'),
+								claveIdentificador : SimCatTipoIdentificador.findByClaveTipoIdentificador('SUCURSAL'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimSucursal(claveSucursal:  'SUCURSAL3',
+								nombreSucursal: 'IXTAPAN DE LA SAL',
+								gerente: 'MARIO',
+								coordinador: 'GUSTAVO',
+								regional : SimRegional.findByClaveRegional('REGION1'),
+								claveIdentificador : SimCatTipoIdentificador.findByClaveTipoIdentificador('SUCURSAL'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								
+		new RsGralTelefono(telefono:  '111111111',
+								descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE2'),
+								regional : SimRegional.findByClaveRegional('REGION1'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new RsGralTelefono(telefono:  '222222222',
+								descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE3'),
+								regional : SimRegional.findByClaveRegional('REGION1'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
+		new RsGralTelefono(telefono:  '33333333',
+								descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE1'),
+								sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								
+		new RsGralTelefono(telefono:  '444444444',
+									descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE2'),
+									sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1'),
+									rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
 	
 		//Ejemplo para implementar roles a nivel de base de datos
 		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()

@@ -3,6 +3,7 @@ package com.rs.gral
 import com.sim.catalogo.SimCatDescTelefono
 import com.sim.empresa.RsConfEmpresa
 import com.sim.regional.SimRegional
+import com.sim.regional.SimSucursal
 
 class RsGralTelefono {
 
@@ -10,12 +11,15 @@ class RsGralTelefono {
 	RsConfEmpresa rsConfEmpresa
 	SimCatDescTelefono descripcionTelefono
 	
-	static belongsTo = [ simRegional : SimRegional ]
+	static belongsTo = [ regional : SimRegional, sucursal : SimSucursal ]
 
     static constraints = {
 		telefono(size:5..15, unique: true, nullable: false, blank: false)
 		descripcionTelefono(nullable: false)
 		rsConfEmpresa(nullable: false)
+		regional(nullable: true)
+		sucursal(nullable: true)
+		
     }
 	
 	String toString() {

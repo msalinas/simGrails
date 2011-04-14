@@ -16,6 +16,10 @@ class SimRegionalMenuController {
 	def irRegional = {
 		redirect (controller:'simRegional', action:'list')
 	}
+	
+	def irSucursal = {
+		redirect (controller:'simSucursal', action:'list')
+	}
 	def irTelefonos ={
 		redirect (controller:'rsGralTelefono', action:'list')
 	}

@@ -13,19 +13,21 @@ class SimRegional {
 	RsConfEmpresa rsConfEmpresa
 	SimCatTipoIdentificador claveIdentificador
 	
-	static hasMany = [ rsGralTelefono : RsGralTelefono ]
+	static hasMany = [ telefono : RsGralTelefono, sucursal : SimSucursal ]
 	
     static constraints = {
 		claveRegional(size:5..15, unique: true, nullable: false, blank: false)
 		nombreRegional(size:5..50, unique: true, nullable: false, blank: false)
 		gerente()
 		coordinador()
+		telefono()
+		sucursal()
 		claveIdentificador(validator: { cveIdentificador ->
 			cveIdentificador.claveTipoIdentificador.equals "REGIONAL" })
 		rsConfEmpresa(nullable: false)
     }
 	
 	String toString() {
-		"Regional: ${nombreRegional}"
+		"REGIONAL: ${nombreRegional}"
 	}
 }

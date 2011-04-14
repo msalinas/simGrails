@@ -10,7 +10,7 @@ class SimCatDescTelefono {
 
     static constraints = {
 		claveDescripcionTelefono(size:5..15, unique: true, nullable: false, blank: false)
-		nombreDescripcionTelefono(size:4..50, unique: true, nullable: false, blank: false)
+		nombreDescripcionTelefono(size:3..50, unique: true, nullable: false, blank: false)
 		rsConfEmpresa(nullable: false)
     }
 
