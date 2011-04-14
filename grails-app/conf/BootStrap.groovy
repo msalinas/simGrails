@@ -344,6 +344,14 @@ class BootStrap {
 								nombreTipoIdentificador: 'CLIENTE',
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 								
+		new SimCatTipoIdentificador(claveTipoIdentificador:  'REGIONAL',
+								nombreTipoIdentificador: 'REGIONAL',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
+		new SimCatTipoIdentificador(claveTipoIdentificador:  'SUCURSAL',
+								nombreTipoIdentificador: 'SUCURSAL',
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
 		new SimCatTipoNegocio(claveTipoNegocio:  'CLAVE1',
 								nombreTipoNegocio: 'FIJO',
 								descripcionTipoNegocio: 'DESCRIPCION FIJO',
@@ -376,28 +384,28 @@ class BootStrap {
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 	
 		new SimCatTasaReferencia(claveTasaReferencia:  'CLAVE1',
-									nombreTasaReferencia: 'CETES 28',
-									descripcionTasaReferencia: 'DESCRIPCION CETES 28',
-									periodicidadTasa: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_1'),
-									rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								nombreTasaReferencia: 'CETES 28',
+								descripcionTasaReferencia: 'DESCRIPCION CETES 28',
+								periodicidadTasa: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_1'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
 		new SimCatTasaReferencia(claveTasaReferencia:  'CLAVE2',
-									nombreTasaReferencia: 'BONO',
-									descripcionTasaReferencia: 'DESCRIPCION BONO',
-									periodicidadTasa: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_2'),
-									rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								nombreTasaReferencia: 'BONO',
+								descripcionTasaReferencia: 'DESCRIPCION BONO',
+								periodicidadTasa: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_2'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
 		new SimCatTasaPapel(claveTasaPapel:  'CLAVE1',
-									fechaPublicacion: new Date('01/01/2011'),
-									valorTasaPapel: 5.85,
-									tasaReferencia: SimCatTasaReferencia.findByClaveTasaReferencia('CLAVE2'),
-									rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								fechaPublicacion: new Date('01/01/2011'),
+								valorTasaPapel: 5.85,
+								tasaReferencia: SimCatTasaReferencia.findByClaveTasaReferencia('CLAVE2'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
 		new SimCatTasaPapel(claveTasaPapel:  'CLAVE2',
-									fechaPublicacion: new Date('01/05/2011'),
-									valorTasaPapel: 8.85,
-									tasaReferencia: SimCatTasaReferencia.findByClaveTasaReferencia('CLAVE2'),
-									rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								fechaPublicacion: new Date('01/05/2011'),
+								valorTasaPapel: 8.85,
+								tasaReferencia: SimCatTasaReferencia.findByClaveTasaReferencia('CLAVE2'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 	
 		//Ejemplo para implementar roles a nivel de base de datos
 		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
