@@ -3,6 +3,7 @@ package com.sim.regional
 import com.sim.catalogo.SimCatTipoIdentificador;
 import com.sim.empresa.RsConfEmpresa;
 import com.rs.gral.RsGralTelefono
+import com.rs.gral.RsGralDomicilio
 
 class SimSucursal {
 
@@ -13,7 +14,8 @@ class SimSucursal {
 	RsConfEmpresa rsConfEmpresa
 	SimCatTipoIdentificador claveIdentificador
 	
-	static hasMany = [ telefono : RsGralTelefono ]
+	static hasMany = [ telefono : RsGralTelefono, domicilio : RsGralDomicilio ]
+	
 	static belongsTo = [ regional : SimRegional]
 	
     static constraints = {
@@ -21,6 +23,7 @@ class SimSucursal {
 		nombreSucursal(size:5..50, unique: true, nullable: false, blank: false)
 		gerente()
 		coordinador()
+		domicilio()
 		telefono()
 		regional()
 		claveIdentificador(validator: { cveIdentificador ->
@@ -29,6 +32,6 @@ class SimSucursal {
     }
 	
 	String toString() {
-		"SUCURSAL: ${nombreSucursal}"
+		"${nombreSucursal}"
 	}
 }

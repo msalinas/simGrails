@@ -466,11 +466,20 @@ class BootStrap {
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 								
 		new RsGralTelefono(telefono:  '444444444',
-									descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE2'),
-									sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1'),
-									rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE2'),
+								sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 	
-	
+		new RsGralDomicilio(calle: 'Las Palmas',
+								numeroInterior: '4',
+								numeroExterior: '67',
+								esFiscal: 'true',
+								comentarios : 'ENFRENTE DE UNA FARMACIA',
+								codigoPostal : RsGralCodigoPostal.findByCodigoPostal('09370'),
+								regional : SimRegional.findByClaveRegional('REGION1'),
+								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+								
+						
 		//Ejemplo para implementar roles a nivel de base de datos
 		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
 								
