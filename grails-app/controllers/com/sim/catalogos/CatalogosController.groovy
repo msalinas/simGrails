@@ -34,8 +34,8 @@ class CatalogosController {
 			[action:'irTipoPersona', order:260, title:'Tipo Persona'],
 			[action:'irTipoReferencia', order:270, title:'Tipo Referencia'],
 			[action:'irTasaReferencia', order:280, title:'Tasa Referencia'],
-			[action:'irTasaPapel', order:290, title:'Tasa Papel'],
-			[action:'irTelefonos', order:290, title:'Telefonos']
+			[action:'irTasaPapel', order:290, title:'Tasa Papel']
+			
 		]
     ]
 
@@ -155,8 +155,6 @@ class CatalogosController {
 		redirect (controller:'simCatTasaPapel', action:'list')
 	}
 	
-	def irTelefonos ={
-		redirect (controller:'rsGralTelefono', action:'list')
-	}
+
 
 }
