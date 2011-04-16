@@ -503,8 +503,114 @@ class BootStrap {
 		new City(nameCity: 'NEW YORK',
 							timezone: 'NY',
 							country : Country.findByNameCountry('ESTADOS UNIDOS')).save()
+
+		new RsGralEstado(cveEstado: 'AGS',
+							nombreEstado: 'AGUASCALIENTES',
+							aliasEstado : 'AGS').save()
 	
-									
+		new RsGralEstado(cveEstado: 'DF',
+							nombreEstado: 'DISTRITO FEDERAL',
+							aliasEstado : 'DF').save()
+
+		new RsGralEstado(cveEstado: 'EDOMEX',
+							nombreEstado: 'ESTADO DE MEXICO',
+							aliasEstado : 'EDOMEX').save()
+
+		new RsGralCiudad(nombreCiudad: 'EL COLORADO',
+							estado : RsGralEstado.findByCveEstado('AGS')).save()
+	
+		new RsGralCiudad(nombreCiudad: 'AMAPOLAS DEL RIO',
+							estado : RsGralEstado.findByCveEstado('AGS')).save()
+		
+		new RsGralCiudad(nombreCiudad: 'EL CONEJAL',
+							estado : RsGralEstado.findByCveEstado('AGS')).save()
+
+		new RsGralCiudad(nombreCiudad: 'DISTRITO NORTE',
+							estado : RsGralEstado.findByCveEstado('DF')).save()
+
+		new RsGralCiudad(nombreCiudad: 'DISTRITO SUR',
+								estado : RsGralEstado.findByCveEstado('DF')).save()
+	
+		new RsGralCiudad(nombreCiudad: 'METEPEC',
+							estado : RsGralEstado.findByCveEstado('EDOMEX')).save()
+
+		new RsGralCiudad(nombreCiudad: 'CHIMALHUACAN',
+							estado : RsGralEstado.findByCveEstado('EDOMEX')).save()
+	
+		new RsGralCiudad(nombreCiudad: 'MEXICO',
+							estado : RsGralEstado.findByCveEstado('EDOMEX')).save()
+
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL COLORADO UNO',
+							ciudad : RsGralCiudad.findByNombreCiudad('EL COLORADO')).save()
+
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL COLORADO DOS',
+							ciudad : RsGralCiudad.findByNombreCiudad('EL COLORADO')).save()
+
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL COLORADO TRES',
+							ciudad : RsGralCiudad.findByNombreCiudad('EL COLORADO')).save()
+	
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'AMAPOLAS UNO',
+							ciudad : RsGralCiudad.findByNombreCiudad('AMAPOLAS DEL RIO')).save()
+
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'AMAPOLAS DOS',
+							ciudad : RsGralCiudad.findByNombreCiudad('AMAPOLAS DEL RIO')).save()
+
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'AMAPOLAS TRES',
+							ciudad : RsGralCiudad.findByNombreCiudad('AMAPOLAS DEL RIO')).save()
+	
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL CONEJAL UNO',
+							ciudad : RsGralCiudad.findByNombreCiudad('EL CONEJAL')).save()
+
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL CONEJAL DOS',
+							ciudad : RsGralCiudad.findByNombreCiudad('EL CONEJAL')).save()
+	
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL CONEJAL TRES',
+							ciudad : RsGralCiudad.findByNombreCiudad('EL CONEJAL')).save()
+	
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'CUAUHTEMOC',
+							ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO NORTE')).save()
+	
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'VENUSTIANO CARRANZA',
+							ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO NORTE')).save()
+
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'ALVARO OBREGON',
+							ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO NORTE')).save()
+
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'BENITO JUAREZ',
+							ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO SUR')).save()
+
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'COYOACAN',
+							ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO SUR')).save()
+
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'TLALPAN',
+								ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO SUR')).save()
+	
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'METEPEC UNO',
+							ciudad : RsGralCiudad.findByNombreCiudad('METEPEC')).save()
+								
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'METEPEC DOS',
+							ciudad : RsGralCiudad.findByNombreCiudad('METEPEC')).save()
+
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'METEPEC TRES',
+							ciudad : RsGralCiudad.findByNombreCiudad('METEPEC')).save()
+	
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'CHIMALHUACAN UNO',
+							ciudad : RsGralCiudad.findByNombreCiudad('CHIMALHUACAN')).save()
+								
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'CHIMALHUACAN DOS',
+							ciudad : RsGralCiudad.findByNombreCiudad('CHIMALHUACAN')).save()
+	
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'CHIMALHUACAN TRES',
+							ciudad : RsGralCiudad.findByNombreCiudad('CHIMALHUACAN')).save()
+	
+							
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'MEXICO UNO',
+							ciudad : RsGralCiudad.findByNombreCiudad('MEXICO')).save()
+	
+		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'MEXICO DOS',
+							ciudad : RsGralCiudad.findByNombreCiudad('MEXICO')).save()
+	
+	
 		//Ejemplo para implementar roles a nivel de base de datos
 		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
 								
