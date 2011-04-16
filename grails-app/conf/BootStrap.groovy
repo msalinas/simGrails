@@ -480,29 +480,29 @@ class BootStrap {
 								regional : SimRegional.findByClaveRegional('REGION1'),
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 								
-		new Country(name: 'MEXICO',
+		new Country(nameCountry: 'MEXICO',
 							abbr: 'MEX',
 							language: 'ESPANOL').save()
 								
-		new Country(name: 'ESTADOS UNIDOS',
-								abbr: 'USA',
-								language: 'INGLES').save()
+		new Country(nameCountry: 'ESTADOS UNIDOS',
+							abbr: 'USA',
+							language: 'INGLES').save()
 								
-		new City(name: 'DISTRITO FEDERAL',
-								timezone: 'DF',
-								country : Country.findByName('MEXICO')).save()
+		new City(nameCity: 'DISTRITO FEDERAL',
+							timezone: 'DF',
+							country : Country.findByNameCountry('MEXICO')).save()
 								
-		new City(name: 'ESTADO MEXICO',
-									timezone: 'TOLUCA',
-									country : Country.findByName('MEXICO')).save()
+		new City(nameCity: 'ESTADO MEXICO',
+							timezone: 'TOLUCA',
+							country : Country.findByNameCountry('MEXICO')).save()
 
-		new City(name: 'LOS ANGELES',
-										timezone: 'LA',
-										country : Country.findByName('ESTADOS UNIDOS')).save()
+		new City(nameCity: 'LOS ANGELES',
+							timezone: 'LA',
+							country : Country.findByNameCountry('ESTADOS UNIDOS')).save()
 
-		new City(name: 'NEW YORK',
-											timezone: 'NY',
-											country : Country.findByName('ESTADOS UNIDOS')).save()
+		new City(nameCity: 'NEW YORK',
+							timezone: 'NY',
+							country : Country.findByNameCountry('ESTADOS UNIDOS')).save()
 	
 									
 		//Ejemplo para implementar roles a nivel de base de datos

@@ -1,0 +1,8 @@
+package com.sim.prueba
+
+class PruebasController {
+
+    def index = { }
+
+	def cambiarSelect = { }
+}

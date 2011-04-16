@@ -34,13 +34,14 @@ class CatalogosController {
 			[action:'irTipoPersona', order:260, title:'Tipo Persona'],
 			[action:'irTipoReferencia', order:270, title:'Tipo Referencia'],
 			[action:'irTasaReferencia', order:280, title:'Tasa Referencia'],
-			[action:'irPais', order:290, title:'Pais'],
-			[action:'irCiudad', order:300, title:'Ciudad']
 			
+			[action:'inicioPruebas', order:1000, title:'Pruebas']
 		]
     ]
 
     def inicioCatalogos = { }
+	
+	def inicioPruebas = {}
 
     def irGrupoEmpresa = { 
 		redirect (controller:'rsConfGpoEmpresa', action:'list')
@@ -133,9 +134,11 @@ class CatalogosController {
 	def irTipoGarantia ={
 		redirect (controller:'simCatTipoGarantia', action:'list')
 	}
+	
 	def irTipoIdentificador ={
 		redirect (controller:'simCatTipoIdentificador', action:'list')
 	}
+	
 	def irTipoNegocio ={
 		redirect (controller:'simCatTipoNegocio', action:'list')
 	}
@@ -155,13 +158,5 @@ class CatalogosController {
 	def irTasaPapel ={
 		redirect (controller:'simCatTasaPapel', action:'list')
 	}
-	def irPais ={
-		redirect (controller:'country', action:'list')
-	}
-	def irCiudad ={
-		redirect (controller:'city', action:'list')
-	}
-
-
 
 }

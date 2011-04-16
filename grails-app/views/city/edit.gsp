@@ -41,10 +41,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="name"><g:message code="city.name" default="Name" />:</label>
+                                    <label for="nameCity"><g:message code="city.nameCity" default="Name City" />:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: cityInstance, field: 'name', 'errors')}">
-                                    <g:textField name="name" value="${fieldValue(bean: cityInstance, field: 'name')}" />
+                                <td valign="top" class="value ${hasErrors(bean: cityInstance, field: 'nameCity', 'errors')}">
+                                    <g:textField name="nameCity" value="${fieldValue(bean: cityInstance, field: 'nameCity')}" />
 
                                 </td>
                             </tr>

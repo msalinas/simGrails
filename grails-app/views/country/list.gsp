@@ -27,7 +27,7 @@
                         
                    	    <g:sortableColumn property="language" title="Language" titleKey="country.language" />
                         
-                   	    <g:sortableColumn property="name" title="Name" titleKey="country.name" />
+                   	    <g:sortableColumn property="nameCountry" title="Name Country" titleKey="country.nameCountry" />
                         
                         </tr>
                     </thead>
@@ -41,7 +41,7 @@
                         
                             <td>${fieldValue(bean: countryInstance, field: "language")}</td>
                         
-                            <td>${fieldValue(bean: countryInstance, field: "name")}</td>
+                            <td>${fieldValue(bean: countryInstance, field: "nameCountry")}</td>
                         
                         </tr>
                     </g:each>

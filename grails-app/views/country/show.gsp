@@ -58,9 +58,9 @@
                             </tr>
                             
                             <tr class="prop">
-                                <td valign="top" class="name"><g:message code="country.name" default="Name" />:</td>
+                                <td valign="top" class="name"><g:message code="country.nameCountry" default="Name Country" />:</td>
                                 
-                                <td valign="top" class="value">${fieldValue(bean: countryInstance, field: "name")}</td>
+                                <td valign="top" class="value">${fieldValue(bean: countryInstance, field: "nameCountry")}</td>
                                 
                             </tr>
                             

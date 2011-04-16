@@ -25,7 +25,7 @@
                         
                    	    <th><g:message code="city.country" default="Country" /></th>
                    	    
-                   	    <g:sortableColumn property="name" title="Name" titleKey="city.name" />
+                   	    <g:sortableColumn property="nameCity" title="Name City" titleKey="city.nameCity" />
                         
                    	    <g:sortableColumn property="timezone" title="Timezone" titleKey="city.timezone" />
                         
@@ -39,7 +39,7 @@
                         
                             <td>${fieldValue(bean: cityInstance, field: "country")}</td>
                         
-                            <td>${fieldValue(bean: cityInstance, field: "name")}</td>
+                            <td>${fieldValue(bean: cityInstance, field: "nameCity")}</td>
                         
                             <td>${fieldValue(bean: cityInstance, field: "timezone")}</td>
                         

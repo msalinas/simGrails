@@ -68,10 +68,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="name"><g:message code="country.name" default="Name" />:</label>
+                                    <label for="nameCountry"><g:message code="country.nameCountry" default="Name Country" />:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: countryInstance, field: 'name', 'errors')}">
-                                    <g:textField name="name" value="${fieldValue(bean: countryInstance, field: 'name')}" />
+                                <td valign="top" class="value ${hasErrors(bean: countryInstance, field: 'nameCountry', 'errors')}">
+                                    <g:textField name="nameCountry" value="${fieldValue(bean: countryInstance, field: 'nameCountry')}" />
 
                                 </td>
                             </tr>
