@@ -37,6 +37,7 @@ class CatalogosController {
 			[action:'irEstado', order:290, title:'Estado'],
 			[action:'irCiudad', order:300, title:'Ciudad'],
 			[action:'irDelegacionMunicipio', order:310, title:'Delegacion o Municipio'],
+			[action:'irAsentamiento', order:320, title:'Asentamiento'],
 			
 			[action:'inicioPruebas', order:1000, title:'Pruebas']
 		]
@@ -170,5 +171,9 @@ class CatalogosController {
 	def irDelegacionMunicipio ={
 		redirect (controller:'rsGralDelegacionMunicipio', action:'list')
 	}
+	def irAsentamiento ={
+		redirect (controller:'rsGralAsentamiento', action:'list')
+	}
+
 
 }

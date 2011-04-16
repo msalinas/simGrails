@@ -609,6 +609,36 @@ class BootStrap {
 	
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'MEXICO DOS',
 							ciudad : RsGralCiudad.findByNombreCiudad('MEXICO')).save()
+
+		new RsGralAsentamiento(nombreAsentamiento: 'VISTA ALEGRE',
+								codigoPostal: '06860',
+								delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CUAUHTEMOC'),
+								tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+
+		new RsGralAsentamiento(nombreAsentamiento: 'BUENOS AIRES',
+								codigoPostal: '06860',
+								delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CUAUHTEMOC'),
+								tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+
+		new RsGralAsentamiento(nombreAsentamiento: 'BOTURINI',
+								codigoPostal: '06860',
+								delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CUAUHTEMOC'),
+								tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+
+		new RsGralAsentamiento(nombreAsentamiento: 'SANTA CRUZ ATOYAC',
+								codigoPostal: '09310',
+								delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('COYOACAN'),
+								tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+
+		new RsGralAsentamiento(nombreAsentamiento: 'DEL VALLE',
+								codigoPostal: '09310',
+								delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('COYOACAN'),
+								tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+
+		new RsGralAsentamiento(nombreAsentamiento: 'NARVARTE',
+								codigoPostal: '09310',
+								delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('COYOACAN'),
+								tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
 	
 	
 		//Ejemplo para implementar roles a nivel de base de datos

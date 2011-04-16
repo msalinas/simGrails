@@ -8,6 +8,7 @@ class RsGralDelegacionMunicipio {
 		nombreDelegacionMunicipio(size:3..50, unique: false,nullable: false, blank: false)
 	}
 	
+	static hasMany   = [ asentamiento : RsGralAsentamiento ]
 	static belongsTo = [ ciudad : RsGralCiudad ]
 	
 	String toString() {

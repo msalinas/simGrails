@@ -19,6 +19,6 @@ class SimCatTipoAsentamiento {
 		"${nombreTipoAsentamiento}"
 	}
 	
-	static hasMany = RsGralCodigoPostal
+	static hasMany = RsGralCodigoPostal, RsGralAsentamiento
 
 }
