@@ -6,6 +6,7 @@ import com.sim.pfin.*
 import com.sim.usuario.*
 import com.sim.regional.* 
 import com.rs.gral.*
+import com.sim.prueba.*
 
 class BootStrap {
 	
@@ -479,7 +480,31 @@ class BootStrap {
 								regional : SimRegional.findByClaveRegional('REGION1'),
 								rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 								
-						
+		new Country(name: 'MEXICO',
+							abbr: 'MEX',
+							language: 'ESPANOL').save()
+								
+		new Country(name: 'ESTADOS UNIDOS',
+								abbr: 'USA',
+								language: 'INGLES').save()
+								
+		new City(name: 'DISTRITO FEDERAL',
+								timezone: 'DF',
+								country : Country.findByName('MEXICO')).save()
+								
+		new City(name: 'ESTADO MEXICO',
+									timezone: 'TOLUCA',
+									country : Country.findByName('MEXICO')).save()
+
+		new City(name: 'LOS ANGELES',
+										timezone: 'LA',
+										country : Country.findByName('ESTADOS UNIDOS')).save()
+
+		new City(name: 'NEW YORK',
+											timezone: 'NY',
+											country : Country.findByName('ESTADOS UNIDOS')).save()
+	
+									
 		//Ejemplo para implementar roles a nivel de base de datos
 		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
 								

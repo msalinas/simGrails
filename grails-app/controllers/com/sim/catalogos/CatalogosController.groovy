@@ -34,7 +34,8 @@ class CatalogosController {
 			[action:'irTipoPersona', order:260, title:'Tipo Persona'],
 			[action:'irTipoReferencia', order:270, title:'Tipo Referencia'],
 			[action:'irTasaReferencia', order:280, title:'Tasa Referencia'],
-			[action:'irTasaPapel', order:290, title:'Tasa Papel']
+			[action:'irPais', order:290, title:'Pais'],
+			[action:'irCiudad', order:300, title:'Ciudad']
 			
 		]
     ]
@@ -154,7 +155,13 @@ class CatalogosController {
 	def irTasaPapel ={
 		redirect (controller:'simCatTasaPapel', action:'list')
 	}
-	
+	def irPais ={
+		redirect (controller:'country', action:'list')
+	}
+	def irCiudad ={
+		redirect (controller:'city', action:'list')
+	}
+
 
 
 }
