@@ -13,6 +13,8 @@
 		<form>
 			<br />
 			<g:link controller="pruebas" action="cambiarSelect">Cambiar Select</g:link>
+			<br />
+			<g:link controller="pruebas" action="asignarDireccion">Direccion Mexico</g:link>
 		</form>
 	</body>
 </html>

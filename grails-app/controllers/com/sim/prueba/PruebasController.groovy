@@ -5,4 +5,6 @@ class PruebasController {
     def index = { }
 
 	def cambiarSelect = { }
+	
+	def asignarDireccion = { }
 }
