@@ -19,14 +19,21 @@
 			            params:'\'id=\' + escape(this.value)', 
 			            onComplete:'updateCiudad(e)')}"></g:select>
 			<br/>
-			<g:select name="ciudad" id="ciudad" "
+			<g:select name="ciudad" id="ciudad"
 				onchange="${remoteFunction(
 			            controller:'rsGralCiudad', 
 			            action:'ajaxGetDelegacionMunicipio', 
 			            params:'\'id=\' + escape(this.value)', 
 			            onComplete:'updateDelegacionMunicipio(e)')}"></g:select>
 			<br/>
-			<g:select name="delegacionMunicipio" id="delegacionMunicipio"></g:select>
+			<g:select name="delegacionMunicipio" id="delegacionMunicipio"
+				onchange="${remoteFunction(
+			            controller:'rsGralDelegacionMunicipio', 
+			            action:'ajaxGetAsentamiento', 
+			            params:'\'id=\' + escape(this.value)', 
+			            onComplete:'updateAsentamiento(e)')}"></g:select>
+			<br/>            
+			<g:select name="asentamiento" id="asentamiento"></g:select>				            
 		</form>
 			
 		<g:javascript>
@@ -99,10 +106,44 @@
 						catch(ex) { 
 							rselect.add(opt) // IE only 
 						} 
+						// OBTIENE LAS DELEGACIONES MUNICIPIOS DE LA PRIMERA CIUDAD QUE SE OBTIENE
+						if (i==0){
+							${remoteFunction(controller:"rsGralDelegacionMunicipio", action:"ajaxGetAsentamiento", params:"'id=' + delegacionMunicipio.id", onComplete:"updateAsentamiento(e)")}
+						}						
 					}
 				}		
 			}			
 			
+			function updateAsentamiento(e) {
+				// The response comes back as a bunch-o-JSON 
+				var asentamientos = eval("(" + e.responseText + ")") // evaluate JSON
+
+				if (asentamientos) { 
+					var rselect = document.getElementById('asentamiento')
+			
+					// Clear all previous options
+				 	var l = rselect.length
+			
+					while (l > 0) { 
+						l-- 
+						rselect.remove(l) 
+					}
+			
+					// Rebuild the select 
+					for (var i=0; i < asentamientos.length; i++) { 
+						var asentamiento = asentamientos[i] 
+						var opt = document.createElement('option'); 
+						opt.text = asentamiento.nombreAsentamiento
+						opt.value = asentamiento.id 
+						try { 
+							rselect.add(opt, null) // standards compliant; doesn't work in IE 
+						} 
+						catch(ex) { 
+							rselect.add(opt) // IE only 
+						} 
+					}
+				}		
+			}				
 		</g:javascript>	
 	</body>
 </html>
