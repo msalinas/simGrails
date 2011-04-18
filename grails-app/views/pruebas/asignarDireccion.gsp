@@ -19,14 +19,12 @@
 			            params:'\'id=\' + escape(this.value)', 
 			            onComplete:'updateCiudad(e)')}"></g:select>
 			<br/>
-			<g:select optionKey="id" optionValue="nombreCiudad" name="rsGralCiudad.nombreCiudad" 
-				id="rsGralCiudad.nombreCiudad" from="${com.rs.gral.RsGralCiudad.list()}"
+			<g:select name="ciudad" id="ciudad" "
 				onchange="${remoteFunction(
 			            controller:'rsGralCiudad', 
 			            action:'ajaxGetDelegacionMunicipio', 
 			            params:'\'id=\' + escape(this.value)', 
-			            onComplete:'updateDelegacionMunicipio(e)')}">
-			</g:select>
+			            onComplete:'updateDelegacionMunicipio(e)')}"></g:select>
 			<br/>
 			<g:select name="delegacionMunicipio" id="delegacionMunicipio"></g:select>
 		</form>
@@ -44,7 +42,7 @@
 			
 			
 				if (ciudades) { 
-					var rselect = document.getElementById('rsGralCiudad.nombreCiudad')
+					var rselect = document.getElementById('ciudad')
 			
 					// Clear all previous options
 				 	var l = rselect.length
