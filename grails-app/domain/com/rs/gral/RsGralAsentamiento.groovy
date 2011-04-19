@@ -22,4 +22,9 @@ class RsGralAsentamiento implements Comparable{
 	int compareTo(obj) {
 		nombreAsentamiento.compareTo(obj.nombreAsentamiento)
 	}
+	
+	static mapping = {
+		sort "nombreAsentamiento"
+	}
+
 }

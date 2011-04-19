@@ -18,4 +18,9 @@ class RsGralEstado {
 	String toString() {
 		"${nombreEstado}"
 	}
+	
+	static mapping = {
+		sort "nombreEstado"
+	}
+
 }
