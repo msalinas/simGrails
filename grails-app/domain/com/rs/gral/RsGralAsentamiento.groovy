@@ -1,8 +1,9 @@
 package com.rs.gral
 
 import com.sim.catalogo.SimCatTipoAsentamiento
+import java.util.SortedSet
 
-class RsGralAsentamiento {
+class RsGralAsentamiento implements Comparable{
 
  	String  nombreAsentamiento
 	String  codigoPostal
@@ -16,5 +17,9 @@ class RsGralAsentamiento {
 	
 	String toString() {
 		"${nombreAsentamiento}"
+	}
+	
+	int compareTo(obj) {
+		nombreAsentamiento.compareTo(obj.nombreAsentamiento)
 	}
 }

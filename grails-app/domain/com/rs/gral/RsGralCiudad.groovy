@@ -1,17 +1,25 @@
 package com.rs.gral
 
-class RsGralCiudad {
+import java.util.SortedSet;
 
- 	String  nombreCiudad
+class RsGralCiudad implements Comparable {
+
+ 	String  nombreCiudad 
 	
+	SortedSet delegacionMunicipio
+	static belongsTo = [ estado : RsGralEstado ]
+	static hasMany = [ delegacionMunicipio : RsGralDelegacionMunicipio ]
+
 	static constraints = {
 		nombreCiudad(size:3..50, unique: false,nullable: false, blank: false)
 	}
-	
-	static belongsTo = [ estado : RsGralEstado ]
-	static hasMany = [ delegacionMunicipio : RsGralDelegacionMunicipio ]
-	
+
 	String toString() {
 		"${nombreCiudad}"
 	}
+	
+	int compareTo(obj) {
+		nombreCiudad.compareTo(obj.nombreCiudad)
+	}
+ 
 }

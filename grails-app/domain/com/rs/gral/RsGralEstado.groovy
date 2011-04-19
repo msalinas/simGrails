@@ -6,6 +6,7 @@ class RsGralEstado {
  	String  nombreEstado
 	String  aliasEstado
 	
+	SortedSet ciudad
 	static hasMany = [ ciudad : RsGralCiudad ]
 	
 	static constraints = {
