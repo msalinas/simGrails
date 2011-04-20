@@ -26,11 +26,11 @@
 		</div>
 	
 		<form>
-			<tr class="prop">
-				<td valign="top" class="name"><label>Estado:</label></td>
-				<g:select optionKey="id" optionValue="nombreEstado"
-					name="rsGralEstado.nombreEstado" id="rsGralEstado.nombreEstado"
-					from="${com.rs.gral.RsGralEstado.list()}"
+			<tr class='prop'>
+				<td valign='top' class='name'><label>Estado:</label></td>
+				<g:select optionKey='id' optionValue='nombreEstado'
+					name='rsGralEstado.nombreEstado' id='rsGralEstado.nombreEstado'
+					from='${com.rs.gral.RsGralEstado.list()}'
 					onchange="${remoteFunction(
 				            controller:'rsGralEstado', 
 				            action:'ajaxGetCiudades', 
@@ -38,9 +38,9 @@
 				            onComplete:'updateCiudad(e)')}"></g:select>
 			</tr>
 			<br />
-			<tr class="prop">
-				<td valign="top" class="name"><label>Ciudad:</label></td>
-				<g:select name="ciudad" id="ciudad"
+			<tr class='prop'>
+				<td valign='top' class='name'><label>Ciudad:</label></td>
+				<g:select name='ciudad' id='ciudad'
 					onchange="${remoteFunction(
 				            controller:'rsGralCiudad', 
 				            action:'ajaxGetDelegacionMunicipio', 
@@ -48,11 +48,11 @@
 				            onComplete:'updateDelegacionMunicipio(e)')}"></g:select>
 			</tr>
 			<br />
-			<tr class="prop">
-				<td valign="top" class="name"><label>Delegacion o
+			<tr class='prop'>
+				<td valign='top' class='name'><label>Delegacion o
 						Municipio:</label></td>
 	
-				<g:select name="delegacionMunicipio" id="delegacionMunicipio"
+				<g:select name='delegacionMunicipio' id='delegacionMunicipio'
 					onchange="${remoteFunction(
 				            controller:'rsGralDelegacionMunicipio', 
 				            action:'ajaxGetAsentamiento', 
@@ -60,9 +60,9 @@
 				            onComplete:'updateAsentamiento(e)')}"></g:select>
 			</tr>
 			<br />
-			<tr class="prop">
-				<td valign="top" class="name"><label>Colonia:</label></td>
-				<g:select name="asentamiento" id="asentamiento"
+			<tr class='prop'>
+				<td valign='top' class='name'><label>Colonia:</label></td>
+				<g:select name='asentamiento' id='asentamiento'
 					onchange="${remoteFunction(
 				            controller:'rsGralAsentamiento', 
 				            action:'ajaxGetCodigoPostal', 
@@ -70,9 +70,9 @@
 				            onComplete:'updateCodigoPostal(e)')}"></g:select>
 			</tr>
 			<br />
-			<tr class="prop">
-				<td valign="top" class="name"><label>Codigo Postal:</label></td>
-				<td valign="top"><g:textField name="codigoPostal" value=""
+			<tr class='prop'>
+				<td valign='top' class='name'><label>Codigo Postal:</label></td>
+				<td valign='top'><g:textField name='codigoPostal' value=''
 						onKeyUp="${remoteFunction(
 				            controller:'rsGralAsentamiento', 
 				            action:'ajaxGetCombos', 
@@ -91,11 +91,11 @@
 			// This is called when the page loads to initialize Estados
 			var zselect = document.getElementById('rsGralEstado.nombreEstado')
 			var zopt = zselect.options[zselect.selectedIndex]
-			${remoteFunction(controller:"rsGralEstado", action:"ajaxGetCiudades", params:"'id=' + zopt.value", onComplete:"updateCiudad(e)")}
+			${remoteFunction(controller:'rsGralEstado', action:'ajaxGetCiudades', params:"'id=' + zopt.value", onComplete:'updateCiudad(e)')}
 		
 			function updateCiudad(e) {
 				// The response comes back as a bunch-o-JSON 
-				var ciudades = eval("(" + e.responseText + ")") // evaluate JSON
+				var ciudades = eval('(' + e.responseText + ')') // evaluate JSON
 			
 			
 				if (ciudades) { 
@@ -123,7 +123,7 @@
 						} 
 						// OBTIENE LAS DELEGACIONES MUNICIPIOS DE LA PRIMERA CIUDAD QUE SE OBTIENE
 						if (i==0){
-							${remoteFunction(controller:"rsGralCiudad", action:"ajaxGetDelegacionMunicipio", params:"'id=' + ciudad.id", onComplete:"updateDelegacionMunicipio(e)")}
+							${remoteFunction(controller:'rsGralCiudad', action:'ajaxGetDelegacionMunicipio', params:"'id=' + ciudad.id", onComplete:'updateDelegacionMunicipio(e)')}
 						}
 					}
 				}
@@ -131,7 +131,7 @@
 	
 			function updateDelegacionMunicipio(e) {
 				// The response comes back as a bunch-o-JSON 
-				var delegacionesMunicipios = eval("(" + e.responseText + ")") // evaluate JSON
+				var delegacionesMunicipios = eval('(' + e.responseText + ')') // evaluate JSON
 
 				if (delegacionesMunicipios) { 
 					var rselect = document.getElementById('delegacionMunicipio')
@@ -158,7 +158,7 @@
 						} 
 						// OBTIENE LAS DELEGACIONES MUNICIPIOS DE LA PRIMERA CIUDAD QUE SE OBTIENE
 						if (i==0){
-							${remoteFunction(controller:"rsGralDelegacionMunicipio", action:"ajaxGetAsentamiento", params:"'id=' + delegacionMunicipio.id", onComplete:"updateAsentamiento(e)")}
+							${remoteFunction(controller:'rsGralDelegacionMunicipio', action:'ajaxGetAsentamiento', params:"'id=' + delegacionMunicipio.id", onComplete:'updateAsentamiento(e)')}
 						}						
 					}
 				}		
@@ -166,7 +166,7 @@
 			
 			function updateAsentamiento(e) {
 				// The response comes back as a bunch-o-JSON 
-				var asentamientos = eval("(" + e.responseText + ")") // evaluate JSON
+				var asentamientos = eval('(' + e.responseText + ')') // evaluate JSON
 
 				if (asentamientos) { 
 					var rselect = document.getElementById('asentamiento')
@@ -214,7 +214,7 @@
 			//LAS SIGUIENTES FUNCIONES ACTUALIZAN LOS COMBOS DE ESTADO, CIUDAD, DELEGACION/MUNICIPIO 
 			//Y ASENTAMIENTO A PARTIR DEL CODIGO POSTAL
 			function updateCombos(e) {
-				var valores = eval("(" + e.responseText + ")") // evaluate JSON
+				var valores = eval('(' + e.responseText + ')') // evaluate JSON
 				// OBTIENE EL ESTADO AL QUE PERTENECE EL CODIGO POSTAL
 				var idEstado = valores[0];
 				
@@ -228,7 +228,7 @@
 					//ASIGNA AL COMBO DE ESTADO EL ESTADO SELECCIONADO A PARTIR DEL CODIGO POSTAL
 					rselect.value = idEstado;	
 					
-					${remoteFunction(controller:"rsGralEstado", action:"ajaxGetCiudades", params:"'id=' + idEstado", onComplete:"updateComboCiudad(e,idCiudad,idDelegacionMunicipio,idAsentamiento)")}
+					${remoteFunction(controller:'rsGralEstado', action:'ajaxGetCiudades', params:"'id=' + idEstado", onComplete:'updateComboCiudad(e,idCiudad,idDelegacionMunicipio,idAsentamiento)')}
 				                                                                  			
 				}else{
 					
@@ -266,7 +266,7 @@
 		//ACTUALIZA LAS CIUDADES QUE PERTENECEN AL ESTADO DEL CODIGO POSTAL SELECCIONADO	
 		function updateComboCiudad(e,idCiudad,idDelegacionMunicipio,idAsentamiento) {
 				// The response comes back as a bunch-o-JSON 
-				var ciudades = eval("(" + e.responseText + ")") // evaluate JSON
+				var ciudades = eval('(' + e.responseText + ')') // evaluate JSON
 			
 				if (ciudades) { 
 					var rselect = document.getElementById('ciudad')
@@ -294,14 +294,14 @@
 					}
 					//ASIGNA AL COMBO DE CIUDADES LA CIUDAD QUE PERTENECE AL CODIGO POSTAL
 					rselect.value = idCiudad;
-					${remoteFunction(controller:"rsGralCiudad", action:"ajaxGetDelegacionMunicipio", params:"'id=' + idCiudad", onComplete:"updateComboDelegacionMunicipio(e,idDelegacionMunicipio,idAsentamiento)")}
+					${remoteFunction(controller:'rsGralCiudad', action:'ajaxGetDelegacionMunicipio', params:"'id=' + idCiudad", onComplete:'updateComboDelegacionMunicipio(e,idDelegacionMunicipio,idAsentamiento)')}
 				}
 			}			
 
 			//ACTUALIZA LAS DELEGACIONES/MUNICIPIOS QUE PERTENECEN A LA CIUDAD DEL CODIGO POSTAL SELECCIONADO
 			function updateComboDelegacionMunicipio(e,idDelegacionMunicipio,idAsentamiento) {
 				// The response comes back as a bunch-o-JSON 
-				var delegacionesMunicipios = eval("(" + e.responseText + ")") // evaluate JSON
+				var delegacionesMunicipios = eval('(' + e.responseText + ')') // evaluate JSON
 
 				if (delegacionesMunicipios) { 
 					var rselect = document.getElementById('delegacionMunicipio')
@@ -329,14 +329,14 @@
 					}
 					//ASIGNA AL COMBO DE DELEGACIONES/MUNICIPIOS LA DELEGACION/MUNICIPIO QUE PERTENECE AL CODIGO POSTAL
 					rselect.value = idDelegacionMunicipio;
-					${remoteFunction(controller:"rsGralDelegacionMunicipio", action:"ajaxGetAsentamiento", params:"'id=' + idDelegacionMunicipio", onComplete:"updateComboAsentamiento(e,idAsentamiento)")}
+					${remoteFunction(controller:'rsGralDelegacionMunicipio', action:'ajaxGetAsentamiento', params:"'id=' + idDelegacionMunicipio", onComplete:'updateComboAsentamiento(e,idAsentamiento)')}
 				}	
 			}	
 			
 			//ACTUALIZA LOS ASENTAMIENTOS QUE PERTENECEN A LA DELEGACION/MUNICIPIO DEL CODIGO POSTAL SELECCIONADO			
 			function updateComboAsentamiento(e,idAsentamiento) {
 				// The response comes back as a bunch-o-JSON 
-				var asentamientos = eval("(" + e.responseText + ")") // evaluate JSON
+				var asentamientos = eval('(' + e.responseText + ')') // evaluate JSON
 
 				if (asentamientos) { 
 					var rselect = document.getElementById('asentamiento')
