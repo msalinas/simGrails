@@ -59,7 +59,14 @@
 		<br />
 		<tr class="prop">
 			<td valign="top" class="name"><label>Codigo Postal:</label></td>
-			<td valign="top"><g:textField name="codigoPostal" value="" />
+			<td valign="top"><g:textField name="codigoPostal" value=""
+					onKeyUp="${remoteFunction(
+			            controller:'rsGralAsentamiento', 
+			            action:'ajaxGetCombos', 
+			            params:'\'cp=\' + escape(this.value)', 
+			            onComplete:'updateCombos(e)')}">
+
+				</g:textField>
 			</td>
 		</tr>
 
@@ -189,7 +196,45 @@
 				if (codigoPostal) { 
 					codigoPostal.value = cp
 				}		
+			}
+			
+			function updateCombos(e) {
+				var valores = eval("(" + e.responseText + ")") // evaluate JSON
+				
+				if (valores.length == 4){
+
+					for (var i=0; i < valores.length; i++) {
+						var valor = valores[i]
+									
+						if (i==0){
+							//alert ('Estado:'+valor)
+							var rselect = document.getElementById('rsGralEstado.nombreEstado')
+							rselect.value = valor;
+							${remoteFunction(controller:"rsGralEstado", action:"ajaxGetCiudades", params:"'id=' + valor", onComplete:"updateCiudad(e)")}
+						}
+						if (i==1){
+							//alert ('Ciudad:'+valor)
+							var rselect = document.getElementById('ciudad')
+							rselect.value = valor;
+							${remoteFunction(controller:"rsGralCiudad", action:"ajaxGetDelegacionMunicipio", params:"'id=' + valor", onComplete:"updateDelegacionMunicipio(e)")}
+						}
+						if (i==2){
+							//alert ('Delegacion Municipio:'+valor)
+							var rselect = document.getElementById('delegacionMunicipio')
+							rselect.value = valor;
+							${remoteFunction(controller:"rsGralDelegacionMunicipio", action:"ajaxGetAsentamiento", params:"'id=' + valor", onComplete:"updateAsentamiento(e)")}
+						}			
+						if (i==3){
+							//alert ('Asentamiento:'+valor)
+							var rselect = document.getElementById('asentamiento')
+							rselect.value = valor;
+							${remoteFunction(controller:"rsGralAsentamiento", action:"ajaxGetCodigoPostal", params:"'id=' + valor", onComplete:"updateCodigoPostal(e)")}							
+						}
+					}
+				}
+				
 			}			
+						
 		</g:javascript>
 </body>
 </html>
