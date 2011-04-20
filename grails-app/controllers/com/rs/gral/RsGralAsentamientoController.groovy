@@ -15,17 +15,15 @@ class RsGralAsentamientoController {
 		def codigoPostal = params.cp
 		def tamanoCp  = params.cp.size()
 		def a = JSON.parse("[]")
+		// VALIDA QUE EL CODIGO POSTAL SEA DE LONGITUD 5
 		if (tamanoCp == 5){
-			println "Asigna codigo postal: ${codigoPostal}"
 			def asentamiento = RsGralAsentamiento.findByCodigoPostal(codigoPostal)
 			if (asentamiento){
-				println asentamiento.id
-				println asentamiento.delegacionMunicipio.id
-				println asentamiento.delegacionMunicipio.ciudad.id
-				println asentamiento.delegacionMunicipio.ciudad.estado.id
-				a = JSON.parse("[ ${asentamiento.delegacionMunicipio.ciudad.estado.id}, ${asentamiento.delegacionMunicipio.ciudad.id}, ${asentamiento.delegacionMunicipio.id}, ${asentamiento.id}]")
-			}else{
-				println 'no existe cp'
+				def idEstado = asentamiento.delegacionMunicipio.ciudad.estado.id
+				def idCiudad = asentamiento.delegacionMunicipio.ciudad.id
+				def idDelegacionMunicipio = asentamiento.delegacionMunicipio.id
+				def idAsentamiento = asentamiento.id
+				a = JSON.parse("[ ${idEstado}, ${idCiudad}, ${idDelegacionMunicipio}, ${idAsentamiento}]")
 			}
 		}
 		render a as JSON
