@@ -7,4 +7,6 @@ class PruebasController {
 	def cambiarSelect = { }
 	
 	def asignarDireccion = { }
+	
+	def domicilioDemo = { }
 }

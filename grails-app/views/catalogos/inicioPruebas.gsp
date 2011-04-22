@@ -14,7 +14,11 @@
 			<br />
 			<g:link controller="pruebas" action="cambiarSelect">Cambiar Select</g:link>
 			<br />
-			<g:link controller="pruebas" action="asignarDireccion">Direccion Mexico</g:link>
+			<br />
+			<g:link controller="pruebas" action="asignarDireccion">Domicilio (Sin Tag)</g:link>
+			<br />
+			<br />
+			<g:link controller="pruebas" action="domicilioDemo">Domicilio</g:link>
 		</form>
 	</body>
 </html>

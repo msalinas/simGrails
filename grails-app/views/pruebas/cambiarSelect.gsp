@@ -3,21 +3,6 @@
 		<title>Cambiar Select</title>
 		<meta name="layout" content="main" />
 		<g:javascript library="prototype" />
-		<g:javascript src="domicilio.js" />
-		
-		<script language=javascript type=text/javascript>
-		<!-- Script courtesy of http://www.web-source.net - Your Guide to Professional Web Site Design and Development
-		//DESABILITAR TECLA ENTER	
-		function stopRKey(evt) {
-		   var evt = (evt) ? evt : ((event) ? event : null);
-		   var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
-		   if ((evt.keyCode == 13) && (node.type=="text")) {return false;}
-		}
-		
-		document.onkeypress = stopRKey;
-		-->
-		</script>				
-		
 	</head>
 	<body>
 
@@ -43,9 +28,6 @@
 			<g:backwards>Hola</g:backwards>
 			<br/>
 			<g:emoticon happy="true">mke</g:emoticon>
-			<br/>
-			<br/>
-			<g:domicilio estados="${com.rs.gral.RsGralEstado.list()}"/>
 		</form>
 			
 		<g:javascript>
@@ -85,7 +67,6 @@
 			var zselect = document.getElementById('country.nameCountry') 
 			var zopt = zselect.options[zselect.selectedIndex]
 			${remoteFunction(controller:"country", action:"ajaxGetCities", params:"'id=' + zopt.value", onComplete:"updateCity(e)")}
-
 		</g:javascript>	
 	</body>
 </html>

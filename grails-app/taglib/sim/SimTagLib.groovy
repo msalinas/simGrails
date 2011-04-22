@@ -29,7 +29,6 @@ class SimTagLib {
 			<br />
 			<tr class='prop'>
 				<td valign='top' class='name'><label>Ciudad:</label></td>
-
 				<select name="ciudad" onchange="new Ajax.Request('/sim/rsGralCiudad/ajaxGetDelegacionMunicipio',{asynchronous:true,evalScripts:true,onComplete:function(e){updateDelegacionMunicipio(e)},parameters:'id=' + escape(this.value)});" id="ciudad" >
 				</select>
 			</tr>
@@ -37,7 +36,6 @@ class SimTagLib {
 			<tr class='prop'>
 				<td valign='top' class='name'><label>Delegacion o
 						Municipio:</label></td>
-	
 				<select name="delegacionMunicipio" onchange="new Ajax.Request('/sim/rsGralDelegacionMunicipio/ajaxGetAsentamiento',{asynchronous:true,evalScripts:true,onComplete:function(e){updateAsentamiento(e)},parameters:'id=' + escape(this.value)});" id="delegacionMunicipio" >
 				</select>
 			</tr>
@@ -51,7 +49,6 @@ class SimTagLib {
 			<br />
 			<tr class='prop'>
 				<td valign='top' class='name'><label>Codigo Postal:</label></td>
-
 				<td valign='top'><input type="text" onKeyUp="new Ajax.Request('/sim/rsGralAsentamiento/ajaxGetCombos',{asynchronous:true,evalScripts:true,onComplete:function(e){updateCombos(e)},parameters:'cp=' + escape(this.value)});" name="codigoPostal" value="" id="codigoPostal" />
 				</td>
 			</tr>
@@ -59,11 +56,8 @@ class SimTagLib {
 			<script type="text/javascript">
 				funcionIniciaDomicilio();
 			</script>
-			
 		"""
 		
 		out << cadena
 	}
-	
-	
 }
