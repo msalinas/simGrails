@@ -4,6 +4,20 @@
 		<meta name="layout" content="main" />
 		<g:javascript library="prototype" />
 		<g:javascript src="domicilio.js" />
+		
+		<script language=javascript type=text/javascript>
+		<!-- Script courtesy of http://www.web-source.net - Your Guide to Professional Web Site Design and Development
+		//DESABILITAR TECLA ENTER	
+		function stopRKey(evt) {
+		   var evt = (evt) ? evt : ((event) ? event : null);
+		   var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+		   if ((evt.keyCode == 13) && (node.type=="text")) {return false;}
+		}
+		
+		document.onkeypress = stopRKey;
+		-->
+		</script>				
+		
 	</head>
 	<body>
 
@@ -66,16 +80,12 @@
 					}
 				}
 			}
-
 						
 			// This is called when the page loads to initialize city 
 			var zselect = document.getElementById('country.nameCountry') 
 			var zopt = zselect.options[zselect.selectedIndex]
 			${remoteFunction(controller:"country", action:"ajaxGetCities", params:"'id=' + zopt.value", onComplete:"updateCity(e)")}
-			
-			funcionDomicilio();
 
 		</g:javascript>	
-	
 	</body>
 </html>

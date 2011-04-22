@@ -6,6 +6,7 @@
 		
 		<script language=javascript type=text/javascript>
 		<!-- Script courtesy of http://www.web-source.net - Your Guide to Professional Web Site Design and Development
+		//DESABILITAR TECLA ENTER
 		function stopRKey(evt) {
 		   var evt = (evt) ? evt : ((event) ? event : null);
 		   var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
@@ -196,7 +197,6 @@
 						if (i==0){
 							codigoPostal.value = asentamiento.codigoPostal
 						}						
-						 
 					}
 				}		
 			}				
@@ -258,8 +258,6 @@
 						l-- 
 						asentamiento.remove(l) 
 					}
-					
-												
 				}			
 			}			
 			
