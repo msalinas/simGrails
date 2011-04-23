@@ -26,7 +26,6 @@ class CatalogosController {
 			[action:'irPuesto', order:180, title:'Puesto'],
 			[action:'irRechazoComite', order:190, title:'Rechazo Comite'],
 			[action:'irTipoAsentamiento', order:200, title:'Tipo Asentamiento'],
-			[action:'irCodigoPostal', order:210, title:'Codigo Postal'],
 			[action:'irTipoDomicilio', order:220, title:'Tipo Domicilio'],
 			[action:'irTipoGarantia', order:230, title:'Tipo Garantia'],
 			[action:'irTipoIdentificador', order:240, title:'Tipo Identificador'],
@@ -126,9 +125,6 @@ class CatalogosController {
 	
 	def irTipoAsentamiento ={
 		redirect (controller:'simCatTipoAsentamiento', action:'list')
-	}
-	def irCodigoPostal ={
-		redirect (controller:'rsGralCodigoPostal', action:'list')
 	}
 	
 	def irTipoDomicilio ={
