@@ -302,24 +302,6 @@ class BootStrap {
 				nombreTipoAsentamiento: 'URBANA',
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
-		new RsGralCodigoPostal(codigoPostal:  '06860',
-				codigo: '06860',
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA'),
-				asentamiento: 'COLONIA',
-				ciudad: 'DISTRITO FEDERAL',
-				estado: 'DISTRITO FEDERAL',
-				municipio: 'CUAUHTEMOC',
-				oficina: 'UNO').save()
-
-		new RsGralCodigoPostal(codigoPostal:  '09370',
-				codigo: '09370',
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA'),
-				asentamiento: 'COLONIA',
-				ciudad: 'DISTRITO FEDERAL',
-				estado: 'DISTRITO FEDERAL',
-				municipio: 'BENITO JUAREZ',
-				oficina: 'DOS').save()
-
 		new SimCatTipoDomicilio(claveTipoDomicilio:  'CLAVE1',
 				nombreTipoDomicilio: 'PROPIA',
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()

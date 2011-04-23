@@ -1,7 +1,7 @@
 package com.sim.catalogo
 
 import com.sim.empresa.RsConfEmpresa
-import com.rs.gral.RsGralCodigoPostal
+import com.rs.gral.RsGralAsentamiento
 
 class SimCatTipoAsentamiento {
 
@@ -19,6 +19,6 @@ class SimCatTipoAsentamiento {
 		"${nombreTipoAsentamiento}"
 	}
 	
-	static hasMany = RsGralCodigoPostal, RsGralAsentamiento
+	static hasMany =  RsGralAsentamiento
 
 }
