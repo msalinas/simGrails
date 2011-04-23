@@ -469,14 +469,7 @@ class BootStrap {
 				sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1'),
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
-		new RsGralDomicilio(calle: 'Las Palmas',
-				numeroInterior: '4',
-				numeroExterior: '67',
-				esFiscal: 'true',
-				comentarios : 'ENFRENTE DE UNA FARMACIA',
-				codigoPostal : RsGralCodigoPostal.findByCodigoPostal('09370'),
-				regional : SimRegional.findByClaveRegional('REGION1'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+
 
 		new Country(nameCountry: 'MEXICO',
 				abbr: 'MEX',
@@ -991,6 +984,15 @@ class BootStrap {
 				codigoPostal: '01790',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('MEXICO TRES'),
 				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+
+		new RsGralDomicilio(calle: 'Las Palmas',
+				numeroInterior: '4',
+				numeroExterior: '67',
+				esFiscal: 'true',
+				comentarios : 'ENFRENTE DE UNA FARMACIA',
+				codigoPostal : RsGralAsentamiento.findByCodigoPostal('06860'),
+				regional : SimRegional.findByClaveRegional('REGION1'),
+				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
 
 		//Ejemplo para implementar roles a nivel de base de datos

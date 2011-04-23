@@ -16,7 +16,7 @@ class RsGralAsentamiento implements Comparable{
 	static belongsTo = [ delegacionMunicipio : RsGralDelegacionMunicipio, tipoAsentamiento : SimCatTipoAsentamiento ]
 	
 	String toString() {
-		"${nombreAsentamiento}"
+		"${codigoPostal} : ${nombreAsentamiento}"
 	}
 	
 	int compareTo(obj) {
