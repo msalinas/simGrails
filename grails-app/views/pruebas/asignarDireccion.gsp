@@ -73,14 +73,14 @@
 			<br />
 			<tr class='prop'>
 				<td valign='top' class='name'><label>Codigo Postal:</label></td>
-				<td valign='top'><g:textField name='codigoPostal' value=''
+				<td valign='top'><g:textField name='rsGralAsentamiento.codigoPostal' value=''
 						onKeyUp="${remoteFunction(
 				            controller:'rsGralAsentamiento', 
 				            action:'ajaxGetCombos', 
 				            params:'\'cp=\' + escape(this.value)', 
 				            onComplete:'updateCombos(e)')}">
-	
 					</g:textField>
+					<g:hiddenField name='rsGralAsentamiento.id' value='' />
 				</td>
 			</tr>
 	
@@ -171,7 +171,8 @@
 
 				if (asentamientos) { 
 					var rselect = document.getElementById('asentamiento')
-					var codigoPostal = document.getElementById('codigoPostal')
+					var codigoPostal = document.getElementById('rsGralAsentamiento.codigoPostal')
+					var idAsentamiento = document.getElementById('rsGralAsentamiento.id')
 			
 					// Clear all previous options
 				 	var l = rselect.length
@@ -196,18 +197,21 @@
 						//ASIGNA EL CODIGO POSTAL DEL PRIMER ASENTAMIENTO OBTENIDO
 						if (i==0){
 							codigoPostal.value = asentamiento.codigoPostal
+							idAsentamiento = asentamiento.id
 						}						
 					}
 				}		
 			}				
 			
 			function updateCodigoPostal(e) {
-				// The response comes back as a String 
-				var cp = e.responseText //String 
-				var codigoPostal = document.getElementById('codigoPostal')
+				// The response comes back as a JSON 
+				var asentamiento = eval('(' + e.responseText + ')') // evaluate JSON
+				var codigoPostal = document.getElementById('rsGralAsentamiento.codigoPostal')
+				var idAsentamiento = document.getElementById('rsGralAsentamiento.id')
 
-				if (codigoPostal) { 
-					codigoPostal.value = cp
+				if (asentamiento) { 
+					codigoPostal.value = asentamiento.codigoPostal
+					idAsentamiento.value =  asentamiento.id
 				}		
 			}
 			
@@ -338,7 +342,6 @@
 
 				if (asentamientos) { 
 					var rselect = document.getElementById('asentamiento')
-					var codigoPostal = document.getElementById('codigoPostal')
 			
 					// Clear all previous options
 				 	var l = rselect.length
@@ -363,8 +366,19 @@
 					}
 					//ASIGNA AL COMBO DE ASENTAMIENTOS EL ASENTAMIENTO AL QUE PERTENECE EL CODIGO POSTAL
 					rselect.value = idAsentamiento;
+					${remoteFunction(controller:'rsGralAsentamiento', action:'ajaxGetCodigoPostal', params:"'id=' + idAsentamiento", onComplete:'updateIdAsentamiento(e)')}
+				}
+			}		
+				
+			function updateIdAsentamiento(e) {
+				// The response comes back as a JSON 
+				var asentamiento = eval('(' + e.responseText + ')') // evaluate JSON
+				var idAsentamiento = document.getElementById('rsGralAsentamiento.id')
+				if (asentamiento) { 
+					idAsentamiento.value =  asentamiento.id
 				}		
 			}				
+							
 						
 		</g:javascript>
 	</body>

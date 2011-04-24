@@ -8,7 +8,7 @@ class RsGralAsentamientoController {
 
 	def ajaxGetCodigoPostal = {
 		def asentamiento = RsGralAsentamiento.get(params.id)
-		render asentamiento?.codigoPostal as String
+		render asentamiento as JSON
 	}
 
 	def ajaxGetCombos = {
