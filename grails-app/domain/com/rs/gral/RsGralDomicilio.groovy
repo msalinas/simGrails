@@ -10,7 +10,7 @@ class RsGralDomicilio {
 	String  numeroInterior
 	String  numeroExterior
 	RsConfEmpresa rsConfEmpresa
-	RsGralAsentamiento codigoPostal
+	RsGralAsentamiento rsGralAsentamiento
 	Boolean esFiscal = false
 	String  comentarios
 	
@@ -20,7 +20,7 @@ class RsGralDomicilio {
 		calle(size:5..100, nullable: false, blank: false)
 		numeroInterior()
 		numeroExterior()
-		codigoPostal(nullable: false)
+		rsGralAsentamiento(nullable: false)
 		esFiscal()
 		comentarios(size:0..300)
 		rsConfEmpresa(nullable: false)
@@ -29,6 +29,6 @@ class RsGralDomicilio {
     }
 	
 	String toString() {
-		"${calle} ${numeroInterior} ${numeroExterior} ${codigoPostal}"
+		"${calle} ${numeroInterior} ${numeroExterior} ${rsGralAsentamiento}"
 	}
 }

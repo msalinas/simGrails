@@ -972,7 +972,7 @@ class BootStrap {
 				numeroExterior: '67',
 				esFiscal: 'true',
 				comentarios : 'ENFRENTE DE UNA FARMACIA',
-				codigoPostal : RsGralAsentamiento.findByCodigoPostal('06860'),
+				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('06860'),
 				regional : SimRegional.findByClaveRegional('REGION1'),
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
