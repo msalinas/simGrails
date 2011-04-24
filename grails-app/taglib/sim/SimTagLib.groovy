@@ -49,9 +49,12 @@ class SimTagLib {
 			<br />
 			<tr class='prop'>
 				<td valign='top' class='name'><label>Codigo Postal:</label></td>
-				<td valign='top'><input type="text" onKeyUp="new Ajax.Request('/sim/rsGralAsentamiento/ajaxGetCombos',{asynchronous:true,evalScripts:true,onComplete:function(e){updateCombos(e)},parameters:'cp=' + escape(this.value)});" name="codigoPostal" value="" id="codigoPostal" />
+				<td valign='top'><input type="text" onKeyUp="new Ajax.Request('/sim/rsGralAsentamiento/ajaxGetCombos',{asynchronous:true,evalScripts:true,onComplete:function(e){updateCombos(e)},parameters:'cp=' + escape(this.value)});" name="rsGralAsentamiento.codigoPostal" value="" id="rsGralAsentamiento.codigoPostal" />
+					<input type="hidden" name="rsGralAsentamiento.id" value="" id="rsGralAsentamiento.id" />
 				</td>
 			</tr>
+	
+
 			
 			<script type="text/javascript">
 				funcionIniciaDomicilio();

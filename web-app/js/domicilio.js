@@ -9,6 +9,7 @@ function updateCiudad(e) {
 	// The response comes back as a bunch-o-JSON 
 	var ciudades = eval('(' + e.responseText + ')') // evaluate JSON
 
+
 	if (ciudades) { 
 		var rselect = document.getElementById('ciudad')
 
@@ -81,7 +82,8 @@ function updateAsentamiento(e) {
 
 	if (asentamientos) { 
 		var rselect = document.getElementById('asentamiento')
-		var codigoPostal = document.getElementById('codigoPostal')
+		var codigoPostal = document.getElementById('rsGralAsentamiento.codigoPostal')
+		var idAsentamiento = document.getElementById('rsGralAsentamiento.id')
 
 		// Clear all previous options
 	 	var l = rselect.length
@@ -106,18 +108,21 @@ function updateAsentamiento(e) {
 			//ASIGNA EL CODIGO POSTAL DEL PRIMER ASENTAMIENTO OBTENIDO
 			if (i==0){
 				codigoPostal.value = asentamiento.codigoPostal
+				idAsentamiento = asentamiento.id
 			}						
 		}
 	}		
 }				
 
 function updateCodigoPostal(e) {
-	// The response comes back as a String 
-	var cp = e.responseText //String 
-	var codigoPostal = document.getElementById('codigoPostal')
+	// The response comes back as a JSON 
+	var asentamiento = eval('(' + e.responseText + ')') // evaluate JSON
+	var codigoPostal = document.getElementById('rsGralAsentamiento.codigoPostal')
+	var idAsentamiento = document.getElementById('rsGralAsentamiento.id')
 
-	if (codigoPostal) { 
-		codigoPostal.value = cp
+	if (asentamiento) { 
+		codigoPostal.value = asentamiento.codigoPostal
+		idAsentamiento.value =  asentamiento.id
 	}		
 }
 
@@ -248,7 +253,6 @@ function updateComboAsentamiento(e,idAsentamiento) {
 
 	if (asentamientos) { 
 		var rselect = document.getElementById('asentamiento')
-		var codigoPostal = document.getElementById('codigoPostal')
 
 		// Clear all previous options
 	 	var l = rselect.length
@@ -273,5 +277,15 @@ function updateComboAsentamiento(e,idAsentamiento) {
 		}
 		//ASIGNA AL COMBO DE ASENTAMIENTOS EL ASENTAMIENTO AL QUE PERTENECE EL CODIGO POSTAL
 		rselect.value = idAsentamiento;
+		new Ajax.Request('/sim/rsGralAsentamiento/ajaxGetCodigoPostal',{asynchronous:true,evalScripts:true,onComplete:function(e){updateIdAsentamiento(e)},parameters:'id=' + idAsentamiento});
+	}
+}		
+	
+function updateIdAsentamiento(e) {
+	// The response comes back as a JSON 
+	var asentamiento = eval('(' + e.responseText + ')') // evaluate JSON
+	var idAsentamiento = document.getElementById('rsGralAsentamiento.id')
+	if (asentamiento) { 
+		idAsentamiento.value =  asentamiento.id
 	}		
-}
+}				
