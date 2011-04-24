@@ -374,8 +374,10 @@
 				// The response comes back as a JSON 
 				var asentamiento = eval('(' + e.responseText + ')') // evaluate JSON
 				var idAsentamiento = document.getElementById('rsGralAsentamiento.id')
+				var codigoPostal = document.getElementById('rsGralAsentamiento.codigoPostal')
 				if (asentamiento) { 
 					idAsentamiento.value =  asentamiento.id
+					codigoPostal.value =  asentamiento.codigoPostal
 				}		
 			}				
 							

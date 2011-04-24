@@ -1,8 +1,14 @@
-function funcionIniciaDomicilio(){
+function funcionIniciaDomicilio(codigoPostal){
 	// This is called when the page loads to initialize Estados
 	var zselect = document.getElementById('rsGralEstado.nombreEstado')
 	var zopt = zselect.options[zselect.selectedIndex]
-	new Ajax.Request('/sim/rsGralEstado/ajaxGetCiudades',{asynchronous:true,evalScripts:true,onComplete:function(e){updateCiudad(e)},parameters:'id=' + zopt.value});
+	if (codigoPostal == 'null'){
+		new Ajax.Request('/sim/rsGralEstado/ajaxGetCiudades',{asynchronous:true,evalScripts:true,onComplete:function(e){updateCiudad(e)},parameters:'id=' + zopt.value});
+	}else{
+		// OBTIENE LOS VALORES DE LOS COMBOS A PARTIR DE UN CODIGO APOSTAL YA ASIGNADO EN EL DOMICILIO
+		new Ajax.Request('/sim/rsGralAsentamiento/ajaxGetCombos',{asynchronous:true,evalScripts:true,onComplete:function(e){updateCombos(e)},parameters:'cp=' + codigoPostal});
+	}
+	
 }	
 
 function updateCiudad(e) {
@@ -285,7 +291,9 @@ function updateIdAsentamiento(e) {
 	// The response comes back as a JSON 
 	var asentamiento = eval('(' + e.responseText + ')') // evaluate JSON
 	var idAsentamiento = document.getElementById('rsGralAsentamiento.id')
+	var codigoPostal = document.getElementById('rsGralAsentamiento.codigoPostal')
 	if (asentamiento) { 
 		idAsentamiento.value =  asentamiento.id
+		codigoPostal.value =  asentamiento.codigoPostal
 	}		
 }				

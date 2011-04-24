@@ -14,6 +14,9 @@ class SimTagLib {
 		def listaEstados = ""
 		
 		def estados = attrs.estados
+
+		// OBTIENE EL ASENTAMIENTO EN CASO DE YA EXISTIR EN LA CONSULTA DE DOMICILIO		
+		def asentamiento = attrs.asentamiento
 		
 		estados.each{
 			listaEstados = listaEstados + "<option value='${it.id}' >${it.nombreEstado}</option>"
@@ -53,11 +56,9 @@ class SimTagLib {
 					<input type="hidden" name="rsGralAsentamiento.id" value="" id="rsGralAsentamiento.id" />
 				</td>
 			</tr>
-	
-
 			
 			<script type="text/javascript">
-				funcionIniciaDomicilio();
+				funcionIniciaDomicilio('${asentamiento?.codigoPostal}');
 			</script>
 		"""
 		
