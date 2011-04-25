@@ -98,8 +98,8 @@
                                     <label for="regional"><g:message code="rsGralDomicilio.regional" default="Regional" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: rsGralDomicilioInstance, field: 'regional', 'errors')}">
-                                    <g:select name="regional.id" from="${com.sim.regional.SimRegional.list()}" optionKey="id" value="${rsGralDomicilioInstance?.regional?.id}" noSelection="['null': '']" />
-
+                                	<label>${rsGralDomicilioInstance?.regional?.nombreRegional}</label>
+                                	<g:hiddenField name='regional.id' value='${rsGralDomicilioInstance?.regional?.id}' />
                                 </td>
                             </tr>
                         
@@ -108,8 +108,8 @@
                                     <label for="sucursal"><g:message code="rsGralDomicilio.sucursal" default="Sucursal" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: rsGralDomicilioInstance, field: 'sucursal', 'errors')}">
-                                    <g:select name="sucursal.id" from="${com.sim.regional.SimSucursal.list()}" optionKey="id" value="${rsGralDomicilioInstance?.sucursal?.id}" noSelection="['null': '']" />
-
+                                	<label>${rsGralDomicilioInstance?.sucursal?.nombreSucursal}</label>
+                                	<g:hiddenField name='sucursal.id' value='${rsGralDomicilioInstance?.sucursal?.id}' />
                                 </td>
                             </tr>
                         
