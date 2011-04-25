@@ -61,8 +61,8 @@
                                     <label for="regional"><g:message code="rsGralTelefono.regional" default="Regional" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: rsGralTelefonoInstance, field: 'regional', 'errors')}">
-                                    <g:select name="regional.id" from="${com.sim.regional.SimRegional.list()}" optionKey="id" value="${rsGralTelefonoInstance?.regional?.id}" noSelection="['null': '']" />
-
+                                	<label>${params.nombreRegional}</label>
+                                	<g:hiddenField name='regional.id' value='${params.simRegional?.id}' />
                                 </td>
                             </tr>
                         
@@ -71,8 +71,8 @@
                                     <label for="sucursal"><g:message code="rsGralTelefono.sucursal" default="Sucursal" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: rsGralTelefonoInstance, field: 'sucursal', 'errors')}">
-                                    <g:select name="sucursal.id" from="${com.sim.regional.SimSucursal.list()}" optionKey="id" value="${rsGralTelefonoInstance?.sucursal?.id}" noSelection="['null': '']" />
-
+                                	<label>${params.nombreSucursal}</label>
+                                	<g:hiddenField name='sucursal.id' value='${params.simSucursal?.id}' />
                                 </td>
                             </tr>
                         

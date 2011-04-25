@@ -1,5 +1,8 @@
 package com.rs.gral
 
+import com.sim.regional.SimRegional
+import com.sim.regional.SimSucursal
+
 class RsGralTelefonoController {
 
     def index = { redirect(action: "list", params: params) }
@@ -15,7 +18,23 @@ class RsGralTelefonoController {
     def create = {
         def rsGralTelefonoInstance = new RsGralTelefono()
         rsGralTelefonoInstance.properties = params
-        return [rsGralTelefonoInstance: rsGralTelefonoInstance]
+		
+		// VERIFICA SI EL DOMICILIO SE ASIGNA A UNA REGIONAL
+		if (params.simRegional){
+			def simRegionalInstance = new SimRegional()
+			simRegionalInstance = SimRegional.findById(params.simRegional.id)
+			rsGralTelefonoInstance.regional = simRegionalInstance
+			params.put("nombreRegional", simRegionalInstance.nombreRegional)
+		}
+		// VERIFICA SI EL DOMICILIO SE ASIGNA A UNA SUCURSAL
+		if (params.simSucursal){
+			def simSucursalInstance = new SimSucursal()
+			simSucursalInstance = SimSucursal.findById(params.simSucursal.id)
+			rsGralTelefonoInstance.sucursal = simSucursalInstance
+			params.put("nombreSucursal", simSucursalInstance.nombreSucursal)
+		}
+		
+        return [rsGralTelefonoInstance: rsGralTelefonoInstance, params : params]
     }
 
     def save = {
