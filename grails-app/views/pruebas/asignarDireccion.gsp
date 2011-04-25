@@ -29,48 +29,55 @@
 		<form>
 			<tr class='prop'>
 				<td valign='top' class='name'><label>Estado:</label></td>
-				<g:select optionKey='id' optionValue='nombreEstado'
-					name='rsGralEstado.nombreEstado' id='rsGralEstado.nombreEstado'
-					from='${com.rs.gral.RsGralEstado.list()}'
-					onchange="${remoteFunction(
-				            controller:'rsGralEstado', 
-				            action:'ajaxGetCiudades', 
-				            params:'\'id=\' + escape(this.value)', 
-				            onComplete:'updateCiudad(e)')}"></g:select>
+				<td valign="top" class="value ">
+					<g:select optionKey='id' optionValue='nombreEstado'
+						name='rsGralEstado.nombreEstado' id='rsGralEstado.nombreEstado'
+						from='${com.rs.gral.RsGralEstado.list()}'
+						onchange="${remoteFunction(
+					            controller:'rsGralEstado', 
+					            action:'ajaxGetCiudades', 
+					            params:'\'id=\' + escape(this.value)', 
+					            onComplete:'updateCiudad(e)')}"></g:select>
+				</td>
 			</tr>
-			<br />
+			<br/>
 			<tr class='prop'>
 				<td valign='top' class='name'><label>Ciudad:</label></td>
-				<g:select name='ciudad' id='ciudad'
-					onchange="${remoteFunction(
-				            controller:'rsGralCiudad', 
-				            action:'ajaxGetDelegacionMunicipio', 
-				            params:'\'id=\' + escape(this.value)', 
-				            onComplete:'updateDelegacionMunicipio(e)')}"></g:select>
+				<td valign="top" class="value ">
+					<g:select name='ciudad' id='ciudad'
+						onchange="${remoteFunction(
+					            controller:'rsGralCiudad', 
+					            action:'ajaxGetDelegacionMunicipio', 
+					            params:'\'id=\' + escape(this.value)', 
+					            onComplete:'updateDelegacionMunicipio(e)')}"></g:select>
+				</td>
 			</tr>
-			<br />
+			<br/>
 			<tr class='prop'>
 				<td valign='top' class='name'><label>Delegacion o
 						Municipio:</label></td>
-	
-				<g:select name='delegacionMunicipio' id='delegacionMunicipio'
-					onchange="${remoteFunction(
-				            controller:'rsGralDelegacionMunicipio', 
-				            action:'ajaxGetAsentamiento', 
-				            params:'\'id=\' + escape(this.value)', 
-				            onComplete:'updateAsentamiento(e)')}"></g:select>
+				<td valign="top" class="value ">
+					<g:select name='delegacionMunicipio' id='delegacionMunicipio'
+						onchange="${remoteFunction(
+					            controller:'rsGralDelegacionMunicipio', 
+					            action:'ajaxGetAsentamiento', 
+					            params:'\'id=\' + escape(this.value)', 
+				    	        onComplete:'updateAsentamiento(e)')}"></g:select>
+				</td>
 			</tr>
-			<br />
+			<br/>
 			<tr class='prop'>
 				<td valign='top' class='name'><label>Colonia:</label></td>
-				<g:select name='asentamiento' id='asentamiento'
-					onchange="${remoteFunction(
-				            controller:'rsGralAsentamiento', 
-				            action:'ajaxGetCodigoPostal', 
-				            params:'\'id=\' + escape(this.value)', 
-				            onComplete:'updateCodigoPostal(e)')}"></g:select>
+				<td valign="top" class="value ">
+					<g:select name='asentamiento' id='asentamiento'
+						onchange="${remoteFunction(
+					            controller:'rsGralAsentamiento', 
+					            action:'ajaxGetCodigoPostal', 
+					            params:'\'id=\' + escape(this.value)', 
+					            onComplete:'updateCodigoPostal(e)')}"></g:select>
+				</td>
 			</tr>
-			<br />
+			<br/>
 			<tr class='prop'>
 				<td valign='top' class='name'><label>Codigo Postal:</label></td>
 				<td valign='top'><g:textField name='rsGralAsentamiento.codigoPostal' value=''
