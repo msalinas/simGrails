@@ -1,6 +1,5 @@
 package com.sim.regional
 
-import com.sim.catalogo.SimCatTipoIdentificador;
 import com.sim.empresa.RsConfEmpresa;
 import com.rs.gral.RsGralTelefono
 import com.rs.gral.RsGralDomicilio
@@ -12,7 +11,6 @@ class SimSucursal {
 	String  gerente
 	String  coordinador
 	RsConfEmpresa rsConfEmpresa
-	SimCatTipoIdentificador claveIdentificador
 	
 	static hasMany = [ telefono : RsGralTelefono, domicilio : RsGralDomicilio ]
 	
@@ -26,8 +24,6 @@ class SimSucursal {
 		domicilio()
 		telefono()
 		regional()
-		claveIdentificador(validator: { cveIdentificador ->
-			cveIdentificador.claveTipoIdentificador.equals "SUCURSAL" })
 		rsConfEmpresa(nullable: false)
     }
 	

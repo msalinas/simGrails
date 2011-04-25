@@ -397,14 +397,12 @@ class BootStrap {
 				nombreRegional: 'TOLUCA',
 				gerente: 'LUIS',
 				coordinador: 'ALBERTO',
-				claveIdentificador : SimCatTipoIdentificador.findByClaveTipoIdentificador('REGIONAL'),
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
 		new SimRegional(claveRegional:  'REGION2',
 				nombreRegional: 'PUEBLA',
 				gerente: 'ARMANDO',
 				coordinador: 'GILBERTO',
-				claveIdentificador : SimCatTipoIdentificador.findByClaveTipoIdentificador('REGIONAL'),
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
 		new SimSucursal(claveSucursal:  'SUCURSAL1',
@@ -412,7 +410,6 @@ class BootStrap {
 				gerente: 'ARMANDO',
 				coordinador: 'GILBERTO',
 				regional : SimRegional.findByClaveRegional('REGION1'),
-				claveIdentificador : SimCatTipoIdentificador.findByClaveTipoIdentificador('SUCURSAL'),
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
 		new SimSucursal(claveSucursal:  'SUCURSAL2',
@@ -420,7 +417,6 @@ class BootStrap {
 				gerente: 'MARIO',
 				coordinador: 'GUSTAVO',
 				regional : SimRegional.findByClaveRegional('REGION1'),
-				claveIdentificador : SimCatTipoIdentificador.findByClaveTipoIdentificador('SUCURSAL'),
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
 		new SimSucursal(claveSucursal:  'SUCURSAL3',
@@ -428,7 +424,6 @@ class BootStrap {
 				gerente: 'MARIO',
 				coordinador: 'GUSTAVO',
 				regional : SimRegional.findByClaveRegional('REGION1'),
-				claveIdentificador : SimCatTipoIdentificador.findByClaveTipoIdentificador('SUCURSAL'),
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
 		new RsGralTelefono(telefono:  '111111111',
