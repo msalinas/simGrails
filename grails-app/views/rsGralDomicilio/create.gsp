@@ -95,8 +95,8 @@
                                     <label for="regional"><g:message code="rsGralDomicilio.regional" default="Regional" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: rsGralDomicilioInstance, field: 'regional', 'errors')}">
-                                	<label>${params.nombreRegional}</label>
-                                	<g:hiddenField name='regional.id' value='${params.simRegional?.id}' />
+                                	<label>${rsGralDomicilioInstance?.regional?.nombreRegional}</label>
+                                	<g:hiddenField name='regional.id' value='${rsGralDomicilioInstance?.regional?.id}' />
                                 </td>
                             </tr>
                         
@@ -105,8 +105,8 @@
                                     <label for="sucursal"><g:message code="rsGralDomicilio.sucursal" default="Sucursal" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: rsGralDomicilioInstance, field: 'sucursal', 'errors')}">
-                                	<label>${params.nombreSucursal}</label>
-                                	<g:hiddenField name='sucursal.id' value='${params.simSucursal?.id}' />
+                                	<label>${rsGralDomicilioInstance?.sucursal?.nombreSucursal}</label>
+                                	<g:hiddenField name='sucursal.id' value='${rsGralDomicilioInstance?.sucursal?.id}' />
                                 </td>
                             </tr>
                         

@@ -24,17 +24,15 @@ class RsGralDomicilioController {
 			def simRegionalInstance = new SimRegional()
 			simRegionalInstance = SimRegional.findById(params.simRegional.id)
 			rsGralDomicilioInstance.regional = simRegionalInstance
-			params.put("nombreRegional", simRegionalInstance.nombreRegional)
 		}
 		// VERIFICA SI EL DOMICILIO SE ASIGNA A UNA SUCURSAL
 		if (params.simSucursal){
 			def simSucursalInstance = new SimSucursal()
 			simSucursalInstance = SimSucursal.findById(params.simSucursal.id)
 			rsGralDomicilioInstance.sucursal = simSucursalInstance
-			params.put("nombreSucursal", simSucursalInstance.nombreSucursal)
 		}
 
-		return [rsGralDomicilioInstance: rsGralDomicilioInstance, params : params]
+		return [rsGralDomicilioInstance: rsGralDomicilioInstance]
 	}
 
 	def save = {
