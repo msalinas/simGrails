@@ -22,13 +22,13 @@ class RsGralTelefonoController {
 		// VERIFICA SI EL DOMICILIO SE ASIGNA A UNA REGIONAL
 		if (params.simRegional){
 			def simRegionalInstance = new SimRegional()
-			simRegionalInstance = SimRegional.findById(params.simRegional.id)
+			simRegionalInstance = SimRegional.get(params.simRegional.id)
 			rsGralTelefonoInstance.regional = simRegionalInstance
 		}
 		// VERIFICA SI EL DOMICILIO SE ASIGNA A UNA SUCURSAL
 		if (params.simSucursal){
 			def simSucursalInstance = new SimSucursal()
-			simSucursalInstance = SimSucursal.findById(params.simSucursal.id)
+			simSucursalInstance = SimSucursal.get(params.simSucursal.id)
 			rsGralTelefonoInstance.sucursal = simSucursalInstance
 		}
 		
