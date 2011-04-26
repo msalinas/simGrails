@@ -26,6 +26,29 @@
                     <table>
                         <tbody>
                         
+							<g:if test="${rsGralTelefonoInstance?.regional?.id}">                            
+	                            <tr class="prop">
+	                                <td valign="top" class="name">
+	                                    <label for="regional"><g:message code="rsGralTelefono.regional" default="Regional" />:</label>
+	                                </td>
+	                                <td valign="top" class="value ${hasErrors(bean: rsGralTelefonoInstance, field: 'regional', 'errors')}">
+	                                	<label>${rsGralTelefonoInstance?.regional?.nombreRegional}</label>
+	                                	<g:hiddenField name='regional.id' value='${rsGralTelefonoInstance?.regional?.id}' />
+	                                </td>
+	                            </tr>
+	                        </g:if>
+           					<g:if test="${rsGralTelefonoInstance?.sucursal?.id}">
+	                            <tr class="prop">
+	                                <td valign="top" class="name">
+	                                    <label for="sucursal"><g:message code="rsGralTelefono.sucursal" default="Sucursal" />:</label>
+	                                </td>
+	                                <td valign="top" class="value ${hasErrors(bean: rsGralTelefonoInstance, field: 'sucursal', 'errors')}">
+	                                	<label>${rsGralTelefonoInstance?.sucursal?.nombreSucursal}</label>
+	                                	<g:hiddenField name='sucursal.id' value='${rsGralTelefonoInstance?.sucursal?.id}' />
+	                                </td>
+	                            </tr>
+                            </g:if>                        
+                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="telefono"><g:message code="rsGralTelefono.telefono" default="Telefono" />:</label>
@@ -53,26 +76,6 @@
                                 <td valign="top" class="value ${hasErrors(bean: rsGralTelefonoInstance, field: 'rsConfEmpresa', 'errors')}">
                                     <g:select name="rsConfEmpresa.id" from="${com.sim.empresa.RsConfEmpresa.list()}" optionKey="id" value="${rsGralTelefonoInstance?.rsConfEmpresa?.id}"  />
 
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="regional"><g:message code="rsGralTelefono.regional" default="Regional" />:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: rsGralTelefonoInstance, field: 'regional', 'errors')}">
-                                	<label>${rsGralTelefonoInstance?.regional?.nombreRegional}</label>
-                                	<g:hiddenField name='regional.id' value='${rsGralTelefonoInstance?.regional?.id}' />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="sucursal"><g:message code="rsGralTelefono.sucursal" default="Sucursal" />:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: rsGralTelefonoInstance, field: 'sucursal', 'errors')}">
-                                	<label>${rsGralTelefonoInstance?.sucursal?.nombreSucursal}</label>
-                                	<g:hiddenField name='sucursal.id' value='${rsGralTelefonoInstance?.sucursal?.id}' />
                                 </td>
                             </tr>
                         

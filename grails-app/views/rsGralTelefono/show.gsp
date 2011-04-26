@@ -22,6 +22,23 @@
                 <div class="dialog">
                     <table>
                         <tbody>
+
+							<g:if test="${rsGralTelefonoInstance?.regional?.id}">                            
+	                            <tr class="prop">
+	                                <td valign="top" class="name"><g:message code="rsGralTelefono.regional" default="Regional" />:</td>
+	                                
+	                                <td valign="top" class="value"><g:link controller="simRegional" action="show" id="${rsGralTelefonoInstance?.regional?.id}">${rsGralTelefonoInstance?.regional?.encodeAsHTML()}</g:link></td>
+	                                
+	                            </tr>
+	                        </g:if>
+           					<g:if test="${rsGralTelefonoInstance?.sucursal?.id}">
+	                            <tr class="prop">
+	                                <td valign="top" class="name"><g:message code="rsGralTelefono.sucursal" default="Sucursal" />:</td>
+	                                
+	                                <td valign="top" class="value"><g:link controller="simSucursal" action="show" id="${rsGralTelefonoInstance?.sucursal?.id}">${rsGralTelefonoInstance?.sucursal?.encodeAsHTML()}</g:link></td>
+	                                
+	                            </tr>
+                            </g:if>
                         
                             <tr class="prop">
                                 <td valign="top" class="name"><g:message code="rsGralTelefono.id" default="Id" />:</td>
@@ -48,20 +65,6 @@
                                 <td valign="top" class="name"><g:message code="rsGralTelefono.rsConfEmpresa" default="Rs Conf Empresa" />:</td>
                                 
                                 <td valign="top" class="value"><g:link controller="rsConfEmpresa" action="show" id="${rsGralTelefonoInstance?.rsConfEmpresa?.id}">${rsGralTelefonoInstance?.rsConfEmpresa?.encodeAsHTML()}</g:link></td>
-                                
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name"><g:message code="rsGralTelefono.regional" default="Regional" />:</td>
-                                
-                                <td valign="top" class="value"><g:link controller="simRegional" action="show" id="${rsGralTelefonoInstance?.regional?.id}">${rsGralTelefonoInstance?.regional?.encodeAsHTML()}</g:link></td>
-                                
-                            </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name"><g:message code="rsGralTelefono.sucursal" default="Sucursal" />:</td>
-                                
-                                <td valign="top" class="value"><g:link controller="simSucursal" action="show" id="${rsGralTelefonoInstance?.sucursal?.id}">${rsGralTelefonoInstance?.sucursal?.encodeAsHTML()}</g:link></td>
                                 
                             </tr>
                             
