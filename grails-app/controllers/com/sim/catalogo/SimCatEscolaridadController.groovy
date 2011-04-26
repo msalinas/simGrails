@@ -17,7 +17,6 @@ class SimCatEscolaridadController {
 	//Ejemplo para implementar roles por anotaciones
 	//@Secured(['ROLE_USER'])
     def create = {
-		System.out.println("paso 1")
         def simCatEscolaridadInstance = new SimCatEscolaridad()
         simCatEscolaridadInstance.properties = params
         return [simCatEscolaridadInstance: simCatEscolaridadInstance]
