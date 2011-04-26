@@ -204,7 +204,7 @@
 						//ASIGNA EL CODIGO POSTAL DEL PRIMER ASENTAMIENTO OBTENIDO
 						if (i==0){
 							codigoPostal.value = asentamiento.codigoPostal
-							idAsentamiento = asentamiento.id
+							idAsentamiento.value = asentamiento.id
 						}						
 					}
 				}		
