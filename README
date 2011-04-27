@@ -17,3 +17,4 @@ http://localhost:8080/sim/requestmap/create
 			cveIdentificador.claveTipoIdentificador.equals "REGIONAL" })
 	}
 ----------
+Revisar si TIPO IDENTIFICADOR es necesario
