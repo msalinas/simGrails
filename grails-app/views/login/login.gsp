@@ -18,7 +18,7 @@
 				  <td colspan="2"><g:submitButton name="login" value="Login"/></td>
 				</tr>
 				<tr>
-				  <td colspan="2">Intenta Usuario:"mike", Contraseña:"1234"</td>
+				  <td colspan="2">Intenta Usuario:"admin", Contrasena:"4321"</td>
 				</tr>
 			  </table>
 			</form>

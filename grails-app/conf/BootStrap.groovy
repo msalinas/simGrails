@@ -15,12 +15,13 @@ class BootStrap {
 	def init = { servletContext ->
 
 		def samples = [
-					'chuck_norris' : [ fullName: 'Chuck Norris', email: "chuck@example.org" ],
-					'mike' : [ fullName: 'Miguel Rugerio', email: "mike@example.org" ],
-					'peter' : [ fullName: 'Peter Ledbrook', email: "peter@somewhere.net" ],
-					'sven' : [ fullName: 'Sven Haiges', email: "sven@example.org" ],
-					'burt' : [fullName : 'Burt Beckwith', email: "burt@somewhere.net" ] ]
-
+					'asalazar' : [ fullName: 'ARTURO SALAZAR', email: "asalazar@example.org", apellidoPaterno: "SALAZAR", apellidoMaterno:"CASTAÑEDA" , primerNombre:"ARTURO" ],
+					'mrugerio' : [ fullName: 'MIGUEL RUGERIO', email: "mrugerio@example.org", apellidoPaterno: "RUGERIO", apellidoMaterno:"FLORES" , primerNombre:"MIGUEL", segundoNombre:"ANGEL" ],
+					'egarcia' : [ fullName: 'EFREN GARCIA', email: "egarcia@example.org", apellidoPaterno: "GARCIA", apellidoMaterno:"GUARNEROS" , primerNombre:"EFREN" ],
+					'cgarcia' : [ fullName: 'CHRISTIAN GARCIA', email: "cgarcia@example.org", apellidoPaterno: "GARCIA", apellidoMaterno:"GARCIA" , primerNombre:"CHRISTIAN" ],
+					'msalinas' : [fullName : 'MINERVA SALINAS', email: "msalinas@somewhere.net", apellidoPaterno: "SALINAS", apellidoMaterno:"MONTES" , primerNombre:"MINERVA" ],
+					]
+		
 		def userRole = getOrCreateRole("ROLE_USER")
 		def adminRole = getOrCreateRole("ROLE_ADMIN")
 
@@ -29,18 +30,27 @@ class BootStrap {
 			// Start with the admin user.
 			def adminUser = new User(
 					username: "admin",
+						apellidoPaterno: "ADMINISTRADOR",
+						apellidoMaterno: "ADMINISTRADOR",
+						primerNombre: "MICROFINANCIERAS",
+						segundoNombre: "ADMINISTRADOR",
 					password: springSecurityService.encodePassword("4321"),
 					enabled: true).save()
+					
 			SecUserSecRole.create adminUser, adminRole
 
 			// Now the normal users.
 			samples.each { username, profileAttrs ->
 				def user = new User(
 						username: username,
+						apellidoPaterno: profileAttrs.apellidoPaterno,
+						apellidoMaterno: profileAttrs.apellidoMaterno,
+						primerNombre: profileAttrs.primerNombre,
+						segundoNombre: profileAttrs.segundoNombre,
 						password: springSecurityService.encodePassword("1234"),
 						enabled: true)
 				if (user.validate()) {
-					println "Creating user ${username}..."
+					println "Creando usuario: ${profileAttrs.fullName}..."
 
 					user.save(flush:true)
 
