@@ -34,6 +34,7 @@ class BootStrap {
 						apellidoMaterno: "ADMINISTRADOR",
 						primerNombre: "MICROFINANCIERAS",
 						segundoNombre: "ADMINISTRADOR",
+						email : "mikerugerio@gmail.com",
 					password: springSecurityService.encodePassword("4321"),
 					enabled: true).save()
 					
@@ -47,6 +48,7 @@ class BootStrap {
 						apellidoMaterno: profileAttrs.apellidoMaterno,
 						primerNombre: profileAttrs.primerNombre,
 						segundoNombre: profileAttrs.segundoNombre,
+						email: profileAttrs.email,
 						password: springSecurityService.encodePassword("1234"),
 						enabled: true)
 				if (user.validate()) {
