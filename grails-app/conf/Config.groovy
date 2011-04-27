@@ -108,3 +108,32 @@ grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/login.g
 //Ejemplo para implementar roles a nivel base de datos
 //grails.plugins.springsecurity.securityConfigType = SecurityConfigType.Requestmap
 //grails.plugins.springsecurity.requestMap.className = 'com.sim.usuario.Requestmap'
+
+//REGISTRO DE USUARIO
+//post-registration destination url
+//grails.plugins.springsecurity.ui.register.postRegisterUrl = '/welcome'
+
+//ATRIBUTOS DEL CORREO
+//grails.plugins.springsecurity.ui.register.emailBody = '...'
+//grails.plugins.springsecurity.ui.register.emailFrom = '...'
+//grails.plugins.springsecurity.ui.register.emailSubject = '...'
+
+//ASIGNACION DE ROLES
+grails.plugins.springsecurity.ui.register.defaultRoleNames = [] // no roles
+//or
+//grails.plugins.springsecurity.ui.register.defaultRoleNames = ['ROLE_CUSTOMER']
+
+
+//CONFIGURACION DEL PLUGIN mail
+grails {
+	mail {
+	  host = "smtp.gmail.com"
+	  port = 465
+	  username = "mikerugerio@gmail.com"
+	  password = "bushido"
+	  props = ["mail.smtp.auth":"true",
+			   "mail.smtp.socketFactory.port":"465",
+			   "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+			   "mail.smtp.socketFactory.fallback":"false"]
+ 
+ } }
