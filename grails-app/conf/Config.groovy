@@ -105,7 +105,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
 grails.plugins.springsecurity.auth.loginFormUrl = '/login/login.gsp'
 grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/login.gsp'
 
-//Ejemplo para implementar roles a nivel base de datos
+//EJEMPLO PARA IMPLEMENTAR ROLES A NIVEL BASE DE DATOS
 //grails.plugins.springsecurity.securityConfigType = SecurityConfigType.Requestmap
 //grails.plugins.springsecurity.requestMap.className = 'com.sim.usuario.Requestmap'
 
@@ -113,7 +113,7 @@ grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/login.g
 //post-registration destination url
 //grails.plugins.springsecurity.ui.register.postRegisterUrl = '/welcome'
 
-//ATRIBUTOS DEL CORREO
+//ATRIBUTOS DEL CORREO PARA REGISTRO
 //grails.plugins.springsecurity.ui.register.emailBody = '...'
 //grails.plugins.springsecurity.ui.register.emailFrom = '...'
 //grails.plugins.springsecurity.ui.register.emailSubject = '...'
@@ -123,14 +123,22 @@ grails.plugins.springsecurity.ui.register.defaultRoleNames = [] // no roles
 //or
 //grails.plugins.springsecurity.ui.register.defaultRoleNames = ['ROLE_CUSTOMER']
 
+//RESETEAR PASSWORD
+//post-reset destination url
+//grails.plugins.springsecurity.ui.register.postResetUrl = '/reset'
+
+//ATRIBUTOS DEL CORREO PARA RECUPERAR EL PASSWORD
+//grails.plugins.springsecurity.ui.forgotPassword.emailBody = '...'
+//grails.plugins.springsecurity.ui.forgotPassword.emailFrom = '...'
+//grails.plugins.springsecurity.ui.forgotPassword.emailSubject = '...'
 
 //CONFIGURACION DEL PLUGIN mail
 grails {
 	mail {
 	  host = "smtp.gmail.com"
 	  port = 465
-	  username = "mikerugerio@gmail.com"
-	  password = "bushido"
+	  username = "mikerugerio@yahoo.com"
+	  password = "rapidsist"
 	  props = ["mail.smtp.auth":"true",
 			   "mail.smtp.socketFactory.port":"465",
 			   "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
