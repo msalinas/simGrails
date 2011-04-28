@@ -24,10 +24,22 @@
 	<tbody>
 
 		<s2ui:textFieldRow name='username' labelCode='user.username.label' bean="${command}"
-                         size='40' labelCodeDefault='Username' value="${command.username}"/>
+                           size='40' labelCodeDefault='Username' value="${command.username}"/>
 
 		<s2ui:textFieldRow name='email' bean="${command}" value="${command.email}"
 		                   size='40' labelCode='user.email.label' labelCodeDefault='E-mail'/>
+
+		<s2ui:textFieldRow name='apellidoPaterno' labelCode='user.apellidoPaterno.label' bean="${command}"
+                           labelCodeDefault='Apellido Paterno' value="${command.apellidoPaterno}"/>
+                            
+		<s2ui:textFieldRow name='apellidoMaterno' labelCode='user.apellidoMaterno.label' bean="${command}"
+                           labelCodeDefault='Apellido Materno' value="${command.apellidoMaterno}"/>
+                            
+		<s2ui:textFieldRow name='primerNombre' labelCode='user.primerNombre.label' bean="${command}"
+                           labelCodeDefault='Primer Nombre' value="${command.primerNombre}"/>
+                            
+		<s2ui:textFieldRow name='segundoNombre' labelCode='user.segundoNombre.label' bean="${command}"
+                           labelCodeDefault='Segundo Nombre' value="${command.segundoNombre}"/>
 
 		<s2ui:passwordFieldRow name='password' labelCode='user.password.label' bean="${command}"
                              size='40' labelCodeDefault='Password' value="${command.password}"/>

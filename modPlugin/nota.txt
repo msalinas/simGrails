@@ -1,2 +1,9 @@
 Este archivo contiene los archivos modificados de los plugins descargados, contiene también los archivos ocultos propios para generar el proyecto
 en el SpringSource Tool Suite (.classpath y .project)
+
+
+-- ARCHIVO PARA EL REGISTRO DE USUARIO
+-- EXISTE PROBLEMA PARA QUE EL PROYECTO TOME DEL CONTROLLER QUE DEBE HEREDAR|
+/home/miguel/.grails/1.3.7/projects/sim/plugins/spring-security-ui-0.1.2/grails-app/controllers/grails/plugins/springsecurity/ui
+RegisterController.groovy
+
