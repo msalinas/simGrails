@@ -1,6 +1,21 @@
-Este archivo contiene los archivos modificados de los plugins descargados, contiene también los archivos ocultos propios para generar el proyecto
-en el SpringSource Tool Suite (.classpath y .project)
+Este archivo contiene los archivos modificados de los plugins descargados, contiene también los archivos ocultos propios para generar el proyecto en Spring Source Tool
 
+-- SPRINGSOURCE TOOL
+/home/miguel/desarrollo/grails/sim
+.classpath
+.project
+
+-- CORRECCION AL TAG DE NAVEGACION PARA EL FUNCIONAMIENTO DE LOS SUBS DE NAVEGACION
+/home/miguel/.grails/1.3.7/projects/sim/plugins/navigation-1.2/grails-app/taglib
+NavigationTagLib.groovy
+
+-- CAMBIO DE COLORES A LA HOJA DE ESTILO DE COMPONENTE DE NAVEGACION
+/home/miguel/.grails/1.3.7/projects/sim/plugins/navigation-1.2/web-app/css
+navigation.css
+
+-- ARCHIVO PARA INTERNACIONALIZACION
+/home/miguel/.grails/1.3.7/projects/sim/plugins/i18n-templates-1.1.0.1/grails-app/i18n
+i18n-templates.properties
 
 -- ARCHIVO PARA EL REGISTRO DE USUARIO
 -- EXISTE PROBLEMA PARA QUE EL PROYECTO TOME DEL CONTROLLER QUE DEBE HEREDAR|
