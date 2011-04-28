@@ -114,9 +114,16 @@ grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/login.g
 //grails.plugins.springsecurity.ui.register.postRegisterUrl = '/welcome'
 
 //ATRIBUTOS DEL CORREO PARA REGISTRO
-//grails.plugins.springsecurity.ui.register.emailBody = '...'
-//grails.plugins.springsecurity.ui.register.emailFrom = '...'
-//grails.plugins.springsecurity.ui.register.emailSubject = '...'
+grails.plugins.springsecurity.ui.register.emailBody = '''\
+Estimado(a) $user.username,<br/>
+<br/>
+Usted (o alguien mas pretendiendo ser usted) creo una cuenta con este correo.<br/>
+<br/>
+Si usted realizó la petición, presione <a href="$url">aquí</a> para finalizar el registro.
+'''
+
+grails.plugins.springsecurity.ui.register.emailFrom = 'do.not.reply@localhost'
+grails.plugins.springsecurity.ui.register.emailSubject = 'Registro usuario SIM'
 
 //ASIGNACION DE ROLES
 grails.plugins.springsecurity.ui.register.defaultRoleNames = [] // no roles
@@ -128,16 +135,24 @@ grails.plugins.springsecurity.ui.register.defaultRoleNames = [] // no roles
 //grails.plugins.springsecurity.ui.register.postResetUrl = '/reset'
 
 //ATRIBUTOS DEL CORREO PARA RECUPERAR EL PASSWORD
-//grails.plugins.springsecurity.ui.forgotPassword.emailBody = '...'
-//grails.plugins.springsecurity.ui.forgotPassword.emailFrom = '...'
-//grails.plugins.springsecurity.ui.forgotPassword.emailSubject = '...'
+grails.plugins.springsecurity.ui.forgotPassword.emailBody = '''\
+Estimado(a) $user.username,<br/>
+<br/>
+Usted (o alguien mas pretendiendo ser usted) solicitó actualizar su contraseña<br/>
+<br/>
+Si usted no realizó esta solicitud haga caso omiso de este correo, ningún cambio será aplicado.<br/>
+<br/>
+Si usted realizó esta petición, presione <a href="$url">aquí</a> para establecer su contraseña.
+'''
+grails.plugins.springsecurity.ui.forgotPassword.emailFrom = 'do.not.reply@localhost'
+grails.plugins.springsecurity.ui.forgotPassword.emailSubject = 'Restablecer contraseña SIM'
 
 //CONFIGURACION DEL PLUGIN mail
 grails {
 	mail {
 	  host = "smtp.gmail.com"
 	  port = 465
-	  username = "mikerugerio@yahoo.com"
+	  username = "sistema.microfinanciera@gmail.com"
 	  password = "rapidsist"
 	  props = ["mail.smtp.auth":"true",
 			   "mail.smtp.socketFactory.port":"465",
