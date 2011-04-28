@@ -31,9 +31,7 @@ class BootStrap {
 			def adminUser = new User(
 					username: "admin",
 						apellidoPaterno: "ADMINISTRADOR",
-						apellidoMaterno: "ADMINISTRADOR",
 						primerNombre: "MICROFINANCIERAS",
-						segundoNombre: "ADMINISTRADOR",
 						email : "mikerugerio@gmail.com",
 					password: springSecurityService.encodePassword("4321"),
 					enabled: true).save()
