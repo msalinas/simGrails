@@ -21,6 +21,9 @@ import org.codehaus.groovy.grails.plugins.springsecurity.NullSaltSource
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 import org.codehaus.groovy.grails.plugins.springsecurity.ui.RegistrationCode
 
+import com.megatome.grails.RecaptchaService
+
+
 /**
  * @author <a href='mailto:burt@burtbeckwith.com'>Burt Beckwith</a>
  */
@@ -30,14 +33,21 @@ class RegisterController extends AbstractS2UiController {
 
 	def mailService
 	def saltSource
+	RecaptchaService recaptchaService
 
 	def index = {
 		[command: new RegisterCommand()]
 	}
 
 	def register = { RegisterCommand command ->
+		
+		def recaptchaOK = true
+		if (!recaptchaService.verifyAnswer(session, request.getRemoteAddr(), params)) {
+			 recaptchaOK = false
+		}
 
-		if (command.hasErrors()) {
+		if (command.hasErrors() || !recaptchaOK) {
+			recaptchaService.cleanUp(session)
 			render view: 'index', model: [command: command]
 			return
 		}
@@ -47,6 +57,7 @@ class RegisterController extends AbstractS2UiController {
 		def user = lookupUserClass().newInstance(email: command.email, username: command.username,
 				password: password, accountLocked: true, enabled: true,	apellidoPaterno: command.apellidoPaterno, 
 				apellidoMaterno: command.apellidoMaterno, primerNombre: command.primerNombre, segundoNombre: command.segundoNombre)
+		
 		if (!user.validate() || !user.save()) {
 			// TODO
 		}
@@ -261,3 +272,4 @@ class ResetPasswordCommand {
 		password2 validator: RegisterController.password2Validator
 	}
 }
+

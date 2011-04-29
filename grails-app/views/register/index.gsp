@@ -49,6 +49,11 @@
 
 	</tbody>
 	</table>
+	
+		<recaptcha:ifEnabled>
+		    <recaptcha:recaptcha theme="clean"/>
+    		<recaptcha:ifFailed>CAPTCHA Failed</recaptcha:ifFailed>
+		</recaptcha:ifEnabled>		
 
 	<s2ui:submitButton elementId='create' form='registerForm' messageCode='spring.security.ui.register.submit'/>
 
