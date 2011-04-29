@@ -46,14 +46,43 @@
 
 		<s2ui:passwordFieldRow name='password2' labelCode='user.password2.label' bean="${command}"
                              size='40' labelCodeDefault='Password (again)' value="${command.password2}"/>
+                             
+          
+		<tr class="prop">
+			<td valign="top" class="name">
+			</td>
+		   
+			<td valign="top" class="value">
+				<br/>
+			    <div id="recaptcha_widget" style="display:none">
+			        <div id="recaptcha_image" style="width:300px;height:57px;"></div>
+			        <div class="recaptcha_only_if_incorrect_sol" style="color:red;">
+			            Respuesta Incorrecta
+			        </div>
+			        Capture las palabras indicadas:
+			        <input id="recaptcha_response_field" name="recaptcha_response_field" type="text" autocomplete="off"/>
+			        <div>
+			            <a href="javascript:Recaptcha.reload()">Otra opci&oacute;n</a>
+			        </div>
+			        <div class="recaptcha_only_if_image">
+			            <a href="javascript:Recaptcha.switch_type('audio')">Obtener Audio</a>
+			        </div>
+			        <div class="recaptcha_only_if_audio">
+			            <a href="javascript:Recaptcha.switch_type('image')">Obtener Imagen</a>
+			        </div>			        
+			        <div>
+			            <a href="javascript:Recaptcha.showhelp()">Ayuda</a>
+			        </div>
+			   </div>
+			   <recaptcha:ifEnabled>
+			       <recaptcha:recaptcha theme="custom" lang="es" custom_theme_widget="recaptcha_widget"/>
+			   </recaptcha:ifEnabled>
+			   <br/>
+			</td>
+		</tr>
 
 	</tbody>
 	</table>
-	
-		<recaptcha:ifEnabled>
-		    <recaptcha:recaptcha theme="clean"/>
-    		<recaptcha:ifFailed>CAPTCHA Failed</recaptcha:ifFailed>
-		</recaptcha:ifEnabled>		
 
 	<s2ui:submitButton elementId='create' form='registerForm' messageCode='spring.security.ui.register.submit'/>
 
