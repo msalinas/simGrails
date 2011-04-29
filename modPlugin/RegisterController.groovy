@@ -41,14 +41,15 @@ class RegisterController extends AbstractS2UiController {
 
 	def register = { RegisterCommand command ->
 		
-		def recaptchaOK = true
+		def recaptchaAgain = false
+		//VALIDACION DEL CAPTCHA
 		if (!recaptchaService.verifyAnswer(session, request.getRemoteAddr(), params)) {
-			 recaptchaOK = false
+			 recaptchaAgain = true
 		}
 
-		if (command.hasErrors() || !recaptchaOK) {
+		if (command.hasErrors() || recaptchaAgain) {
 			recaptchaService.cleanUp(session)
-			render view: 'index', model: [command: command]
+			render view: 'index', model: [command: command, recaptchaAgain :recaptchaAgain]
 			return
 		}
 

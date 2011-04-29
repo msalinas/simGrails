@@ -59,6 +59,11 @@
 			        <div class="recaptcha_only_if_incorrect_sol" style="color:red;">
 			            Respuesta Incorrecta
 			        </div>
+			        <g:if test='${recaptchaAgain}'>
+	 					<div style="color:red;">
+				            <g:message code='registro.captcha.volverIntentar'/>
+				        </div>			        
+			       	</g:if>
 			        Capture las palabras indicadas:
 			        <input id="recaptcha_response_field" name="recaptcha_response_field" type="text" autocomplete="off"/>
 			        <div>
