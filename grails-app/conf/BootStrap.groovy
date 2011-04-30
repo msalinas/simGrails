@@ -981,11 +981,10 @@ class BootStrap {
 				regional : SimRegional.findByClaveRegional('REGION1'),
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
-
-		//Ejemplo para implementar roles a nivel de base de datos
-		//new Requestmap(url: '/simCatBanco/**', configAttribute: 'ROLE_ADMIN').save()
-
-
+		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
+		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save()
+		new Requestmap(url: '/rsConfGpoEmpresa/**', configAttribute: 'ROLE_USER').save()
+		new Requestmap(url: '/rsConfEmpresa/create', configAttribute: 'ROLE_USER').save()
 	}
 
 	def destroy = {

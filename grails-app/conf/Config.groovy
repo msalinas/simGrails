@@ -96,18 +96,24 @@ grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.sim.usuario.
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.sim.usuario.SecUserSecRole'
 grails.plugins.springsecurity.authority.className = 'com.sim.usuario.SecRole'
 
+//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
+grails.plugins.springsecurity.securityConfigType = SecurityConfigType.Requestmap
+grails.plugins.springsecurity.requestMap.className = 'com.sim.usuario.Requestmap'
+
+//IMPLEMENTACION DE ROLES A NIVEL Static URL rules
+/*
 grails.plugins.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
 grails.plugins.springsecurity.interceptUrlMap = [
-		'/simCatEscolaridad/*': ['ROLE_USER'],
+		'/rsConfGpoEmpresa/*': ['ROLE_USER'],
 		'/user/*':         		['ROLE_ADMIN']
 ]
+*/
 
+//IMPLEMENTACION DE SEGURIDAD A NIVEL Annotations VER CONTROLADORA SimCatEscolaridadController
+
+//PANTALLAS PARA LOGIN
 grails.plugins.springsecurity.auth.loginFormUrl = '/login/login.gsp'
 grails.plugins.springsecurity.failureHandler.defaultFailureUrl = '/login/login.gsp'
-
-//EJEMPLO PARA IMPLEMENTAR ROLES A NIVEL BASE DE DATOS
-//grails.plugins.springsecurity.securityConfigType = SecurityConfigType.Requestmap
-//grails.plugins.springsecurity.requestMap.className = 'com.sim.usuario.Requestmap'
 
 //REGISTRO DE USUARIO
 //post-registration destination url

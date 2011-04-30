@@ -14,7 +14,7 @@ class SimCatEscolaridadController {
         [simCatEscolaridadInstanceList: SimCatEscolaridad.list(params), simCatEscolaridadInstanceTotal: SimCatEscolaridad.count()]
     }
 	
-	//Ejemplo para implementar roles por anotaciones
+	//IMPLEMENTACION DE SEGURIDAD POR ANOTACIONES
 	//@Secured(['ROLE_USER'])
     def create = {
         def simCatEscolaridadInstance = new SimCatEscolaridad()
