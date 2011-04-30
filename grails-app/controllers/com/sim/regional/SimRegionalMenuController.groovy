@@ -8,7 +8,8 @@ class SimRegionalMenuController {
 			[action:'irRegional', order:0, title:"Regional"],
 			[action:'irSucursal', order:10, title:'Sucursal'],
 			[action:'irTelefonos', order:20, title:'Telefonos'],
-			[action:'irDomicilios', order:30, title:'Domicilios']
+			[action:'irDomicilios', order:30, title:'Domicilios'],
+			[action:'irEmpleado', order:30, title:'Empleados']
         ]
 	]
 	
@@ -26,5 +27,8 @@ class SimRegionalMenuController {
 	}
 	def irDomicilios ={
 		redirect (controller:'rsGralDomicilio', action:'list')
+	}
+	def irEmpleado ={
+		redirect (controller:'rsEmpleado', action:'list')
 	}
 }

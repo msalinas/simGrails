@@ -12,7 +12,7 @@ class SimSucursal {
 	String  coordinador
 	RsConfEmpresa rsConfEmpresa
 	
-	static hasMany = [ telefono : RsGralTelefono, domicilio : RsGralDomicilio ]
+	static hasMany = [ telefono : RsGralTelefono, domicilio : RsGralDomicilio ], RsEmpleado
 	
 	static belongsTo = [ regional : SimRegional]
 	

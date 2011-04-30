@@ -1,6 +1,7 @@
 package com.sim.catalogo
 
-import com.sim.empresa.RsConfEmpresa;
+import com.sim.empresa.RsConfEmpresa
+import com.sim.empresa.RsEmpleado
 
 class SimCatPerfil {
 
@@ -14,6 +15,7 @@ class SimCatPerfil {
 		rsConfEmpresa(nullable: false)
     }
 
+	static hasMany =  RsEmpleado
 
 	String toString() {
 		"${nombrePerfil}"
