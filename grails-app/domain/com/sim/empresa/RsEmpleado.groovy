@@ -1,6 +1,6 @@
 package com.sim.empresa
 
-import com.sim.usuario.SecUser
+import com.sim.usuario.Usuario
 import com.sim.catalogo.SimCatPuesto
 import com.sim.catalogo.SimCatPerfil
 import com.sim.regional.SimSucursal
@@ -9,7 +9,7 @@ class RsEmpleado {
 	
 	RsConfEmpresa rsConfEmpresa
 	
-	SecUser usuario
+	Usuario usuario
 	
 	static mapping = {
 		usuario lazy:false
