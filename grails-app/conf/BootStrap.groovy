@@ -25,10 +25,10 @@ class BootStrap {
 		def userRole = getOrCreateRole("ROLE_USER")
 		def adminRole = getOrCreateRole("ROLE_ADMIN")
 
-		def users = User.list() ?: []
+		def users = Usuario.list() ?: []
 		if (!users) {
 			// Start with the admin user.
-			def adminUser = new User(
+			def adminUser = new Usuario(
 					username: "admin",
 						apellidoPaterno: "ADMINISTRADOR",
 						primerNombre: "MICROFINANCIERAS",
@@ -40,7 +40,7 @@ class BootStrap {
 
 			// Now the normal users.
 			samples.each { username, profileAttrs ->
-				def user = new User(
+				def user = new Usuario(
 						username: username,
 						apellidoPaterno: profileAttrs.apellidoPaterno,
 						apellidoMaterno: profileAttrs.apellidoMaterno,

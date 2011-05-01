@@ -1,5 +1,7 @@
 package com.sim.usuario
 
+import com.sim.empresa.RsEmpleado
+
 class SecUser {
 
 	String username
@@ -25,6 +27,8 @@ class SecUser {
 		primerNombre size:5..25, blank: false, unique: false
 		segundoNombre nullable: true, size:0..25
 	}
+	
+	static belongsTo =  RsEmpleado
 
 	static mapping = {
 		password column: '`password`'
@@ -32,5 +36,9 @@ class SecUser {
 
 	Set<SecRole> getAuthorities() {
 		SecUserSecRole.findAllBySecUser(this).collect { it.secRole } as Set
+	}
+	
+	String toString() {
+		"${apellidoPaterno} ${apellidoMaterno ?: ""} ${primerNombre} - ${username}"
 	}
 }

@@ -2,7 +2,7 @@ package com.sim.usuario
 
 import grails.test.*
 
-class UserControllerTests extends ControllerUnitTestCase {
+class UsuarioControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()
     }
