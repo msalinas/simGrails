@@ -75,6 +75,17 @@ log4j = {
     //appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
+	
+	//OBTENER LOGS INFO EN UN ARCHIVO Y EN LA CONSOLA
+	
+	appenders {
+		//console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
+		file name:'file', file:'/home/miguel/logs/sim/logInfo.log'
+	}
+	
+	root {
+		info 'file','stdout'
+	}
 
     error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
            'org.codehaus.groovy.grails.web.pages', //  GSP
@@ -89,6 +100,7 @@ log4j = {
            'net.sf.ehcache.hibernate'
 
     warn   'org.mortbay.log'
+	
 }
 
 // Added by the Spring Security Core plugin:
