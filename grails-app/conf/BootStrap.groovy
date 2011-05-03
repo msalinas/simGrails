@@ -59,7 +59,7 @@ class BootStrap {
 						password: springSecurityService.encodePassword("1234"),
 						enabled: true)
 				if (user.validate()) {
-					println "Creando usuario: ${profileAttrs.username}..."
+					println "Creando usuario: ${username}..."
 
 					user.save(flush:true)
 
@@ -77,7 +77,7 @@ class BootStrap {
 						rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS'),
 						usuario : user)
 					if (persona.validate()){
-						println "Creando persona ${profileAttrs.fullName} del usuario ${profileAttrs.username}..."
+						println "Creando persona ${profileAttrs.fullName} del usuario ${username}..."
 						persona.save(flush:true)
 						
 					}else{
