@@ -2,7 +2,6 @@ package com.rs.gral
 
 import com.sim.regional.SimRegional
 import com.sim.regional.SimSucursal
-import com.rs.gral.RsPersona
 
 class RsGralTelefonoController {
 

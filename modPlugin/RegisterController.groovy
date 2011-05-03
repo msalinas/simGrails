@@ -23,7 +23,6 @@ import org.codehaus.groovy.grails.plugins.springsecurity.ui.RegistrationCode
 
 import com.megatome.grails.RecaptchaService
 
-
 /**
  * @author <a href='mailto:burt@burtbeckwith.com'>Burt Beckwith</a>
  */
@@ -55,25 +54,29 @@ class RegisterController extends AbstractS2UiController {
 
 		String salt = saltSource instanceof NullSaltSource ? null : command.username
 		String password = springSecurityService.encodePassword(command.password, salt)
-		/*
-		def user = lookupUserClass().newInstance(email: command.email, username: command.username,
-				password: password, accountLocked: true, enabled: true,	apellidoPaterno: command.apellidoPaterno, 
-				apellidoMaterno: command.apellidoMaterno, primerNombre: command.primerNombre, segundoNombre: command.segundoNombre)
-		*/
+
 		def user = lookupUserClass().newInstance( username: command.username,
 			password: password, accountLocked: true, enabled: true)
 		
-		def rsPersona = lookupUserClass().newInstance(email: command.email, apellidoPaterno: command.apellidoPaterno, 
-				apellidoMaterno: command.apellidoMaterno, primerNombre: command.primerNombre, segundoNombre: command.segundoNombre,
-				usuario : user)
-		
-		log.info rsPersona
-
-		if (!user.validate() || !user.save() || !rsPersona.save()) {
+		if (!user.validate() || !user.save()) {
 			// TODO
-			log.info "***NO SALVO USUARIO O PERSONA"
+			log.info "***NO SALVO USUARIO"
+		}else{
+			log.info "***SALVO USUARIO"
 		}
-
+		
+		//OBTIENE LA CLASE DE DOMINIO DE PERSONA
+		Class<?> clasePersona = grailsApplication.getDomainClass("com.rs.gral.RsPersona").clazz
+		
+		def rsPersona = clasePersona.newInstance(email: command.email, apellidoPaterno: command.apellidoPaterno, apellidoMaterno: command.apellidoMaterno,
+			 primerNombre: command.primerNombre, segundoNombre: command.segundoNombre, usuario: user)
+		
+		if (!rsPersona.save()) {
+			log.info "***NO SALVO PERSONA"
+		}else{
+			log.info "***SALVO PERSONA"
+		}
+		
 		def registrationCode = new RegistrationCode(username: user.username).save()
 		String url = generateLink('verifyRegistration', [t: registrationCode.token])
 

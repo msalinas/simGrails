@@ -1,7 +1,7 @@
 package com.rs.gral
 
-import com.sim.empresa.RsConfEmpresa;
-import com.sim.usuario.Usuario;
+import com.sim.empresa.RsConfEmpresa
+import com.sim.usuario.Usuario
 
 class RsPersona {
  	
@@ -26,7 +26,7 @@ class RsPersona {
 		primerNombre size:5..25, blank: false, unique: false
 		segundoNombre nullable: true, size:0..25
 		usuario(nullable:true)
-		rsConfEmpresa(nullable: false)
+		rsConfEmpresa(nullable: true)
     }
 	
 	String toString() {

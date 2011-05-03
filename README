@@ -14,3 +14,9 @@ grails generate-i18n-messages <domainClass>
 	}
 ----------
 Revisar si TIPO IDENTIFICADOR es necesario
+
+----------
+Implementar en el registro la clave de la empresa
+
+----------
+Extender la clase controladora RegisterController para el registro del usuario
