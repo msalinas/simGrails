@@ -39,7 +39,14 @@
 	                                
 	                            </tr>
                             </g:if>
-                        
+          					<g:if test="${rsGralTelefonoInstance?.empleado?.id}">
+	                            <tr class="prop">
+	                                <td valign="top" class="name"><g:message code="rsGralTelefono.empleado" default="Empleado" />:</td>
+	                                
+	                                <td valign="top" class="value"><g:link controller="rsEmpleado" action="show" id="${rsGralTelefonoInstance?.empleado?.id}">${rsGralTelefonoInstance?.empleado?.encodeAsHTML()}</g:link></td>
+	                                
+	                            </tr>
+                            </g:if>                        
                             <tr class="prop">
                                 <td valign="top" class="name"><g:message code="rsGralTelefono.id" default="Id" />:</td>
                                 

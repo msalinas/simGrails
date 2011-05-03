@@ -2,6 +2,7 @@ package com.rs.gral
 
 import com.sim.regional.SimRegional
 import com.sim.regional.SimSucursal
+import com.sim.empresa.RsEmpleado
 
 class RsGralTelefonoController {
 
@@ -30,6 +31,12 @@ class RsGralTelefonoController {
 			def simSucursalInstance = new SimSucursal()
 			simSucursalInstance = SimSucursal.get(params.simSucursal.id)
 			rsGralTelefonoInstance.sucursal = simSucursalInstance
+		}
+		// VERIFICA SI EL DOMICILIO SE ASIGNA A UN EMPLEADO
+		if (params.rsEmpleado){
+			def rsEmpleadoInstance = new RsEmpleado()
+			rsEmpleadoInstance = RsEmpleado.get(params.rsEmpleado.id)
+			rsGralTelefonoInstance.empleado = rsEmpleadoInstance
 		}
 		
         return [rsGralTelefonoInstance: rsGralTelefonoInstance]
