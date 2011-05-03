@@ -55,12 +55,23 @@ class RegisterController extends AbstractS2UiController {
 
 		String salt = saltSource instanceof NullSaltSource ? null : command.username
 		String password = springSecurityService.encodePassword(command.password, salt)
+		/*
 		def user = lookupUserClass().newInstance(email: command.email, username: command.username,
 				password: password, accountLocked: true, enabled: true,	apellidoPaterno: command.apellidoPaterno, 
 				apellidoMaterno: command.apellidoMaterno, primerNombre: command.primerNombre, segundoNombre: command.segundoNombre)
+		*/
+		def user = lookupUserClass().newInstance( username: command.username,
+			password: password, accountLocked: true, enabled: true)
 		
-		if (!user.validate() || !user.save()) {
+		def rsPersona = lookupUserClass().newInstance(email: command.email, apellidoPaterno: command.apellidoPaterno, 
+				apellidoMaterno: command.apellidoMaterno, primerNombre: command.primerNombre, segundoNombre: command.segundoNombre,
+				usuario : user)
+		
+		log.info rsPersona
+
+		if (!user.validate() || !user.save() || !rsPersona.save()) {
 			// TODO
+			log.info "***NO SALVO USUARIO O PERSONA"
 		}
 
 		def registrationCode = new RegistrationCode(username: user.username).save()
@@ -273,4 +284,3 @@ class ResetPasswordCommand {
 		password2 validator: RegisterController.password2Validator
 	}
 }
-
