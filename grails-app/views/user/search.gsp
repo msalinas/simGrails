@@ -72,11 +72,11 @@ def queryParams = [username: username, enabled: enabled, accountExpired: account
 		<thead>
 		<tr>
 			<g:sortableColumn property="username" title="${message(code: 'user.username.label', default: 'Username')}" params="${queryParams}"/>
-			<g:sortableColumn property="apellidoPaterno" title="${message(code: 'user.apellidoPaterno.label', default: 'Apellido Paterno')}" params="${queryParams}"/>
-			<g:sortableColumn property="apellidoMaterno" title="${message(code: 'user.apellidoMaterno.label', default: 'Apellido Materno')}" params="${queryParams}"/>
-			<g:sortableColumn property="primerNombre" title="${message(code: 'user.primerNombre.label', default: 'Primer Nombre')}" params="${queryParams}"/>
-			<g:sortableColumn property="segundoNombre" title="${message(code: 'user.segundoNombre.label', default: 'Segundo Nombre')}" params="${queryParams}"/>
-			<g:sortableColumn property="email" title="${message(code: 'user.email.label', default: 'Correo')}" params="${queryParams}"/>
+			<th><g:message code="persona.apellidoPaterno.label" default="Apellido Paterno" /></th>
+			<th><g:message code="persona.apellidoMaterno.label" default="Apellido Materno" /></th>
+			<th><g:message code="persona.primerNombre.label" default="Primer Nombre" /></th>
+			<th><g:message code="persona.segundoNombre.label" default="Segundo Nombre" /></th>
+			<th><g:message code="persona.segundoNombre.email" default="Correo" /></th>
 			<g:sortableColumn property="enabled" title="${message(code: 'user.enabled.label', default: 'Enabled')}" params="${queryParams}"/>
 			<g:sortableColumn property="accountExpired" title="${message(code: 'user.accountExpired.label', default: 'Account Expired')}" params="${queryParams}"/>
 			<g:sortableColumn property="accountLocked" title="${message(code: 'user.accountLocked.label', default: 'Account Locked')}" params="${queryParams}"/>
@@ -88,11 +88,11 @@ def queryParams = [username: username, enabled: enabled, accountExpired: account
 		<g:each in="${results}" status="i" var="user">
 		<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 			<td><g:link action="edit" id="${user.id}">${fieldValue(bean: user, field: "username")}</g:link></td>
-			<td>${fieldValue(bean: user, field: "apellidoPaterno")}</td>
-			<td>${fieldValue(bean: user, field: "apellidoMaterno")}</td>
-			<td>${fieldValue(bean: user, field: "primerNombre")}</td>
-			<td>${fieldValue(bean: user, field: "segundoNombre")}</td>
-			<td>${fieldValue(bean: user, field: "email")}</td>
+			<td>${fieldValue(bean: user.persona, field: "apellidoPaterno")}</td>
+			<td>${fieldValue(bean: user.persona, field: "apellidoMaterno")}</td>
+			<td>${fieldValue(bean: user.persona, field: "primerNombre")}</td>
+			<td>${fieldValue(bean: user.persona, field: "segundoNombre")}</td>
+			<td>${fieldValue(bean: user.persona, field: "email")}</td>
 			<td><g:formatBoolean boolean="${user.enabled}"/></td>
 			<td><g:formatBoolean boolean="${user.accountExpired}"/></td>
 			<td><g:formatBoolean boolean="${user.accountLocked}"/></td>

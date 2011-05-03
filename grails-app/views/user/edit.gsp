@@ -44,20 +44,20 @@ if (isOpenId) {
 			<s2ui:passwordFieldRow name='password' labelCode='user.password.label' bean="${user}"
                                 labelCodeDefault='Password' value="${user?.password}"/>
                                 
-			<s2ui:textFieldRow name='email' labelCode='user.email.label' bean="${user}"
-                            labelCodeDefault='Correo Electronico' value="${user?.email}"/>
+			<s2ui:textFieldRow name='email' labelCode='user.persona.email.label' bean="${user}"
+                            labelCodeDefault='Correo Electronico' value="${user?.persona?.email}"/>
 
-			<s2ui:textFieldRow name='apellidoPaterno' labelCode='user.apellidoPaterno.label' bean="${user}"
-                            labelCodeDefault='Apellido Paterno' value="${user?.apellidoPaterno}"/>
+			<s2ui:textFieldRow name='apellidoPaterno' labelCode='user.persona.apellidoPaterno.label' bean="${user}"
+                            labelCodeDefault='Apellido Paterno' value="${user?.persona?.apellidoPaterno}"/>
                             
-			<s2ui:textFieldRow name='apellidoMaterno' labelCode='user.apellidoMaterno.label' bean="${user}"
-                            labelCodeDefault='Apellido Materno' value="${user?.apellidoMaterno}"/>
+			<s2ui:textFieldRow name='apellidoMaterno' labelCode='user.persona.apellidoMaterno.label' bean="${user}"
+                            labelCodeDefault='Apellido Materno' value="${user?.persona?.apellidoMaterno}"/>
                             
-			<s2ui:textFieldRow name='primerNombre' labelCode='user.primerNombre.label' bean="${user}"
-                            labelCodeDefault='Primer Nombre' value="${user?.primerNombre}"/>
+			<s2ui:textFieldRow name='primerNombre' labelCode='user.persona.primerNombre.label' bean="${user}"
+                            labelCodeDefault='Primer Nombre' value="${user?.persona?.primerNombre}"/>
                             
-			<s2ui:textFieldRow name='segundoNombre' labelCode='user.segundoNombre.label' bean="${user}"
-                            labelCodeDefault='Segundo Nombre' value="${user?.segundoNombre}"/>
+			<s2ui:textFieldRow name='segundoNombre' labelCode='user.persona.segundoNombre.label' bean="${user}"
+                            labelCodeDefault='Segundo Nombre' value="${user?.persona?.segundoNombre}"/>
 
 			<s2ui:checkboxRow name='enabled' labelCode='user.enabled.label' bean="${user}"
                            labelCodeDefault='Enabled' value="${user?.enabled}"/>
