@@ -51,14 +51,14 @@
 	                                </td>
 	                            </tr>
                         	</g:if>
-                        	<g:if test="${rsGralTelefonoInstance?.empleado?.id}">
+                        	<g:if test="${rsGralTelefonoInstance?.persona?.id}">
 	                            <tr class="prop">
 	                                <td valign="top" class="name">
-	                                    <label for="sucursal"><g:message code="rsGralTelefono.empleado" default="Empleado" />:</label>
+	                                    <label for="persona"><g:message code="rsGralTelefono.persona" default="Persona" />:</label>
 	                                </td>
-	                                <td valign="top" class="value ${hasErrors(bean: rsGralTelefonoInstance, field: 'empleado', 'errors')}">
-	                               		<label>${rsGralTelefonoInstance?.empleado?.usuario}</label>
-	                                	<g:hiddenField name='empleado.id' value='${rsGralTelefonoInstance?.empleado?.id}' />
+	                                <td valign="top" class="value ${hasErrors(bean: rsGralTelefonoInstance, field: 'persona', 'errors')}">
+	                               		<label>${rsGralTelefonoInstance?.persona?.usuario}</label>
+	                                	<g:hiddenField name='persona.id' value='${rsGralTelefonoInstance?.persona?.id}' />
 	                                </td>
 	                            </tr>
                         	</g:if>                        

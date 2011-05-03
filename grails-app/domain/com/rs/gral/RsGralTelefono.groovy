@@ -13,15 +13,15 @@ class RsGralTelefono {
 	RsConfEmpresa rsConfEmpresa
 	SimCatDescTelefono descripcionTelefono
 	
-	static belongsTo = [ regional : SimRegional, sucursal : SimSucursal, empleado : RsEmpleado ]
+	static belongsTo = [ regional : SimRegional, sucursal : SimSucursal, persona : RsPersona ]
 
     static constraints = {
-		telefono(size:5..15, unique: true, nullable: false, blank: false)
+		telefono(size:5..15, unique: false, nullable: false, blank: false)
 		descripcionTelefono(nullable: false)
 		rsConfEmpresa(nullable: false)
 		regional(nullable: true)
 		sucursal(nullable: true)
-		empleado(nullable: true)
+		persona(nullable: true)
     }
 	
 	String toString() {

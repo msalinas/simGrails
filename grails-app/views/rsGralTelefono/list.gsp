@@ -33,7 +33,7 @@
                    	    
                    	    <th><g:message code="rsGralTelefono.sucursal" default="Sucursal" /></th>
                    	    
-                   	    <th><g:message code="rsGralTelefono.empleado" default="Empleado" /></th>
+                   	    <th><g:message code="rsGralTelefono.persona" default="Persona" /></th>
                    	    
                         </tr>
                     </thead>
@@ -53,7 +53,7 @@
                             
                             <td>${fieldValue(bean: rsGralTelefonoInstance, field: "sucursal")}</td>
                         
-                            <td>${fieldValue(bean: rsGralTelefonoInstance, field: "empleado")}</td>
+                            <td>${fieldValue(bean: rsGralTelefonoInstance, field: "persona")}</td>
                         
                         </tr>
                     </g:each>

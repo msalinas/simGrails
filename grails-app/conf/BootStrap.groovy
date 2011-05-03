@@ -13,7 +13,17 @@ class BootStrap {
 	def springSecurityService
 
 	def init = { servletContext ->
+		
+		new RsConfGpoEmpresa(claveGrupoEmpresa: 'SIM',
+			nombreGrupoEmpresa: 'SIM CREDITOS',
+			fechaCreacion: new Date('01/01/2011')).save()
 
+		new RsConfEmpresa(claveEmpresa: 'CREDITOS',
+			nombreEmpresa: 'MICROFINANCIERA AZUL',
+			fechaCreacion: new Date('01/01/2011'),
+			rsConfGpoEmpresa: RsConfGpoEmpresa.findByClaveGrupoEmpresa('SIM')).save()
+
+		//CREACION DE USUARIOS
 		def samples = [
 					'asalazar' : [ fullName: 'ARTURO SALAZAR', email: "asalazar@example.org", apellidoPaterno: "SALAZAR", apellidoMaterno:"CASTAÑEDA" , primerNombre:"ARTURO" ],
 					'mrugerio' : [ fullName: 'MIGUEL RUGERIO', email: "mrugerio@example.org", apellidoPaterno: "RUGERIO", apellidoMaterno:"FLORES" , primerNombre:"MIGUEL", segundoNombre:"ANGEL" ],
@@ -30,34 +40,50 @@ class BootStrap {
 			// Start with the admin user.
 			def adminUser = new Usuario(
 					username: "admin",
-						apellidoPaterno: "ADMINISTRADOR",
-						primerNombre: "MICROFINANCIERAS",
-						email : "mikerugerio@gmail.com",
 					password: springSecurityService.encodePassword("4321"),
 					enabled: true).save()
 					
 			SecUserSecRole.create adminUser, adminRole
+			
+			def adminPersona = new RsPersona(
+					apellidoPaterno: "ADMINISTRADOR",
+					primerNombre: "MICROFINANCIERAS",
+					email : "mikerugerio@gmail.com",
+					rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS'),
+					usuario : adminUser).save()
 
 			// Now the normal users.
 			samples.each { username, profileAttrs ->
 				def user = new Usuario(
 						username: username,
-						apellidoPaterno: profileAttrs.apellidoPaterno,
-						apellidoMaterno: profileAttrs.apellidoMaterno,
-						primerNombre: profileAttrs.primerNombre,
-						segundoNombre: profileAttrs.segundoNombre,
-						email: profileAttrs.email,
 						password: springSecurityService.encodePassword("1234"),
 						enabled: true)
 				if (user.validate()) {
-					println "Creando usuario: ${profileAttrs.fullName}..."
+					println "Creando usuario: ${profileAttrs.username}..."
 
 					user.save(flush:true)
 
 					def rel = SecUserSecRole.create(user, userRole)
 					if (rel.hasErrors()) println "Failed to assign user role to ${user.username}: ${rel.errors}"
-
+					
 					users << user
+					
+					def persona = new RsPersona(
+						apellidoPaterno: profileAttrs.apellidoPaterno,
+						apellidoMaterno: profileAttrs.apellidoMaterno,
+						primerNombre: profileAttrs.primerNombre,
+						segundoNombre: profileAttrs.segundoNombre,
+						email: profileAttrs.email,
+						rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS'),
+						usuario : user)
+					if (persona.validate()){
+						println "Creando persona ${profileAttrs.fullName} del usuario ${profileAttrs.username}..."
+						persona.save(flush:true)
+						
+					}else{
+						println("\n\n\nError en crear la persona del usuario ${username}!\n\n\n")
+						persona.errors.each {err -> println err }
+					}
 				}
 				else {
 					println("\n\n\nError in account bootstrap for ${username}!\n\n\n")
@@ -67,14 +93,7 @@ class BootStrap {
 		}
 
 
-		new RsConfGpoEmpresa(claveGrupoEmpresa: 'SIM',
-				nombreGrupoEmpresa: 'SIM CREDITOS',
-				fechaCreacion: new Date('01/01/2011')).save()
 
-		new RsConfEmpresa(claveEmpresa: 'CREDITOS',
-				nombreEmpresa: 'MICROFINANCIERA AZUL',
-				fechaCreacion: new Date('01/01/2011'),
-				rsConfGpoEmpresa: RsConfGpoEmpresa.findByClaveGrupoEmpresa('SIM')).save()
 
 		new SimCatTipoAccesorio(claveTipoAccesorio: 'INTERES',
 				nombreTipoAccesorio: 'INTERESES',

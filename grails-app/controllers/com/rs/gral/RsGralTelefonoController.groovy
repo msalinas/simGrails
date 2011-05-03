@@ -2,7 +2,7 @@ package com.rs.gral
 
 import com.sim.regional.SimRegional
 import com.sim.regional.SimSucursal
-import com.sim.empresa.RsEmpleado
+import com.rs.gral.RsPersona
 
 class RsGralTelefonoController {
 
@@ -20,23 +20,23 @@ class RsGralTelefonoController {
         def rsGralTelefonoInstance = new RsGralTelefono()
         rsGralTelefonoInstance.properties = params
 		
-		// VERIFICA SI EL DOMICILIO SE ASIGNA A UNA REGIONAL
+		// VERIFICA SI EL TELEFONO SE ASIGNA A UNA REGIONAL
 		if (params.simRegional){
 			def simRegionalInstance = new SimRegional()
 			simRegionalInstance = SimRegional.get(params.simRegional.id)
 			rsGralTelefonoInstance.regional = simRegionalInstance
 		}
-		// VERIFICA SI EL DOMICILIO SE ASIGNA A UNA SUCURSAL
+		// VERIFICA SI EL TELEFONO SE ASIGNA A UNA SUCURSAL
 		if (params.simSucursal){
 			def simSucursalInstance = new SimSucursal()
 			simSucursalInstance = SimSucursal.get(params.simSucursal.id)
 			rsGralTelefonoInstance.sucursal = simSucursalInstance
 		}
-		// VERIFICA SI EL DOMICILIO SE ASIGNA A UN EMPLEADO
-		if (params.rsEmpleado){
-			def rsEmpleadoInstance = new RsEmpleado()
-			rsEmpleadoInstance = RsEmpleado.get(params.rsEmpleado.id)
-			rsGralTelefonoInstance.empleado = rsEmpleadoInstance
+		// VERIFICA SI EL TELEFONO SE ASIGNA A UNA PERSONA
+		if (params.rsPersona){
+			def rsPersonaInstance = new RsPersona()
+			rsPersonaInstance = RsPersona.get(params.rsPersona.id)
+			rsGralTelefonoInstance.persona = rsPersonaInstance
 		}
 		
         return [rsGralTelefonoInstance: rsGralTelefonoInstance]

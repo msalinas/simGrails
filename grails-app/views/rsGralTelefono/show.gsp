@@ -39,11 +39,11 @@
 	                                
 	                            </tr>
                             </g:if>
-          					<g:if test="${rsGralTelefonoInstance?.empleado?.id}">
+          					<g:if test="${rsGralTelefonoInstance?.persona?.id}">
 	                            <tr class="prop">
-	                                <td valign="top" class="name"><g:message code="rsGralTelefono.empleado" default="Empleado" />:</td>
+	                                <td valign="top" class="name"><g:message code="rsGralTelefono.persona" default="Persona" />:</td>
 	                                
-	                                <td valign="top" class="value"><g:link controller="rsEmpleado" action="show" id="${rsGralTelefonoInstance?.empleado?.id}">${rsGralTelefonoInstance?.empleado?.encodeAsHTML()}</g:link></td>
+	                                <td valign="top" class="value"><g:link controller="rsPersona" action="show" id="${rsGralTelefonoInstance?.persona?.id}">${rsGralTelefonoInstance?.persona?.encodeAsHTML()}</g:link></td>
 	                                
 	                            </tr>
                             </g:if>                        
