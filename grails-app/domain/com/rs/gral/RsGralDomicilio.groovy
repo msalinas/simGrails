@@ -14,7 +14,7 @@ class RsGralDomicilio {
 	Boolean esFiscal = false
 	String  comentarios
 	
-	static belongsTo = [ regional : SimRegional, sucursal : SimSucursal ]
+	static belongsTo = [ regional : SimRegional, sucursal : SimSucursal, persona : RsPersona ]
 
     static constraints = {
 		calle(size:5..100, nullable: false, blank: false)
@@ -26,6 +26,7 @@ class RsGralDomicilio {
 		rsConfEmpresa(nullable: false)
 		regional(nullable: true)
 		sucursal(nullable: true)
+		persona(nullable: true)
     }
 	
 	String toString() {

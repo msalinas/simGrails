@@ -17,7 +17,7 @@ class RsPersona {
 		usuario lazy:false
 	}
 	
-	static hasMany = [ telefonos : RsGralTelefono ]
+	static hasMany = [ telefonos : RsGralTelefono, domicilios : RsGralDomicilio  ]
 
     static constraints = {
 		email email:true, blank:false
@@ -26,6 +26,8 @@ class RsPersona {
 		primerNombre size:5..25, blank: false, unique: false
 		segundoNombre nullable: true, size:0..25
 		usuario(nullable:true)
+		telefonos()
+		domicilios()
 		rsConfEmpresa(nullable: true)
     }
 	

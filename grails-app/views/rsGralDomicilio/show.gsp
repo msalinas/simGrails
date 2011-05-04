@@ -34,7 +34,15 @@
 	                                <td valign="top" class="name"><g:message code="rsGralDomicilio.sucursal" default="Sucursal" />:</td>
 	                                <td valign="top" class="value"><g:link controller="simSucursal" action="show" id="${rsGralDomicilioInstance?.sucursal?.id}">${rsGralDomicilioInstance?.sucursal?.encodeAsHTML()}</g:link></td>
 	                            </tr>
-                        	</g:if>                          
+                        	</g:if>              
+                        	<g:if test="${rsGralDomicilioInstance?.persona?.id}">
+	                            <tr class="prop">
+	                                <td valign="top" class="name"><g:message code="rsGralDomicilio.persona" default="Persona" />:</td>
+	                                <td valign="top" class="value"><g:link controller="rsPersona" action="show" id="${rsGralDomicilioInstance?.persona?.id}">${rsGralDomicilioInstance?.persona?.encodeAsHTML()}</g:link></td>
+	                                
+	                            </tr>
+                            </g:if>                        
+                        	            
                         
                             <tr class="prop">
                                 <td valign="top" class="name"><g:message code="rsGralDomicilio.id" default="Id" />:</td>

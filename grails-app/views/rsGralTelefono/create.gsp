@@ -54,7 +54,7 @@
 	                                    <label for="persona"><g:message code="rsGralTelefono.persona" default="Persona" />:</label>
 	                                </td>
 	                                <td valign="top" class="value ${hasErrors(bean: rsGralTelefonoInstance, field: 'persona', 'errors')}">
-	                                	<label>${rsGralTelefonoInstance?.persona?.usuario}</label>
+	                                	<label>${rsGralTelefonoInstance?.persona}</label>
 	                                	<g:hiddenField name='persona.id' value='${rsGralTelefonoInstance?.persona?.id}' />
 	                                </td>
 	                            </tr>

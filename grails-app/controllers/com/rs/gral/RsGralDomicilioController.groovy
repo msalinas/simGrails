@@ -31,6 +31,12 @@ class RsGralDomicilioController {
 			simSucursalInstance = SimSucursal.get(params.simSucursal.id)
 			rsGralDomicilioInstance.sucursal = simSucursalInstance
 		}
+		// VERIFICA SI EL DOMICILIO SE ASIGNA A UNA PERSONA
+		if (params.rsPersona){
+			def rsPersonaInstance = new RsPersona()
+			rsPersonaInstance = RsPersona.get(params.rsPersona.id)
+			rsGralDomicilioInstance.persona = rsPersonaInstance
+		}
 
 		return [rsGralDomicilioInstance: rsGralDomicilioInstance]
 	}
