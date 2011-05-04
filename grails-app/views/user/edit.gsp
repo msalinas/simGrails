@@ -17,6 +17,7 @@
 <body>
 
 <h3><g:message code="default.edit.label" args="[entityName]"/></h3>
+<h4><g:message code='${user?.persona?.apellidoPaterno} ${user?.persona?.apellidoMaterno ?:""} ${user?.persona?.primerNombre} ${user?.persona?.segundoNombre ?:""}'/></h4>
 
 <g:form action="update" name='userEditForm' class="button-style">
 <g:hiddenField name="id" value="${user?.id}"/>
