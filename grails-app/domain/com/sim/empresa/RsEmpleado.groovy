@@ -4,6 +4,7 @@ import com.sim.catalogo.SimCatPuesto
 import com.sim.catalogo.SimCatPerfil
 import com.sim.regional.SimSucursal
 import com.sim.regional.SimRegional
+import com.rs.gral.RsPersona
 
 class RsEmpleado {
 	
@@ -12,21 +13,20 @@ class RsEmpleado {
 	Boolean esVigente = false
 	Boolean asignarTodasSucursales = false
 	
-	static belongsTo = [puesto : SimCatPuesto, perfil : SimCatPerfil, sucursalPertenece :  SimSucursal ]
+	static belongsTo = [puesto : SimCatPuesto, perfil : SimCatPerfil, sucursalPertenece :  SimSucursal, persona : RsPersona ]
 	
 	static hasMany = [ sucursalesConAcceso : SimSucursal, regionalesConAcceso : SimRegional]
 
     static constraints = {
-		puesto(nullable: true)
-		perfil(nullable: true)
-		sucursalPertenece(nullable: true)
+		puesto(nullable: false)
+		perfil(nullable: false)
+		sucursalPertenece(nullable: false)
 		fechaIngreso()
-		numeroNomina()
+		numeroNomina nullable:false, blank: false
 		esVigente()
 		asignarTodasSucursales()
 		sucursalesConAcceso()
 		regionalesConAcceso()
-
     }
 	
 	String toString() {
