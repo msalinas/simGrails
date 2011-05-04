@@ -19,7 +19,7 @@ class RsEmpleado {
 	static hasMany = [ sucursalesConAcceso : SimSucursal, regionalesConAcceso : SimRegional]
 
     static constraints = {
-		persona()
+		persona(unique: true)
 		puesto(nullable: false)
 		perfil(nullable: false)
 		sucursalPertenece(nullable: false)
