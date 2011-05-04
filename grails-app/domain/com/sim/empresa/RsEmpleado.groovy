@@ -12,12 +12,14 @@ class RsEmpleado {
 	String numeroNomina
 	Boolean esVigente = false
 	Boolean asignarTodasSucursales = false
+	RsPersona persona
 	
-	static belongsTo = [puesto : SimCatPuesto, perfil : SimCatPerfil, sucursalPertenece :  SimSucursal, persona : RsPersona ]
+	static belongsTo = [puesto : SimCatPuesto, perfil : SimCatPerfil, sucursalPertenece :  SimSucursal]
 	
 	static hasMany = [ sucursalesConAcceso : SimSucursal, regionalesConAcceso : SimRegional]
 
     static constraints = {
+		persona()
 		puesto(nullable: false)
 		perfil(nullable: false)
 		sucursalPertenece(nullable: false)

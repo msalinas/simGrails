@@ -13,14 +13,14 @@ class RsPersona {
 	String segundoNombre
 	RsConfEmpresa rsConfEmpresa
 	Usuario usuario
-	RsEmpleado empleado	
+	
+	static hasOne  = [ datosEmpleo : RsEmpleado]
+	static hasMany = [ telefonos   : RsGralTelefono, domicilios : RsGralDomicilio  ]
 	
 	static mapping = {
 		usuario lazy:false
-		empleado lazy:false
+		datosEmpleo lazy:false
 	}
-	
-	static hasMany = [ telefonos : RsGralTelefono, domicilios : RsGralDomicilio  ]
 
     static constraints = {
 		email email:true, blank:false
@@ -31,7 +31,7 @@ class RsPersona {
 		usuario nullable:true, unique: true
 		telefonos()
 		domicilios()
-		empleado nullable: true
+		datosEmpleo unique: true, nullable: true
 		rsConfEmpresa(nullable: true)
     }
 	
