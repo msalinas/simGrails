@@ -166,7 +166,7 @@ class RegisterController extends AbstractS2UiController {
 			body = evaluate(body, [user: user, url: url])
 		}
 		mailService.sendMail {
-			to user.email
+			to user.persona.email
 			from conf.ui.forgotPassword.emailFrom
 			subject conf.ui.forgotPassword.emailSubject
 			html body.toString()
