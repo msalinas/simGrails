@@ -999,6 +999,25 @@ class BootStrap {
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('06860'),
 				regional : SimRegional.findByClaveRegional('REGION1'),
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
+		new RsGralDomicilio(calle: 'Direccion administrador',
+				numeroInterior: '54',
+				numeroExterior: '90',
+				esFiscal: 'false',
+				comentarios : 'CRUZANDO DE UNA AVENIDA',
+				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('01790'),
+				sucursal : SimSucursal.get(1),
+				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+							
+		new RsGralDomicilio(calle: 'Direccion administrador',
+				numeroInterior: '78',
+				numeroExterior: '905',
+				esFiscal: 'true',
+				comentarios : 'ATRAS CENTRO COMERCIAL',
+				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('01580'),
+				persona : RsPersona.get(1),
+				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save()
