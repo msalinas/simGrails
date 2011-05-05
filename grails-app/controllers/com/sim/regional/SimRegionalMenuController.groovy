@@ -3,7 +3,7 @@ package com.sim.regional
 class SimRegionalMenuController {
 
     static navigation = [
-        group: 'tabs', action: 'inicioRegional',title: 'Regional', order: 50,
+        group: 'tabs', action: 'inicioRegional',title: 'Entidades', order: 50,
 		subItems: [
 			[action:'irRegional', order:0, title:"Regional"],
 			[action:'irSucursal', order:10, title:'Sucursal'],
