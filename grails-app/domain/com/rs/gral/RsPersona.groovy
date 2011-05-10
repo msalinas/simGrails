@@ -57,6 +57,6 @@ class RsPersona {
     }
 	
 	String toString() {
-		"${apellidoPaterno} ${apellidoMaterno ?: ""} ${primerNombre}"
+		"${apellidoPaterno} ${apellidoMaterno ?: ""} ${primerNombre} ${segundoNombre ?: ""}"
 	}
 }
