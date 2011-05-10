@@ -1,6 +1,7 @@
 package com.sim.regional
 
 import com.sim.empresa.RsConfEmpresa;
+import com.sim.empresa.RsEmpleado
 import com.rs.gral.RsGralTelefono
 import com.rs.gral.RsGralDomicilio
 

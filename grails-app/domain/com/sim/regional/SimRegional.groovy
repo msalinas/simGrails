@@ -1,6 +1,7 @@
 package com.sim.regional
 
 import com.sim.empresa.RsConfEmpresa
+import com.sim.empresa.RsEmpleado
 import com.rs.gral.RsGralTelefono
 import com.rs.gral.RsGralDomicilio
 
@@ -12,7 +13,7 @@ class SimRegional {
 	String  coordinador
 	RsConfEmpresa rsConfEmpresa
 	
-	static hasMany = [  sucursal : SimSucursal, telefono : RsGralTelefono, domicilio : RsGralDomicilio ]
+	static hasMany = [  sucursal : SimSucursal, telefono : RsGralTelefono, domicilio : RsGralDomicilio ], RsEmpleado
 	
     static constraints = {
 		claveRegional(size:5..15, unique: true, nullable: false, blank: false)

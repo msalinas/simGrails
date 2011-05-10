@@ -5,6 +5,7 @@ import com.sim.usuario.Usuario
 import com.sim.empresa.RsEmpleado
 import com.sim.catalogo.SimCatDocumento
 import com.sim.catalogo.SimCatEscolaridad
+import com.sim.catalogo.SimCatTipoPersona
 
 class RsPersona {
  	
@@ -24,7 +25,7 @@ class RsPersona {
 	Usuario usuario
 	
 	static hasOne  = [ datosEmpleo : RsEmpleado]
-	static hasMany = [ telefonos   : RsGralTelefono, domicilios : RsGralDomicilio  ]
+	static hasMany = [ telefonos   : RsGralTelefono, domicilios : RsGralDomicilio , rolesPersona : SimCatTipoPersona]
 	static belongsTo = [identificacionOficial : SimCatDocumento, escolaridad : SimCatEscolaridad]
 	
 	static mapping = {
@@ -51,6 +52,7 @@ class RsPersona {
 		rfc nullable: true
 		curp nullable: true
 		escolaridad  nullable: true
+		rolesPersona nullable: true
 		rsConfEmpresa(nullable: true)
     }
 	
