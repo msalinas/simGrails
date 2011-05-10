@@ -1,12 +1,12 @@
 #!/usr/bin/env groovy
 
-println "cp /home/miguel/desarrollo/grails/sim/modPlugin/NavigationTagLib.groovy /home/miguel/.grails/1.3.7/projects/sim/plugins/navigation-1.2/grails-app/taglib".execute().text
+println "cp /home/miguel/desarrollo/grails/sim/filesModificados/NavigationTagLib.groovy /home/miguel/.grails/1.3.7/projects/sim/plugins/navigation-1.2/grails-app/taglib".execute().text
 
-println "cp /home/miguel/desarrollo/grails/sim/modPlugin/navigation.css /home/miguel/.grails/1.3.7/projects/sim/plugins/navigation-1.2/web-app/css".execute().text
+println "cp /home/miguel/desarrollo/grails/sim/filesModificados/navigation.css /home/miguel/.grails/1.3.7/projects/sim/plugins/navigation-1.2/web-app/css".execute().text
 
-println "cp /home/miguel/desarrollo/grails/sim/modPlugin/i18n-templates.properties /home/miguel/.grails/1.3.7/projects/sim/plugins/i18n-templates-1.1.0.1/grails-app/i18n".execute().text
+println "cp /home/miguel/desarrollo/grails/sim/filesModificados/i18n-templates.properties /home/miguel/.grails/1.3.7/projects/sim/plugins/i18n-templates-1.1.0.1/grails-app/i18n".execute().text
 
-println "cp /home/miguel/desarrollo/grails/sim/modPlugin/RegisterController.groovy /home/miguel/.grails/1.3.7/projects/sim/plugins/spring-security-ui-0.1.2/grails-app/controllers/grails/plugins/springsecurity/ui".execute().text
+println "cp /home/miguel/desarrollo/grails/sim/filesModificados/RegisterController.groovy /home/miguel/.grails/1.3.7/projects/sim/plugins/spring-security-ui-0.1.2/grails-app/controllers/grails/plugins/springsecurity/ui".execute().text
 
 
 

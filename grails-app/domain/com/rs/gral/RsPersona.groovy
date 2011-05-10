@@ -3,6 +3,7 @@ package com.rs.gral
 import com.sim.empresa.RsConfEmpresa
 import com.sim.usuario.Usuario
 import com.sim.empresa.RsEmpleado
+import com.sim.catalogo.SimCatDocumento
 
 class RsPersona {
  	
@@ -11,11 +12,19 @@ class RsPersona {
 	String apellidoMaterno
 	String primerNombre
 	String segundoNombre
+	String nombreAlterno
+	String sexo
+	String estadoCivil
+	Date   fechaNacimiento
 	RsConfEmpresa rsConfEmpresa
+	String numeroIdentificacionOficial
+	String rfc
+	String curp
 	Usuario usuario
 	
 	static hasOne  = [ datosEmpleo : RsEmpleado]
 	static hasMany = [ telefonos   : RsGralTelefono, domicilios : RsGralDomicilio  ]
+	static belongsTo = [identificacionOficial	:	SimCatDocumento]
 	
 	static mapping = {
 		usuario lazy:false
@@ -28,10 +37,18 @@ class RsPersona {
 		apellidoMaterno nullable: true, size:0..25
 		primerNombre size:5..25, blank: false, unique: false
 		segundoNombre nullable: true, size:0..25
+		sexo(nullable: true, inList:["Masculino", "Femenino"] )
+		estadoCivil nullable: true, inList:["Casado - Bienes Mancomunados", "Casado - Bienes Separados", "Divorciado", "Soltero", "Unión Libre", "Viudo"]
+		fechaNacimiento(nullable:true)
 		usuario nullable:true, unique: true
 		telefonos()
 		domicilios()
 		datosEmpleo unique: true, nullable: true
+		nombreAlterno nullable: true, size:0..50
+		identificacionOficial nullable: true
+		numeroIdentificacionOficial nullable: true
+		rfc nullable: true
+		curp nullable: true
 		rsConfEmpresa(nullable: true)
     }
 	
