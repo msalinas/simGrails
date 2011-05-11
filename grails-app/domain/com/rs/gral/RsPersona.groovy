@@ -40,8 +40,13 @@ class RsPersona {
 		apellidoMaterno nullable: true, size:0..25
 		primerNombre size:5..25, blank: false, unique: false
 		segundoNombre nullable: true, size:0..25
-		sexo(nullable: true, inList:["Masculino", "Femenino"] )
-		estadoCivil nullable: true, inList:["Casado - Bienes Mancomunados", "Casado - Bienes Separados", "Divorciado", "Soltero", "Unión Libre", "Viudo"]
+		sexo(nullable: true, inList:["MASCULINO", "FEMENINO"] )
+		estadoCivil nullable: true, inList:["CASADO - BIENES MANCOMUNADOS", 
+			"CASADO - BIENES SEPARADOS", 
+			"DIVORCIADO", 
+			"SOLTERO", 
+			"UNION LIBRE", 
+			"VIUDO"]
 		fechaNacimiento(nullable:true)
 		usuario nullable:true, unique: true
 		telefonos()
