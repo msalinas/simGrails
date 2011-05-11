@@ -3,6 +3,7 @@ package com.rs.gral
 import com.sim.empresa.RsConfEmpresa
 import com.sim.usuario.Usuario
 import com.sim.empresa.RsEmpleado
+import com.sim.empresa.RsCliente
 import com.sim.catalogo.SimCatDocumento
 import com.sim.catalogo.SimCatEscolaridad
 import com.sim.catalogo.SimCatTipoPersona
@@ -24,7 +25,7 @@ class RsPersona {
 	String curp
 	Usuario usuario
 	
-	static hasOne  = [ datosEmpleo : RsEmpleado]
+	static hasOne  = [ datosEmpleado : RsEmpleado, datosCliente : RsCliente]
 	static hasMany = [ telefonos   : RsGralTelefono, domicilios : RsGralDomicilio , rolesPersona : SimCatTipoPersona]
 	static belongsTo = [identificacionOficial : SimCatDocumento, escolaridad : SimCatEscolaridad]
 	
@@ -45,7 +46,6 @@ class RsPersona {
 		usuario nullable:true, unique: true
 		telefonos()
 		domicilios()
-		datosEmpleo unique: true, nullable: true
 		nombreAlterno nullable: true, size:0..50
 		identificacionOficial nullable: true
 		numeroIdentificacionOficial nullable: true
@@ -53,6 +53,8 @@ class RsPersona {
 		curp nullable: true
 		escolaridad  nullable: true
 		rolesPersona nullable: true
+		datosEmpleado unique: true, nullable: true
+		datosCliente unique: true, nullable: true
 		rsConfEmpresa(nullable: true)
     }
 	
