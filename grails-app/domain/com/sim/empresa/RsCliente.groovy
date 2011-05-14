@@ -11,6 +11,8 @@ class RsCliente {
 	String rolEnElHogar
 	Boolean listaNegra = false
 	
+	static hasMany = [ cuentasBancarias : RsCuentaBancaria ]
+	
     static constraints = {
 		persona unique: true
 		ingresoSemanal scale:2, nullable:true
@@ -29,5 +31,12 @@ class RsCliente {
 			"HIJO(A)",
 			"OTRO"]
 		listaNegra()
+		cuentasBancarias()
     }
+	
+	String toString() {
+		"${persona.apellidoPaterno} ${persona.apellidoMaterno ?: ""} ${persona.primerNombre} ${persona.segundoNombre ?: ""}"
+	}
+	
 }
+

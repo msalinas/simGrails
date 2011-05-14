@@ -139,11 +139,11 @@ class BootStrap {
 				accesorio : 'true',
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
-		new SimCatBanco(claveBanco: 'CLAVE_1',
+		new SimCatBanco(claveBanco: 'BANCOMER',
 				nombreBanco: 'BANCOMER',
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
-		new SimCatBanco(claveBanco: 'CLAVE_2',
+		new SimCatBanco(claveBanco: 'BANAMEX',
 				nombreBanco: 'BANAMEX',
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
