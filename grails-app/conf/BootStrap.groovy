@@ -13,40 +13,40 @@ class BootStrap {
 	def springSecurityService
 
 	def init = { servletContext ->
-		
+
 		new RsConfGpoEmpresa(claveGrupoEmpresa: 'SIM',
-			nombreGrupoEmpresa: 'SIM CREDITOS',
-			fechaCreacion: new Date('01/01/2011')).save()
+				nombreGrupoEmpresa: 'SIM CREDITOS',
+				fechaCreacion: new Date('01/01/2011')).save()
 
 		new RsConfEmpresa(claveEmpresa: 'CREDITOS',
-			nombreEmpresa: 'MICROFINANCIERA AZUL',
-			fechaCreacion: new Date('01/01/2011'),
-			rsConfGpoEmpresa: RsConfGpoEmpresa.findByClaveGrupoEmpresa('SIM')).save()
+				nombreEmpresa: 'MICROFINANCIERA AZUL',
+				fechaCreacion: new Date('01/01/2011'),
+				rsConfGpoEmpresa: RsConfGpoEmpresa.findByClaveGrupoEmpresa('SIM')).save()
 
 		//ARREGLO PARA CREAR USUARIOS
 		def samples = [
 					'asalazar' : [ fullName: 'ARTURO SALAZAR', email: "asalazar@example.org", apellidoPaterno: "SALAZAR", apellidoMaterno:"CASTAÑEDA" , primerNombre:"ARTURO" ],
-					'mrugerio' : [ fullName: 'MIGUEL RUGERIO', email: "mrugerio@example.org", apellidoPaterno: "RUGERIO", apellidoMaterno:"FLORES" , primerNombre:"MIGUEL", segundoNombre:"ANGEL" ],
+					'mrugerio' : [ fullName: 'MIGUEL RUGERIO', email: "mrugerio@gmail.com", apellidoPaterno: "RUGERIO", apellidoMaterno:"FLORES" , primerNombre:"MIGUEL", segundoNombre:"ANGEL" ],
 					'egarcia' : [ fullName: 'EFREN GARCIA', email: "egarcia@example.org", apellidoPaterno: "GARCIA", apellidoMaterno:"GUARNEROS" , primerNombre:"EFREN" ],
 					'cgarcia' : [ fullName: 'CHRISTIAN GARCIA', email: "cgarcia@example.org", apellidoPaterno: "GARCIA", apellidoMaterno:"GARCIA" , primerNombre:"CHRISTIAN" ],
 					'msalinas' : [fullName : 'MINERVA SALINAS', email: "msalinas@somewhere.net", apellidoPaterno: "SALINAS", apellidoMaterno:"MONTES" , primerNombre:"MINERVA" ],
-					]
-		
+				]
+
 		def userRole = getOrCreateRole("ROLE_USER")
 		def adminRole = getOrCreateRole("ROLE_ADMIN")
 
 		def users = Usuario.list() ?: []
-		
+
 		if (!users) {
 			// DA DE ALTA AL USUARIO ADMINISTRADOR
 			def adminUser = new Usuario(
 					username: "admin",
 					password: springSecurityService.encodePassword("4321"),
 					enabled: true).save()
-					
+
 			//ASIGNA LOS ROLES AL USUARIO ADMINISTRADOR
 			SecUserSecRole.create adminUser, adminRole
-			
+
 			//DA DE ALTA UNA PERSONA Y LE ASIGNA EL USUARIO ADMINISTRADOR
 			def adminPersona = new RsPersona(
 					apellidoPaterno: "ADMINISTRADOR",
@@ -67,21 +67,21 @@ class BootStrap {
 
 					def rel = SecUserSecRole.create(user, userRole)
 					if (rel.hasErrors()) println "Failed to assign user role to ${user.username}: ${rel.errors}"
-					
+
 					users << user
-					
+
 					//SALVA A LA PERSONA Y LE ASIGNA EL USUARIO CREADO
 					def persona = new RsPersona(
-						apellidoPaterno: profileAttrs.apellidoPaterno,
-						apellidoMaterno: profileAttrs.apellidoMaterno,
-						primerNombre: profileAttrs.primerNombre,
-						segundoNombre: profileAttrs.segundoNombre,
-						email: profileAttrs.email,
-						usuario : user)
+							apellidoPaterno: profileAttrs.apellidoPaterno,
+							apellidoMaterno: profileAttrs.apellidoMaterno,
+							primerNombre: profileAttrs.primerNombre,
+							segundoNombre: profileAttrs.segundoNombre,
+							email: profileAttrs.email,
+							usuario : user)
 					if (persona.validate()){
 						println "Creando persona ${profileAttrs.fullName} del usuario ${username}..."
 						persona.save(flush:true)
-						
+
 					}else{
 						println("\n\n\nError en crear la persona del usuario ${username}!\n\n\n")
 						persona.errors.each {err -> println err }
@@ -93,6 +93,8 @@ class BootStrap {
 				}
 			}
 		}
+
+
 
 		new SimCatTipoAccesorio(claveTipoAccesorio: 'INTERES',
 				nombreTipoAccesorio: 'INTERESES',
@@ -188,7 +190,7 @@ class BootStrap {
 				nombreFuncion: 'SimReportePagareSolidario',
 				).save()
 
-		new SimCatDocumento(claveDocumento:  'CLAVE_7',
+		new SimCatDocumento(claveDocumento:  'CLAVE7',
 				nombreDocumento: 'SOLICITUD',
 				descripcion: 'FORMA PARA INCRESAR UN CRÉDITO',
 				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_1'),
@@ -196,13 +198,21 @@ class BootStrap {
 				esReporte : 'false',
 				).save()
 
-		new SimCatDocumento(claveDocumento:  'CLAVE_22',
+		new SimCatDocumento(claveDocumento:  'CLAVE22',
 				nombreDocumento: 'ANEXO A',
 				descripcion: 'FORMATO ANEXO A',
 				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_3'),
 				simCatReporte : SimCatReporte.findByClaveReporte('CLAVE_1'),
 				esReporte : 'true',
 				).save()
+
+		new SimCatDocumento(claveDocumento:  'CLAVE1',
+				nombreDocumento: 'CREDENCIAL IFE',
+				descripcion: 'CREDENCIAL IFE',
+				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_1'),
+				esReporte : 'false',
+				).save()
+
 
 		new SimCatEscolaridad(claveEscolaridad:  'CLAVE_1',
 				nombreEscolaridad: 'PRIMARIA',
@@ -315,7 +325,7 @@ class BootStrap {
 				descripcionPuesto: 'ASESOR DE SUCURSAL',
 				dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
 				).save()
-	
+
 		new SimCatRechazoComite(claveRechazoComite:  '101',
 				nombreRechazoComite: 'FALTA DE DOCUMENTOS',
 				descripcionRechazoComite: 'FALTA DE DOCUMENTOS',
@@ -480,6 +490,15 @@ class BootStrap {
 				sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1'),
 				).save()
 
+		new RsGralTelefono(telefono:  '555555555',
+				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE2'),
+				persona : RsPersona.findByEmail('mrugerio@gmail.com'),
+				).save()
+
+		new RsGralTelefono(telefono:  '666666666',
+				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE1'),
+				persona : RsPersona.findByEmail('mrugerio@gmail.com'),
+				).save()
 
 
 		new Country(nameCountry: 'MEXICO',
@@ -1004,7 +1023,7 @@ class BootStrap {
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('06860'),
 				regional : SimRegional.findByClaveRegional('REGION1'),
 				).save()
-	
+
 		new RsGralDomicilio(calle: 'Direccion administrador',
 				numeroInterior: '54',
 				numeroExterior: '90',
@@ -1013,7 +1032,7 @@ class BootStrap {
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('01790'),
 				sucursal : SimSucursal.get(1),
 				).save()
-							
+
 		new RsGralDomicilio(calle: 'Direccion administrador',
 				numeroInterior: '78',
 				numeroExterior: '905',
@@ -1022,8 +1041,33 @@ class BootStrap {
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('01580'),
 				persona : RsPersona.get(1),
 				).save()
-	
 
+		new RsGralDomicilio(calle: 'BATALLONES ROJOS 205',
+				numeroInterior: '504',
+				numeroExterior: 'EDIF 8',
+				esFiscal: 'true',
+				comentarios : 'UNIDAD ALBARRADA',
+				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('06862'),
+				persona : RsPersona.findByEmail('mrugerio@gmail.com'),
+				).save()
+
+		new RsGralDomicilio(calle: 'PROGRESISTA',
+				numeroInterior: '202',
+				numeroExterior: 'EDIF 6',
+				esFiscal: 'false',
+				comentarios : 'UNIDAD VICENTE',
+				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('01600'),
+				persona : RsPersona.findByEmail('mrugerio@gmail.com'),
+				).save()
+
+		def personaMiguel = RsPersona.get(3)
+		personaMiguel.sexo = "MASCULINO"
+		personaMiguel.estadoCivil = "CASADO - BIENES MANCOMUNADOS"
+		personaMiguel.fechaNacimiento = new Date('09/30/1974')
+		personaMiguel.nombreAlterno = "MIKE RUGEIRO"
+		personaMiguel.identificacionOficial = SimCatDocumento.findByClaveDocumento('CLAVE1')
+		personaMiguel.save()
+		
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save()
 		new Requestmap(url: '/rsConfGpoEmpresa/**', configAttribute: 'ROLE_USER').save()

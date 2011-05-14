@@ -18,6 +18,7 @@ class RsPersona {
 	String sexo
 	String estadoCivil
 	Date   fechaNacimiento
+	SimCatDocumento identificacionOficial
 	String numeroIdentificacionOficial
 	String rfc
 	String curp
@@ -25,7 +26,7 @@ class RsPersona {
 	
 	static hasOne  = [ datosEmpleado : RsEmpleado, datosCliente : RsCliente]
 	static hasMany = [ telefonos   : RsGralTelefono, domicilios : RsGralDomicilio , rolesPersona : SimCatTipoPersona]
-	static belongsTo = [identificacionOficial : SimCatDocumento, escolaridad : SimCatEscolaridad]
+	static belongsTo = [escolaridad : SimCatEscolaridad]
 	
 	static mapping = {
 		usuario lazy:false
