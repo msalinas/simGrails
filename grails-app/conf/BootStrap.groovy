@@ -214,12 +214,20 @@ class BootStrap {
 				).save()
 
 
-		new SimCatEscolaridad(claveEscolaridad:  'CLAVE_1',
+		new SimCatEscolaridad(claveEscolaridad:  'CLAVE1',
 				nombreEscolaridad: 'PRIMARIA',
 				).save()
 
-		new SimCatEscolaridad(claveEscolaridad:  'CLAVE_2',
+		new SimCatEscolaridad(claveEscolaridad:  'CLAVE2',
 				nombreEscolaridad: 'SECUNDARIA',
+				).save()
+
+		new SimCatEscolaridad(claveEscolaridad:  'CLAVE3',
+				nombreEscolaridad: 'SECUNDARIA',
+				).save()
+
+		new SimCatEscolaridad(claveEscolaridad:  'CLAVE4',
+				nombreEscolaridad: 'LICENCIATURA',
 				).save()
 
 		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'CLAVE_1',
@@ -401,6 +409,17 @@ class BootStrap {
 				nombreTipoPersona: 'CLIENTE',
 				descripcionTipoPersona: 'DESCRIPCION CLIENTE',
 				).save()
+
+		new SimCatTipoPersona(claveTipoPersona:  'USUARIO',
+				nombreTipoPersona: 'USUARIO',
+				descripcionTipoPersona: 'USUARIO DEL SISTEMA',
+				).save()
+
+		new SimCatTipoPersona(claveTipoPersona:  'EMPLEADO',
+				nombreTipoPersona: 'EMPLEADO',
+				descripcionTipoPersona: 'EMPLEADO DE LA EMPRESA',
+				).save()
+
 
 		new SimCatVerificacionReferencia(claveTipoReferencia:  'CLAVE1',
 				nombreTipoReferencia: 'REPUTACIÓN DE BUEN TRABAJADOR',
@@ -1060,14 +1079,21 @@ class BootStrap {
 				persona : RsPersona.findByEmail('mrugerio@gmail.com'),
 				).save()
 
-		def personaMiguel = RsPersona.get(3)
+		//ASIGNA ATRIBUTOS A LA PERSONA mrugerio@gmail.com
+		def personaMiguel = RsPersona.findByEmail('mrugerio@gmail.com')
 		personaMiguel.sexo = "MASCULINO"
 		personaMiguel.estadoCivil = "CASADO - BIENES MANCOMUNADOS"
 		personaMiguel.fechaNacimiento = new Date('09/30/1974')
 		personaMiguel.nombreAlterno = "MIKE RUGEIRO"
 		personaMiguel.identificacionOficial = SimCatDocumento.findByClaveDocumento('CLAVE1')
+		personaMiguel.numeroIdentificacionOficial = "RUFM727328328"
+		personaMiguel.rfc = "RUFM89778"
+		personaMiguel.curp = "RUMD76878968"
+		personaMiguel.escolaridad  = SimCatEscolaridad.findByClaveEscolaridad('CLAVE4')
+		personaMiguel.tiposPersona = [SimCatTipoPersona.findByClaveTipoPersona('USUARIO'), SimCatTipoPersona.findByClaveTipoPersona('EMPLEADO') ]
+
 		personaMiguel.save()
-		
+
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save()
 		new Requestmap(url: '/rsConfGpoEmpresa/**', configAttribute: 'ROLE_USER').save()
