@@ -19,7 +19,6 @@ class RsPersona {
 	String sexo
 	String estadoCivil
 	Date   fechaNacimiento
-	RsConfEmpresa rsConfEmpresa
 	String numeroIdentificacionOficial
 	String rfc
 	String curp
@@ -60,7 +59,6 @@ class RsPersona {
 		rolesPersona nullable: true
 		datosEmpleado unique: true, nullable: true
 		datosCliente unique: true, nullable: true
-		rsConfEmpresa(nullable: true)
     }
 	
 	String toString() {

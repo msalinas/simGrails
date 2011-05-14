@@ -23,7 +23,7 @@ class BootStrap {
 			fechaCreacion: new Date('01/01/2011'),
 			rsConfGpoEmpresa: RsConfGpoEmpresa.findByClaveGrupoEmpresa('SIM')).save()
 
-		//CREACION DE USUARIOS
+		//ARREGLO PARA CREAR USUARIOS
 		def samples = [
 					'asalazar' : [ fullName: 'ARTURO SALAZAR', email: "asalazar@example.org", apellidoPaterno: "SALAZAR", apellidoMaterno:"CASTAÑEDA" , primerNombre:"ARTURO" ],
 					'mrugerio' : [ fullName: 'MIGUEL RUGERIO', email: "mrugerio@example.org", apellidoPaterno: "RUGERIO", apellidoMaterno:"FLORES" , primerNombre:"MIGUEL", segundoNombre:"ANGEL" ],
@@ -36,23 +36,25 @@ class BootStrap {
 		def adminRole = getOrCreateRole("ROLE_ADMIN")
 
 		def users = Usuario.list() ?: []
+		
 		if (!users) {
-			// Start with the admin user.
+			// DA DE ALTA AL USUARIO ADMINISTRADOR
 			def adminUser = new Usuario(
 					username: "admin",
 					password: springSecurityService.encodePassword("4321"),
 					enabled: true).save()
 					
+			//ASIGNA LOS ROLES AL USUARIO ADMINISTRADOR
 			SecUserSecRole.create adminUser, adminRole
 			
+			//DA DE ALTA UNA PERSONA Y LE ASIGNA EL USUARIO ADMINISTRADOR
 			def adminPersona = new RsPersona(
 					apellidoPaterno: "ADMINISTRADOR",
 					primerNombre: "MICROFINANCIERAS",
 					email : "mikerugerio@gmail.com",
-					rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS'),
 					usuario : adminUser).save()
 
-			// Now the normal users.
+			// DA DE ALTA A LOS USUARIOS DEL ARREGLO DEFINIDO ANTERIORMENTE
 			samples.each { username, profileAttrs ->
 				def user = new Usuario(
 						username: username,
@@ -60,7 +62,7 @@ class BootStrap {
 						enabled: true)
 				if (user.validate()) {
 					println "Creando usuario: ${username}..."
-
+					//SE SALVA AL USUARIO
 					user.save(flush:true)
 
 					def rel = SecUserSecRole.create(user, userRole)
@@ -68,13 +70,13 @@ class BootStrap {
 					
 					users << user
 					
+					//SALVA A LA PERSONA Y LE ASIGNA EL USUARIO CREADO
 					def persona = new RsPersona(
 						apellidoPaterno: profileAttrs.apellidoPaterno,
 						apellidoMaterno: profileAttrs.apellidoMaterno,
 						primerNombre: profileAttrs.primerNombre,
 						segundoNombre: profileAttrs.segundoNombre,
 						email: profileAttrs.email,
-						rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS'),
 						usuario : user)
 					if (persona.validate()){
 						println "Creando persona ${profileAttrs.fullName} del usuario ${username}..."
@@ -91,9 +93,6 @@ class BootStrap {
 				}
 			}
 		}
-
-
-
 
 		new SimCatTipoAccesorio(claveTipoAccesorio: 'INTERES',
 				nombreTipoAccesorio: 'INTERESES',
