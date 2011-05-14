@@ -2,6 +2,7 @@ package com.sim.catalogo
 
 import com.sim.empresa.RsConfEmpresa
 import com.rs.gral.RsPersona
+import com.sim.empresa.RsClienteDocumentacion
 
 class SimCatDocumento {
 
@@ -12,7 +13,7 @@ class SimCatDocumento {
 	Boolean esReporte = false
 
 	static belongsTo = [ simCatTipoDocumento : SimCatTipoDocumento , simCatReporte : SimCatReporte ]
-	static hasMany = RsPersona 
+	static hasMany = RsPersona, RsClienteDocumentacion
 
     static constraints = {
 		claveDocumento(size:5..15, unique: true, nullable: false, blank: false)

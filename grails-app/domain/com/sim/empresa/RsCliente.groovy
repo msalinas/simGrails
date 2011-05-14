@@ -11,7 +11,7 @@ class RsCliente {
 	String rolEnElHogar
 	Boolean listaNegra = false
 	
-	static hasMany = [ cuentasBancarias : RsCuentaBancaria ]
+	static hasMany = [ cuentasBancarias : RsCuentaBancaria, documentacion : RsClienteDocumentacion ]
 	
     static constraints = {
 		persona unique: true
@@ -32,6 +32,7 @@ class RsCliente {
 			"OTRO"]
 		listaNegra()
 		cuentasBancarias()
+		documentacion()
     }
 	
 	String toString() {

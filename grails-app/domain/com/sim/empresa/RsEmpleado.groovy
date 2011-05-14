@@ -32,6 +32,6 @@ class RsEmpleado {
     }
 	
 	String toString() {
-		"${numeroNomina}"
+		"EMPLEADO: ${persona.apellidoPaterno} ${persona.apellidoMaterno ?: ""} ${persona.primerNombre} ${persona.segundoNombre ?: ""}"
 	}
 }
