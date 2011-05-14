@@ -311,6 +311,12 @@ class BootStrap {
 				dependeDe : SimCatPuesto.findByClavePuesto('GerRie'),
 				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
 
+		new SimCatPuesto(clavePuesto:  'ASESORSUC',
+				nombrePuesto: 'ASESOR DE SUCURSAL',
+				descripcionPuesto: 'ASESOR DE SUCURSAL',
+				dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
+				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+	
 		new SimCatRechazoComite(claveRechazoComite:  '101',
 				nombreRechazoComite: 'FALTA DE DOCUMENTOS',
 				descripcionRechazoComite: 'FALTA DE DOCUMENTOS',
