@@ -93,13 +93,6 @@
                                 
                             </tr>
                             
-                            <tr class="prop">
-                                <td valign="top" class="name"><g:message code="rsGralDomicilio.rsConfEmpresa" default="Rs Conf Empresa" />:</td>
-                                
-                                <td valign="top" class="value"><g:link controller="rsConfEmpresa" action="show" id="${rsGralDomicilioInstance?.rsConfEmpresa?.id}">${rsGralDomicilioInstance?.rsConfEmpresa?.encodeAsHTML()}</g:link></td>
-                                
-                            </tr>
-                            
                         </tbody>
                     </table>
                 </div>

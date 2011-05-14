@@ -44,13 +44,6 @@
                                 
                             </tr>
                             
-                            <tr class="prop">
-                                <td valign="top" class="name"><g:message code="simCatEscolaridad.rsConfEmpresa" default="Rs Conf Empresa" />:</td>
-                                
-                                <td valign="top" class="value"><g:link controller="rsConfEmpresa" action="show" id="${simCatEscolaridadInstance?.rsConfEmpresa?.id}">${simCatEscolaridadInstance?.rsConfEmpresa?.encodeAsHTML()}</g:link></td>
-                                
-                            </tr>
-                            
                         </tbody>
                     </table>
                 </div>

@@ -21,14 +21,12 @@
                     <thead>
                         <tr>
                         
-                   	    <g:sortableColumn property="id" title="Id" titleKey="simCatEscolaridad.id" />
-                        
-                   	    <g:sortableColumn property="claveEscolaridad" title="Clave Escolaridad" titleKey="simCatEscolaridad.claveEscolaridad" />
-                        
-                   	    <g:sortableColumn property="nombreEscolaridad" title="Nombre Escolaridad" titleKey="simCatEscolaridad.nombreEscolaridad" />
-                        
-                   	    <th><g:message code="simCatEscolaridad.rsConfEmpresa" default="Rs Conf Empresa" /></th>
-                   	    
+	                   	    <g:sortableColumn property="id" title="Id" titleKey="simCatEscolaridad.id" />
+	                        
+	                   	    <g:sortableColumn property="claveEscolaridad" title="Clave Escolaridad" titleKey="simCatEscolaridad.claveEscolaridad" />
+	                        
+	                   	    <g:sortableColumn property="nombreEscolaridad" title="Nombre Escolaridad" titleKey="simCatEscolaridad.nombreEscolaridad" />
+                  	    
                         </tr>
                     </thead>
                     <tbody>
@@ -40,9 +38,6 @@
                             <td>${fieldValue(bean: simCatEscolaridadInstance, field: "claveEscolaridad")}</td>
                         
                             <td>${fieldValue(bean: simCatEscolaridadInstance, field: "nombreEscolaridad")}</td>
-                        
-                            <td>${fieldValue(bean: simCatEscolaridadInstance, field: "rsConfEmpresa")}</td>
-                        
                         </tr>
                     </g:each>
                     </tbody>

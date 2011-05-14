@@ -49,16 +49,6 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="rsConfEmpresa"><g:message code="simCatEscolaridad.rsConfEmpresa" default="Rs Conf Empresa" />:</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: simCatEscolaridadInstance, field: 'rsConfEmpresa', 'errors')}">
-                                    <g:select name="rsConfEmpresa.id" from="${com.sim.empresa.RsConfEmpresa.list()}" optionKey="id" value="${simCatEscolaridadInstance?.rsConfEmpresa?.id}"  />
-
-                                </td>
-                            </tr>
-                        
                         </tbody>
                     </table>
                 </div>

@@ -27,8 +27,6 @@
                         
                    	    <th><g:message code="rsGralTelefono.descripcionTelefono" default="Descripcion Telefono" /></th>
                    	    
-                   	    <th><g:message code="rsGralTelefono.rsConfEmpresa" default="Rs Conf Empresa" /></th>
-                   	    
                    	    <th><g:message code="rsGralTelefono.regional" default="Regional" /></th>
                    	    
                    	    <th><g:message code="rsGralTelefono.sucursal" default="Sucursal" /></th>
@@ -46,8 +44,6 @@
                             <td>${fieldValue(bean: rsGralTelefonoInstance, field: "telefono")}</td>
                         
                             <td>${fieldValue(bean: rsGralTelefonoInstance, field: "descripcionTelefono")}</td>
-                        
-                            <td>${fieldValue(bean: rsGralTelefonoInstance, field: "rsConfEmpresa")}</td>
                         
                             <td>${fieldValue(bean: rsGralTelefonoInstance, field: "regional")}</td>
                             

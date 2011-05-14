@@ -67,14 +67,7 @@
                                 <td valign="top" class="value"><g:link controller="simCatDescTelefono" action="show" id="${rsGralTelefonoInstance?.descripcionTelefono?.id}">${rsGralTelefonoInstance?.descripcionTelefono?.encodeAsHTML()}</g:link></td>
                                 
                             </tr>
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name"><g:message code="rsGralTelefono.rsConfEmpresa" default="Rs Conf Empresa" />:</td>
-                                
-                                <td valign="top" class="value"><g:link controller="rsConfEmpresa" action="show" id="${rsGralTelefonoInstance?.rsConfEmpresa?.id}">${rsGralTelefonoInstance?.rsConfEmpresa?.encodeAsHTML()}</g:link></td>
-                                
-                            </tr>
-                            
+         
                         </tbody>
                     </table>
                 </div>
