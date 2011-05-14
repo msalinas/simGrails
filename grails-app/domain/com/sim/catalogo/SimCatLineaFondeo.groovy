@@ -1,7 +1,5 @@
 package com.sim.catalogo
 
-import com.sim.empresa.RsConfEmpresa;
-
 class SimCatLineaFondeo {
 	
 	String numeroLinea
@@ -10,7 +8,6 @@ class SimCatLineaFondeo {
 	Double tasa
 	Date   fechaInicio
     Date   fechaVigencia
-	RsConfEmpresa rsConfEmpresa
  
 	static belongsTo = [ simCatFondeador : SimCatFondeador ]
 
@@ -22,7 +19,6 @@ class SimCatLineaFondeo {
 		tasa()
 		fechaInicio()
 		fechaVigencia()
-		rsConfEmpresa(nullable: false)
     }
 	
 	String toString() {

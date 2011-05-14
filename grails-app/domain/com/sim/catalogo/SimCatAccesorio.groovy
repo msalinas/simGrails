@@ -1,12 +1,9 @@
 package com.sim.catalogo
 
-import com.sim.empresa.RsConfEmpresa
-
 class SimCatAccesorio {
 
 	String  claveAccesorio
 	String  nombreAccesorio
-	RsConfEmpresa rsConfEmpresa
 	Double tasaIva
 	Boolean beneficiario = false
     Boolean accesorio= false
@@ -20,7 +17,6 @@ class SimCatAccesorio {
 		tasaIva()
 		beneficiario(nullable:false)
 		accesorio(nullable:false)
-		rsConfEmpresa(nullable: false)
     }
 
 

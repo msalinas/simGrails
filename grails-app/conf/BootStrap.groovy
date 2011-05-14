@@ -96,15 +96,15 @@ class BootStrap {
 
 		new SimCatTipoAccesorio(claveTipoAccesorio: 'INTERES',
 				nombreTipoAccesorio: 'INTERESES',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoAccesorio(claveTipoAccesorio: 'RECARGO',
 				nombreTipoAccesorio: 'RECARGOS',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoAccesorio(claveTipoAccesorio: 'CARGO_COMISION',
 				nombreTipoAccesorio: 'CARGO Y COMISIONES',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatAccesorio(claveAccesorio: 'CLAVE_6',
 				nombreAccesorio: 'SEGURO DE VIDA',
@@ -112,7 +112,7 @@ class BootStrap {
 				tasaIva : 0,
 				beneficiario : 'true',
 				accesorio : 'true',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatAccesorio(claveAccesorio: 'CLAVE_8',
 				nombreAccesorio: 'SEGURO DEUDOR',
@@ -120,7 +120,7 @@ class BootStrap {
 				tasaIva : 0,
 				beneficiario : 'false',
 				accesorio : 'true',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatAccesorio(claveAccesorio: 'CLAVE_8',
 				nombreAccesorio: 'SEGURO DEUDOR',
@@ -128,7 +128,7 @@ class BootStrap {
 				tasaIva : 0,
 				beneficiario : 'false',
 				accesorio : 'true',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatAccesorio(claveAccesorio: 'CLAVE_15',
 				nombreAccesorio: 'ADMINISTRACION CREDITICIA',
@@ -136,57 +136,57 @@ class BootStrap {
 				tasaIva : 0,
 				beneficiario : 'false',
 				accesorio : 'true',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatBanco(claveBanco: 'BANCOMER',
 				nombreBanco: 'BANCOMER',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatBanco(claveBanco: 'BANAMEX',
 				nombreBanco: 'BANAMEX',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatDescTelefono(claveDescripcionTelefono: 'CLAVE1',
 				nombreDescripcionTelefono: 'CASA',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatDescTelefono(claveDescripcionTelefono: 'CLAVE2',
 				nombreDescripcionTelefono: 'OFICINA',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatDescTelefono(claveDescripcionTelefono: 'CLAVE3',
 				nombreDescripcionTelefono: 'FAX',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new PfinDiaFestivo(diaFestivo:  new Date('01/01/2011'),
 				descripcionDia: 'AÑO NUEVO',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoDocumento(claveTipoDocumentacion:  'CLAVE_1',
 				nombreTipoDocumentacion: 'IDENTIFICACION OFICIAL',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoDocumento(claveTipoDocumentacion:  'CLAVE_2',
 				nombreTipoDocumentacion: 'COMPROBANTE DE DOMICILIO',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoDocumento(claveTipoDocumentacion:  'CLAVE_3',
 				nombreTipoDocumentacion: 'LEGAL',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatReporte(claveReporte:  'CLAVE_1',
 				nombreReporte: 'ANEXO A',
 				descripcion: 'DESCRIPCION DEL ANEXO A',
 				aplicaA : 'Individual',
 				nombreFuncion: 'SimReporteAnexoA',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatReporte(claveReporte:  'CLAVE_4',
 				nombreReporte: 'PAGARE SOLIDARIO',
 				descripcion: 'DESCRIPCION DEL PAGARE SOLIDARIO',
 				aplicaA : 'Grupo',
 				nombreFuncion: 'SimReportePagareSolidario',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatDocumento(claveDocumento:  'CLAVE_7',
 				nombreDocumento: 'SOLICITUD',
@@ -194,7 +194,7 @@ class BootStrap {
 				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_1'),
 				simCatReporte : '',
 				esReporte : 'false',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatDocumento(claveDocumento:  'CLAVE_22',
 				nombreDocumento: 'ANEXO A',
@@ -202,29 +202,29 @@ class BootStrap {
 				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_3'),
 				simCatReporte : SimCatReporte.findByClaveReporte('CLAVE_1'),
 				esReporte : 'true',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatEscolaridad(claveEscolaridad:  'CLAVE_1',
 				nombreEscolaridad: 'PRIMARIA',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatEscolaridad(claveEscolaridad:  'CLAVE_2',
 				nombreEscolaridad: 'SECUNDARIA',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'CLAVE_1',
 				nombreEtapaPrestamo: 'SOLICITADO',
 				descripcionEtapaPrestamo: 'SOLICITADO',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'CLAVE_2',
 				nombreEtapaPrestamo: 'BURO DE CREDITO',
 				descripcionEtapaPrestamo: 'BURO DE CREDITO',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatFondeador(claveFondeador:  'CLAVE_1',
 				nombreFondeador: 'PRONAFIN',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatLineaFondeo(numeroLinea:  'LINEA 1',
 				monto: 5000,
@@ -233,7 +233,7 @@ class BootStrap {
 				fechaInicio: new Date('01/01/2011'),
 				fechaVigencia : new Date('01/01/2015'),
 				simCatFondeador : SimCatFondeador.findByClaveFondeador('CLAVE_1'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatLineaFondeo(numeroLinea:  'LINEA 2',
 				monto: 25000,
@@ -242,243 +242,243 @@ class BootStrap {
 				fechaInicio: new Date('01/01/2011'),
 				fechaVigencia : new Date('01/01/2019'),
 				simCatFondeador : SimCatFondeador.findByClaveFondeador('CLAVE_1'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 
 		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_01',
 				nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL E INTERES',
 				descripcionMetodoCalculo: 'INTERES GLOBAL',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_02',
 				nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL, CALCULO DE INTERES SOBRE EL SALDO INSOLUTO',
 				descripcionMetodoCalculo: 'INTERES SOBRE SALDO INSOLUTO',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_05',
 				nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL MAS INTERES, CALCULO DE INTERES SOBRE EL SALDO INSOLUTO',
 				descripcionMetodoCalculo: 'SIN RECALCULO DE INTERESES POR PAGOS ADELANTADOS, CONOCIDO COMO METODO FRANCES',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_06',
 				nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL MAS INTERES, CALCULO DE INTERES SOBRE EL SALDO INSOLUTO RI',
 				descripcionMetodoCalculo: 'RECALCULO DE INTERESES POR PAGOS ADELANTADOS, CONOCIDO COMO METODO FRANCES',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatParentesco(claveParentesco:  'MADRE',
 				nombreParentesco: 'MADRE',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatParentesco(claveParentesco:  'PADRE',
 				nombreParentesco: 'PADRE',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatPerfil(clavePerfil:  'CAJERO',
 				nombrePerfil: 'CAJERO',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatPerfil(clavePerfil:  'EJECRE',
 				nombrePerfil: 'EJECUTIVO DE CREDITO',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatPeriodicidad(clavePeriodicidad:  'CLAVE_1',
 				nombrePeriodicidad: 'ANUAL',
 				cantidadPagos: 1,
 				numeroDias: 360,
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatPeriodicidad(clavePeriodicidad:  'CLAVE_2',
 				nombrePeriodicidad: 'MENSUAL',
 				cantidadPagos: 12,
 				numeroDias: 30,
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatPuesto(clavePuesto:  'DirGen',
 				nombrePuesto: 'DIRECTOR GENERAL',
 				descripcionPuesto: 'DIRECTOR GENERAL MICRO',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatPuesto(clavePuesto:  'GerRie',
 				nombrePuesto: 'GERENTE DE RIESGOS',
 				descripcionPuesto: 'GERENTE DE RIESGOS',
 				dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatPuesto(clavePuesto:  'CooRie',
 				nombrePuesto: 'COORDINADOR DE RIESGOS',
 				descripcionPuesto: 'COORDINADOR DE RIESGOS',
 				dependeDe : SimCatPuesto.findByClavePuesto('GerRie'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatPuesto(clavePuesto:  'ASESORSUC',
 				nombrePuesto: 'ASESOR DE SUCURSAL',
 				descripcionPuesto: 'ASESOR DE SUCURSAL',
 				dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 	
 		new SimCatRechazoComite(claveRechazoComite:  '101',
 				nombreRechazoComite: 'FALTA DE DOCUMENTOS',
 				descripcionRechazoComite: 'FALTA DE DOCUMENTOS',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatRechazoComite(claveRechazoComite:  '102',
 				nombreRechazoComite: 'ANTECEDENTES PENALES ',
 				descripcionRechazoComite: 'ANTECEDENTES PENALES ',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoAsentamiento(claveTipoAsentamiento:  'CIUDAD',
 				nombreTipoAsentamiento: 'CIUDAD',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 		new SimCatTipoAsentamiento(claveTipoAsentamiento:  'COLONIA',
 				nombreTipoAsentamiento: 'COLONIA',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 		new SimCatTipoAsentamiento(claveTipoAsentamiento:  'URBANA',
 				nombreTipoAsentamiento: 'URBANA',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoDomicilio(claveTipoDomicilio:  'CLAVE1',
 				nombreTipoDomicilio: 'PROPIA',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoDomicilio(claveTipoDomicilio:  'CLAVE2',
 				nombreTipoDomicilio: 'RENTADA',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoGarantia(claveTipoGarantia:  'CLAVE1',
 				nombreTipoGarantia: 'PRENDARIA',
 				descripcionTipoGarantia: 'DESCRIPCION PRENDARIA',
 				requisitosTipoGarantia: 'REQUISITOS PRENDARIA',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoGarantia(claveTipoGarantia:  'CLAVE2',
 				nombreTipoGarantia: 'QUIFOGRAFARIA',
 				descripcionTipoGarantia: 'DESCRIPCION QUIFOGRAFARIA',
 				requisitosTipoGarantia: 'REQUISITOS QUIFOGRAFARIA',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoIdentificador(claveTipoIdentificador:  'AVAL',
 				nombreTipoIdentificador: 'AVAL O FIADOR',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoIdentificador(claveTipoIdentificador:  'CLIENTE',
 				nombreTipoIdentificador: 'CLIENTE',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoIdentificador(claveTipoIdentificador:  'REGIONAL',
 				nombreTipoIdentificador: 'REGIONAL',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoIdentificador(claveTipoIdentificador:  'SUCURSAL',
 				nombreTipoIdentificador: 'SUCURSAL',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoNegocio(claveTipoNegocio:  'CLAVE1',
 				nombreTipoNegocio: 'FIJO',
 				descripcionTipoNegocio: 'DESCRIPCION FIJO',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoNegocio(claveTipoNegocio:  'CLAVE2',
 				nombreTipoNegocio: 'SEMIFIJO',
 				descripcionTipoNegocio: 'DESCRIPCION SEMIFIJO',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoPersona(claveTipoPersona:  'AVAL',
 				nombreTipoPersona: 'AVAL',
 				descripcionTipoPersona: 'DESCRIPCION AVAL',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTipoPersona(claveTipoPersona:  'CLIENTE',
 				nombreTipoPersona: 'CLIENTE',
 				descripcionTipoPersona: 'DESCRIPCION CLIENTE',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatVerificacionReferencia(claveTipoReferencia:  'CLAVE1',
 				nombreTipoReferencia: 'REPUTACIÓN DE BUEN TRABAJADOR',
 				descripcionTipoReferencia: 'REPUTACIÓN DE BUEN TRABAJADOR',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 
 		new SimCatVerificacionReferencia(claveTipoReferencia:  'CLAVE4',
 				nombreTipoReferencia: 'LO CONOCEN PERO NO SABEN SU CALIDAD COMO PERSONA',
 				descripcionTipoReferencia: 'LO CONOCEN PERO NO SABEN SU CALIDAD COMO PERSONA',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTasaReferencia(claveTasaReferencia:  'CLAVE1',
 				nombreTasaReferencia: 'CETES 28',
 				descripcionTasaReferencia: 'DESCRIPCION CETES 28',
 				periodicidadTasa: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_1'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTasaReferencia(claveTasaReferencia:  'CLAVE2',
 				nombreTasaReferencia: 'BONO',
 				descripcionTasaReferencia: 'DESCRIPCION BONO',
 				periodicidadTasa: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_2'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTasaPapel(claveTasaPapel:  'CLAVE1',
 				fechaPublicacion: new Date('01/01/2011'),
 				valorTasaPapel: 5.85,
 				tasaReferencia: SimCatTasaReferencia.findByClaveTasaReferencia('CLAVE2'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimCatTasaPapel(claveTasaPapel:  'CLAVE2',
 				fechaPublicacion: new Date('01/05/2011'),
 				valorTasaPapel: 8.85,
 				tasaReferencia: SimCatTasaReferencia.findByClaveTasaReferencia('CLAVE2'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimRegional(claveRegional:  'REGION1',
 				nombreRegional: 'TOLUCA',
 				gerente: 'LUIS',
 				coordinador: 'ALBERTO',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimRegional(claveRegional:  'REGION2',
 				nombreRegional: 'PUEBLA',
 				gerente: 'ARMANDO',
 				coordinador: 'GILBERTO',
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimSucursal(claveSucursal:  'SUCURSAL1',
 				nombreSucursal: 'SAN MATEO',
 				gerente: 'ARMANDO',
 				coordinador: 'GILBERTO',
 				regional : SimRegional.findByClaveRegional('REGION1'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimSucursal(claveSucursal:  'SUCURSAL2',
 				nombreSucursal: 'SANTIAGO TIANGUISTENCO',
 				gerente: 'MARIO',
 				coordinador: 'GUSTAVO',
 				regional : SimRegional.findByClaveRegional('REGION1'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new SimSucursal(claveSucursal:  'SUCURSAL3',
 				nombreSucursal: 'IXTAPAN DE LA SAL',
 				gerente: 'MARIO',
 				coordinador: 'GUSTAVO',
 				regional : SimRegional.findByClaveRegional('REGION1'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new RsGralTelefono(telefono:  '111111111',
 				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE2'),
 				regional : SimRegional.findByClaveRegional('REGION1'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new RsGralTelefono(telefono:  '222222222',
 				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE3'),
 				regional : SimRegional.findByClaveRegional('REGION1'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new RsGralTelefono(telefono:  '33333333',
 				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE1'),
 				sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 		new RsGralTelefono(telefono:  '444444444',
 				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE2'),
 				sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 
 
 
@@ -1003,7 +1003,7 @@ class BootStrap {
 				comentarios : 'ENFRENTE DE UNA FARMACIA',
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('06860'),
 				regional : SimRegional.findByClaveRegional('REGION1'),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 	
 		new RsGralDomicilio(calle: 'Direccion administrador',
 				numeroInterior: '54',
@@ -1012,7 +1012,7 @@ class BootStrap {
 				comentarios : 'CRUZANDO DE UNA AVENIDA',
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('01790'),
 				sucursal : SimSucursal.get(1),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 							
 		new RsGralDomicilio(calle: 'Direccion administrador',
 				numeroInterior: '78',
@@ -1021,7 +1021,7 @@ class BootStrap {
 				comentarios : 'ATRAS CENTRO COMERCIAL',
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('01580'),
 				persona : RsPersona.get(1),
-				rsConfEmpresa: RsConfEmpresa.findByClaveEmpresa('CREDITOS')).save()
+				).save()
 	
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps

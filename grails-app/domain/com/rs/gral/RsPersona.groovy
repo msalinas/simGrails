@@ -1,6 +1,5 @@
 package com.rs.gral
 
-import com.sim.empresa.RsConfEmpresa
 import com.sim.usuario.Usuario
 import com.sim.empresa.RsEmpleado
 import com.sim.empresa.RsCliente

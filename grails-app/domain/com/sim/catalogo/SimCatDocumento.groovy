@@ -1,6 +1,5 @@
 package com.sim.catalogo
 
-import com.sim.empresa.RsConfEmpresa
 import com.rs.gral.RsPersona
 import com.sim.empresa.RsClienteDocumentacion
 
@@ -9,7 +8,6 @@ class SimCatDocumento {
 	String  claveDocumento
 	String  nombreDocumento
 	String  descripcion
-	RsConfEmpresa rsConfEmpresa
 	Boolean esReporte = false
 
 	static belongsTo = [ simCatTipoDocumento : SimCatTipoDocumento , simCatReporte : SimCatReporte ]
@@ -22,7 +20,6 @@ class SimCatDocumento {
 		simCatTipoDocumento(nullable:true)
 		esReporte()
 		simCatReporte(nullable:true)
-		rsConfEmpresa(nullable: false)
     }
 
 	String toString() {

@@ -1,6 +1,5 @@
 package com.rs.gral
 
-import com.sim.empresa.RsConfEmpresa;
 import com.sim.regional.SimRegional
 import com.sim.regional.SimSucursal
 
@@ -9,7 +8,6 @@ class RsGralDomicilio {
 	String  calle
 	String  numeroInterior
 	String  numeroExterior
-	RsConfEmpresa rsConfEmpresa
 	RsGralAsentamiento rsGralAsentamiento
 	Boolean esFiscal = false
 	String  comentarios
@@ -23,7 +21,6 @@ class RsGralDomicilio {
 		rsGralAsentamiento(nullable: false)
 		esFiscal()
 		comentarios(size:0..300)
-		rsConfEmpresa(nullable: false)
 		regional(nullable: true)
 		sucursal(nullable: true)
 		persona(nullable: true)

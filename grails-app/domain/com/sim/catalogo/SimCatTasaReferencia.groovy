@@ -1,13 +1,10 @@
 package com.sim.catalogo
 
-import com.sim.empresa.RsConfEmpresa;
-
 class SimCatTasaReferencia {
 
 	String  claveTasaReferencia
 	String  nombreTasaReferencia
 	String  descripcionTasaReferencia
-	RsConfEmpresa rsConfEmpresa
 
 	static belongsTo = [ periodicidadTasa : SimCatPeriodicidad ]
 	static hasMany = [ tasaPapel : SimCatTasaPapel ]
@@ -17,7 +14,6 @@ class SimCatTasaReferencia {
 		nombreTasaReferencia(size:4..50, unique: true, nullable: false, blank: false)
 		descripcionTasaReferencia()
 		periodicidadTasa(nullable:false)
-		rsConfEmpresa(nullable: false)
     }
 
 

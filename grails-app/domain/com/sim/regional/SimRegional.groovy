@@ -1,6 +1,5 @@
 package com.sim.regional
 
-import com.sim.empresa.RsConfEmpresa
 import com.sim.empresa.RsEmpleado
 import com.rs.gral.RsGralTelefono
 import com.rs.gral.RsGralDomicilio
@@ -11,7 +10,6 @@ class SimRegional {
 	String  nombreRegional
 	String  gerente
 	String  coordinador
-	RsConfEmpresa rsConfEmpresa
 	
 	static hasMany = [  sucursal : SimSucursal, telefono : RsGralTelefono, domicilio : RsGralDomicilio ], RsEmpleado
 	
@@ -23,7 +21,6 @@ class SimRegional {
 		domicilio()
 		telefono()
 		sucursal()
-		rsConfEmpresa(nullable: false)
     }
 	
 	String toString() {
