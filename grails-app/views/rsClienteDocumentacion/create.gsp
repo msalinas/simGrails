@@ -61,8 +61,10 @@
                                     <label for="asesorVerifico"><g:message code="rsClienteDocumentacion.asesorVerifico" default="Asesor Verifico" />:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: rsClienteDocumentacionInstance, field: 'asesorVerifico', 'errors')}">
-                                    <g:select name="asesorVerifico.id" from="${com.sim.empresa.RsEmpleado.findAllByNumeroNomina('66666')}" optionKey="id" value="${rsClienteDocumentacionInstance?.asesorVerifico?.id}" noSelection="['null': '']" />
-
+                                    <g:select name="asesorVerifico.id" from="${com.sim.empresa.RsEmpleado.
+                                    	findAll('from RsEmpleado as e, SimCatPuesto as p where e.puesto = p and p.clavePuesto = ?', ['CooRie'])}" 
+                                    	optionKey="id" value="${rsClienteDocumentacionInstance?.asesorVerifico?.id}" 
+                                    	noSelection="['null': '']" />
                                 </td>
                             </tr>
                         
