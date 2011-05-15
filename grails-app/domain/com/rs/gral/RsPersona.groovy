@@ -18,21 +18,17 @@ class RsPersona {
 	String sexo
 	String estadoCivil
 	Date   fechaNacimiento
-	SimCatDocumento identificacionOficial
 	String numeroIdentificacionOficial
-	SimCatEscolaridad escolaridad
 	String rfc
 	String curp
+
+	SimCatDocumento identificacionOficial
+	SimCatEscolaridad escolaridad
 	Usuario usuario
 	
 	static hasOne  = [ datosEmpleado : RsEmpleado, datosCliente : RsCliente]
 	static hasMany = [ telefonos   : RsGralTelefono, domicilios : RsGralDomicilio , tiposPersona : SimCatTipoPersona]
 	
-	static mapping = {
-		usuario lazy:false
-		datosEmpleado lazy:false
-	}
-
     static constraints = {
 		email email:true, blank:false
 		apellidoPaterno size:5..25, blank: false, unique: false

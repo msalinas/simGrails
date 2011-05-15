@@ -9,6 +9,7 @@ class SimCatTipoPersona {
 	String  descripcionTipoPersona
 	
 	static hasMany = RsPersona
+	static belongsTo = RsPersona
 
     static constraints = {
 		claveTipoPersona(size:3..15, unique: true, nullable: false, blank: false)
