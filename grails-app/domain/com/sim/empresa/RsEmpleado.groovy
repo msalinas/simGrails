@@ -13,10 +13,12 @@ class RsEmpleado {
 	Boolean esVigente = false
 	Boolean asignarTodasSucursales = false
 	RsPersona persona
+	SimCatPuesto puesto
+	SimCatPerfil perfil
 	
-	static belongsTo = [puesto : SimCatPuesto, perfil : SimCatPerfil, sucursalPertenece :  SimSucursal]
+	static belongsTo = [sucursalPertenece :  SimSucursal]
 	
-	static hasMany = [ sucursalesConAcceso : SimSucursal, regionalesConAcceso : SimRegional]
+	static hasMany = [sucursalesConAcceso : SimSucursal, regionalesConAcceso : SimRegional]
 
     static constraints = {
 		persona(unique: true)
@@ -32,6 +34,6 @@ class RsEmpleado {
     }
 	
 	String toString() {
-		"EMPLEADO: ${persona.apellidoPaterno} ${persona.apellidoMaterno ?: ""} ${persona.primerNombre} ${persona.segundoNombre ?: ""}"
+		"${puesto.nombrePuesto}: ${persona.apellidoPaterno} ${persona.apellidoMaterno ?: ""} ${persona.primerNombre} ${persona.segundoNombre ?: ""}"
 	}
 }

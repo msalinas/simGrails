@@ -1,7 +1,5 @@
 package com.sim.catalogo
 
-import com.sim.empresa.RsEmpleado
-
 class SimCatPuesto {
 	String  clavePuesto
 	String  nombrePuesto
@@ -15,8 +13,7 @@ class SimCatPuesto {
     }
 	
 	static belongsTo = [dependeDe: SimCatPuesto]
-	static hasMany = [ puestosDependientes: SimCatPuesto ], RsEmpleado
-
+	static hasMany   = [puestosDependientes: SimCatPuesto ]
 
 	String toString() {
 		"${nombrePuesto}"
