@@ -43,7 +43,6 @@ class RsPersona {
 			"UNION LIBRE", 
 			"VIUDO"]
 		fechaNacimiento(nullable:true)
-		usuario nullable:true, unique: true
 		telefonos()
 		domicilios()
 		nombreAlterno nullable: true, size:0..50
@@ -53,8 +52,10 @@ class RsPersona {
 		curp nullable: true
 		escolaridad  nullable: true
 		tiposPersona nullable: true
-		datosEmpleado unique: true, nullable: true
-		datosCliente unique: true, nullable: true
+		
+		usuario nullable:true, unique: true
+		datosEmpleado nullable: true 
+		datosCliente nullable: true 
     }
 	
 	String toString() {

@@ -12,9 +12,10 @@ class RsEmpleado {
 	String numeroNomina
 	Boolean esVigente = false
 	Boolean asignarTodasSucursales = false
-	RsPersona persona
 	SimCatPuesto puesto
 	SimCatPerfil perfil
+	
+	RsPersona persona
 	
 	static belongsTo = [sucursalPertenece :  SimSucursal]
 	
