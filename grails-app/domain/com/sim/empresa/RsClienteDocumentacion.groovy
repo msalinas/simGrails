@@ -7,8 +7,9 @@ class RsClienteDocumentacion {
 	Date fechaRecibido
 	Boolean documentacionCorrecta = false
 	RsEmpleado asesorVerifico
+	SimCatDocumento documento
 
-	static belongsTo = [documento : SimCatDocumento, cliente : RsCliente]
+	static belongsTo = [ cliente : RsCliente]
 	
     static constraints = {
 		cliente()

@@ -21,20 +21,17 @@ class RsPersona {
 	String numeroIdentificacionOficial
 	String rfc
 	String curp
+
+	SimCatDocumento identificacionOficial
+	SimCatEscolaridad escolaridad
 	Usuario usuario
 	
 	static hasOne  = [ datosEmpleado : RsEmpleado, datosCliente : RsCliente]
-	static hasMany = [ telefonos   : RsGralTelefono, domicilios : RsGralDomicilio , rolesPersona : SimCatTipoPersona]
-	static belongsTo = [identificacionOficial : SimCatDocumento, escolaridad : SimCatEscolaridad]
+	static hasMany = [ telefonos   : RsGralTelefono, domicilios : RsGralDomicilio , tiposPersona : SimCatTipoPersona]
 	
-	static mapping = {
-		usuario lazy:false
-		datosEmpleo lazy:false
-	}
-
     static constraints = {
 		email email:true, blank:false
-		apellidoPaterno size:5..25, blank: false, unique: false
+		apellidoPaterno size:3..25, blank: false, unique: false
 		apellidoMaterno nullable: true, size:0..25
 		primerNombre size:5..25, blank: false, unique: false
 		segundoNombre nullable: true, size:0..25
@@ -55,7 +52,7 @@ class RsPersona {
 		rfc nullable: true
 		curp nullable: true
 		escolaridad  nullable: true
-		rolesPersona nullable: true
+		tiposPersona nullable: true
 		datosEmpleado unique: true, nullable: true
 		datosCliente unique: true, nullable: true
     }

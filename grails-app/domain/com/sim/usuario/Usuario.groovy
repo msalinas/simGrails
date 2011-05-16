@@ -10,6 +10,11 @@ class Usuario extends SecUser {
 		persona nullable:true
 	}
 	
+	//Here we configure GORM to load the associated persona instance (through the persona property) whenever an Usuario is loaded.
+	static mapping = {
+		persona lazy:false
+	}
+	
 	String toString() {
 		"${username}"
 	}
