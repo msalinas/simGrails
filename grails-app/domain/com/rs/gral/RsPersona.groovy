@@ -31,7 +31,7 @@ class RsPersona {
 	
     static constraints = {
 		email email:true, blank:false
-		apellidoPaterno size:5..25, blank: false, unique: false
+		apellidoPaterno size:3..25, blank: false, unique: false
 		apellidoMaterno nullable: true, size:0..25
 		primerNombre size:5..25, blank: false, unique: false
 		segundoNombre nullable: true, size:0..25

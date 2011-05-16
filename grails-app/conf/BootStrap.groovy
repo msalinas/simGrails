@@ -193,7 +193,7 @@ class BootStrap {
 
 		new SimCatDocumento(claveDocumento:  'CLAVE7',
 		nombreDocumento: 'SOLICITUD',
-		descripcion: 'FORMA PARA INCRESAR UN CRÉDITO',
+		descripcion: 'FORMA PARA INGRESAR UN CRÉDITO',
 		simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_1'),
 		simCatReporte : '',
 		esReporte : 'false',
@@ -1135,6 +1135,91 @@ class BootStrap {
 		sucursalesConAcceso : [SimSucursal.findByClaveSucursal('SUCURSAL1'), SimSucursal.findByClaveSucursal('SUCURSAL2'), SimSucursal.findByClaveSucursal('SUCURSAL3')],
 		regionalesConAcceso : [SimRegional.findByClaveRegional('REGION1'), SimRegional.findByClaveRegional('REGION2')]
 		).save()
+
+		//DA DE ALTA A UN EMPLEADO
+		empleado = new RsEmpleado(
+		persona :  RsPersona.findByEmail('asalazar@example.org'), 
+		puesto : SimCatPuesto.findByClavePuesto('ASESORSUC'),
+		perfil : SimCatPerfil.findByClavePerfil('EJECRE'),
+		sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL2'),
+		fechaIngreso  : new Date('08/20/2010'),
+		numeroNomina : "002",
+		esVigente: 'true',
+		asignarTodasSucursales: 'true',
+		sucursalesConAcceso : [SimSucursal.findByClaveSucursal('SUCURSAL1'), SimSucursal.findByClaveSucursal('SUCURSAL2'), SimSucursal.findByClaveSucursal('SUCURSAL3')],
+		regionalesConAcceso : [SimRegional.findByClaveRegional('REGION1'), SimRegional.findByClaveRegional('REGION2')]
+		).save()
+		
+		//DA DE ALTA A UN EMPLEADO
+		empleado = new RsEmpleado(
+		persona :  RsPersona.findByEmail('cgarcia@example.org'),
+		puesto : SimCatPuesto.findByClavePuesto('CooRie'),
+		perfil : SimCatPerfil.findByClavePerfil('EJECRE'),
+		sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL2'),
+		fechaIngreso  : new Date('12/30/2005'),
+		numeroNomina : "003",
+		esVigente: 'true',
+		asignarTodasSucursales: 'true',
+		sucursalesConAcceso : [SimSucursal.findByClaveSucursal('SUCURSAL1')],
+		regionalesConAcceso : [SimRegional.findByClaveRegional('REGION1')]
+		).save()
+		
+		//DA DE ALTA UNA PERSONA CLIENTE
+		def personaCliente = new RsPersona(
+		apellidoPaterno: "NAVA",
+		apellidoMaterno: "MARTINEZ",
+		primerNombre: "ALEJANDRO",
+		email: "alex@hotmail.com",
+		sexo : "MASCULINO",
+		estadoCivil : "SOLTERO",
+		fechaNacimiento : new Date('03/21/1973'),
+		nombreAlterno : "EL MAESTRO",
+		identificacionOficial : SimCatDocumento.findByClaveDocumento('CLAVE1'),
+		numeroIdentificacionOficial : "NAMA3328328",
+		rfc : "SDFF89778",
+		curp : "SDFSDF6878968",
+		escolaridad  : SimCatEscolaridad.findByClaveEscolaridad('CLAVE2'),
+		tiposPersona : [SimCatTipoPersona.findByClaveTipoPersona('CLIENTE')]
+		).save()
+		
+		//DA DE ALTA UN CLIENTE
+		def cliente = new RsCliente(
+		persona :  personaCliente,
+		ingresoSemanal : 4500.50,
+		dependientesEconomicos : 4,
+		destinoDelCredito : "AMPLIAR, ADECUAR O REPARAR EL LOCAL O VEHICULO",
+		rolEnElHogar : "ESPOSO(A)",
+		listaNegra : false).save()
+		
+		//DA DE ALTA CUENTA BANCARIA A UN CLIENTE
+		def cuentaBancaria = new RsCuentaBancaria(
+		numeroDeCuenta : "122222222",
+		clabe : "222222222",
+		banco :  SimCatBanco.findByClaveBanco('BANAMEX'),
+		cliente : cliente).save()
+		
+		//DA DE ALTA CUENTA BANCARIA A UN CLIENTE
+		cuentaBancaria = new RsCuentaBancaria(
+		numeroDeCuenta : "111111111",
+		clabe : "21111111",
+		banco :  SimCatBanco.findByClaveBanco('BANCOMER'),
+		cliente : cliente).save()
+		
+		//DA DE ALTA UN DOCUMENTO A UN CLIENTE
+		def documentoCliente = new RsClienteDocumentacion(
+		cliente: cliente,
+		documento : SimCatDocumento.findByClaveDocumento('CLAVE7'),
+		fechaRecibido : new Date('03/21/2011'),
+		asesorVerifico : RsEmpleado.findByPersona(RsPersona.findByEmail('hreyes@credi.com')),
+		documentacionCorrecta : true).save()
+
+		//DA DE ALTA UN DOCUMENTO A UN CLIENTE
+		documentoCliente = new RsClienteDocumentacion(
+		cliente: cliente,
+		documento : SimCatDocumento.findByClaveDocumento('CLAVE22'),
+		fechaRecibido : new Date('12/29/2011'),
+		asesorVerifico : RsEmpleado.findByPersona(RsPersona.findByEmail('asalazar@example.org')),
+		documentacionCorrecta : true).save()
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save()

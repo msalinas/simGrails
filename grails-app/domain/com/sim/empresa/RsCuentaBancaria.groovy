@@ -17,6 +17,6 @@ class RsCuentaBancaria {
     }
 	
 	String toString() {
-		"${banco.nombreBanco}: ${numeroDeCuenta}}"
+		"${banco.nombreBanco}: ${numeroDeCuenta}"
 	}
 }
