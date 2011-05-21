@@ -195,7 +195,6 @@ class BootStrap {
 		nombreDocumento: 'SOLICITUD',
 		descripcion: 'FORMA PARA INGRESAR UN CRÉDITO',
 		simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_1'),
-		simCatReporte : '',
 		esReporte : 'false',
 		).save()
 
