@@ -298,6 +298,11 @@ class BootStrap {
 		new SimCatPerfil(clavePerfil:  'EJECRE',
 		nombrePerfil: 'EJECUTIVO DE CREDITO',
 		).save()
+		
+		new SimCatPerfil(clavePerfil:  'GERENTE',
+		nombrePerfil: 'GERENTE',
+		).save()
+	
 
 		new SimCatPeriodicidad(clavePeriodicidad:  'CLAVE_1',
 		nombrePeriodicidad: 'ANUAL',
@@ -333,6 +338,12 @@ class BootStrap {
 		descripcionPuesto: 'ASESOR DE SUCURSAL',
 		dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
 		).save()
+		
+		new SimCatPuesto(clavePuesto:  'GERREG',
+			nombrePuesto: 'GERENTE REGIONAL',
+			descripcionPuesto: 'GERENTE DE REGIONAL',
+			dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
+			).save()
 
 		new SimCatRechazoComite(claveRechazoComite:  '101',
 		nombreRechazoComite: 'FALTA DE DOCUMENTOS',
@@ -1163,6 +1174,35 @@ class BootStrap {
 		regionalesConAcceso : [SimRegional.findByClaveRegional('REGION1')]
 		).save()
 		
+		//DA DE ALTA A UN EMPLEADO
+		empleado = new RsEmpleado(
+		persona :  RsPersona.findByEmail('egarcia@example.org'),
+		puesto : SimCatPuesto.findByClavePuesto('GERREG'),
+		perfil : SimCatPerfil.findByClavePerfil('GERENTE'),
+		sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL2'),
+		fechaIngreso  : new Date('12/05/2008'),
+		numeroNomina : "004",
+		esVigente: 'true',
+		asignarTodasSucursales: 'true',
+		sucursalesConAcceso : [SimSucursal.findByClaveSucursal('SUCURSAL2')],
+		regionalesConAcceso : [SimRegional.findByClaveRegional('REGION1')]
+		).save()
+
+		//DA DE ALTA A UN EMPLEADO
+		empleado = new RsEmpleado(
+		persona :  RsPersona.findByEmail('msalinas@somewhere.net'),
+		puesto : SimCatPuesto.findByClavePuesto('GERREG'),
+		perfil : SimCatPerfil.findByClavePerfil('GERENTE'),
+		sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL1'),
+		fechaIngreso  : new Date('05/05/2009'),
+		numeroNomina : "005",
+		esVigente: 'true',
+		asignarTodasSucursales: 'true',
+		sucursalesConAcceso : [SimSucursal.findByClaveSucursal('SUCURSAL1')],
+		regionalesConAcceso : [SimRegional.findByClaveRegional('REGION2')]
+		).save()
+
+				
 		//DA DE ALTA UNA PERSONA CLIENTE
 		def personaCliente = new RsPersona(
 		apellidoPaterno: "NAVA",
