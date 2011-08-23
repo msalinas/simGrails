@@ -21,6 +21,8 @@ class RsEmpleado {
 	
 	static hasMany = [sucursalesConAcceso : SimSucursal, regionalesConAcceso : SimRegional]
 
+	//static hasOne = [gerenteRegion :SimRegional] //Al implementar el gerente no funcionan el campo regionalesConAcceso en el dominio RsEmpleado
+	
     static constraints = {
 		persona(unique: true)
 		puesto(nullable: false)
@@ -32,6 +34,7 @@ class RsEmpleado {
 		asignarTodasSucursales()
 		sucursalesConAcceso()
 		regionalesConAcceso()
+		//gerenteRegion(nullable: true)
     }
 	
 	String toString() {
