@@ -180,14 +180,14 @@ class BootStrap {
 		new SimCatReporte(claveReporte:  'CLAVE_1',
 		nombreReporte: 'ANEXO A',
 		descripcion: 'DESCRIPCION DEL ANEXO A',
-		aplicaA : 'Individual',
+		aplicaA : 'INDIVIDUAL',
 		nombreFuncion: 'SimReporteAnexoA',
 		).save()
 
 		new SimCatReporte(claveReporte:  'CLAVE_4',
 		nombreReporte: 'PAGARE SOLIDARIO',
 		descripcion: 'DESCRIPCION DEL PAGARE SOLIDARIO',
-		aplicaA : 'Grupo',
+		aplicaA : 'GRUPO',
 		nombreFuncion: 'SimReportePagareSolidario',
 		).save()
 
