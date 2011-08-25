@@ -10,7 +10,7 @@ class SimCatTipoAccesorio {
 		nombreTipoAccesorio(size:5..50, unique: true, nullable: false, blank: false)
     }
 
-	static hasMany = [ simCatAccesorio : SimCatAccesorio ]
+	static hasMany = [ accesorios : SimCatAccesorio ]
 	
 	String toString() {
 		"${nombreTipoAccesorio}"

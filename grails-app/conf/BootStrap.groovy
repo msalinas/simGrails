@@ -111,34 +111,23 @@ class BootStrap {
 
 		new SimCatAccesorio(claveAccesorio: 'CLAVE_6',
 				nombreAccesorio: 'SEGURO DE VIDA',
-				simCatTipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
+				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
 				tasaIva : 0,
 				beneficiario : 'true',
-				accesorio : 'true',
 				).save()
 
 		new SimCatAccesorio(claveAccesorio: 'CLAVE_8',
 				nombreAccesorio: 'SEGURO DEUDOR',
-				simCatTipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
+				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
 				tasaIva : 0,
 				beneficiario : 'false',
-				accesorio : 'true',
-				).save()
-
-		new SimCatAccesorio(claveAccesorio: 'CLAVE_8',
-				nombreAccesorio: 'SEGURO DEUDOR',
-				simCatTipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
-				tasaIva : 0,
-				beneficiario : 'false',
-				accesorio : 'true',
 				).save()
 
 		new SimCatAccesorio(claveAccesorio: 'CLAVE_15',
 				nombreAccesorio: 'ADMINISTRACION CREDITICIA',
-				simCatTipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
+				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
 				tasaIva : 0,
 				beneficiario : 'false',
-				accesorio : 'true',
 				).save()
 
 		new SimCatBanco(claveBanco: 'BANCOMER',
