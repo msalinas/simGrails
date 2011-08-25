@@ -5,6 +5,7 @@ import com.sim.catalogo.*
 import com.sim.pfin.*
 import com.sim.usuario.*
 import com.sim.regional.*
+import com.sim.producto.*
 import com.rs.gral.*
 import com.sim.prueba.*
 
@@ -1301,6 +1302,29 @@ class BootStrap {
 				fechaRecibido : new Date('12/29/2011'),
 				asesorVerifico : RsEmpleado.findByPersona(RsPersona.findByEmail('asalazar@example.org')),
 				documentacionCorrecta : true).save()
+
+		//DA DE ALTA UN DOCUMENTO A UN PRODUCTO
+		def producto = new SimProducto(
+				claveProducto: "SOLIDARIO",
+				nombreProducto: "SOLIDARIO",
+				fechaInicioActivacion : new Date('08/01/2010'),
+				fechaFinActivacion : new Date('08/01/2015'),
+				aplicaA : "GRUPO",
+				metodoCalculo : SimCatMetodoCalculo.findByClaveMetodoCalculo('CLAVE_05'),
+				periodicidad : SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_1'),
+				montoMinimo :  14500.50,
+				formaEntrega : SimCatFormaEntrega.findByClaveFormaEntrega('CAJA'),
+				garantias : true,
+				participantesCredito : [
+					SimCatTipoPersona.findByClaveTipoPersona('CLIENTE'),
+					SimCatTipoPersona.findByClaveTipoPersona('AVAL')
+				],
+				sucursales : [
+					SimSucursal.findByClaveSucursal('SUCURSAL1'),
+					SimSucursal.findByClaveSucursal('SUCURSAL2'),
+				], 
+				asignarTodasSucursales : false).save()
+
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save()
