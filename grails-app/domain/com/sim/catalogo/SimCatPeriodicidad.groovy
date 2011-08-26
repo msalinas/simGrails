@@ -16,7 +16,7 @@ class SimCatPeriodicidad {
 		nombrePeriodicidad(size:5..50, unique: true, nullable: false, blank: false)
 		cantidadPagos(range:1..999,nullable:false)
 		numeroDias(range:1..999,nullable:false)
-		tasaReferencia(display:false) //NO ESTA TOMANDO EN CUENTA EL DISPLAY
+		tasaReferencia(display:false) //NO ESTA TOMANDO EN CUENTA EL DISPLAY, DEBERIA NO APARECER ESTE ATRIBUTO EN LA PANTALLA
     }
 
 	String toString() {
