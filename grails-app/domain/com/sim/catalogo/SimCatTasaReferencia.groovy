@@ -2,11 +2,11 @@ package com.sim.catalogo
 
 class SimCatTasaReferencia {
 
-	String  			claveTasaReferencia
-	String 				nombreTasaReferencia
-	String  			descripcionTasaReferencia
-	SimCatPeriodicidad  periodicidadTasa
+	String  claveTasaReferencia
+	String  nombreTasaReferencia
+	String  descripcionTasaReferencia
 
+	static belongsTo = [ periodicidadTasa : SimCatPeriodicidad ]
 	static hasMany = [ tasaPapel : SimCatTasaPapel ]
 
     static constraints = {
