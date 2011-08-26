@@ -6,8 +6,6 @@ class SimCatPeriodicidad {
 	String  nombrePeriodicidad
 	Integer cantidadPagos
 	Integer numeroDias
-	
-	static hasMany = SimCatTasaReferencia 
 
     static constraints = {
 		clavePeriodicidad(size:5..15, unique: true, nullable: false, blank: false)
