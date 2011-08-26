@@ -5,7 +5,6 @@ import com.sim.empresa.RsEmpleado
 import com.sim.regional.SimRegional
 import com.sim.regional.SimSucursal
 
-
 class RsGralTelefono {
 
 	String  telefono
