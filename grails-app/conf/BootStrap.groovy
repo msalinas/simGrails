@@ -215,6 +215,7 @@ class BootStrap {
 				nombreDocumento: 'CREDENCIAL IFE',
 				descripcion: 'CREDENCIAL IFE',
 				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_1'),
+				simCatReporte : SimCatReporte.findByClaveReporte('CLAVE_4'),
 				esReporte : 'false',
 				).save()
 
