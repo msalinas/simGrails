@@ -22,7 +22,7 @@ class BootStrap {
 		new RsConfEmpresa(claveEmpresa: 'CREDITOS',
 				nombreEmpresa: 'MICROFINANCIERA AZUL',
 				fechaCreacion: new Date('01/01/2011'),
-				rsConfGpoEmpresa: RsConfGpoEmpresa.findByClaveGrupoEmpresa('SIM')).save()
+				grupoEmpresa: RsConfGpoEmpresa.findByClaveGrupoEmpresa('SIM')).save()
 
 		//ARREGLO PARA CREAR USUARIOS
 		def samples = [

@@ -13,7 +13,7 @@ class RsConfGpoEmpresa {
 		fechaCreacion()
     }
 
-	static hasMany = [ rsConfEmpresa : RsConfEmpresa ]
+	static hasMany = [ empresas : RsConfEmpresa ]
 
 	String toString() {
 		"${nombreGrupoEmpresa}"
