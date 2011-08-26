@@ -13,7 +13,7 @@ class RsConfEmpresa {
 		fechaCreacion()
     }
 
-	static belongsTo = [ rsConfGpoEmpresa : RsConfGpoEmpresa ]
+	static belongsTo = [ grupoEmpresa : RsConfGpoEmpresa ]
 
 	String toString() {
 		"${nombreEmpresa}"
