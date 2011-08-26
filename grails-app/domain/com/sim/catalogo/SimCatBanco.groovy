@@ -7,7 +7,7 @@ class SimCatBanco {
 	String  claveBanco
 	String  nombreBanco
 	
-	static hasMany = RsCuentaBancaria //NO APARECEN CUENTAS BANCARIAS EN LA PANTALLA DE BANCO 
+	static hasMany = [cuentasBancarias :RsCuentaBancaria] 
 
     static constraints = {
 		claveBanco(size:5..15, unique: true, nullable: false, blank: false)
