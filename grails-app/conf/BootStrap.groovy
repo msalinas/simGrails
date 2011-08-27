@@ -475,13 +475,12 @@ class BootStrap {
 
 		new SimRegional(claveRegional:  'REGION1',
 				nombreRegional: 'TOLUCA',
-				gerente: 'LUIS',
+				//gerente: RsEmpleado.findByPersona(RsPersona.findByEmail('egarcia@example.org')),
 				coordinador: 'ALBERTO',
 				).save()
 
 		new SimRegional(claveRegional:  'REGION2',
 				nombreRegional: 'PUEBLA',
-				gerente: 'ARMANDO',
 				coordinador: 'GILBERTO',
 				).save()
 
@@ -1315,6 +1314,10 @@ class BootStrap {
 				], 
 				asignarTodasSucursales : false).save()
 
+	    //ASIGNA UN GERENTE A LA REGION1				
+		def region = SimRegional.findByClaveRegional('REGION1')
+		region.gerente = RsEmpleado.findByPersona(RsPersona.findByEmail('egarcia@example.org'))
+		region.save()
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save()

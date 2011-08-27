@@ -8,24 +8,24 @@ class SimRegional {
 	
 	String  claveRegional
 	String  nombreRegional
-	String  gerente
-	RsEmpleado gerentePrueba  //SE ASIGNA UN GERENTE A LA REGION
-	//Al implementar el gerente no funcionan el campo regionalesConAcceso en el dominio RsEmpleado
+
+	RsEmpleado gerente  //SE ASIGNA UN GERENTE A LA REGION, VALIDAR QUE SOLO OBTENGA EMPLEADOS CON EL PUESTO DE GERENTE REGIONAL
 	String  coordinador
 	
 	static belongsTo = RsEmpleado //RELACION MUCHOS A MUCHOS RsEmpleado Y SimRegional
-	static hasMany = [  sucursal : SimSucursal, telefono : RsGralTelefono, domicilio : RsGralDomicilio, empleados: RsEmpleado ]//, RsEmpleado
+	static hasMany = [  sucursal : SimSucursal, telefono : RsGralTelefono, domicilio : RsGralDomicilio, empleados: RsEmpleado ]
+	//SI SOLO SE ESPECIFICA hasMany = RsEmpleado SE GENERA UN PROBLEMA CON EL ATRIBUTO regionalesConAcceso EN EL DOMINIO RsEmpleado
 	
     static constraints = {
 		claveRegional(size:5..15, unique: true, nullable: false, blank: false)
 		nombreRegional(size:5..50, unique: true, nullable: false, blank: false)
-		gerente()
-		gerentePrueba nullable: true//, unique: true
+		gerente(nullable: true, validator: { empleadoGerente, simRegional -> 
+			empleadoGerente?.puesto?.clavePuesto == 'GERREG'  || empleadoGerente?.puesto?.clavePuesto == null })
 		coordinador()
 		domicilio()
 		telefono()
 		sucursal()
-		empleados() //CHECAR COMO QUITAR EMPLEADOS
+		//CHECAR COMO QUITAR EMPLEADOS
     }
 	
 	String toString() {
