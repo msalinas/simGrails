@@ -27,8 +27,9 @@ class RsPersona {
 	Usuario usuario
 	
 	static hasOne  = [ datosEmpleado : RsEmpleado, datosCliente : RsCliente]
-	static hasMany = [ telefonos   : RsGralTelefono, domicilios : RsGralDomicilio , tiposPersona : SimCatTipoPersona]
-	
+	static hasMany = [ telefonos   : RsGralTelefono, domicilios : RsGralDomicilio, tiposPersona : SimCatTipoPersona] 
+	//RELACION DE MUCHOS A MUCHOS ENTRE TIPO DE PERSONA Y PERSONA
+		
     static constraints = {
 		email email:true, blank:false
 		apellidoPaterno size:3..25, blank: false, unique: false

@@ -8,7 +8,8 @@ class SimCatTipoPersona {
 	String  nombreTipoPersona
 	String  descripcionTipoPersona
 	
-	static hasMany = RsPersona
+	//RELACION DE MUCHOS A MUCHOS ENTRE TIPO DE PERSONA Y PERSONA
+	static hasMany = RsPersona 
 	static belongsTo = RsPersona
 
     static constraints = {
