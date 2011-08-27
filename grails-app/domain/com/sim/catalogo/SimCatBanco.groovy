@@ -8,6 +8,7 @@ class SimCatBanco {
 	String  nombreBanco
 	
 	static hasMany = [cuentasBancarias :RsCuentaBancaria] 
+	//IMPLEMENTAR hasMany = RsCuentaBancaria, VER SimCatTipoAsentamiento
 
     static constraints = {
 		claveBanco(size:5..15, unique: true, nullable: false, blank: false)

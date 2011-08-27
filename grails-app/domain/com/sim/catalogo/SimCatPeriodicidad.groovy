@@ -10,7 +10,7 @@ class SimCatPeriodicidad {
 	static hasMany =  [ tasaReferencia : SimCatTasaReferencia ] 
 	//SI SE ASIGNA SOLO: static hasMany =  SimCatTasaReferencia EXISTE PROBLEMAS AL BORRAR UNA PERIODICIDAD Y ESTA SE ENCUENTRA DEFINIDA
 	//EN SimCatTasaReferencia YA QUE NO PERMITE OBTENER LOS REGISTROS DE SimCatTasaReferencia
-
+    //PARA SOLUCIONAR ESTE PROBLEMA IMPLEMENTAR LA SOLUCION DEL DOMINIO SimCatTipoAsentamiento
     static constraints = {
 		clavePeriodicidad(size:5..15, unique: true, nullable: false, blank: false)
 		nombrePeriodicidad(size:5..50, unique: true, nullable: false, blank: false)
