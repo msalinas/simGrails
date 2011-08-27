@@ -11,9 +11,11 @@ class SimSucursal {
 	String  gerente
 	String  coordinador
 	
-	static hasMany = [ telefono : RsGralTelefono, domicilio : RsGralDomicilio ], RsEmpleado
+	SimRegional regional
 	
-	static belongsTo = [ regional : SimRegional]
+	static hasMany = [ telefono : RsGralTelefono, domicilio : RsGralDomicilio], RsEmpleado
+	
+	static belongsTo = [ SimRegional, RsEmpleado ]
 	
     static constraints = {
 		claveSucursal(size:5..15, unique: true, nullable: false, blank: false)
