@@ -25,7 +25,7 @@ class SimRegional {
 		domicilio()
 		telefono()
 		sucursal()
-		empleados()
+		empleados() //CHECAR COMO QUITAR EMPLEADOS
     }
 	
 	String toString() {
