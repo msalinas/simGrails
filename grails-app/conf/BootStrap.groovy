@@ -322,39 +322,39 @@ class BootStrap {
 				numeroDias: 30,
 				).save()
 
-		new SimCatPuesto(clavePuesto:  'DirGen',
+		new SimCatPuesto(clavePuesto:  'DIRGEN',
 				nombrePuesto: 'DIRECTOR GENERAL',
 				descripcionPuesto: 'DIRECTOR GENERAL MICRO',
 				).save()
 
-		new SimCatPuesto(clavePuesto:  'GerRie',
+		new SimCatPuesto(clavePuesto:  'GERRIE',
 				nombrePuesto: 'GERENTE DE RIESGOS',
 				descripcionPuesto: 'GERENTE DE RIESGOS',
-				dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
+				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
 				).save()
 
-		new SimCatPuesto(clavePuesto:  'CooRie',
+		new SimCatPuesto(clavePuesto:  'COORIE',
 				nombrePuesto: 'COORDINADOR DE RIESGOS',
 				descripcionPuesto: 'COORDINADOR DE RIESGOS',
-				dependeDe : SimCatPuesto.findByClavePuesto('GerRie'),
+				dependeDe : SimCatPuesto.findByClavePuesto('GERRIE'),
 				).save()
 
 		new SimCatPuesto(clavePuesto:  'ASESORSUC',
 				nombrePuesto: 'ASESOR DE SUCURSAL',
 				descripcionPuesto: 'ASESOR DE SUCURSAL',
-				dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
+				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
 				).save()
 
 		new SimCatPuesto(clavePuesto:  'GERREG',
 				nombrePuesto: 'GERENTE REGIONAL',
 				descripcionPuesto: 'GERENTE DE REGIONAL',
-				dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
+				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
 				).save()
 
 		new SimCatPuesto(clavePuesto:  'COOREG',
 				nombrePuesto: 'COORDINADOR REGIONAL',
 				descripcionPuesto: 'COORDINADOR DE REGIONAL',
-				dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
+				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
 				).save()
 
 
@@ -1189,7 +1189,7 @@ class BootStrap {
 		//DA DE ALTA A UN EMPLEADO
 		empleado = new RsEmpleado(
 				persona :  RsPersona.findByEmail('cgarcia@example.org'),
-				puesto : SimCatPuesto.findByClavePuesto('CooRie'),
+				puesto : SimCatPuesto.findByClavePuesto('COORIE'),
 				perfil : SimCatPerfil.findByClavePerfil('EJECRE'),
 				sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL2'),
 				fechaIngreso  : new Date('12/30/2005'),
