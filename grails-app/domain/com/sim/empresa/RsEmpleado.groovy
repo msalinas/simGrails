@@ -20,6 +20,8 @@ class RsEmpleado {
 	
 	//RELACION MUCHOS A MUCHOS RsEmpleado Y SimRegional
 	static hasMany = [sucursalesConAcceso : SimSucursal, regionalesConAcceso : SimRegional]
+	//SE MAPEA QUE EL ATRIBUTO regionalesConAcceso CON EL ATRIBUTO DE empleados DEL DOMINIO SimRegional
+	static mappedBy = [regionalesConAcceso:"empleados"]
 
     static constraints = {
 		persona(unique: true)

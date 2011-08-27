@@ -10,7 +10,7 @@ class SimRegional {
 	String  nombreRegional
 
 	RsEmpleado gerente  //SE ASIGNA UN GERENTE A LA REGION, VALIDAR QUE SOLO OBTENGA EMPLEADOS CON EL PUESTO DE GERENTE REGIONAL
-	String  coordinador
+	RsEmpleado coordinador //SE ASIGNA UN COORDINADOR A LA REGION, VALIDAR QUE SOLO OBTENGA EMPLEADOS CON EL PUESTO DE GERENTE REGIONAL
 	
 	static belongsTo = RsEmpleado //RELACION MUCHOS A MUCHOS RsEmpleado Y SimRegional
 	static hasMany = [  sucursal : SimSucursal, telefono : RsGralTelefono, domicilio : RsGralDomicilio, empleados: RsEmpleado ]
@@ -21,7 +21,10 @@ class SimRegional {
 		nombreRegional(size:5..50, unique: true, nullable: false, blank: false)
 		gerente(nullable: true, validator: { empleadoGerente, simRegional -> 
 			empleadoGerente?.puesto?.clavePuesto == 'GERREG'  || empleadoGerente?.puesto?.clavePuesto == null })
-		coordinador()
+		//GEREG = GERENTE DE REGION
+		coordinador(nullable: true, validator: { empleadoCoordinador, simRegional -> 
+			empleadoCoordinador?.puesto?.clavePuesto == 'COOREG'  || empleadoCoordinador?.puesto?.clavePuesto == null })
+		//COOREG = COORDINADOR DE REGION
 		domicilio()
 		telefono()
 		sucursal()
