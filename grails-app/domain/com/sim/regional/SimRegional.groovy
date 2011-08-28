@@ -13,7 +13,7 @@ class SimRegional {
 	RsEmpleado coordinador //SE ASIGNA UN COORDINADOR A LA REGION, VALIDAR QUE SOLO OBTENGA EMPLEADOS CON EL PUESTO DE GERENTE REGIONAL
 	
 	static belongsTo = RsEmpleado //RELACION MUCHOS A MUCHOS RsEmpleado Y SimRegional
-	static hasMany = [  sucursal : SimSucursal, telefono : RsGralTelefono, domicilio : RsGralDomicilio, empleados: RsEmpleado ]
+	static hasMany = [  sucursal : SimSucursal, telefono : RsGralTelefono, domicilio : RsGralDomicilio, empleadosRegion: RsEmpleado ]
 	//SI SOLO SE ESPECIFICA hasMany = RsEmpleado SE GENERA UN PROBLEMA CON EL ATRIBUTO regionalesConAcceso EN EL DOMINIO RsEmpleado
 	
     static constraints = {
@@ -21,7 +21,7 @@ class SimRegional {
 		nombreRegional(size:5..50, unique: true, nullable: false, blank: false)
 		gerente(nullable: true, validator: { empleadoGerente, simRegional -> 
 			empleadoGerente?.puesto?.clavePuesto == 'GERREG'  || empleadoGerente?.puesto?.clavePuesto == null })
-		//GEREG = GERENTE DE REGION
+		//GERREG = GERENTE DE REGION
 		coordinador(nullable: true, validator: { empleadoCoordinador, simRegional -> 
 			empleadoCoordinador?.puesto?.clavePuesto == 'COOREG'  || empleadoCoordinador?.puesto?.clavePuesto == null })
 		//COOREG = COORDINADOR DE REGION
