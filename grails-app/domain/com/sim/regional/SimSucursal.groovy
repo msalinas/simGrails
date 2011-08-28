@@ -5,26 +5,34 @@ import com.rs.gral.RsGralTelefono
 import com.rs.gral.RsGralDomicilio
 
 class SimSucursal {
-
+	//MODELO DESARROLLADO A PARTIR DEL EJEMPLO DE SimRegional
  	String  claveSucursal
 	String  nombreSucursal
-	String  gerente
-	String  coordinador
+	
+	RsEmpleado  gerente
+	RsEmpleado  coordinador
 	
 	SimRegional regional
 	
-	static hasMany = [ telefono : RsGralTelefono, domicilio : RsGralDomicilio], RsEmpleado
-	
-	static belongsTo = [ SimRegional, RsEmpleado ]
-	
+	static belongsTo = [ SimRegional, RsEmpleado ] //RELACION MUCHOS A MUCHOS RsEmpleado Y SimSucursal
+	static hasMany = [telefono : RsGralTelefono, domicilio : RsGralDomicilio, empleadosSucursal: RsEmpleado]//, empleadosPertencen : RsEmpleado]
+	//static mappedBy = [empleadosPertencen:"sucursalPertenece"]
+		
     static constraints = {
 		claveSucursal(size:5..15, unique: true, nullable: false, blank: false)
 		nombreSucursal(size:5..50, unique: true, nullable: false, blank: false)
-		gerente()
-		coordinador()
+
+		gerente(nullable: true, validator: { empleadoGerente, simSucursal -> 
+			empleadoGerente?.puesto?.clavePuesto == 'GERSUC'  || empleadoGerente?.puesto?.clavePuesto == null })
+		//GERSUC = GERENTE DE SUCURSAL
+		coordinador(nullable: true, validator: { empleadoCoordinador, simSucursal -> 
+			empleadoCoordinador?.puesto?.clavePuesto == 'COOSUC'  || empleadoCoordinador?.puesto?.clavePuesto == null })
+		//COOREG = COORDINADOR DE SUCURSAL
+
 		domicilio()
 		telefono()
 		regional()
+		//CHECAR COMO QUITAR EMPLEADOS
     }
 	
 	String toString() {

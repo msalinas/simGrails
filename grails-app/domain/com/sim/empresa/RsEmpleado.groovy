@@ -16,18 +16,19 @@ class RsEmpleado {
 	SimCatPuesto puesto
 	SimCatPerfil perfil
 	RsPersona    persona
-	SimSucursal  sucursalPertenece
+	//SimSucursal  sucursalPertenece
 	
 	//RELACION MUCHOS A MUCHOS RsEmpleado Y SimRegional
 	static hasMany = [sucursalesConAcceso : SimSucursal, regionalesConAcceso : SimRegional]
-	//SE MAPEA QUE EL ATRIBUTO regionalesConAcceso CON EL ATRIBUTO DE empleados DEL DOMINIO SimRegional
-	static mappedBy = [regionalesConAcceso:"empleados"]
+	//SE MAPEA QUE EL ATRIBUTO sucursalesConAcceso CON EL ATRIBUTO DE empleadosSucursal DEL DOMINIO SimSucursal
+	//SE MAPEA QUE EL ATRIBUTO regionalesConAcceso CON EL ATRIBUTO DE empleadosRegion DEL DOMINIO SimRegional
+	static mappedBy = [sucursalesConAcceso:"empleadosSucursal",regionalesConAcceso:"empleadosRegion"]
 
     static constraints = {
 		persona(unique: true)
 		puesto(nullable: false)
 		perfil(nullable: false)
-		sucursalPertenece(nullable: false)
+		//sucursalPertenece(nullable: true)
 		fechaIngreso()
 		numeroNomina nullable:false, blank: false
 		esVigente()
