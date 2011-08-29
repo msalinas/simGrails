@@ -16,6 +16,8 @@ class RsEmpleado {
 	SimCatPuesto puesto
 	SimCatPerfil perfil
 	RsPersona    persona
+	//SE GENERARON VARIOS PROBLEMAS AL ASIGNAR EL ATRIBUTO sucursalPertenece DE TIPO SimSucursal
+	//RAZON POR LA QUE SE DEFINIO DE TIPO ENTERO
 	Integer      sucursalPertenece
 	
 	//RELACION MUCHOS A MUCHOS RsEmpleado Y SimRegional

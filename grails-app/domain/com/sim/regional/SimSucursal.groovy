@@ -15,8 +15,7 @@ class SimSucursal {
 	SimRegional regional
 	
 	static belongsTo = [ SimRegional, RsEmpleado ] //RELACION MUCHOS A MUCHOS RsEmpleado Y SimSucursal
-	static hasMany = [telefono : RsGralTelefono, domicilio : RsGralDomicilio, empleadosSucursal: RsEmpleado]//, empleadosPertencen : RsEmpleado]
-	//static mappedBy = [empleadosPertencen:"sucursalPertenece"]
+	static hasMany = [telefono : RsGralTelefono, domicilio : RsGralDomicilio, empleadosSucursal: RsEmpleado]
 		
     static constraints = {
 		claveSucursal(size:5..15, unique: true, nullable: false, blank: false)
