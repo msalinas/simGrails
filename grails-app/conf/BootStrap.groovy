@@ -514,6 +514,22 @@ class BootStrap {
 				regional : SimRegional.findByClaveRegional('REGION1')
 				).save()
 
+		new SimSucursalCaja(claveCaja:  'MCAJA1',
+				nombreCaja: 'SAN MATEO CAJA1',
+				sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1')
+				).save()
+
+		new SimSucursalCaja(claveCaja:  'MCAJA2',
+				nombreCaja: 'SAN MATEO CAJA2',
+				sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1')
+				).save()
+
+		new SimSucursalCaja(claveCaja:  'MCAJA3',
+				nombreCaja: 'SAN MATEO CAJA3',
+				sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1')
+				).save()
+
+
 		new RsGralTelefono(telefono:  '111111111',
 				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE2'),
 				regional : SimRegional.findByClaveRegional('REGION1'),
@@ -1323,13 +1339,13 @@ class BootStrap {
 				],
 				asignarTodasSucursales : false).save()
 
-				
+
 		//ASIGNA UN GERENTE Y COORDINADOR A LA REGION1
 		def region = SimRegional.findByClaveRegional('REGION1')
 		region.gerente = RsEmpleado.findByPersona(RsPersona.findByEmail('egarcia@example.org'))
 		region.coordinador = RsEmpleado.findByPersona(RsPersona.findByEmail('hreyes@credi.com'))
 		region.save()
-		
+
 		//ASIGNA UN GERENTE Y COORDINADOR A LA SUCURSAL1
 		def sucursal = SimSucursal.findByClaveSucursal('SUCURSAL1')
 		sucursal.gerente = RsEmpleado.findByPersona(RsPersona.findByEmail('asalazar@example.org'))
