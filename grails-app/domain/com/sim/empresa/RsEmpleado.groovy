@@ -24,7 +24,7 @@ class RsEmpleado {
 	static hasMany = [sucursalesConAcceso : SimSucursal, regionalesConAcceso : SimRegional]
 	//SE MAPEA QUE EL ATRIBUTO sucursalesConAcceso CON EL ATRIBUTO DE empleadosSucursal DEL DOMINIO SimSucursal
 	//SE MAPEA QUE EL ATRIBUTO regionalesConAcceso CON EL ATRIBUTO DE empleadosRegion DEL DOMINIO SimRegional
-	static mappedBy = [sucursalesConAcceso:"empleadosSucursal",regionalesConAcceso:"empleadosRegion"]
+	static mappedBy = [sucursalesConAcceso:"empleadosAccesoSucursal",regionalesConAcceso:"empleadosAccesoRegion"]
 
     static constraints = {
 		persona(unique: true)

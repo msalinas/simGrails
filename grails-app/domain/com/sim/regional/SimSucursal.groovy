@@ -15,7 +15,7 @@ class SimSucursal {
 	SimRegional regional
 	
 	static belongsTo = [ SimRegional, RsEmpleado ] //RELACION MUCHOS A MUCHOS RsEmpleado Y SimSucursal
-	static hasMany = [telefono : RsGralTelefono, domicilio : RsGralDomicilio, empleadosSucursal: RsEmpleado]
+	static hasMany = [telefono : RsGralTelefono, domicilio : RsGralDomicilio, empleadosAccesoSucursal: RsEmpleado]
 		
     static constraints = {
 		claveSucursal(size:5..15, unique: true, nullable: false, blank: false)
@@ -31,7 +31,7 @@ class SimSucursal {
 		domicilio()
 		telefono()
 		regional()
-		//CHECAR COMO QUITAR EMPLEADOS
+		//CHECAR COMO QUITAR empleadosAccesoSucursal
     }
 	
 	String toString() {

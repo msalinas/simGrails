@@ -13,7 +13,7 @@ class SimRegional {
 	RsEmpleado coordinador //SE ASIGNA UN COORDINADOR A LA REGION, VALIDAR QUE SOLO OBTENGA EMPLEADOS CON EL PUESTO DE GERENTE REGIONAL
 	
 	static belongsTo = RsEmpleado //RELACION MUCHOS A MUCHOS RsEmpleado Y SimRegional
-	static hasMany = [  sucursal : SimSucursal, telefono : RsGralTelefono, domicilio : RsGralDomicilio, empleadosRegion: RsEmpleado ]
+	static hasMany = [  sucursal : SimSucursal, telefono : RsGralTelefono, domicilio : RsGralDomicilio, empleadosAccesoRegion: RsEmpleado ]
 	//SI SOLO SE ESPECIFICA hasMany = RsEmpleado SE GENERA UN PROBLEMA CON EL ATRIBUTO regionalesConAcceso EN EL DOMINIO RsEmpleado
 	
     static constraints = {
@@ -28,7 +28,7 @@ class SimRegional {
 		domicilio()
 		telefono()
 		sucursal()
-		//CHECAR COMO QUITAR EMPLEADOS
+		//CHECAR COMO QUITAR empleadosAccesoRegion
     }
 	
 	String toString() {
