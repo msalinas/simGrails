@@ -215,6 +215,7 @@ class BootStrap {
 				nombreDocumento: 'CREDENCIAL IFE',
 				descripcion: 'CREDENCIAL IFE',
 				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_1'),
+				simCatReporte : SimCatReporte.findByClaveReporte('CLAVE_4'),
 				esReporte : 'false',
 				).save()
 
@@ -321,33 +322,51 @@ class BootStrap {
 				numeroDias: 30,
 				).save()
 
-		new SimCatPuesto(clavePuesto:  'DirGen',
+		new SimCatPuesto(clavePuesto:  'DIRGEN',
 				nombrePuesto: 'DIRECTOR GENERAL',
 				descripcionPuesto: 'DIRECTOR GENERAL MICRO',
 				).save()
 
-		new SimCatPuesto(clavePuesto:  'GerRie',
+		new SimCatPuesto(clavePuesto:  'GERRIE',
 				nombrePuesto: 'GERENTE DE RIESGOS',
 				descripcionPuesto: 'GERENTE DE RIESGOS',
-				dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
+				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
 				).save()
 
-		new SimCatPuesto(clavePuesto:  'CooRie',
+		new SimCatPuesto(clavePuesto:  'COORIE',
 				nombrePuesto: 'COORDINADOR DE RIESGOS',
 				descripcionPuesto: 'COORDINADOR DE RIESGOS',
-				dependeDe : SimCatPuesto.findByClavePuesto('GerRie'),
+				dependeDe : SimCatPuesto.findByClavePuesto('GERRIE'),
 				).save()
 
 		new SimCatPuesto(clavePuesto:  'ASESORSUC',
 				nombrePuesto: 'ASESOR DE SUCURSAL',
 				descripcionPuesto: 'ASESOR DE SUCURSAL',
-				dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
+				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
 				).save()
 
 		new SimCatPuesto(clavePuesto:  'GERREG',
 				nombrePuesto: 'GERENTE REGIONAL',
 				descripcionPuesto: 'GERENTE DE REGIONAL',
-				dependeDe : SimCatPuesto.findByClavePuesto('DirGen'),
+				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
+				).save()
+
+		new SimCatPuesto(clavePuesto:  'COOREG',
+				nombrePuesto: 'COORDINADOR REGIONAL',
+				descripcionPuesto: 'COORDINADOR DE REGIONAL',
+				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
+				).save()
+
+		new SimCatPuesto(clavePuesto:  'GERSUC',
+				nombrePuesto: 'GERENTE SUCURSAL',
+				descripcionPuesto: 'GERENTE DE SUCURSAL',
+				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
+				).save()
+
+		new SimCatPuesto(clavePuesto:  'COOSUC',
+				nombrePuesto: 'COORDINADOR SUCURSAL',
+				descripcionPuesto: 'COORDINADOR DE SUCURSAL',
+				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
 				).save()
 
 		new SimCatRechazoComite(claveRechazoComite:  '101',
@@ -473,36 +492,26 @@ class BootStrap {
 				).save()
 
 		new SimRegional(claveRegional:  'REGION1',
-				nombreRegional: 'TOLUCA',
-				gerente: 'LUIS',
-				coordinador: 'ALBERTO',
+				nombreRegional: 'TOLUCA'
 				).save()
 
 		new SimRegional(claveRegional:  'REGION2',
-				nombreRegional: 'PUEBLA',
-				gerente: 'ARMANDO',
-				coordinador: 'GILBERTO',
+				nombreRegional: 'PUEBLA'
 				).save()
 
 		new SimSucursal(claveSucursal:  'SUCURSAL1',
 				nombreSucursal: 'SAN MATEO',
-				gerente: 'ARMANDO',
-				coordinador: 'GILBERTO',
-				regional : SimRegional.findByClaveRegional('REGION1'),
+				regional : SimRegional.findByClaveRegional('REGION1')
 				).save()
 
 		new SimSucursal(claveSucursal:  'SUCURSAL2',
 				nombreSucursal: 'SANTIAGO TIANGUISTENCO',
-				gerente: 'MARIO',
-				coordinador: 'GUSTAVO',
-				regional : SimRegional.findByClaveRegional('REGION1'),
+				regional : SimRegional.findByClaveRegional('REGION1')
 				).save()
 
 		new SimSucursal(claveSucursal:  'SUCURSAL3',
 				nombreSucursal: 'IXTAPAN DE LA SAL',
-				gerente: 'MARIO',
-				coordinador: 'GUSTAVO',
-				regional : SimRegional.findByClaveRegional('REGION1'),
+				regional : SimRegional.findByClaveRegional('REGION1')
 				).save()
 
 		new RsGralTelefono(telefono:  '111111111',
@@ -1145,9 +1154,9 @@ class BootStrap {
 		//DA DE ALTA A UN EMPLEADO
 		def empleado = new RsEmpleado(
 				persona : personaHector,
-				puesto : SimCatPuesto.findByClavePuesto('ASESORSUC'),
+				puesto : SimCatPuesto.findByClavePuesto('COOREG'),
 				perfil : SimCatPerfil.findByClavePerfil('EJECRE'),
-				sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL1'),
+				//sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL1'),
 				fechaIngreso  : new Date('08/20/1999'),
 				numeroNomina : "001",
 				esVigente: 'true',
@@ -1165,9 +1174,9 @@ class BootStrap {
 		//DA DE ALTA A UN EMPLEADO
 		empleado = new RsEmpleado(
 				persona :  RsPersona.findByEmail('asalazar@example.org'),
-				puesto : SimCatPuesto.findByClavePuesto('ASESORSUC'),
+				puesto : SimCatPuesto.findByClavePuesto('GERSUC'),
 				perfil : SimCatPerfil.findByClavePerfil('EJECRE'),
-				sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL2'),
+				//sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL2'),
 				fechaIngreso  : new Date('08/20/2010'),
 				numeroNomina : "002",
 				esVigente: 'true',
@@ -1185,9 +1194,9 @@ class BootStrap {
 		//DA DE ALTA A UN EMPLEADO
 		empleado = new RsEmpleado(
 				persona :  RsPersona.findByEmail('cgarcia@example.org'),
-				puesto : SimCatPuesto.findByClavePuesto('CooRie'),
+				puesto : SimCatPuesto.findByClavePuesto('COOSUC'),
 				perfil : SimCatPerfil.findByClavePerfil('EJECRE'),
-				sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL2'),
+				//sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL2'),
 				fechaIngreso  : new Date('12/30/2005'),
 				numeroNomina : "003",
 				esVigente: 'true',
@@ -1204,7 +1213,7 @@ class BootStrap {
 				persona :  RsPersona.findByEmail('egarcia@example.org'),
 				puesto : SimCatPuesto.findByClavePuesto('GERREG'),
 				perfil : SimCatPerfil.findByClavePerfil('GERENTE'),
-				sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL2'),
+				//sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL2'),
 				fechaIngreso  : new Date('12/05/2008'),
 				numeroNomina : "004",
 				esVigente: 'true',
@@ -1221,7 +1230,7 @@ class BootStrap {
 				persona :  RsPersona.findByEmail('msalinas@somewhere.net'),
 				puesto : SimCatPuesto.findByClavePuesto('GERREG'),
 				perfil : SimCatPerfil.findByClavePerfil('GERENTE'),
-				sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL1'),
+				//sucursalPertenece : SimSucursal.findByClaveSucursal('SUCURSAL1'),
 				fechaIngreso  : new Date('05/05/2009'),
 				numeroNomina : "005",
 				esVigente: 'true',
@@ -1311,9 +1320,21 @@ class BootStrap {
 				sucursales : [
 					SimSucursal.findByClaveSucursal('SUCURSAL1'),
 					SimSucursal.findByClaveSucursal('SUCURSAL2'),
-				], 
+				],
 				asignarTodasSucursales : false).save()
 
+				
+		//ASIGNA UN GERENTE Y COORDINADOR A LA REGION1
+		def region = SimRegional.findByClaveRegional('REGION1')
+		region.gerente = RsEmpleado.findByPersona(RsPersona.findByEmail('egarcia@example.org'))
+		region.coordinador = RsEmpleado.findByPersona(RsPersona.findByEmail('hreyes@credi.com'))
+		region.save()
+		
+		//ASIGNA UN GERENTE Y COORDINADOR A LA SUCURSAL1
+		def sucursal = SimSucursal.findByClaveSucursal('SUCURSAL1')
+		sucursal.gerente = RsEmpleado.findByPersona(RsPersona.findByEmail('asalazar@example.org'))
+		sucursal.coordinador = RsEmpleado.findByPersona(RsPersona.findByEmail('cgarcia@example.org'))
+		sucursal.save()
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save()

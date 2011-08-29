@@ -2,12 +2,13 @@ package com.sim.catalogo
 
 class SimCatDocumento {
 
-	String  claveDocumento
-	String  nombreDocumento
-	String  descripcion
-	Boolean esReporte = false
+	String  	  claveDocumento
+	String  	  nombreDocumento
+	String  	  descripcion
+	Boolean 	  esReporte = false
+	SimCatReporte simCatReporte
 
-	static belongsTo = [ simCatTipoDocumento : SimCatTipoDocumento , simCatReporte : SimCatReporte ]
+	static belongsTo = [ simCatTipoDocumento : SimCatTipoDocumento ]
 
     static constraints = {
 		claveDocumento(size:5..15, unique: true, nullable: false, blank: false)
@@ -15,7 +16,7 @@ class SimCatDocumento {
 		descripcion(size:10..300, nullable: true, blank: true)
 		simCatTipoDocumento(nullable:true)
 		esReporte()
-		simCatReporte(nullable:true)
+		simCatReporte nullable: true, unique: true //RELACION UNO A UNO Y CON OPCION A SER NULO
     }
 
 	String toString() {

@@ -22,13 +22,15 @@ class RsPersona {
 	String rfc
 	String curp
 
-	SimCatDocumento identificacionOficial
+	SimCatDocumento   identificacionOficial
 	SimCatEscolaridad escolaridad
-	Usuario usuario
+	Usuario           usuario
 	
 	static hasOne  = [ datosEmpleado : RsEmpleado, datosCliente : RsCliente]
-	static hasMany = [ telefonos   : RsGralTelefono, domicilios : RsGralDomicilio , tiposPersona : SimCatTipoPersona]
 	
+	//RELACION DE MUCHOS A MUCHOS ENTRE TIPO DE PERSONA Y PERSONA
+	static hasMany = [ telefonos : RsGralTelefono, domicilios : RsGralDomicilio, tiposPersona : SimCatTipoPersona] 
+			
     static constraints = {
 		email email:true, blank:false
 		apellidoPaterno size:3..25, blank: false, unique: false
@@ -52,7 +54,6 @@ class RsPersona {
 		curp nullable: true
 		escolaridad  nullable: true
 		tiposPersona nullable: true
-		
 		usuario nullable:true, unique: true
 		datosEmpleado nullable: true 
 		datosCliente nullable: true 

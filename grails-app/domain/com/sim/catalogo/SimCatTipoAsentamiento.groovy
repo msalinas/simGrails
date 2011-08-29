@@ -16,6 +16,7 @@ class SimCatTipoAsentamiento {
 		"${nombreTipoAsentamiento}"
 	}
 	
-	static hasMany =  RsGralAsentamiento
+	static hasMany =  RsGralAsentamiento //EN LA CLASE CONTROLADORA SE IMPLEMENTO QUE NO ELIMINE
+	//UN TIPO DE ASENTAMIENTO SI ESTA DADO DE ALTA UN UN ASENTAMIENTO
 
 }

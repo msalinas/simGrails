@@ -8,33 +8,33 @@ import com.rs.gral.RsPersona
 
 class RsEmpleado {
 	
-	Date fechaIngreso
-	String numeroNomina
+	Date    fechaIngreso
+	String  numeroNomina
 	Boolean esVigente = false
 	Boolean asignarTodasSucursales = false
+	
 	SimCatPuesto puesto
 	SimCatPerfil perfil
+	RsPersona    persona
+	//SimSucursal  sucursalPertenece
 	
-	RsPersona persona
-	
-	static belongsTo = [sucursalPertenece :  SimSucursal]
-	
+	//RELACION MUCHOS A MUCHOS RsEmpleado Y SimRegional
 	static hasMany = [sucursalesConAcceso : SimSucursal, regionalesConAcceso : SimRegional]
+	//SE MAPEA QUE EL ATRIBUTO sucursalesConAcceso CON EL ATRIBUTO DE empleadosSucursal DEL DOMINIO SimSucursal
+	//SE MAPEA QUE EL ATRIBUTO regionalesConAcceso CON EL ATRIBUTO DE empleadosRegion DEL DOMINIO SimRegional
+	static mappedBy = [sucursalesConAcceso:"empleadosSucursal",regionalesConAcceso:"empleadosRegion"]
 
-	//static hasOne = [gerenteRegion :SimRegional] //Al implementar el gerente no funcionan el campo regionalesConAcceso en el dominio RsEmpleado
-	
     static constraints = {
 		persona(unique: true)
 		puesto(nullable: false)
 		perfil(nullable: false)
-		sucursalPertenece(nullable: false)
+		//sucursalPertenece(nullable: true)
 		fechaIngreso()
 		numeroNomina nullable:false, blank: false
 		esVigente()
 		asignarTodasSucursales()
 		sucursalesConAcceso()
 		regionalesConAcceso()
-		//gerenteRegion(nullable: true)
     }
 	
 	String toString() {
