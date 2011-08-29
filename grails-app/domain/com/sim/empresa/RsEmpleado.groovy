@@ -16,7 +16,7 @@ class RsEmpleado {
 	SimCatPuesto puesto
 	SimCatPerfil perfil
 	RsPersona    persona
-	//SimSucursal  sucursalPertenece
+	Integer      sucursalPertenece
 	
 	//RELACION MUCHOS A MUCHOS RsEmpleado Y SimRegional
 	static hasMany = [sucursalesConAcceso : SimSucursal, regionalesConAcceso : SimRegional]
@@ -28,7 +28,7 @@ class RsEmpleado {
 		persona(unique: true)
 		puesto(nullable: false)
 		perfil(nullable: false)
-		//sucursalPertenece(nullable: true)
+		sucursalPertenece()
 		fechaIngreso()
 		numeroNomina nullable:false, blank: false
 		esVigente()
