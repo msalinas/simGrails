@@ -3,7 +3,7 @@ package com.sim.regional
 import com.sim.empresa.RsEmpleado
 import com.rs.gral.RsGralTelefono
 import com.rs.gral.RsGralDomicilio
-import java.util.SortedSet;
+//import java.util.SortedSet; //AL PARECER NO SE REQUIERE
 
 class SimSucursal {
 	//MODELO DESARROLLADO A PARTIR DEL EJEMPLO DE SimRegional
