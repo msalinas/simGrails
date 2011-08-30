@@ -52,6 +52,12 @@ class RoleController extends grails.plugins.springsecurity.ui.RoleController {
 	   def roleClassName = GrailsNameUtils.getShortName(lookupRoleClassName())
 	   def userField = GrailsNameUtils.getShortName(lookupUserClassName())
 	   userField = (userField) ? "${Character.toLowerCase(userField.charAt(0))}${userField.substring(1)}" : userField
+	   
+	   //SE CAMBIO DEL VALOR DE userField DE "usuario" A "secUser" YA QUE EL ATRIBUTO NO ESTA DEFINIDO EN LA CLASE
+	   //com.sim.usuario.SecUserSecRole
+	   log.info "***************************"
+	   log.info userField
+	   userField = "secUser"
 
 	   def users = lookupUserRoleClass()."findAllBy${roleClassName}"(role, params)*."$userField"
 	   int userCount = lookupUserRoleClass()."countBy${roleClassName}"(role)
