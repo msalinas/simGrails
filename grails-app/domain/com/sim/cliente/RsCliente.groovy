@@ -5,13 +5,15 @@ import com.rs.gral.RsPersona;
 class RsCliente {
 
 	RsPersona persona
-	BigDecimal ingresoSemanal
-	Integer dependientesEconomicos
-	String destinoDelCredito
-	String rolEnElHogar
-	Boolean listaNegra = false
 	
-	static hasMany = [ cuentasBancarias : RsCuentaBancaria, documentacion : RsClienteDocumentacion, referenciasClientes : RsReferenciaCliente ]
+	BigDecimal ingresoSemanal
+	Integer    dependientesEconomicos
+	String     destinoDelCredito
+	String     rolEnElHogar
+	Boolean    listaNegra = false
+	
+	static hasMany = [ cuentasBancarias : RsCuentaBancaria, documentacion : RsClienteDocumentacion, 
+						referenciasClientes : RsReferenciaCliente, negocios : SimClienteNegocio ]
 	
     static constraints = {
 		persona unique: true
@@ -34,6 +36,7 @@ class RsCliente {
 		cuentasBancarias()
 		documentacion()
 		referenciasClientes()
+		negocios()
     }
 	
 	String toString() {

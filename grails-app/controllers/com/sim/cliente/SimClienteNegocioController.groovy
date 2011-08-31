@@ -2,5 +2,5 @@ package com.sim.cliente
 
 class SimClienteNegocioController {
 
-    def index = { }
+    def scaffold = true
 }

@@ -9,4 +9,8 @@ class SimCatGiro {
 		claveGiro(size:5..15, unique: true, nullable: false, blank: false)
 		nombreGiro(size:5..200, unique: true, nullable: false, blank: false)
     }
+	
+	String toString() {
+		"${nombreGiro}"
+	}
 }
