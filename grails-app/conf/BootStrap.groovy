@@ -439,6 +439,16 @@ class BootStrap {
 				descripcionTipoNegocio: 'DESCRIPCION SEMIFIJO',
 				).save(failOnError: true)
 
+		new SimCatTipoNegocio(claveTipoNegocio:  'CLAVE3',
+				nombreTipoNegocio: 'AMBULANTE',
+				descripcionTipoNegocio: 'DESCRIPCION AMBULANTE',
+				).save(failOnError: true)
+
+		new SimCatTipoNegocio(claveTipoNegocio:  'CLAVE4',
+				nombreTipoNegocio: 'VENTAS POR CATALOGO',
+				descripcionTipoNegocio: 'DESCRIPCION VENTAS CATALOGO',
+				).save(failOnError: true)
+
 		new SimCatTipoPersona(claveTipoPersona:  'AVAL',
 				nombreTipoPersona: 'AVAL',
 				descripcionTipoPersona: 'DESCRIPCION AVAL',
@@ -1400,15 +1410,15 @@ class BootStrap {
 		new SimCatUbicacionNegocio(claveUbicacionNegocio: 'UBICA1',
 				nombreUbicacionNegocio: 'TIENDA, ACCESORIA O TENDEJON',
 				).save(failOnError: true)
-				
+
 		new SimCatUbicacionNegocio(claveUbicacionNegocio: 'UBICA2',
 				nombreUbicacionNegocio: 'PUESTO EN MERCADO BAJO TECHO COMUN',
 				).save(failOnError: true)
-				
+
 		new SimCatUbicacionNegocio(claveUbicacionNegocio: 'UBICA3',
 				nombreUbicacionNegocio: 'LOCALES BAJO TECHO COMUN',
 				).save(failOnError: true)
-				
+
 		new SimCatUbicacionNegocio(claveUbicacionNegocio: 'UBICA4',
 				nombreUbicacionNegocio: 'PASILLOS EN CENTRO COMERCIAL (KIOSCO)',
 				).save(failOnError: true)
