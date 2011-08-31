@@ -1,6 +1,7 @@
-package com.sim.empresa
+package com.sim.cliente
 
 import com.sim.catalogo.SimCatDocumento
+import com.sim.empresa.RsEmpleado;
 
 class RsClienteDocumentacion {
 

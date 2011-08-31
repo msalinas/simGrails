@@ -2,6 +2,10 @@ import com.sun.org.apache.xalan.internal.xsltc.compiler.Import;
 
 import com.sim.empresa.*
 import com.sim.catalogo.*
+import com.sim.cliente.RsCliente;
+import com.sim.cliente.RsClienteDocumentacion;
+import com.sim.cliente.RsCuentaBancaria;
+import com.sim.cliente.RsReferenciaCliente;
 import com.sim.pfin.*
 import com.sim.usuario.*
 import com.sim.regional.*

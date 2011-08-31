@@ -1,6 +1,6 @@
 package com.sim.catalogo
 
-import com.sim.empresa.RsCuentaBancaria
+import com.sim.cliente.RsCuentaBancaria;
 
 class SimCatBanco {
 

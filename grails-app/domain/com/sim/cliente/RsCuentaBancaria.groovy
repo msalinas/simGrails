@@ -1,4 +1,4 @@
-package com.sim.empresa
+package com.sim.cliente
 
 import com.sim.catalogo.SimCatBanco
 

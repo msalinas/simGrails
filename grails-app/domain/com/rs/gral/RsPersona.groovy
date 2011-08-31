@@ -2,11 +2,11 @@ package com.rs.gral
 
 import com.sim.usuario.Usuario
 import com.sim.empresa.RsEmpleado
-import com.sim.empresa.RsCliente
-import com.sim.empresa.RsReferenciaCliente
 import com.sim.catalogo.SimCatDocumento
 import com.sim.catalogo.SimCatEscolaridad
 import com.sim.catalogo.SimCatTipoPersona
+import com.sim.cliente.RsCliente;
+import com.sim.cliente.RsReferenciaCliente;
 
 class RsPersona {
  	
