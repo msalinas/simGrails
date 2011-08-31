@@ -17,12 +17,12 @@ class BootStrap {
 
 		new RsConfGpoEmpresa(claveGrupoEmpresa: 'SIM',
 				nombreGrupoEmpresa: 'SIM CREDITOS',
-				fechaCreacion: new Date('01/01/2011')).save()
+				fechaCreacion: new Date('01/01/2011')).save(failOnError: true)
 
 		new RsConfEmpresa(claveEmpresa: 'CREDITOS',
 				nombreEmpresa: 'MICROFINANCIERA AZUL',
 				fechaCreacion: new Date('01/01/2011'),
-				grupoEmpresa: RsConfGpoEmpresa.findByClaveGrupoEmpresa('SIM')).save()
+				grupoEmpresa: RsConfGpoEmpresa.findByClaveGrupoEmpresa('SIM')).save(failOnError: true)
 
 		//ARREGLO PARA CREAR USUARIOS
 		def samples = [
@@ -43,7 +43,7 @@ class BootStrap {
 			def adminUser = new Usuario(
 					username: "admin",
 					password: springSecurityService.encodePassword("4321"),
-					enabled: true).save()
+					enabled: true).save(failOnError: true)
 
 			//ASIGNA LOS ROLES AL USUARIO ADMINISTRADOR
 			SecUserSecRole.create adminUser, adminRole
@@ -53,7 +53,7 @@ class BootStrap {
 					apellidoPaterno: "ADMINISTRADOR",
 					primerNombre: "MICROFINANCIERAS",
 					email : "mikerugerio@gmail.com",
-					usuario : adminUser).save()
+					usuario : adminUser).save(failOnError: true)
 
 			// DA DE ALTA A LOS USUARIOS DEL ARREGLO DEFINIDO ANTERIORMENTE
 			samples.each { username, profileAttrs ->
@@ -99,109 +99,109 @@ class BootStrap {
 
 		new SimCatTipoAccesorio(claveTipoAccesorio: 'INTERES',
 				nombreTipoAccesorio: 'INTERESES',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoAccesorio(claveTipoAccesorio: 'RECARGO',
 				nombreTipoAccesorio: 'RECARGOS',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoAccesorio(claveTipoAccesorio: 'CARGO_COMISION',
 				nombreTipoAccesorio: 'CARGO Y COMISIONES',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatAccesorio(claveAccesorio: 'CLAVE_6',
 				nombreAccesorio: 'SEGURO DE VIDA',
 				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
 				tasaIva : 0,
 				beneficiario : 'true',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatAccesorio(claveAccesorio: 'CLAVE_8',
 				nombreAccesorio: 'SEGURO DEUDOR',
 				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
 				tasaIva : 0,
 				beneficiario : 'false',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatAccesorio(claveAccesorio: 'CLAVE_15',
 				nombreAccesorio: 'ADMINISTRACION CREDITICIA',
 				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
 				tasaIva : 0,
 				beneficiario : 'false',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatBanco(claveBanco: 'BANCOMER',
 				nombreBanco: 'BANCOMER',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatBanco(claveBanco: 'BANAMEX',
 				nombreBanco: 'BANAMEX',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatFormaEntrega(claveFormaEntrega: 'CAJA',
 				nombreFormaEntrega: 'DIRECTAMENTE EN CAJA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatFormaEntrega(claveFormaEntrega: 'CHEQUE',
 				nombreFormaEntrega: 'EN CHEQUE',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatFormaEntrega(claveFormaEntrega: 'ELECTRONICA',
 				nombreFormaEntrega: 'TRANSFERENCIA ELECTRONICA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatFormaEntrega(claveFormaEntrega: 'FONDOS',
 				nombreFormaEntrega: 'DISPERCION DE FONDOS',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatDescTelefono(claveDescripcionTelefono: 'CLAVE1',
 				nombreDescripcionTelefono: 'CASA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatDescTelefono(claveDescripcionTelefono: 'CLAVE2',
 				nombreDescripcionTelefono: 'OFICINA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatDescTelefono(claveDescripcionTelefono: 'CLAVE3',
 				nombreDescripcionTelefono: 'FAX',
-				).save()
+				).save(failOnError: true)
 
 		new PfinDiaFestivo(diaFestivo:  new Date('01/01/2011'),
 				descripcionDia: 'AÑO NUEVO',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoDocumento(claveTipoDocumentacion:  'CLAVE_1',
 				nombreTipoDocumentacion: 'IDENTIFICACION OFICIAL',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoDocumento(claveTipoDocumentacion:  'CLAVE_2',
 				nombreTipoDocumentacion: 'COMPROBANTE DE DOMICILIO',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoDocumento(claveTipoDocumentacion:  'CLAVE_3',
 				nombreTipoDocumentacion: 'LEGAL',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatReporte(claveReporte:  'CLAVE_1',
 				nombreReporte: 'ANEXO A',
 				descripcion: 'DESCRIPCION DEL ANEXO A',
 				aplicaA : 'INDIVIDUAL',
 				nombreFuncion: 'SimReporteAnexoA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatReporte(claveReporte:  'CLAVE_4',
 				nombreReporte: 'PAGARE SOLIDARIO',
 				descripcion: 'DESCRIPCION DEL PAGARE SOLIDARIO',
 				aplicaA : 'GRUPO',
 				nombreFuncion: 'SimReportePagareSolidario',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatDocumento(claveDocumento:  'CLAVE7',
 				nombreDocumento: 'SOLICITUD',
 				descripcion: 'FORMA PARA INGRESAR UN CRÉDITO',
 				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_1'),
 				esReporte : 'false',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatDocumento(claveDocumento:  'CLAVE22',
 				nombreDocumento: 'ANEXO A',
@@ -209,7 +209,7 @@ class BootStrap {
 				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_3'),
 				simCatReporte : SimCatReporte.findByClaveReporte('CLAVE_1'),
 				esReporte : 'true',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatDocumento(claveDocumento:  'CLAVE1',
 				nombreDocumento: 'CREDENCIAL IFE',
@@ -217,38 +217,38 @@ class BootStrap {
 				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_1'),
 				simCatReporte : SimCatReporte.findByClaveReporte('CLAVE_4'),
 				esReporte : 'false',
-				).save()
+				).save(failOnError: true)
 
 
 		new SimCatEscolaridad(claveEscolaridad:  'CLAVE1',
 				nombreEscolaridad: 'PRIMARIA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatEscolaridad(claveEscolaridad:  'CLAVE2',
 				nombreEscolaridad: 'SECUNDARIA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatEscolaridad(claveEscolaridad:  'CLAVE3',
-				nombreEscolaridad: 'SECUNDARIA',
-				).save()
+				nombreEscolaridad: 'PREPARATORIA',
+				).save(failOnError: true)
 
 		new SimCatEscolaridad(claveEscolaridad:  'CLAVE4',
 				nombreEscolaridad: 'LICENCIATURA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'CLAVE_1',
 				nombreEtapaPrestamo: 'SOLICITADO',
 				descripcionEtapaPrestamo: 'SOLICITADO',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'CLAVE_2',
 				nombreEtapaPrestamo: 'BURO DE CREDITO',
 				descripcionEtapaPrestamo: 'BURO DE CREDITO',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatFondeador(claveFondeador:  'CLAVE_1',
 				nombreFondeador: 'PRONAFIN',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatLineaFondeo(numeroLinea:  'LINEA 1',
 				monto: 5000,
@@ -257,7 +257,7 @@ class BootStrap {
 				fechaInicio: new Date('01/01/2011'),
 				fechaVigencia : new Date('01/01/2015'),
 				simCatFondeador : SimCatFondeador.findByClaveFondeador('CLAVE_1'),
-				).save()
+				).save(failOnError: true)
 
 		new SimCatLineaFondeo(numeroLinea:  'LINEA 2',
 				monto: 25000,
@@ -266,818 +266,818 @@ class BootStrap {
 				fechaInicio: new Date('01/01/2011'),
 				fechaVigencia : new Date('01/01/2019'),
 				simCatFondeador : SimCatFondeador.findByClaveFondeador('CLAVE_1'),
-				).save()
+				).save(failOnError: true)
 
 
 		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_01',
 				nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL E INTERES',
 				descripcionMetodoCalculo: 'INTERES GLOBAL',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_02',
 				nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL, CALCULO DE INTERES SOBRE EL SALDO INSOLUTO',
 				descripcionMetodoCalculo: 'INTERES SOBRE SALDO INSOLUTO',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_05',
 				nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL MAS INTERES, CALCULO DE INTERES SOBRE EL SALDO INSOLUTO',
 				descripcionMetodoCalculo: 'SIN RECALCULO DE INTERESES POR PAGOS ADELANTADOS, CONOCIDO COMO METODO FRANCES',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatMetodoCalculo(claveMetodoCalculo:  'CLAVE_06',
 				nombreMetodoCalculo: 'PAGOS IGUALES DE CAPITAL MAS INTERES, CALCULO DE INTERES SOBRE EL SALDO INSOLUTO RI',
 				descripcionMetodoCalculo: 'RECALCULO DE INTERESES POR PAGOS ADELANTADOS, CONOCIDO COMO METODO FRANCES',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatParentesco(claveParentesco:  'MADRE',
 				nombreParentesco: 'MADRE',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatParentesco(claveParentesco:  'PADRE',
 				nombreParentesco: 'PADRE',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatPerfil(clavePerfil:  'CAJERO',
 				nombrePerfil: 'CAJERO',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatPerfil(clavePerfil:  'EJECRE',
 				nombrePerfil: 'EJECUTIVO DE CREDITO',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatPerfil(clavePerfil:  'GERENTE',
 				nombrePerfil: 'GERENTE',
-				).save()
+				).save(failOnError: true)
 
 
 		new SimCatPeriodicidad(clavePeriodicidad:  'CLAVE_1',
 				nombrePeriodicidad: 'ANUAL',
 				cantidadPagos: 1,
 				numeroDias: 360,
-				).save()
+				).save(failOnError: true)
 
 		new SimCatPeriodicidad(clavePeriodicidad:  'CLAVE_2',
 				nombrePeriodicidad: 'MENSUAL',
 				cantidadPagos: 12,
 				numeroDias: 30,
-				).save()
+				).save(failOnError: true)
 
 		new SimCatPuesto(clavePuesto:  'DIRGEN',
 				nombrePuesto: 'DIRECTOR GENERAL',
 				descripcionPuesto: 'DIRECTOR GENERAL MICRO',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatPuesto(clavePuesto:  'GERRIE',
 				nombrePuesto: 'GERENTE DE RIESGOS',
 				descripcionPuesto: 'GERENTE DE RIESGOS',
 				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
-				).save()
+				).save(failOnError: true)
 
 		new SimCatPuesto(clavePuesto:  'COORIE',
 				nombrePuesto: 'COORDINADOR DE RIESGOS',
 				descripcionPuesto: 'COORDINADOR DE RIESGOS',
 				dependeDe : SimCatPuesto.findByClavePuesto('GERRIE'),
-				).save()
+				).save(failOnError: true)
 
 		new SimCatPuesto(clavePuesto:  'ASESORSUC',
 				nombrePuesto: 'ASESOR DE SUCURSAL',
 				descripcionPuesto: 'ASESOR DE SUCURSAL',
 				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
-				).save()
+				).save(failOnError: true)
 
 		new SimCatPuesto(clavePuesto:  'GERREG',
 				nombrePuesto: 'GERENTE REGIONAL',
 				descripcionPuesto: 'GERENTE DE REGIONAL',
 				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
-				).save()
+				).save(failOnError: true)
 
 		new SimCatPuesto(clavePuesto:  'COOREG',
 				nombrePuesto: 'COORDINADOR REGIONAL',
 				descripcionPuesto: 'COORDINADOR DE REGIONAL',
 				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
-				).save()
+				).save(failOnError: true)
 
 		new SimCatPuesto(clavePuesto:  'GERSUC',
 				nombrePuesto: 'GERENTE SUCURSAL',
 				descripcionPuesto: 'GERENTE DE SUCURSAL',
 				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
-				).save()
+				).save(failOnError: true)
 
 		new SimCatPuesto(clavePuesto:  'COOSUC',
 				nombrePuesto: 'COORDINADOR SUCURSAL',
 				descripcionPuesto: 'COORDINADOR DE SUCURSAL',
 				dependeDe : SimCatPuesto.findByClavePuesto('DIRGEN'),
-				).save()
+				).save(failOnError: true)
 
 		new SimCatRechazoComite(claveRechazoComite:  '101',
 				nombreRechazoComite: 'FALTA DE DOCUMENTOS',
 				descripcionRechazoComite: 'FALTA DE DOCUMENTOS',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatRechazoComite(claveRechazoComite:  '102',
 				nombreRechazoComite: 'ANTECEDENTES PENALES ',
 				descripcionRechazoComite: 'ANTECEDENTES PENALES ',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoAsentamiento(claveTipoAsentamiento:  'CIUDAD',
 				nombreTipoAsentamiento: 'CIUDAD',
-				).save()
+				).save(failOnError: true)
 		new SimCatTipoAsentamiento(claveTipoAsentamiento:  'COLONIA',
 				nombreTipoAsentamiento: 'COLONIA',
-				).save()
+				).save(failOnError: true)
 		new SimCatTipoAsentamiento(claveTipoAsentamiento:  'URBANA',
 				nombreTipoAsentamiento: 'URBANA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoDomicilio(claveTipoDomicilio:  'CLAVE1',
 				nombreTipoDomicilio: 'PROPIA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoDomicilio(claveTipoDomicilio:  'CLAVE2',
 				nombreTipoDomicilio: 'RENTADA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoGarantia(claveTipoGarantia:  'CLAVE1',
 				nombreTipoGarantia: 'PRENDARIA',
 				descripcionTipoGarantia: 'DESCRIPCION PRENDARIA',
 				requisitosTipoGarantia: 'REQUISITOS PRENDARIA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoGarantia(claveTipoGarantia:  'CLAVE2',
 				nombreTipoGarantia: 'QUIFOGRAFARIA',
 				descripcionTipoGarantia: 'DESCRIPCION QUIFOGRAFARIA',
 				requisitosTipoGarantia: 'REQUISITOS QUIFOGRAFARIA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoIdentificador(claveTipoIdentificador:  'AVAL',
 				nombreTipoIdentificador: 'AVAL O FIADOR',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoIdentificador(claveTipoIdentificador:  'CLIENTE',
 				nombreTipoIdentificador: 'CLIENTE',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoIdentificador(claveTipoIdentificador:  'REGIONAL',
 				nombreTipoIdentificador: 'REGIONAL',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoIdentificador(claveTipoIdentificador:  'SUCURSAL',
 				nombreTipoIdentificador: 'SUCURSAL',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoNegocio(claveTipoNegocio:  'CLAVE1',
 				nombreTipoNegocio: 'FIJO',
 				descripcionTipoNegocio: 'DESCRIPCION FIJO',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoNegocio(claveTipoNegocio:  'CLAVE2',
 				nombreTipoNegocio: 'SEMIFIJO',
 				descripcionTipoNegocio: 'DESCRIPCION SEMIFIJO',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoPersona(claveTipoPersona:  'AVAL',
 				nombreTipoPersona: 'AVAL',
 				descripcionTipoPersona: 'DESCRIPCION AVAL',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoPersona(claveTipoPersona:  'CLIENTE',
 				nombreTipoPersona: 'CLIENTE',
 				descripcionTipoPersona: 'DESCRIPCION CLIENTE',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoPersona(claveTipoPersona:  'USUARIO',
 				nombreTipoPersona: 'USUARIO',
 				descripcionTipoPersona: 'USUARIO DEL SISTEMA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoPersona(claveTipoPersona:  'EMPLEADO',
 				nombreTipoPersona: 'EMPLEADO',
 				descripcionTipoPersona: 'EMPLEADO DE LA EMPRESA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTipoPersona(claveTipoPersona:  'REFCLIENTE',
 				nombreTipoPersona: 'REFERENCIA DEL CLIENTE',
 				descripcionTipoPersona: 'REFERENCIA DEL CLIENTE',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatVerificacionReferencia(claveTipoReferencia:  'CLAVE1',
 				nombreTipoReferencia: 'REPUTACIÓN DE BUEN TRABAJADOR',
 				descripcionTipoReferencia: 'REPUTACIÓN DE BUEN TRABAJADOR',
-				).save()
+				).save(failOnError: true)
 
 
 		new SimCatVerificacionReferencia(claveTipoReferencia:  'CLAVE4',
 				nombreTipoReferencia: 'LO CONOCEN PERO NO SABEN SU CALIDAD COMO PERSONA',
 				descripcionTipoReferencia: 'LO CONOCEN PERO NO SABEN SU CALIDAD COMO PERSONA',
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTasaReferencia(claveTasaReferencia:  'CLAVE1',
 				nombreTasaReferencia: 'CETES 28',
 				descripcionTasaReferencia: 'DESCRIPCION CETES 28',
 				periodicidadTasa: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_1'),
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTasaReferencia(claveTasaReferencia:  'CLAVE2',
 				nombreTasaReferencia: 'BONO',
 				descripcionTasaReferencia: 'DESCRIPCION BONO',
 				periodicidadTasa: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_2'),
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTasaPapel(claveTasaPapel:  'CLAVE1',
 				fechaPublicacion: new Date('01/01/2011'),
 				valorTasaPapel: 5.85,
 				tasaReferencia: SimCatTasaReferencia.findByClaveTasaReferencia('CLAVE2'),
-				).save()
+				).save(failOnError: true)
 
 		new SimCatTasaPapel(claveTasaPapel:  'CLAVE2',
 				fechaPublicacion: new Date('01/05/2011'),
 				valorTasaPapel: 8.85,
 				tasaReferencia: SimCatTasaReferencia.findByClaveTasaReferencia('CLAVE2'),
-				).save()
+				).save(failOnError: true)
 
 		new SimRegional(claveRegional:  'REGION1',
 				nombreRegional: 'TOLUCA'
-				).save()
+				).save(failOnError: true)
 
 		new SimRegional(claveRegional:  'REGION2',
 				nombreRegional: 'PUEBLA'
-				).save()
+				).save(failOnError: true)
 
 		new SimSucursal(claveSucursal:  'SUCURSAL1',
 				nombreSucursal: 'SAN MATEO',
 				regional : SimRegional.findByClaveRegional('REGION1')
-				).save()
+				).save(failOnError: true)
 
 		new SimSucursal(claveSucursal:  'SUCURSAL2',
 				nombreSucursal: 'SANTIAGO TIANGUISTENCO',
 				regional : SimRegional.findByClaveRegional('REGION1')
-				).save()
+				).save(failOnError: true)
 
 		new SimSucursal(claveSucursal:  'SUCURSAL3',
 				nombreSucursal: 'IXTAPAN DE LA SAL',
 				regional : SimRegional.findByClaveRegional('REGION1')
-				).save()
+				).save(failOnError: true)
 
 		new SimSucursalCaja(claveCaja:  'MCAJA1',
 				nombreCaja: 'SAN MATEO CAJA1',
 				sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1')
-				).save()
+				).save(failOnError: true)
 
 		new SimSucursalCaja(claveCaja:  'MCAJA2',
 				nombreCaja: 'SAN MATEO CAJA2',
 				sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1')
-				).save()
+				).save(failOnError: true)
 
 		new SimSucursalCaja(claveCaja:  'MCAJA3',
 				nombreCaja: 'SAN MATEO CAJA3',
 				sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1')
-				).save()
+				).save(failOnError: true)
 
 
 		new RsGralTelefono(telefono:  '111111111',
 				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE2'),
 				regional : SimRegional.findByClaveRegional('REGION1'),
-				).save()
+				).save(failOnError: true)
 
 		new RsGralTelefono(telefono:  '222222222',
 				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE3'),
 				regional : SimRegional.findByClaveRegional('REGION1'),
-				).save()
+				).save(failOnError: true)
 
 		new RsGralTelefono(telefono:  '33333333',
 				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE1'),
 				sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1'),
-				).save()
+				).save(failOnError: true)
 
 		new RsGralTelefono(telefono:  '444444444',
 				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE2'),
 				sucursal : SimSucursal.findByClaveSucursal('SUCURSAL1'),
-				).save()
+				).save(failOnError: true)
 
 		new RsGralTelefono(telefono:  '555555555',
 				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE2'),
 				persona : RsPersona.findByEmail('mrugerio@gmail.com'),
-				).save()
+				).save(failOnError: true)
 
 		new RsGralTelefono(telefono:  '666666666',
 				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE1'),
 				persona : RsPersona.findByEmail('mrugerio@gmail.com'),
-				).save()
+				).save(failOnError: true)
 
 
 		new Country(nameCountry: 'MEXICO',
 				abbr: 'MEX',
-				language: 'ESPANOL').save()
+				language: 'ESPANOL').save(failOnError: true)
 
 		new Country(nameCountry: 'ESTADOS UNIDOS',
 				abbr: 'USA',
-				language: 'INGLES').save()
+				language: 'INGLES').save(failOnError: true)
 
 		new City(nameCity: 'DISTRITO FEDERAL',
 				timezone: 'DF',
-				country : Country.findByNameCountry('MEXICO')).save()
+				country : Country.findByNameCountry('MEXICO')).save(failOnError: true)
 
 		new City(nameCity: 'ESTADO MEXICO',
 				timezone: 'TOLUCA',
-				country : Country.findByNameCountry('MEXICO')).save()
+				country : Country.findByNameCountry('MEXICO')).save(failOnError: true)
 
 		new City(nameCity: 'LOS ANGELES',
 				timezone: 'LA',
-				country : Country.findByNameCountry('ESTADOS UNIDOS')).save()
+				country : Country.findByNameCountry('ESTADOS UNIDOS')).save(failOnError: true)
 
 		new City(nameCity: 'NEW YORK',
 				timezone: 'NY',
-				country : Country.findByNameCountry('ESTADOS UNIDOS')).save()
+				country : Country.findByNameCountry('ESTADOS UNIDOS')).save(failOnError: true)
 
 		new RsGralEstado(cveEstado: 'AGS',
 				nombreEstado: 'AGUASCALIENTES',
-				aliasEstado : 'AGS').save()
+				aliasEstado : 'AGS').save(failOnError: true)
 
 		new RsGralEstado(cveEstado: 'DF',
 				nombreEstado: 'DISTRITO FEDERAL',
-				aliasEstado : 'DF').save()
+				aliasEstado : 'DF').save(failOnError: true)
 
 		new RsGralEstado(cveEstado: 'EDOMEX',
 				nombreEstado: 'ESTADO DE MEXICO',
-				aliasEstado : 'EDOMEX').save()
+				aliasEstado : 'EDOMEX').save(failOnError: true)
 
 		new RsGralCiudad(nombreCiudad: 'EL COLORADO',
-				estado : RsGralEstado.findByCveEstado('AGS')).save()
+				estado : RsGralEstado.findByCveEstado('AGS')).save(failOnError: true)
 
 		new RsGralCiudad(nombreCiudad: 'AMAPOLAS DEL RIO',
-				estado : RsGralEstado.findByCveEstado('AGS')).save()
+				estado : RsGralEstado.findByCveEstado('AGS')).save(failOnError: true)
 
 		new RsGralCiudad(nombreCiudad: 'EL CONEJAL',
-				estado : RsGralEstado.findByCveEstado('AGS')).save()
+				estado : RsGralEstado.findByCveEstado('AGS')).save(failOnError: true)
 
 		new RsGralCiudad(nombreCiudad: 'DISTRITO NORTE',
-				estado : RsGralEstado.findByCveEstado('DF')).save()
+				estado : RsGralEstado.findByCveEstado('DF')).save(failOnError: true)
 
 		new RsGralCiudad(nombreCiudad: 'DISTRITO SUR',
-				estado : RsGralEstado.findByCveEstado('DF')).save()
+				estado : RsGralEstado.findByCveEstado('DF')).save(failOnError: true)
 
 		new RsGralCiudad(nombreCiudad: 'METEPEC',
-				estado : RsGralEstado.findByCveEstado('EDOMEX')).save()
+				estado : RsGralEstado.findByCveEstado('EDOMEX')).save(failOnError: true)
 
 		new RsGralCiudad(nombreCiudad: 'CHIMALHUACAN',
-				estado : RsGralEstado.findByCveEstado('EDOMEX')).save()
+				estado : RsGralEstado.findByCveEstado('EDOMEX')).save(failOnError: true)
 
 		new RsGralCiudad(nombreCiudad: 'MEXICO',
-				estado : RsGralEstado.findByCveEstado('EDOMEX')).save()
+				estado : RsGralEstado.findByCveEstado('EDOMEX')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL COLORADO UNO',
-				ciudad : RsGralCiudad.findByNombreCiudad('EL COLORADO')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('EL COLORADO')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL COLORADO DOS',
-				ciudad : RsGralCiudad.findByNombreCiudad('EL COLORADO')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('EL COLORADO')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL COLORADO TRES',
-				ciudad : RsGralCiudad.findByNombreCiudad('EL COLORADO')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('EL COLORADO')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL AMAPOLAS UNO',
-				ciudad : RsGralCiudad.findByNombreCiudad('AMAPOLAS DEL RIO')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('AMAPOLAS DEL RIO')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL AMAPOLAS DOS',
-				ciudad : RsGralCiudad.findByNombreCiudad('AMAPOLAS DEL RIO')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('AMAPOLAS DEL RIO')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL AMAPOLAS TRES',
-				ciudad : RsGralCiudad.findByNombreCiudad('AMAPOLAS DEL RIO')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('AMAPOLAS DEL RIO')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL CONEJAL UNO',
-				ciudad : RsGralCiudad.findByNombreCiudad('EL CONEJAL')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('EL CONEJAL')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL CONEJAL DOS',
-				ciudad : RsGralCiudad.findByNombreCiudad('EL CONEJAL')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('EL CONEJAL')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'EL CONEJAL TRES',
-				ciudad : RsGralCiudad.findByNombreCiudad('EL CONEJAL')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('EL CONEJAL')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'CUAUHTEMOC',
-				ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO NORTE')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO NORTE')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'VENUSTIANO CARRANZA',
-				ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO NORTE')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO NORTE')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'ALVARO OBREGON',
-				ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO NORTE')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO NORTE')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'BENITO JUAREZ',
-				ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO SUR')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO SUR')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'COYOACAN',
-				ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO SUR')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO SUR')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'TLALPAN',
-				ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO SUR')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('DISTRITO SUR')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'METEPEC UNO',
-				ciudad : RsGralCiudad.findByNombreCiudad('METEPEC')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('METEPEC')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'METEPEC DOS',
-				ciudad : RsGralCiudad.findByNombreCiudad('METEPEC')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('METEPEC')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'METEPEC TRES',
-				ciudad : RsGralCiudad.findByNombreCiudad('METEPEC')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('METEPEC')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'CHIMALHUACAN UNO',
-				ciudad : RsGralCiudad.findByNombreCiudad('CHIMALHUACAN')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('CHIMALHUACAN')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'CHIMALHUACAN DOS',
-				ciudad : RsGralCiudad.findByNombreCiudad('CHIMALHUACAN')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('CHIMALHUACAN')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'CHIMALHUACAN TRES',
-				ciudad : RsGralCiudad.findByNombreCiudad('CHIMALHUACAN')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('CHIMALHUACAN')).save(failOnError: true)
 
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'MEXICO UNO',
-				ciudad : RsGralCiudad.findByNombreCiudad('MEXICO')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('MEXICO')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'MEXICO DOS',
-				ciudad : RsGralCiudad.findByNombreCiudad('MEXICO')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('MEXICO')).save(failOnError: true)
 
 		new RsGralDelegacionMunicipio(nombreDelegacionMunicipio: 'MEXICO TRES',
-				ciudad : RsGralCiudad.findByNombreCiudad('MEXICO')).save()
+				ciudad : RsGralCiudad.findByNombreCiudad('MEXICO')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL COLORADO 1 ASENTAMIENTO UNO',
 				codigoPostal: '01000',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL COLORADO UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL COLORADO 1 ASENTAMIENTO DOS',
 				codigoPostal: '01010',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL COLORADO UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL COLORADO 1 ASENTAMIENTO TRES',
 				codigoPostal: '01020',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL COLORADO UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL COLORADO 2 ASENTAMIENTO UNO',
 				codigoPostal: '01100',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL COLORADO DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL COLORADO 2 ASENTAMIENTO DOS',
 				codigoPostal: '01110',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL COLORADO DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL COLORADO 2 ASENTAMIENTO TRES',
 				codigoPostal: '01120',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL COLORADO DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL COLORADO 3 ASENTAMIENTO UNO',
 				codigoPostal: '01200',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL COLORADO TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL COLORADO 3 ASENTAMIENTO DOS',
 				codigoPostal: '01210',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL COLORADO TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL COLORADO 3 ASENTAMIENTO TRES',
 				codigoPostal: '01220',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL COLORADO TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL AMAPOLAS 1 ASENTAMIENTO UNO',
 				codigoPostal: '01230',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL AMAPOLAS UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL AMAPOLAS 1 ASENTAMIENTO DOS',
 				codigoPostal: '01240',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL AMAPOLAS UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL AMAPOLAS 1 ASENTAMIENTO TRES',
 				codigoPostal: '01250',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL AMAPOLAS UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL AMAPOLAS 2 ASENTAMIENTO UNO',
 				codigoPostal: '01260',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL AMAPOLAS DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL AMAPOLAS 2 ASENTAMIENTO DOS',
 				codigoPostal: '01270',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL AMAPOLAS DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL AMAPOLAS 2 ASENTAMIENTO TRES',
 				codigoPostal: '01280',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL AMAPOLAS DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL AMAPOLAS 3 ASENTAMIENTO UNO',
 				codigoPostal: '01290',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL AMAPOLAS TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL AMAPOLAS 3 ASENTAMIENTO DOS',
 				codigoPostal: '01300',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL AMAPOLAS TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL AMAPOLAS 3 ASENTAMIENTO TRES',
 				codigoPostal: '01310',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL AMAPOLAS TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL CONEJAL 1 ASENTAMIENTO UNO',
 				codigoPostal: '01320',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL CONEJAL UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL CONEJAL 1 ASENTAMIENTO DOS',
 				codigoPostal: '01330',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL CONEJAL UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL CONEJAL 1 ASENTAMIENTO TRES',
 				codigoPostal: '01340',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL CONEJAL UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL CONEJAL 2 ASENTAMIENTO UNO',
 				codigoPostal: '01350',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL CONEJAL DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL CONEJAL 2 ASENTAMIENTO DOS',
 				codigoPostal: '01360',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL CONEJAL DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL CONEJAL 2 ASENTAMIENTO TRES',
 				codigoPostal: '01370',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL CONEJAL DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL CONEJAL 3 ASENTAMIENTO UNO',
 				codigoPostal: '01380',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL CONEJAL TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL CONEJAL 3 ASENTAMIENTO DOS',
 				codigoPostal: '01390',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL CONEJAL TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'EL CONEJAL 3 ASENTAMIENTO TRES',
 				codigoPostal: '01400',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('EL CONEJAL TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'VISTA ALEGRE',
 				codigoPostal: '06860',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CUAUHTEMOC'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'BUENOS AIRES',
 				codigoPostal: '06861',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CUAUHTEMOC'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'BOTURINI',
 				codigoPostal: '06862',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CUAUHTEMOC'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'VENUSTIANO CARRANZA UNO',
 				codigoPostal: '06900',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('VENUSTIANO CARRANZA'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'VENUSTIANO CARRANZA DOS',
 				codigoPostal: '06910',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('VENUSTIANO CARRANZA'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'VENUSTIANO CARRANZA TRES',
 				codigoPostal: '06920',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('VENUSTIANO CARRANZA'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'ALVARO OBREGON UNO',
 				codigoPostal: '01410',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('ALVARO OBREGON'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'ALVARO OBREGON DOS',
 				codigoPostal: '01420',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('ALVARO OBREGON'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'ALVARO OBREGON TRES',
 				codigoPostal: '01430',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('ALVARO OBREGON'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'SANTA CRUZ ATOYAC',
 				codigoPostal: '01440',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('COYOACAN'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'DEL VALLE',
 				codigoPostal: '01450',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('COYOACAN'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'NARVARTE',
 				codigoPostal: '01460',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('COYOACAN'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'BENITO JUAREZ UNO',
 				codigoPostal: '01470',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('BENITO JUAREZ'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'BENITO JUAREZ DOS',
 				codigoPostal: '01480',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('BENITO JUAREZ'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'BENITO JUAREZ TRES',
 				codigoPostal: '01490',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('BENITO JUAREZ'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'TLALPAN UNO',
 				codigoPostal: '01500',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('TLALPAN'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'TLALPAN DOS',
 				codigoPostal: '01510',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('TLALPAN'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'TLALPAN TRES',
 				codigoPostal: '01520',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('TLALPAN'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'CHIMALHUACAN 1 ASENTAMIENTO UNO',
 				codigoPostal: '01530',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CHIMALHUACAN UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'CHIMALHUACAN 1 ASENTAMIENTO DOS',
 				codigoPostal: '01540',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CHIMALHUACAN UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'CHIMALHUACAN 1 ASENTAMIENTO TRES',
 				codigoPostal: '01550',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CHIMALHUACAN UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'CHIMALHUACAN 2 ASENTAMIENTO UNO',
 				codigoPostal: '01560',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CHIMALHUACAN DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'CHIMALHUACAN 2 ASENTAMIENTO DOS',
 				codigoPostal: '01570',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CHIMALHUACAN DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'CHIMALHUACAN 2 ASENTAMIENTO TRES',
 				codigoPostal: '01580',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CHIMALHUACAN DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'CHIMALHUACAN 3 ASENTAMIENTO UNO',
 				codigoPostal: '01590',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CHIMALHUACAN TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'CHIMALHUACAN 3 ASENTAMIENTO DOS',
 				codigoPostal: '01600',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CHIMALHUACAN TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'CHIMALHUACAN 3 ASENTAMIENTO TRES',
 				codigoPostal: '01610',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('CHIMALHUACAN TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'METEPEC 1 ASENTAMIENTO UNO',
 				codigoPostal: '01620',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('METEPEC UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'METEPEC 1 ASENTAMIENTO DOS',
 				codigoPostal: '01630',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('METEPEC UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'METEPEC 1 ASENTAMIENTO TRES',
 				codigoPostal: '01640',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('METEPEC UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'METEPEC 2 ASENTAMIENTO UNO',
 				codigoPostal: '01650',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('METEPEC DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'METEPEC 2 ASENTAMIENTO DOS',
 				codigoPostal: '01660',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('METEPEC DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'METEPEC 2 ASENTAMIENTO TRES',
 				codigoPostal: '01670',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('METEPEC DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'METEPEC 3 ASENTAMIENTO UNO',
 				codigoPostal: '01680',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('METEPEC TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'METEPEC 3 ASENTAMIENTO DOS',
 				codigoPostal: '01690',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('METEPEC TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'METEPEC 3 ASENTAMIENTO TRES',
 				codigoPostal: '01700',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('METEPEC TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'MEXICO 1 ASENTAMIENTO UNO',
 				codigoPostal: '01710',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('MEXICO UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'MEXICO 1 ASENTAMIENTO DOS',
 				codigoPostal: '01720',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('MEXICO UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'MEXICO 1 ASENTAMIENTO TRES',
 				codigoPostal: '01730',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('MEXICO UNO'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'MEXICO 2 ASENTAMIENTO UNO',
 				codigoPostal: '01740',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('MEXICO DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'MEXICO 2 ASENTAMIENTO DOS',
 				codigoPostal: '01750',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('MEXICO DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'MEXICO 2 ASENTAMIENTO TRES',
 				codigoPostal: '01760',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('MEXICO DOS'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'MEXICO 3 ASENTAMIENTO UNO',
 				codigoPostal: '01770',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('MEXICO TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 
 		new RsGralAsentamiento(nombreAsentamiento: 'MEXICO 3 ASENTAMIENTO DOS',
 				codigoPostal: '01780',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('MEXICO TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralAsentamiento(nombreAsentamiento: 'MEXICO 3 ASENTAMIENTO TRES',
 				codigoPostal: '01790',
 				delegacionMunicipio : RsGralDelegacionMunicipio.findByNombreDelegacionMunicipio('MEXICO TRES'),
-				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save()
+				tipoAsentamiento: SimCatTipoAsentamiento.findByClaveTipoAsentamiento('COLONIA')).save(failOnError: true)
 
 		new RsGralDomicilio(calle: 'Las Palmas',
 				numeroInterior: '4',
@@ -1086,7 +1086,7 @@ class BootStrap {
 				comentarios : 'ENFRENTE DE UNA FARMACIA',
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('06860'),
 				regional : SimRegional.findByClaveRegional('REGION1'),
-				).save()
+				).save(failOnError: true)
 
 		new RsGralDomicilio(calle: 'Direccion administrador',
 				numeroInterior: '54',
@@ -1095,7 +1095,7 @@ class BootStrap {
 				comentarios : 'CRUZANDO DE UNA AVENIDA',
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('01790'),
 				sucursal : SimSucursal.get(1),
-				).save()
+				).save(failOnError: true)
 
 		new RsGralDomicilio(calle: 'Direccion administrador',
 				numeroInterior: '78',
@@ -1104,7 +1104,7 @@ class BootStrap {
 				comentarios : 'ATRAS CENTRO COMERCIAL',
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('01580'),
 				persona : RsPersona.get(1),
-				).save()
+				).save(failOnError: true)
 
 		new RsGralDomicilio(calle: 'BATALLONES ROJOS 205',
 				numeroInterior: '504',
@@ -1113,7 +1113,7 @@ class BootStrap {
 				comentarios : 'UNIDAD ALBARRADA',
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('06862'),
 				persona : RsPersona.findByEmail('mrugerio@gmail.com'),
-				).save()
+				).save(failOnError: true)
 
 		new RsGralDomicilio(calle: 'PROGRESISTA',
 				numeroInterior: '202',
@@ -1122,7 +1122,7 @@ class BootStrap {
 				comentarios : 'UNIDAD VICENTE',
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('01600'),
 				persona : RsPersona.findByEmail('mrugerio@gmail.com'),
-				).save()
+				).save(failOnError: true)
 
 		//ASIGNA ATRIBUTOS A LA PERSONA mrugerio@gmail.com
 		def personaMiguel = RsPersona.findByEmail('mrugerio@gmail.com')
@@ -1139,13 +1139,13 @@ class BootStrap {
 			SimCatTipoPersona.findByClaveTipoPersona('USUARIO'),
 			SimCatTipoPersona.findByClaveTipoPersona('EMPLEADO')
 		]
-		personaMiguel.save()
+		personaMiguel.save(failOnError: true)
 
 		// DA DE ALTA UN USUARIO
 		def userHector = new Usuario(
 				username: "hreyes",
 				password: springSecurityService.encodePassword("hreyes"),
-				enabled: true).save()
+				enabled: true).save(failOnError: true)
 
 		//ASIGNA LOS ROLES AL USUARIO ADMINISTRADOR
 		SecUserSecRole.create userHector, adminRole
@@ -1169,7 +1169,7 @@ class BootStrap {
 				tiposPersona : [
 					SimCatTipoPersona.findByClaveTipoPersona('USUARIO'),
 					SimCatTipoPersona.findByClaveTipoPersona('EMPLEADO') ]
-				).save()
+				).save(failOnError: true)
 
 		//DA DE ALTA A UN EMPLEADO
 		def empleado = new RsEmpleado(
@@ -1189,7 +1189,7 @@ class BootStrap {
 				regionalesConAcceso : [
 					SimRegional.findByClaveRegional('REGION1'),
 					SimRegional.findByClaveRegional('REGION2')]
-				).save()
+				).save(failOnError: true)
 
 		//DA DE ALTA A UN EMPLEADO
 		empleado = new RsEmpleado(
@@ -1209,7 +1209,7 @@ class BootStrap {
 				regionalesConAcceso : [
 					SimRegional.findByClaveRegional('REGION1'),
 					SimRegional.findByClaveRegional('REGION2')]
-				).save()
+				).save(failOnError: true)
 
 		//DA DE ALTA A UN EMPLEADO
 		empleado = new RsEmpleado(
@@ -1226,7 +1226,7 @@ class BootStrap {
 				],
 				regionalesConAcceso : [
 					SimRegional.findByClaveRegional('REGION1')]
-				).save()
+				).save(failOnError: true)
 
 		//DA DE ALTA A UN EMPLEADO
 		empleado = new RsEmpleado(
@@ -1243,7 +1243,7 @@ class BootStrap {
 				],
 				regionalesConAcceso : [
 					SimRegional.findByClaveRegional('REGION1')]
-				).save()
+				).save(failOnError: true)
 
 		//DA DE ALTA A UN EMPLEADO
 		empleado = new RsEmpleado(
@@ -1260,7 +1260,7 @@ class BootStrap {
 				],
 				regionalesConAcceso : [
 					SimRegional.findByClaveRegional('REGION2')]
-				).save()
+				).save(failOnError: true)
 
 
 		//DA DE ALTA UNA PERSONA CLIENTE
@@ -1280,7 +1280,7 @@ class BootStrap {
 				escolaridad  : SimCatEscolaridad.findByClaveEscolaridad('CLAVE2'),
 				tiposPersona : [
 					SimCatTipoPersona.findByClaveTipoPersona('CLIENTE')]
-				).save()
+				).save(failOnError: true)
 
 		//DA DE ALTA UN CLIENTE
 		def cliente = new RsCliente(
@@ -1289,21 +1289,21 @@ class BootStrap {
 				dependientesEconomicos : 4,
 				destinoDelCredito : "AMPLIAR, ADECUAR O REPARAR EL LOCAL O VEHICULO",
 				rolEnElHogar : "ESPOSO(A)",
-				listaNegra : false).save()
+				listaNegra : false).save(failOnError: true)
 
 		//DA DE ALTA CUENTA BANCARIA A UN CLIENTE
 		def cuentaBancaria = new RsCuentaBancaria(
 				numeroDeCuenta : "122222222",
 				clabe : "222222222",
 				banco :  SimCatBanco.findByClaveBanco('BANAMEX'),
-				cliente : cliente).save()
+				cliente : cliente).save(failOnError: true)
 
 		//DA DE ALTA CUENTA BANCARIA A UN CLIENTE
 		cuentaBancaria = new RsCuentaBancaria(
 				numeroDeCuenta : "111111111",
 				clabe : "21111111",
 				banco :  SimCatBanco.findByClaveBanco('BANCOMER'),
-				cliente : cliente).save()
+				cliente : cliente).save(failOnError: true)
 
 		//DA DE ALTA UN DOCUMENTO A UN CLIENTE
 		def documentoCliente = new RsClienteDocumentacion(
@@ -1311,7 +1311,7 @@ class BootStrap {
 				documento : SimCatDocumento.findByClaveDocumento('CLAVE7'),
 				fechaRecibido : new Date('03/21/2011'),
 				asesorVerifico : RsEmpleado.findByPersona(RsPersona.findByEmail('hreyes@credi.com')),
-				documentacionCorrecta : true).save()
+				documentacionCorrecta : true).save(failOnError: true)
 
 		//DA DE ALTA UN DOCUMENTO A UN CLIENTE
 		documentoCliente = new RsClienteDocumentacion(
@@ -1319,7 +1319,7 @@ class BootStrap {
 				documento : SimCatDocumento.findByClaveDocumento('CLAVE22'),
 				fechaRecibido : new Date('12/29/2011'),
 				asesorVerifico : RsEmpleado.findByPersona(RsPersona.findByEmail('asalazar@example.org')),
-				documentacionCorrecta : true).save()
+				documentacionCorrecta : true).save(failOnError: true)
 
 		//DA DE ALTA UN DOCUMENTO A UN PRODUCTO
 		def producto = new SimProducto(
@@ -1341,20 +1341,20 @@ class BootStrap {
 					SimSucursal.findByClaveSucursal('SUCURSAL1'),
 					SimSucursal.findByClaveSucursal('SUCURSAL2'),
 				],
-				asignarTodasSucursales : false).save()
+				asignarTodasSucursales : false).save(failOnError: true)
 
 
 		//ASIGNA UN GERENTE Y COORDINADOR A LA REGION1
 		def region = SimRegional.findByClaveRegional('REGION1')
 		region.gerente = RsEmpleado.findByPersona(RsPersona.findByEmail('egarcia@example.org'))
 		region.coordinador = RsEmpleado.findByPersona(RsPersona.findByEmail('hreyes@credi.com'))
-		region.save()
+		region.save(failOnError: true)
 
 		//ASIGNA UN GERENTE Y COORDINADOR A LA SUCURSAL1
 		def sucursal = SimSucursal.findByClaveSucursal('SUCURSAL1')
 		sucursal.gerente = RsEmpleado.findByPersona(RsPersona.findByEmail('asalazar@example.org'))
 		sucursal.coordinador = RsEmpleado.findByPersona(RsPersona.findByEmail('cgarcia@example.org'))
-		sucursal.save()
+		sucursal.save(failOnError: true)
 
 		//DA DE ALTA UNA PERSONA PARA REFERENCIA CLIENTE
 		def personaReferencia = new RsPersona(
@@ -1411,9 +1411,9 @@ class BootStrap {
 
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
-		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save()
-		new Requestmap(url: '/rsConfGpoEmpresa/**', configAttribute: 'ROLE_USER').save()
-		new Requestmap(url: '/rsConfEmpresa/create', configAttribute: 'ROLE_USER').save()
+		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save(failOnError: true)
+		new Requestmap(url: '/rsConfGpoEmpresa/**', configAttribute: 'ROLE_USER').save(failOnError: true)
+		new Requestmap(url: '/rsConfEmpresa/create', configAttribute: 'ROLE_USER').save(failOnError: true)
 	}
 
 	def destroy = {
@@ -1421,7 +1421,7 @@ class BootStrap {
 
 	private getOrCreateRole(name) {
 		def role = SecRole.findByAuthority(name)
-		if (!role) role = new SecRole(authority: name).save()
+		if (!role) role = new SecRole(authority: name).save(failOnError: true)
 		if (!role)  println "Unable to save role ${name}"
 		return role
 	}
