@@ -1450,6 +1450,23 @@ class BootStrap {
 				negocio : SimClienteNegocio.findByNombreNegocio('LA FLOR'),
 				).save(failOnError: true)
 
+		new RsGralDomicilio(calle: 'BATALLONES ROJOS 205',
+				numeroInterior: '504',
+				numeroExterior: 'EDIF 8',
+				esFiscal: 'true',
+				comentarios : 'UNIDAD ALBARRADA',
+				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('06862'),
+				negocio : SimClienteNegocio.findByNombreNegocio('LA FLOR'),
+				).save(failOnError: true)
+
+		new RsGralDomicilio(calle: 'PROGRESISTA',
+				numeroInterior: '202',
+				numeroExterior: 'EDIF 6',
+				esFiscal: 'false',
+				comentarios : 'UNIDAD VICENTE',
+				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('01600'),
+				negocio : SimClienteNegocio.findByNombreNegocio('LA FLOR'),
+				).save(failOnError: true)
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save(failOnError: true)
