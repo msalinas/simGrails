@@ -3,6 +3,7 @@ package com.rs.gral
 import com.sim.usuario.Usuario
 import com.sim.empresa.RsEmpleado
 import com.sim.empresa.RsCliente
+import com.sim.empresa.RsReferenciaCliente
 import com.sim.catalogo.SimCatDocumento
 import com.sim.catalogo.SimCatEscolaridad
 import com.sim.catalogo.SimCatTipoPersona
@@ -26,7 +27,7 @@ class RsPersona {
 	SimCatEscolaridad escolaridad
 	Usuario           usuario
 	
-	static hasOne  = [ datosEmpleado : RsEmpleado, datosCliente : RsCliente]
+	static hasOne  = [ datosEmpleado : RsEmpleado, datosCliente : RsCliente, referenciaCliente : RsReferenciaCliente]
 	
 	//RELACION DE MUCHOS A MUCHOS ENTRE TIPO DE PERSONA Y PERSONA
 	static hasMany = [ telefonos : RsGralTelefono, domicilios : RsGralDomicilio, tiposPersona : SimCatTipoPersona] 
@@ -57,6 +58,7 @@ class RsPersona {
 		usuario nullable:true, unique: true
 		datosEmpleado nullable: true 
 		datosCliente nullable: true 
+		referenciaCliente nullable: true 
     }
 	
 	String toString() {

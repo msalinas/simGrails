@@ -455,6 +455,10 @@ class BootStrap {
 				descripcionTipoPersona: 'EMPLEADO DE LA EMPRESA',
 				).save()
 
+		new SimCatTipoPersona(claveTipoPersona:  'REFCLIENTE',
+				nombreTipoPersona: 'REFERENCIA DEL CLIENTE',
+				descripcionTipoPersona: 'REFERENCIA DEL CLIENTE',
+				).save()
 
 		new SimCatVerificacionReferencia(claveTipoReferencia:  'CLAVE1',
 				nombreTipoReferencia: 'REPUTACIÓN DE BUEN TRABAJADOR',
@@ -1352,6 +1356,31 @@ class BootStrap {
 		sucursal.coordinador = RsEmpleado.findByPersona(RsPersona.findByEmail('cgarcia@example.org'))
 		sucursal.save()
 
+		//DA DE ALTA UNA PERSONA PARA REFERENCIA CLIENTE
+		def personaReferencia = new RsPersona(
+				apellidoPaterno: "PORTILLA",
+				apellidoMaterno: "MARTINEZ",
+				primerNombre: "CARLOS",
+				email: "cportilla@hotmail.com",
+				sexo : "MASCULINO",
+				estadoCivil : "SOLTERO",
+				fechaNacimiento : new Date('03/21/1963'),
+				nombreAlterno : "PERSY",
+				identificacionOficial : SimCatDocumento.findByClaveDocumento('CLAVE1'),
+				numeroIdentificacionOficial : "NAMA3328329",
+				rfc : "SDFF89779",
+				curp : "SDFSDF6878969",
+				escolaridad  : SimCatEscolaridad.findByClaveEscolaridad('CLAVE2'),
+				tiposPersona : [
+					SimCatTipoPersona.findByClaveTipoPersona('REFCLIENTE')]
+				).save(failOnError: true)
+
+		//DA DE ALTA UNA REFERENCIA CLIENTE
+		def referenciaCliente = new RsReferenciaCliente(
+				persona :  personaReferencia,
+				tipoReferencia : "VECINAL",
+				cliente : RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))).save(failOnError: true)
+		
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save()
 		new Requestmap(url: '/rsConfGpoEmpresa/**', configAttribute: 'ROLE_USER').save()
