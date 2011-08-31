@@ -31,7 +31,7 @@ class CatalogosController {
 			[action:'irTipoIdentificador', order:240, title:'Tipo Identificador'],
 			[action:'irTipoNegocio', order:250, title:'Tipo Negocio'],
 			[action:'irTipoPersona', order:260, title:'Tipo Persona'],
-			[action:'irTipoReferencia', order:270, title:'Tipo Referencia'],
+			[action:'irVerificacionReferencia', order:270, title:'Verificacion Referencia'],
 			[action:'irTasaReferencia', order:280, title:'Tasa Referencia'],
 			[action:'irEstado', order:290, title:'Estado'],
 			[action:'irCiudad', order:300, title:'Ciudad'],
@@ -148,7 +148,7 @@ class CatalogosController {
 		redirect (controller:'simCatTipoPersona', action:'list')
 	}
 	
-	def irTipoReferencia ={
+	def irVerificacionReferencia ={
 		redirect (controller:'simCatVerificacionReferencia', action:'list')
 	}
 	
