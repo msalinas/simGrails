@@ -1440,6 +1440,17 @@ class BootStrap {
 				cliente : RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))
 				).save(failOnError: true)
 
+		new RsGralTelefono(telefono:  '777777777',
+				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE2'),
+				negocio : SimClienteNegocio.findByNombreNegocio('LA FLOR'),
+				).save(failOnError: true)
+
+		new RsGralTelefono(telefono:  '888888888',
+				descripcionTelefono : SimCatDescTelefono.findByClaveDescripcionTelefono('CLAVE3'),
+				negocio : SimClienteNegocio.findByNombreNegocio('LA FLOR'),
+				).save(failOnError: true)
+
+
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save(failOnError: true)
 		new Requestmap(url: '/rsConfGpoEmpresa/**', configAttribute: 'ROLE_USER').save(failOnError: true)
