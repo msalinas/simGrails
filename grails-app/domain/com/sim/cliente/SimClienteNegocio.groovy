@@ -4,6 +4,7 @@ import java.util.Date;
 import com.sim.catalogo.SimCatTipoNegocio
 import com.sim.catalogo.SimCatGiro
 import com.sim.catalogo.SimCatUbicacionNegocio
+import com.rs.gral.RsGralTelefono
 
 class SimClienteNegocio {
 	
@@ -17,6 +18,8 @@ class SimClienteNegocio {
 	SimCatUbicacionNegocio ubicacionNegocio
 	
 	static belongsTo = [cliente : RsCliente]
+	
+	static hasMany = [ telefonos : RsGralTelefono]
 
     static constraints = {
 		nombreNegocio size:5..25, blank: false, unique: false

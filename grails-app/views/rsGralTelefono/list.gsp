@@ -33,6 +33,8 @@
                    	    
                    	    <th><g:message code="rsGralTelefono.persona" default="Persona" /></th>
                    	    
+                   	    <th><g:message code="rsGralTelefono.negocio" default="Negocio" /></th>
+                   	    
                         </tr>
                     </thead>
                     <tbody>
@@ -50,6 +52,8 @@
                             <td>${fieldValue(bean: rsGralTelefonoInstance, field: "sucursal")}</td>
                         
                             <td>${fieldValue(bean: rsGralTelefonoInstance, field: "persona")}</td>
+                            
+                            <td>${fieldValue(bean: rsGralTelefonoInstance, field: "negocio")}</td>
                         
                         </tr>
                     </g:each>

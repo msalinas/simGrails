@@ -46,7 +46,16 @@
 	                                <td valign="top" class="value"><g:link controller="rsPersona" action="show" id="${rsGralTelefonoInstance?.persona?.id}">${rsGralTelefonoInstance?.persona?.encodeAsHTML()}</g:link></td>
 	                                
 	                            </tr>
+                            </g:if>
+                            <g:if test="${rsGralTelefonoInstance?.negocio?.id}">
+	                            <tr class="prop">
+	                                <td valign="top" class="name"><g:message code="rsGralTelefono.negocio" default="Negocio" />:</td>
+	                                
+	                                <td valign="top" class="value"><g:link controller="simClienteNegocio" action="show" id="${rsGralTelefonoInstance?.negocio?.id}">${rsGralTelefonoInstance?.negocio?.encodeAsHTML()}</g:link></td>
+	                                
+	                            </tr>
                             </g:if>                        
+                                                    
                             <tr class="prop">
                                 <td valign="top" class="name"><g:message code="rsGralTelefono.id" default="Id" />:</td>
                                 
