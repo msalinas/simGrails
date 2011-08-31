@@ -2,10 +2,7 @@ import com.sun.org.apache.xalan.internal.xsltc.compiler.Import;
 
 import com.sim.empresa.*
 import com.sim.catalogo.*
-import com.sim.cliente.RsCliente;
-import com.sim.cliente.RsClienteDocumentacion;
-import com.sim.cliente.RsCuentaBancaria;
-import com.sim.cliente.RsReferenciaCliente;
+import com.sim.cliente.*
 import com.sim.pfin.*
 import com.sim.usuario.*
 import com.sim.regional.*
@@ -1423,6 +1420,25 @@ class BootStrap {
 				nombreUbicacionNegocio: 'PASILLOS EN CENTRO COMERCIAL (KIOSCO)',
 				).save(failOnError: true)
 
+		new SimClienteNegocio(nombreNegocio: 'LA FLOR',
+				rfc: 'KADLKDE9879',
+				fechaInicioNegocio : new Date('03/21/1983'),
+				personasTrabajando : 10,
+				tipoNegocio : SimCatTipoNegocio.findByClaveTipoNegocio('CLAVE1'),
+				giro : SimCatGiro.findByClaveGiro('518110'),
+				ubicacionNegocio : SimCatUbicacionNegocio.findByClaveUbicacionNegocio('UBICA4'),
+				cliente : RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))
+				).save(failOnError: true)
+
+		new SimClienteNegocio(nombreNegocio: 'LA MARGARITA',
+				rfc: 'KADLKDE9856',
+				fechaInicioNegocio : new Date('03/21/1999'),
+				personasTrabajando : 25,
+				tipoNegocio : SimCatTipoNegocio.findByClaveTipoNegocio('CLAVE4'),
+				giro : SimCatGiro.findByClaveGiro('461110'),
+				ubicacionNegocio : SimCatUbicacionNegocio.findByClaveUbicacionNegocio('UBICA3'),
+				cliente : RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))
+				).save(failOnError: true)
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save(failOnError: true)
