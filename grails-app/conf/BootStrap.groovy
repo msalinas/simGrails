@@ -1380,7 +1380,20 @@ class BootStrap {
 				persona :  personaReferencia,
 				tipoReferencia : "VECINAL",
 				cliente : RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))).save(failOnError: true)
-		
+
+		new SimCatGiro(claveGiro: '461110',
+				nombreGiro: 'Comercio al por menor en tiendas de abarrotes, ultramarinos y misceláneas',
+				).save(failOnError: true)
+
+		new SimCatGiro(claveGiro: '332110',
+				nombreGiro: 'Fabricación de productos metálicos forjados y troquelados.',
+				).save(failOnError: true)
+
+		new SimCatGiro(claveGiro: '518110',
+				nombreGiro: 'Proveedores de acceso a Internet y servicios de búsqueda en la red.',
+				).save(failOnError: true)
+
+
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save()
 		new Requestmap(url: '/rsConfGpoEmpresa/**', configAttribute: 'ROLE_USER').save()

@@ -38,6 +38,7 @@ class CatalogosController {
 			[action:'irDelegacionMunicipio', order:310, title:'Delegacion o Municipio'],
 			[action:'irAsentamiento', order:320, title:'Asentamiento'],
 			[action:'irFormaEntrega', order:330, title:'Forma de Entrega Prestamo'],
+			[action:'irGiro', order:340, title:'Giro Negocio'],
 			
 			[action:'inicioPruebas', order:1000, title:'Pruebas']
 		]
@@ -174,5 +175,8 @@ class CatalogosController {
 	def irFormaEntrega ={
 		redirect (controller:'simCatFormaEntrega', action:'list')
 	}
-
+	def irGiro ={
+		redirect (controller:'simCatGiro', action:'list')
+	}
+	
 }
