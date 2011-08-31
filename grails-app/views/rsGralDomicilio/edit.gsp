@@ -64,6 +64,17 @@
 	                                </td>
 	                            </tr>
                         	</g:if>      
+                        	<g:if test="${rsGralDomicilioInstance?.negocio?.id}">
+	                            <tr class="prop">
+	                                <td valign="top" class="name">
+	                                    <label for="negocio"><g:message code="rsGralDomicilio.negocio" default="Negocio" />:</label>
+	                                </td>
+	                                <td valign="top" class="value ${hasErrors(bean: rsGralDomicilioInstance, field: 'negocio', 'errors')}">
+	                               		<label>${rsGralDomicilioInstance?.negocio}</label>
+	                                	<g:hiddenField name='negocio.id' value='${rsGralDomicilioInstance?.negocio?.id}' />
+	                                </td>
+	                            </tr>
+                        	</g:if>      
                         
                             <tr class="prop">
                                 <td valign="top" class="name">

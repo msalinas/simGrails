@@ -5,6 +5,7 @@ import com.sim.catalogo.SimCatTipoNegocio
 import com.sim.catalogo.SimCatGiro
 import com.sim.catalogo.SimCatUbicacionNegocio
 import com.rs.gral.RsGralTelefono
+import com.rs.gral.RsGralDomicilio
 
 class SimClienteNegocio {
 	
@@ -19,7 +20,7 @@ class SimClienteNegocio {
 	
 	static belongsTo = [cliente : RsCliente]
 	
-	static hasMany = [ telefonos : RsGralTelefono]
+	static hasMany = [telefonos : RsGralTelefono, domicilios : RsGralDomicilio]
 
     static constraints = {
 		nombreNegocio size:5..25, blank: false, unique: false
@@ -29,6 +30,8 @@ class SimClienteNegocio {
 		personasTrabajando range:0..50
 		giro()
 		ubicacionNegocio()
+		telefonos()
+		domicilios()
     }
 	
 	String toString() {

@@ -2,6 +2,7 @@ package com.rs.gral
 
 import com.sim.regional.SimRegional
 import com.sim.regional.SimSucursal
+import com.sim.cliente.SimClienteNegocio
 
 class RsGralDomicilioController {
 
@@ -36,6 +37,12 @@ class RsGralDomicilioController {
 			def rsPersonaInstance = new RsPersona()
 			rsPersonaInstance = RsPersona.get(params.rsPersona.id)
 			rsGralDomicilioInstance.persona = rsPersonaInstance
+		}
+		// VERIFICA SI EL DOMICILIO SE ASIGNA A UN NEGOCIO
+		if (params.simClienteNegocio){
+			def simClienteNegocioInstance = new SimClienteNegocio()
+			simClienteNegocioInstance = SimClienteNegocio.get(params.simClienteNegocio.id)
+			rsGralDomicilioInstance.negocio = simClienteNegocioInstance
 		}
 
 		return [rsGralDomicilioInstance: rsGralDomicilioInstance]

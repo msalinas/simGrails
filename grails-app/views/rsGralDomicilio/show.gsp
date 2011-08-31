@@ -39,10 +39,14 @@
 	                            <tr class="prop">
 	                                <td valign="top" class="name"><g:message code="rsGralDomicilio.persona" default="Persona" />:</td>
 	                                <td valign="top" class="value"><g:link controller="rsPersona" action="show" id="${rsGralDomicilioInstance?.persona?.id}">${rsGralDomicilioInstance?.persona?.encodeAsHTML()}</g:link></td>
-	                                
 	                            </tr>
                             </g:if>                        
-                        	            
+                        	<g:if test="${rsGralDomicilioInstance?.negocio?.id}">
+	                            <tr class="prop">
+	                                <td valign="top" class="name"><g:message code="rsGralDomicilio.negocio" default="Negocio" />:</td>
+	                                <td valign="top" class="value"><g:link controller="simClienteNegocio" action="show" id="${rsGralDomicilioInstance?.negocio?.id}">${rsGralDomicilioInstance?.negocio?.encodeAsHTML()}</g:link></td>
+	                            </tr>
+                            </g:if>                        
                         
                             <tr class="prop">
                                 <td valign="top" class="name"><g:message code="rsGralDomicilio.id" default="Id" />:</td>
