@@ -1393,6 +1393,22 @@ class BootStrap {
 				nombreGiro: 'Proveedores de acceso a Internet y servicios de búsqueda en la red.',
 				).save(failOnError: true)
 
+		new SimCatUbicacionNegocio(claveUbicacionNegocio: 'UBICA1',
+				nombreUbicacionNegocio: 'TIENDA, ACCESORIA O TENDEJON',
+				).save(failOnError: true)
+				
+		new SimCatUbicacionNegocio(claveUbicacionNegocio: 'UBICA2',
+				nombreUbicacionNegocio: 'PUESTO EN MERCADO BAJO TECHO COMUN',
+				).save(failOnError: true)
+				
+		new SimCatUbicacionNegocio(claveUbicacionNegocio: 'UBICA3',
+				nombreUbicacionNegocio: 'LOCALES BAJO TECHO COMUN',
+				).save(failOnError: true)
+				
+		new SimCatUbicacionNegocio(claveUbicacionNegocio: 'UBICA4',
+				nombreUbicacionNegocio: 'PASILLOS EN CENTRO COMERCIAL (KIOSCO)',
+				).save(failOnError: true)
+
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save()

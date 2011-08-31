@@ -39,6 +39,7 @@ class CatalogosController {
 			[action:'irAsentamiento', order:320, title:'Asentamiento'],
 			[action:'irFormaEntrega', order:330, title:'Forma de Entrega Prestamo'],
 			[action:'irGiro', order:340, title:'Giro Negocio'],
+			[action:'irUbicacionNegocio', order:350, title:'Ubicación Negocio'],
 			
 			[action:'inicioPruebas', order:1000, title:'Pruebas']
 		]
@@ -177,6 +178,9 @@ class CatalogosController {
 	}
 	def irGiro ={
 		redirect (controller:'simCatGiro', action:'list')
+	}
+	def irUbicacionNegocio={
+		redirect (controller:'simCatUbicacionNegocio', action:'list')
 	}
 	
 }
