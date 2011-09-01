@@ -16,7 +16,8 @@ class RsCliente {
 						referenciasClientes : RsReferenciaCliente, negocios : SimClienteNegocio ]
 	
     static constraints = {
-		persona unique: true
+		persona(unique: true , validator: { personaReferencia, RsReferenciaCliente ->
+			personaReferencia?.tiposPersona?.claveTipoPersona?.contains('CLIENTE') })
 		ingresoSemanal scale:2, nullable:true
 		dependientesEconomicos range:0..30
 		destinoDelCredito inList:[
