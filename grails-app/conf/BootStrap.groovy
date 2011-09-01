@@ -1513,6 +1513,14 @@ class BootStrap {
 				parentesco : SimCatParentesco.findByClaveParentesco('PADRE'),
 				cliente : RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))).save(failOnError: true)
 
+		//DA DE ALTA UN ADEUDO AL CLIENTE
+		def adeudoCliente = new SimClienteAdeudos(
+				nombreInstitucionDebe :  "MARIN PEREZ",
+				montoPrestado : 50000.06,
+				saldo : 5000.08,
+				fechaPrestamo : new Date('03/21/1993'),
+				frecuenciaPago : SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_1'),
+				cliente : RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))).save(failOnError: true)
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save(failOnError: true)
