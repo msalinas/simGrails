@@ -46,6 +46,10 @@ class BootStrap {
 				descripcionTipoPersona: 'UNIDAD ECONOMICA FAMILIAR DEL CLIENTE',
 				).save(failOnError: true)
 
+		new SimCatTipoPersona(claveTipoPersona:  'GARDEP',
+				nombreTipoPersona: 'GARANTE DEPOSITARIO',
+				descripcionTipoPersona: 'GARANTE DEPOSITARIO DEL CLIENTE',
+				).save(failOnError: true)
 
 		new RsConfGpoEmpresa(claveGrupoEmpresa: 'SIM',
 				nombreGrupoEmpresa: 'SIM CREDITOS',
