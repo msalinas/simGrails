@@ -41,6 +41,11 @@ class BootStrap {
 				descripcionTipoPersona: 'REFERENCIA DEL CLIENTE',
 				).save(failOnError: true)
 
+		new SimCatTipoPersona(claveTipoPersona:  'UEF',
+				nombreTipoPersona: 'UEF DEL CLIENTE',
+				descripcionTipoPersona: 'UNIDAD ECONOMICA FAMILIAR DEL CLIENTE',
+				).save(failOnError: true)
+
 
 		new RsConfGpoEmpresa(claveGrupoEmpresa: 'SIM',
 				nombreGrupoEmpresa: 'SIM CREDITOS',
@@ -1492,6 +1497,22 @@ class BootStrap {
 				rsGralAsentamiento : RsGralAsentamiento.findByCodigoPostal('01600'),
 				negocio : SimClienteNegocio.findByNombreNegocio('LA FLOR'),
 				).save(failOnError: true)
+
+		//DA DE ALTA UNA PERSONA PARA UEF
+		def personaUef = new RsPersona(
+				apellidoPaterno: "SANCHEZ",
+				apellidoMaterno: "HERNANDEZ",
+				primerNombre: "JAVOS",
+				tiposPersona : [
+					SimCatTipoPersona.findByClaveTipoPersona('UEF')]
+				).save(failOnError: true)
+
+		//DA DE ALTA UNA UEF AL CLIENTE
+		def uefCliente = new SimClienteIntegranteUef(
+				persona :  personaUef,
+				parentesco : SimCatParentesco.findByClaveParentesco('PADRE'),
+				cliente : RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))).save(failOnError: true)
+
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save(failOnError: true)

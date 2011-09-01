@@ -12,8 +12,8 @@ class RsCliente {
 	String     rolEnElHogar
 	Boolean    listaNegra = false
 	
-	static hasMany = [ cuentasBancarias : RsCuentaBancaria, documentacion : RsClienteDocumentacion, 
-						referenciasClientes : RsReferenciaCliente, negocios : SimClienteNegocio ]
+	static hasMany = [ cuentasBancarias : RsCuentaBancaria, documentacion : RsClienteDocumentacion, referenciasClientes : RsReferenciaCliente,
+		 negocios : SimClienteNegocio, integranteUef : SimClienteIntegranteUef ]
 	
     static constraints = {
 		persona(unique: true , validator: { personaReferencia, RsReferenciaCliente ->
@@ -34,10 +34,11 @@ class RsCliente {
 			"HIJO(A)",
 			"OTRO"]
 		listaNegra()
-		cuentasBancarias()
-		documentacion()
-		referenciasClientes()
-		negocios()
+		cuentasBancarias nullable : true
+		documentacion nullable : true
+		referenciasClientes nullable : true
+		negocios ()
+		integranteUef nullable : true
     }
 	
 	String toString() {
