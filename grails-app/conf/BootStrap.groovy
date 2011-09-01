@@ -81,7 +81,8 @@ class BootStrap {
 					primerNombre: "MICROFINANCIERAS",
 					email : "mikerugerio@gmail.com",
 					tiposPersona : [
-						SimCatTipoPersona.findByClaveTipoPersona('USUARIO') ],
+						SimCatTipoPersona.findByClaveTipoPersona('USUARIO')
+					],
 					usuario : adminUser).save(failOnError: true)
 
 			// DA DE ALTA A LOS USUARIOS DEL ARREGLO DEFINIDO ANTERIORMENTE
@@ -108,7 +109,8 @@ class BootStrap {
 							segundoNombre: profileAttrs.segundoNombre,
 							email: profileAttrs.email,
 							tiposPersona : [
-								SimCatTipoPersona.findByClaveTipoPersona('USUARIO') ],
+								SimCatTipoPersona.findByClaveTipoPersona('USUARIO')
+							],
 							usuario : user)
 					if (persona.validate()){
 						println "Creando persona ${profileAttrs.fullName} del usuario ${username}..."
@@ -1206,9 +1208,15 @@ class BootStrap {
 					SimRegional.findByClaveRegional('REGION2')]
 				).save(failOnError: true)
 
+
+		def personaArturo = RsPersona.findByEmail('asalazar@example.org')
+		//RECUPERO LA PERSONA Y LE AGREGA EL TIPO DE PERSONA IGUAL A EMPLEADO
+		personaArturo.tiposPersona.add(SimCatTipoPersona.findByClaveTipoPersona('EMPLEADO'))
+		personaArturo.save(failOnError: true)
+
 		//DA DE ALTA A UN EMPLEADO
 		empleado = new RsEmpleado(
-				persona :  RsPersona.findByEmail('asalazar@example.org'),
+				persona :  personaArturo,
 				puesto : SimCatPuesto.findByClavePuesto('GERSUC'),
 				perfil : SimCatPerfil.findByClavePerfil('EJECRE'),
 				sucursalPertenece : 2,
@@ -1226,9 +1234,14 @@ class BootStrap {
 					SimRegional.findByClaveRegional('REGION2')]
 				).save(failOnError: true)
 
+		def personaChris = RsPersona.findByEmail('cgarcia@example.org')
+		//RECUPERO LA PERSONA Y LE AGREGA EL TIPO DE PERSONA IGUAL A EMPLEADO
+		personaChris.tiposPersona.add(SimCatTipoPersona.findByClaveTipoPersona('EMPLEADO'))
+		personaChris.save(failOnError: true)
+
 		//DA DE ALTA A UN EMPLEADO
 		empleado = new RsEmpleado(
-				persona :  RsPersona.findByEmail('cgarcia@example.org'),
+				persona :  personaChris,
 				puesto : SimCatPuesto.findByClavePuesto('COOSUC'),
 				perfil : SimCatPerfil.findByClavePerfil('EJECRE'),
 				sucursalPertenece : 3,
@@ -1243,9 +1256,14 @@ class BootStrap {
 					SimRegional.findByClaveRegional('REGION1')]
 				).save(failOnError: true)
 
+		def personaEfren = RsPersona.findByEmail('egarcia@example.org')
+		//RECUPERO LA PERSONA Y LE AGREGA EL TIPO DE PERSONA IGUAL A EMPLEADO
+		personaEfren.tiposPersona.add(SimCatTipoPersona.findByClaveTipoPersona('EMPLEADO'))
+		personaEfren.save(failOnError: true)
+
 		//DA DE ALTA A UN EMPLEADO
 		empleado = new RsEmpleado(
-				persona :  RsPersona.findByEmail('egarcia@example.org'),
+				persona :  personaEfren,
 				puesto : SimCatPuesto.findByClavePuesto('GERREG'),
 				perfil : SimCatPerfil.findByClavePerfil('GERENTE'),
 				sucursalPertenece : 1,
@@ -1260,9 +1278,14 @@ class BootStrap {
 					SimRegional.findByClaveRegional('REGION1')]
 				).save(failOnError: true)
 
+		def personaMine = RsPersona.findByEmail('msalinas@somewhere.net')
+		//RECUPERO LA PERSONA Y LE AGREGA EL TIPO DE PERSONA IGUAL A EMPLEADO
+		personaMine.tiposPersona.add(SimCatTipoPersona.findByClaveTipoPersona('EMPLEADO'))
+		personaMine.save(failOnError: true)
+
 		//DA DE ALTA A UN EMPLEADO
 		empleado = new RsEmpleado(
-				persona :  RsPersona.findByEmail('msalinas@somewhere.net'),
+				persona :  personaMine,
 				puesto : SimCatPuesto.findByClavePuesto('GERREG'),
 				perfil : SimCatPerfil.findByClavePerfil('GERENTE'),
 				sucursalPertenece : 2,
@@ -1276,7 +1299,6 @@ class BootStrap {
 				regionalesConAcceso : [
 					SimRegional.findByClaveRegional('REGION2')]
 				).save(failOnError: true)
-
 
 		//DA DE ALTA UNA PERSONA CLIENTE
 		def personaCliente = new RsPersona(

@@ -27,7 +27,8 @@ class RsEmpleado {
 	static mappedBy = [sucursalesConAcceso:"empleadosAccesoSucursal",regionalesConAcceso:"empleadosAccesoRegion"]
 
     static constraints = {
-		persona(unique: true)
+		persona(unique: true , validator: { personaReferencia, RsReferenciaCliente ->
+			personaReferencia?.tiposPersona?.claveTipoPersona?.contains('EMPLEADO') })
 		puesto(nullable: false)
 		perfil(nullable: false)
 		sucursalPertenece()
