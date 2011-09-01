@@ -16,6 +16,32 @@ class BootStrap {
 
 	def init = { servletContext ->
 
+		new SimCatTipoPersona(claveTipoPersona:  'AVAL',
+				nombreTipoPersona: 'AVAL',
+				descripcionTipoPersona: 'DESCRIPCION AVAL',
+				).save(failOnError: true)
+
+		new SimCatTipoPersona(claveTipoPersona:  'CLIENTE',
+				nombreTipoPersona: 'CLIENTE',
+				descripcionTipoPersona: 'DESCRIPCION CLIENTE',
+				).save(failOnError: true)
+
+		new SimCatTipoPersona(claveTipoPersona:  'USUARIO',
+				nombreTipoPersona: 'USUARIO',
+				descripcionTipoPersona: 'USUARIO DEL SISTEMA',
+				).save(failOnError: true)
+
+		new SimCatTipoPersona(claveTipoPersona:  'EMPLEADO',
+				nombreTipoPersona: 'EMPLEADO',
+				descripcionTipoPersona: 'EMPLEADO DE LA EMPRESA',
+				).save(failOnError: true)
+
+		new SimCatTipoPersona(claveTipoPersona:  'REFCLIENTE',
+				nombreTipoPersona: 'REFERENCIA DEL CLIENTE',
+				descripcionTipoPersona: 'REFERENCIA DEL CLIENTE',
+				).save(failOnError: true)
+
+
 		new RsConfGpoEmpresa(claveGrupoEmpresa: 'SIM',
 				nombreGrupoEmpresa: 'SIM CREDITOS',
 				fechaCreacion: new Date('01/01/2011')).save(failOnError: true)
@@ -54,6 +80,8 @@ class BootStrap {
 					apellidoPaterno: "ADMINISTRADOR",
 					primerNombre: "MICROFINANCIERAS",
 					email : "mikerugerio@gmail.com",
+					tiposPersona : [
+						SimCatTipoPersona.findByClaveTipoPersona('USUARIO') ],
 					usuario : adminUser).save(failOnError: true)
 
 			// DA DE ALTA A LOS USUARIOS DEL ARREGLO DEFINIDO ANTERIORMENTE
@@ -79,6 +107,8 @@ class BootStrap {
 							primerNombre: profileAttrs.primerNombre,
 							segundoNombre: profileAttrs.segundoNombre,
 							email: profileAttrs.email,
+							tiposPersona : [
+								SimCatTipoPersona.findByClaveTipoPersona('USUARIO') ],
 							usuario : user)
 					if (persona.validate()){
 						println "Creando persona ${profileAttrs.fullName} del usuario ${username}..."
@@ -95,8 +125,6 @@ class BootStrap {
 				}
 			}
 		}
-
-
 
 		new SimCatTipoAccesorio(claveTipoAccesorio: 'INTERES',
 				nombreTipoAccesorio: 'INTERESES',
@@ -446,30 +474,6 @@ class BootStrap {
 				descripcionTipoNegocio: 'DESCRIPCION VENTAS CATALOGO',
 				).save(failOnError: true)
 
-		new SimCatTipoPersona(claveTipoPersona:  'AVAL',
-				nombreTipoPersona: 'AVAL',
-				descripcionTipoPersona: 'DESCRIPCION AVAL',
-				).save(failOnError: true)
-
-		new SimCatTipoPersona(claveTipoPersona:  'CLIENTE',
-				nombreTipoPersona: 'CLIENTE',
-				descripcionTipoPersona: 'DESCRIPCION CLIENTE',
-				).save(failOnError: true)
-
-		new SimCatTipoPersona(claveTipoPersona:  'USUARIO',
-				nombreTipoPersona: 'USUARIO',
-				descripcionTipoPersona: 'USUARIO DEL SISTEMA',
-				).save(failOnError: true)
-
-		new SimCatTipoPersona(claveTipoPersona:  'EMPLEADO',
-				nombreTipoPersona: 'EMPLEADO',
-				descripcionTipoPersona: 'EMPLEADO DE LA EMPRESA',
-				).save(failOnError: true)
-
-		new SimCatTipoPersona(claveTipoPersona:  'REFCLIENTE',
-				nombreTipoPersona: 'REFERENCIA DEL CLIENTE',
-				descripcionTipoPersona: 'REFERENCIA DEL CLIENTE',
-				).save(failOnError: true)
 
 		new SimCatVerificacionReferencia(claveTipoReferencia:  'CLAVE1',
 				nombreTipoReferencia: 'REPUTACIÓN DE BUEN TRABAJADOR',
