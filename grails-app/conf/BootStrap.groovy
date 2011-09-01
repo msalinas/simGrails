@@ -1526,6 +1526,35 @@ class BootStrap {
 				frecuenciaPago : SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_1'),
 				cliente : RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))).save(failOnError: true)
 
+		//DA DE ALTA UNA PERSONA PARA GARANTE DEPOSITARIO
+		def personaGarante = new RsPersona(
+				apellidoPaterno: "RUIZ",
+				apellidoMaterno: "HERNANDEZ",
+				primerNombre: "AARON",
+				tiposPersona : [
+					SimCatTipoPersona.findByClaveTipoPersona('GARDEP')]
+				).save(failOnError: true)
+				
+		//DA DE ALTA UN GARANTE PRENDARIO
+		def garanteDespositarioGarantia = new SimClienteGaranteDepositario(
+				dependientesEconomicos : 10,
+				listaNegra : false,
+				persona : personaGarante
+		).save(failOnError: true)
+
+		//DA DE ALTA UNA GARANTIA
+		def garantiaCliente = new SimClienteGarantia(
+				tipoGarantia : SimCatTipoGarantia.findByClaveTipoGarantia('CLAVE2'),
+				descripcionGarantia : 'FACTURA DE CHEVY',
+				numeroFacturaEscritura : 'ADASDF89798',
+				fechaFacturaEscritura : new Date('03/21/2002'),
+				valorComercialPesos : 5900.76,
+				valorGarantizaPesos : 3434.67,
+				porcentajeCubreGarantia : 80,
+				garanteDepositario : garanteDespositarioGarantia,
+				cliente : RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))
+		).save(failOnError: true)
+
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save(failOnError: true)
 		new Requestmap(url: '/rsConfGpoEmpresa/**', configAttribute: 'ROLE_USER').save(failOnError: true)
