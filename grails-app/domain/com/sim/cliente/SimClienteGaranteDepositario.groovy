@@ -9,8 +9,6 @@ class SimClienteGaranteDepositario {
 
 	RsPersona  persona
 	
-	//static belongsTo = [cliente : RsCliente]
-
 	static constraints = {
 		persona(unique: true , validator: { personaReferencia, RsReferenciaCliente ->
 			personaReferencia?.tiposPersona?.claveTipoPersona?.contains('GARDEP')
