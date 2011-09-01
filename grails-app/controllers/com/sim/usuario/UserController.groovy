@@ -22,6 +22,9 @@ class UserController extends grails.plugins.springsecurity.ui.UserController {
 		Class<?> clasePersona = grailsApplication.getDomainClass("com.rs.gral.RsPersona").clazz
 		def rsPersona = clasePersona.newInstance(params)
 
+		//AL DAR DE ALTA UNA PERSONA LE ASIGNA EL TIPO DE PERSONA IGUAL A USUARIO
+		rsPersona.tiposPersona = [SimCatTipoPersona.findByClaveTipoPersona('USUARIO')]
+		
 		if (!rsPersona.validate()){
 			user.validate()
 			log.info "VALIDACION INCORRECTA DE LA PERSONA"
@@ -34,9 +37,6 @@ class UserController extends grails.plugins.springsecurity.ui.UserController {
 				return
 			}
 			rsPersona.usuario = user
-			
-			//AL DAR DE ALTA UNA PERSONA LE ASIGNA EL TIPO DE PERSONA IGUAL A USUARIO
-			rsPersona.tiposPersona = [SimCatTipoPersona.findByClaveTipoPersona('USUARIO')]
 			
 			rsPersona.save()
 

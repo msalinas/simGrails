@@ -1398,7 +1398,6 @@ class BootStrap {
 				apellidoPaterno: "PORTILLA",
 				apellidoMaterno: "MARTINEZ",
 				primerNombre: "CARLOS",
-				email: "cportilla@hotmail.com",
 				sexo : "MASCULINO",
 				estadoCivil : "SOLTERO",
 				fechaNacimiento : new Date('03/21/1963'),

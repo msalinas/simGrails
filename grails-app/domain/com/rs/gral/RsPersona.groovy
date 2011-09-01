@@ -33,7 +33,8 @@ class RsPersona {
 	static hasMany = [ telefonos : RsGralTelefono, domicilios : RsGralDomicilio, tiposPersona : SimCatTipoPersona] 
 			
     static constraints = {
-		email email:true, blank:false
+		email email:true, nullable: true,  validator: { correo, rsPersona ->
+			if (rsPersona.tiposPersona?.claveTipoPersona?.contains('USUARIO')) correo != null }
 		apellidoPaterno size:3..25, blank: false, unique: false
 		apellidoMaterno nullable: true, size:0..25
 		primerNombre size:5..25, blank: false, unique: false
