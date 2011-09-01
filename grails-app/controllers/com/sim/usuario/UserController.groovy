@@ -1,6 +1,7 @@
 package com.sim.usuario
 
 import org.codehaus.groovy.grails.plugins.springsecurity.NullSaltSource
+import com.sim.catalogo.SimCatTipoPersona
 
 class UserController extends grails.plugins.springsecurity.ui.UserController {
 
@@ -33,7 +34,10 @@ class UserController extends grails.plugins.springsecurity.ui.UserController {
 				return
 			}
 			rsPersona.usuario = user
-
+			
+			//AL DAR DE ALTA UNA PERSONA LE ASIGNA EL TIPO DE PERSONA IGUAL A USUARIO
+			rsPersona.tiposPersona = [SimCatTipoPersona.findByClaveTipoPersona('USUARIO')]
+			
 			rsPersona.save()
 
 			addRoles(user)
