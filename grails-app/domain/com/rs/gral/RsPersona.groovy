@@ -54,7 +54,9 @@ class RsPersona {
 		rfc nullable: true
 		curp nullable: true
 		escolaridad  nullable: true
-		tiposPersona nullable: true
+		//AL DAR DE ALTA UNA PERSONA SE VALIDA QUE SI TIENE ASIGNADO UN USUARIO LA PERSONA DEBE TENER TIPO DE USUARIO IGUAL A USUARIO
+		tiposPersona nullable: true, validator: { tipoPersona, rsPersona ->
+			if (rsPersona.usuario) tipoPersona?.claveTipoPersona?.contains('USUARIO') }
 		usuario nullable:true, unique: true
 		datosEmpleado nullable: true 
 		datosCliente nullable: true 
