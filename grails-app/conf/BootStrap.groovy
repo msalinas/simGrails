@@ -149,21 +149,29 @@ class BootStrap {
 				nombreTipoAccesorio: 'CARGO Y COMISIONES',
 				).save(failOnError: true)
 
-		new SimCatAccesorio(claveAccesorio: 'SEGVID', 
+		new SimCatAccesorio(claveAccesorio: 'SEGVID',
 				nombreAccesorio: 'SEGURO DE VIDA',
 				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
 				tasaIva : 0,
 				beneficiario : 'true',
 				).save(failOnError: true)
 
-		new SimCatAccesorio(claveAccesorio: 'SEGDEU', 
+		new SimCatAccesorio(claveAccesorio: 'BURCRE',
+				nombreAccesorio: 'CONSULTA BURO DE CREDITO',
+				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
+				tasaIva : 0,
+				beneficiario : 'false',
+				).save(failOnError: true)
+
+
+		new SimCatAccesorio(claveAccesorio: 'SEGDEU',
 				nombreAccesorio: 'SEGURO DEUDOR',
 				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
 				tasaIva : 0,
 				beneficiario : 'false',
 				).save(failOnError: true)
 
-		new SimCatAccesorio(claveAccesorio: 'ADMCRE', 
+		new SimCatAccesorio(claveAccesorio: 'ADMCRE',
 				nombreAccesorio: 'ADMINISTRACION CREDITICIA',
 				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
 				tasaIva : 0,
@@ -1534,13 +1542,13 @@ class BootStrap {
 				tiposPersona : [
 					SimCatTipoPersona.findByClaveTipoPersona('GARDEP')]
 				).save(failOnError: true)
-				
+
 		//DA DE ALTA UN GARANTE PRENDARIO
 		def garanteDespositarioGarantia = new SimClienteGaranteDepositario(
 				dependientesEconomicos : 10,
 				listaNegra : false,
 				persona : personaGarante
-		).save(failOnError: true)
+				).save(failOnError: true)
 
 		//DA DE ALTA UNA GARANTIA
 		def garantiaCliente = new SimClienteGarantia(
@@ -1553,7 +1561,7 @@ class BootStrap {
 				porcentajeCubreGarantia : 80,
 				garanteDepositario : garanteDespositarioGarantia,
 				cliente : RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))
-		).save(failOnError: true)
+				).save(failOnError: true)
 
 		//DA DE ALTA UN PRODUCTO CICLO
 		def productoCiclo = new SimProductoCiclo(
@@ -1566,7 +1574,7 @@ class BootStrap {
 				montoMaximo : 9434.67,
 				porcentajeFlujoCajaFinanciar : 80,
 				recargoMontoFijo : 50
-		).save(failOnError: true)
+				).save(failOnError: true)
 
 		//DA DE ALTA UN PRODUCTO CICLO
 		productoCiclo = new SimProductoCiclo(
@@ -1579,7 +1587,35 @@ class BootStrap {
 				montoMaximo : 10000.00,
 				porcentajeFlujoCajaFinanciar : 85,
 				recargoMontoFijo : 50
-		).save(failOnError: true)
+				).save(failOnError: true)
+
+		//DA DE ALTA UN PRODUCTO CARGO COMISION
+		def productoCargoComision = new SimProductoCargoComision(
+				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
+				cargoComision :SimCatAccesorio.findByClaveAccesorio('SEGDEU'),
+				formaAplicacion : 'PERIODICAMENTE DEPENDIENDO DEL MONTO PRESTADO',
+				valor : 1,
+				unidad : 'AL MILLAR',
+				periodicidadValorUnidad: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_1')
+				).save(failOnError: true)
+
+		//DA DE ALTA UN PRODUCTO CARGO COMISION
+		productoCargoComision = new SimProductoCargoComision(
+				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
+				cargoComision :SimCatAccesorio.findByClaveAccesorio('BURCRE'),
+				formaAplicacion : 'CARGO INICIAL',
+				cargoInicial : 150
+				).save(failOnError: true)
+
+		//DA DE ALTA UN PRODUCTO CARGO COMISION
+		productoCargoComision = new SimProductoCargoComision(
+				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
+				cargoComision :SimCatAccesorio.findByClaveAccesorio('ADMCRE'),
+				formaAplicacion : 'PERIODICAMENTE DEPENDIENDO DEL MONTO PRESTADO',
+				valor : 0.4,
+				unidad : 'PORCENTUAL',
+				periodicidadValorUnidad: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_2')
+				).save(failOnError: true)
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save(failOnError: true)

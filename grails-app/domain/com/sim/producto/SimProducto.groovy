@@ -23,7 +23,8 @@ class SimProducto {
 	SimCatPeriodicidad  periodicidad
 	SimCatFormaEntrega  formaEntrega
 	
-	static hasMany = [ participantesCredito : SimCatTipoPersona, sucursales : SimSucursal, ciclos : SimProductoCiclo ]
+	static hasMany = [ participantesCredito : SimCatTipoPersona, sucursales : SimSucursal, ciclos : SimProductoCiclo,
+				cargosComisiones : SimProductoCargoComision ]
 	
     static constraints = {
 		claveProducto(size:1..20, unique: true, nullable: false, blank: false)
@@ -40,6 +41,7 @@ class SimProducto {
 		ciclos()
 		participantesCredito()
 		sucursales()
+		cargosComisiones()
     }
 	
 	String toString() {
