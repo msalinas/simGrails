@@ -149,21 +149,21 @@ class BootStrap {
 				nombreTipoAccesorio: 'CARGO Y COMISIONES',
 				).save(failOnError: true)
 
-		new SimCatAccesorio(claveAccesorio: 'CLAVE_6',
+		new SimCatAccesorio(claveAccesorio: 'SEGVID', 
 				nombreAccesorio: 'SEGURO DE VIDA',
 				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
 				tasaIva : 0,
 				beneficiario : 'true',
 				).save(failOnError: true)
 
-		new SimCatAccesorio(claveAccesorio: 'CLAVE_8',
+		new SimCatAccesorio(claveAccesorio: 'SEGDEU', 
 				nombreAccesorio: 'SEGURO DEUDOR',
 				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
 				tasaIva : 0,
 				beneficiario : 'false',
 				).save(failOnError: true)
 
-		new SimCatAccesorio(claveAccesorio: 'CLAVE_15',
+		new SimCatAccesorio(claveAccesorio: 'ADMCRE', 
 				nombreAccesorio: 'ADMINISTRACION CREDITICIA',
 				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('CARGO_COMISION'),
 				tasaIva : 0,
