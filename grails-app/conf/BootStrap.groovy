@@ -141,12 +141,51 @@ class BootStrap {
 				nombreTipoAccesorio: 'INTERESES',
 				).save(failOnError: true)
 
+		new SimCatTipoAccesorio(claveTipoAccesorio: 'IVA',
+				nombreTipoAccesorio: 'IVA',
+				).save(failOnError: true)
+
 		new SimCatTipoAccesorio(claveTipoAccesorio: 'RECARGO',
 				nombreTipoAccesorio: 'RECARGOS',
 				).save(failOnError: true)
 
 		new SimCatTipoAccesorio(claveTipoAccesorio: 'CARGO_COMISION',
-				nombreTipoAccesorio: 'CARGO Y COMISIONES',
+				nombreTipoAccesorio: 'CARGOS Y COMISIONES',
+				).save(failOnError: true)
+
+		new SimCatAccesorio(claveAccesorio: 'INTERESES',
+				nombreAccesorio: 'INTERESES',
+				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('INTERES'),
+				tasaIva : 0,
+				beneficiario : 'false',
+				).save(failOnError: true)
+
+		new SimCatAccesorio(claveAccesorio: 'IVA',
+				nombreAccesorio: 'IVA CREDITO',
+				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('IVA'),
+				tasaIva : 0,
+				beneficiario : 'false',
+				).save(failOnError: true)
+
+		new SimCatAccesorio(claveAccesorio: 'MONTOFIJO',
+				nombreAccesorio: 'MONTO FIJO POR PERIODO',
+				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('RECARGO'),
+				tasaIva : 0,
+				beneficiario : 'false',
+				).save(failOnError: true)
+
+		new SimCatAccesorio(claveAccesorio: 'MORATORIO',
+				nombreAccesorio: 'INTERES MORATORIO',
+				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('RECARGO'),
+				tasaIva : 0,
+				beneficiario : 'false',
+				).save(failOnError: true)
+
+		new SimCatAccesorio(claveAccesorio: 'FIJOYMORATORIO',
+				nombreAccesorio: 'MONTO FIJO E INTERES MORATORIO',
+				tipoAccesorio : SimCatTipoAccesorio.findByClaveTipoAccesorio('RECARGO'),
+				tasaIva : 0,
+				beneficiario : 'false',
 				).save(failOnError: true)
 
 		new SimCatAccesorio(claveAccesorio: 'SEGVID',

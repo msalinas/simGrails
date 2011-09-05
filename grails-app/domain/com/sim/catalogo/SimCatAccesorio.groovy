@@ -11,8 +11,8 @@ class SimCatAccesorio {
 
     static constraints = {
 		tipoAccesorio(nullable:false)
-		claveAccesorio(size:5..15, unique: true, nullable: false, blank: false)
-		nombreAccesorio(size:5..50, unique: true, nullable: false, blank: false)
+		claveAccesorio(size:3..20, unique: true, nullable: false, blank: false)
+		nombreAccesorio(size:3..50, unique: true, nullable: false, blank: false)
 		tasaIva()
 		beneficiario(nullable:false)
     }
