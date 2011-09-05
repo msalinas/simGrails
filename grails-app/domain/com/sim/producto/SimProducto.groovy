@@ -10,19 +10,20 @@ import com.sim.regional.SimSucursal
 
 class SimProducto {
 
-	String  			claveProducto
-	String  			nombreProducto
-	Date    			fechaInicioActivacion
-	Date    			fechaFinActivacion
-	String  			aplicaA
+	String  	claveProducto
+	String  	nombreProducto
+	Date    	fechaInicioActivacion
+	Date    	fechaFinActivacion
+	String  	aplicaA
+	BigDecimal 	montoMinimo
+	Boolean 	garantias = false
+	Boolean 	asignarTodasSucursales = true
+
 	SimCatMetodoCalculo metodoCalculo
 	SimCatPeriodicidad  periodicidad
-	BigDecimal 			montoMinimo
 	SimCatFormaEntrega  formaEntrega
-	Boolean 			garantias = false
-	Boolean 			asignarTodasSucursales = true
 	
-	static hasMany = [ participantesCredito : SimCatTipoPersona, sucursales : SimSucursal ]
+	static hasMany = [ participantesCredito : SimCatTipoPersona, sucursales : SimSucursal, ciclos : SimProductoCiclo ]
 	
     static constraints = {
 		claveProducto(size:1..20, unique: true, nullable: false, blank: false)
@@ -36,10 +37,13 @@ class SimProducto {
 		formaEntrega()
 		garantias()
 		asignarTodasSucursales()
+		ciclos()
+		participantesCredito()
+		sucursales()
     }
 	
 	String toString() {
-		"Producto ${nombreProducto}"
+		"PRODUCTO ${nombreProducto}"
 	}
 	
 }

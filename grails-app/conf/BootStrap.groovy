@@ -351,13 +351,13 @@ class BootStrap {
 
 
 		new SimCatPeriodicidad(clavePeriodicidad:  'CLAVE_1',
-				nombrePeriodicidad: 'ANUAL',
+				nombrePeriodicidad: 'SEMANAL',
 				cantidadPagos: 1,
 				numeroDias: 360,
 				).save(failOnError: true)
 
 		new SimCatPeriodicidad(clavePeriodicidad:  'CLAVE_2',
-				nombrePeriodicidad: 'MENSUAL',
+				nombrePeriodicidad: 'CATORCENAL',
 				cantidadPagos: 12,
 				numeroDias: 30,
 				).save(failOnError: true)
@@ -1553,6 +1553,32 @@ class BootStrap {
 				porcentajeCubreGarantia : 80,
 				garanteDepositario : garanteDespositarioGarantia,
 				cliente : RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))
+		).save(failOnError: true)
+
+		//DA DE ALTA UN PRODUCTO CICLO
+		def productoCiclo = new SimProductoCiclo(
+				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
+				numeroCiclo : 1,
+				distribucionPago : 'ACCESORIOS-CAPITAL',
+				plazo : 8,
+				tasa : 12.8,
+				periodicidadTasa: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_1'),
+				montoMaximo : 9434.67,
+				porcentajeFlujoCajaFinanciar : 80,
+				recargoMontoFijo : 50
+		).save(failOnError: true)
+
+		//DA DE ALTA UN PRODUCTO CICLO
+		productoCiclo = new SimProductoCiclo(
+				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
+				numeroCiclo : 2,
+				distribucionPago : 'ACCESORIOS-CAPITAL',
+				plazo : 10,
+				tasa : 11.8,
+				periodicidadTasa: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_1'),
+				montoMaximo : 10000.00,
+				porcentajeFlujoCajaFinanciar : 85,
+				recargoMontoFijo : 50
 		).save(failOnError: true)
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
