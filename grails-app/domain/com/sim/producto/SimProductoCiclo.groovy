@@ -1,9 +1,10 @@
 package com.sim.producto
 
 import java.math.BigDecimal;
+
 import com.sim.catalogo.SimCatPeriodicidad
 
-class SimProductoCiclo {
+class SimProductoCiclo implements Comparable {
 
 	Integer	   numeroCiclo
 	String     distribucionPago
@@ -15,7 +16,9 @@ class SimProductoCiclo {
 	
 	SimCatPeriodicidad periodicidadTasa
 	
-	static belongsTo = [ producto : SimProducto ] 
+	static belongsTo = [ producto : SimProducto ]
+	
+	SortedSet ordenAccesorios
 	static hasMany = [ordenAccesorios: SimProductoCicloAccesorios]
 	
     static constraints = {
@@ -32,6 +35,10 @@ class SimProductoCiclo {
 	
 	String toString() {
 		"${producto.nombreProducto} CICLO: ${numeroCiclo}"
+	}
+	
+	int compareTo(obj) {
+		numeroCiclo.compareTo(obj.numeroCiclo)
 	}
 
 }

@@ -4,3 +4,5 @@ Para dar de alta un rol debe comenzar con el texto "ROLE_", ejem: ROLE_ANALISTAS
 
 You can use the generate-i18n-messages script to ouput all needed messages for a domain class to your command line interface.
 grails generate-i18n-messages <domainClass>
+
+Ejemplo de ordenar registros: SimProducto -> SimProductoCiclo -> SimProductoCicloAccesorios 

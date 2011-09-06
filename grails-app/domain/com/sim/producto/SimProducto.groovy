@@ -22,7 +22,8 @@ class SimProducto {
 	SimCatMetodoCalculo metodoCalculo
 	SimCatPeriodicidad  periodicidad
 	SimCatFormaEntrega  formaEntrega
-	
+
+	SortedSet ciclos
 	static hasMany = [ participantesCredito : SimCatTipoPersona, sucursales : SimSucursal, ciclos : SimProductoCiclo,
 				cargosComisiones : SimProductoCargoComision ]
 	

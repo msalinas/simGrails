@@ -1603,7 +1603,7 @@ class BootStrap {
 				).save(failOnError: true)
 
 		//DA DE ALTA UN PRODUCTO CICLO
-		def productoCiclo = new SimProductoCiclo(
+		def productoCicloUno = new SimProductoCiclo(
 				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
 				numeroCiclo : 1,
 				distribucionPago : 'ACCESORIOS-CAPITAL',
@@ -1616,7 +1616,7 @@ class BootStrap {
 				).save(failOnError: true)
 
 		//DA DE ALTA UN PRODUCTO CICLO
-		productoCiclo = new SimProductoCiclo(
+		def productoCicloDos = new SimProductoCiclo(
 				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
 				numeroCiclo : 2,
 				distribucionPago : 'ACCESORIOS-CAPITAL',
@@ -1654,6 +1654,25 @@ class BootStrap {
 				valor : 0.4,
 				unidad : 'PORCENTUAL',
 				periodicidadValorUnidad: SimCatPeriodicidad.findByClavePeriodicidad('CLAVE_2')
+				).save(failOnError: true)
+
+
+		def productoCicloAccesorio = new SimProductoCicloAccesorios(
+				productoCiclo : productoCicloUno,
+				accesorio : SimCatAccesorio.findByClaveAccesorio('ADMCRE'),
+				orden : 1
+				).save(failOnError: true)
+
+		productoCicloAccesorio = new SimProductoCicloAccesorios(
+				productoCiclo : productoCicloUno,
+				accesorio : SimCatAccesorio.findByClaveAccesorio('BURCRE'),
+				orden : 2
+				).save(failOnError: true)
+
+		productoCicloAccesorio = new SimProductoCicloAccesorios(
+				productoCiclo : productoCicloUno,
+				accesorio : SimCatAccesorio.findByClaveAccesorio('SEGDEU'),
+				orden : 3
 				).save(failOnError: true)
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
