@@ -6,8 +6,8 @@ class SimCatTipoAccesorio {
 	String  nombreTipoAccesorio
 
     static constraints = {
-		claveTipoAccesorio(size:5..15, unique: true, nullable: false, blank: false)
-		nombreTipoAccesorio(size:5..50, unique: true, nullable: false, blank: false)
+		claveTipoAccesorio(size:3..20, unique: true, nullable: false, blank: false)
+		nombreTipoAccesorio(size:3..50, unique: true, nullable: false, blank: false)
     }
 
 	static hasMany = [ accesorios : SimCatAccesorio ]

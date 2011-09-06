@@ -16,6 +16,7 @@ class SimProductoCiclo {
 	SimCatPeriodicidad periodicidadTasa
 	
 	static belongsTo = [ producto : SimProducto ] 
+	static hasMany = [ordenAccesorios: SimProductoCicloAccesorios]
 	
     static constraints = {
 		producto()
@@ -30,7 +31,7 @@ class SimProductoCiclo {
     }
 	
 	String toString() {
-		"CICLO: ${numeroCiclo}"
+		"${producto.nombreProducto} CICLO: ${numeroCiclo}"
 	}
 
 }
