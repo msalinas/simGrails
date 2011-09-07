@@ -323,14 +323,39 @@ class BootStrap {
 				nombreEscolaridad: 'LICENCIATURA',
 				).save(failOnError: true)
 
-		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'CLAVE_1',
+		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'SOLICITADO',
 				nombreEtapaPrestamo: 'SOLICITADO',
 				descripcionEtapaPrestamo: 'SOLICITADO',
 				).save(failOnError: true)
 
-		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'CLAVE_2',
+		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'BURO',
 				nombreEtapaPrestamo: 'BURO DE CREDITO',
 				descripcionEtapaPrestamo: 'BURO DE CREDITO',
+				).save(failOnError: true)
+
+
+		new SimCatEtapaActividad(claveActividad: 'CHECKLIST',
+				nombreActividad: 'CHECKLIST COORDINADOR',
+				descripcionActividad: 'CHECKLIST COORDINADOR',
+				etapa : SimCatEtapaPrestamo.findByClaveEtapaPrestamo('SOLICITADO')
+				).save(failOnError: true)
+
+		new SimCatEtapaActividad(claveActividad: 'EXPEDIENTE',
+				nombreActividad: 'PREPARAR EXPEDIENTE',
+				descripcionActividad: 'PREPARAR EXPEDIENTE',
+				etapa : SimCatEtapaPrestamo.findByClaveEtapaPrestamo('SOLICITADO')
+				).save(failOnError: true)
+
+		new SimCatEtapaActividad(claveActividad: 'RECEPCION CARTA',
+				nombreActividad: 'RECEPCION SOLICITUD CARTA',
+				descripcionActividad: 'RECEPCION SOLICITUD DE CARTA',
+				etapa : SimCatEtapaPrestamo.findByClaveEtapaPrestamo('SOLICITADO')
+				).save(failOnError: true)
+
+		new SimCatEtapaActividad(claveActividad: 'SOLIC_VS_DOCTO',
+				nombreActividad: 'REVISION SOLICITUD VS DOCUMENTACION',
+				descripcionActividad: 'REVISION DE SOLICITUD VS DOCUMENTACION',
+				etapa : SimCatEtapaPrestamo.findByClaveEtapaPrestamo('SOLICITADO')
 				).save(failOnError: true)
 
 		new SimCatFondeador(claveFondeador:  'CLAVE_1',
