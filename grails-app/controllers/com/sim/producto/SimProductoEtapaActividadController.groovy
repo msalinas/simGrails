@@ -69,6 +69,7 @@ class SimProductoEtapaActividadController {
         }
     }
 
+	//NO SE IMPLEMENTA LA FUNCIONALIDAD DE MODIFICAR
     def update = {
         def simProductoEtapaActividadInstance = SimProductoEtapaActividad.get(params.id)
         if (simProductoEtapaActividadInstance) {
