@@ -323,14 +323,39 @@ class BootStrap {
 				nombreEscolaridad: 'LICENCIATURA',
 				).save(failOnError: true)
 
-		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'CLAVE_1',
+		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'SOLICITADO',
 				nombreEtapaPrestamo: 'SOLICITADO',
 				descripcionEtapaPrestamo: 'SOLICITADO',
 				).save(failOnError: true)
 
-		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'CLAVE_2',
+		new SimCatEtapaPrestamo(claveEtapaPrestamo:  'BURO',
 				nombreEtapaPrestamo: 'BURO DE CREDITO',
 				descripcionEtapaPrestamo: 'BURO DE CREDITO',
+				).save(failOnError: true)
+
+
+		new SimCatEtapaActividad(claveActividad: 'CHECKLIST',
+				nombreActividad: 'CHECKLIST COORDINADOR',
+				descripcionActividad: 'CHECKLIST COORDINADOR',
+				etapa : SimCatEtapaPrestamo.findByClaveEtapaPrestamo('SOLICITADO')
+				).save(failOnError: true)
+
+		new SimCatEtapaActividad(claveActividad: 'EXPEDIENTE',
+				nombreActividad: 'PREPARAR EXPEDIENTE',
+				descripcionActividad: 'PREPARAR EXPEDIENTE',
+				etapa : SimCatEtapaPrestamo.findByClaveEtapaPrestamo('SOLICITADO')
+				).save(failOnError: true)
+
+		new SimCatEtapaActividad(claveActividad: 'RECEPCION_CARTA',
+				nombreActividad: 'RECEPCION SOLICITUD CARTA',
+				descripcionActividad: 'RECEPCION SOLICITUD DE CARTA',
+				etapa : SimCatEtapaPrestamo.findByClaveEtapaPrestamo('SOLICITADO')
+				).save(failOnError: true)
+
+		new SimCatEtapaActividad(claveActividad: 'SOLIC_VS_DOCTO',
+				nombreActividad: 'REVISION SOLICITUD VS DOCUMENTACION',
+				descripcionActividad: 'REVISION DE SOLICITUD VS DOCUMENTACION',
+				etapa : SimCatEtapaPrestamo.findByClaveEtapaPrestamo('SOLICITADO')
 				).save(failOnError: true)
 
 		new SimCatFondeador(claveFondeador:  'CLAVE_1',
@@ -1674,6 +1699,25 @@ class BootStrap {
 				accesorio : SimCatAccesorio.findByClaveAccesorio('SEGDEU'),
 				orden : 3
 				).save(failOnError: true)
+
+		new SimProductoEtapaActividad(
+				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
+				etapaActividad : SimCatEtapaActividad.findByClaveActividad('CHECKLIST'),
+				orden: 1
+				).save(failOnError: true)
+
+		new SimProductoEtapaActividad(
+				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
+				etapaActividad : SimCatEtapaActividad.findByClaveActividad('RECEPCION_CARTA'),
+				orden: 2
+				).save(failOnError: true)
+
+		new SimProductoEtapaActividad(
+				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
+				etapaActividad : SimCatEtapaActividad.findByClaveActividad('EXPEDIENTE'),
+				orden: 3
+				).save(failOnError: true)
+
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save(failOnError: true)

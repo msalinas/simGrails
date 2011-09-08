@@ -1,7 +1,6 @@
 package com.sim.producto
 
-import java.math.BigDecimal;
-
+import java.math.BigDecimal
 import com.sim.catalogo.SimCatMetodoCalculo
 import com.sim.catalogo.SimCatPeriodicidad
 import com.sim.catalogo.SimCatFormaEntrega
@@ -23,9 +22,9 @@ class SimProducto {
 	SimCatPeriodicidad  periodicidad
 	SimCatFormaEntrega  formaEntrega
 
-	SortedSet ciclos
+	SortedSet ciclos, etapasActividades
 	static hasMany = [ participantesCredito : SimCatTipoPersona, sucursales : SimSucursal, ciclos : SimProductoCiclo,
-				cargosComisiones : SimProductoCargoComision ]
+				cargosComisiones : SimProductoCargoComision, etapasActividades : SimProductoEtapaActividad ]
 	
     static constraints = {
 		claveProducto(size:1..20, unique: true, nullable: false, blank: false)
@@ -43,6 +42,7 @@ class SimProducto {
 		participantesCredito()
 		sucursales()
 		cargosComisiones()
+		etapasActividades()
     }
 	
 	String toString() {
