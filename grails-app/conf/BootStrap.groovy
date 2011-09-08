@@ -346,7 +346,7 @@ class BootStrap {
 				etapa : SimCatEtapaPrestamo.findByClaveEtapaPrestamo('SOLICITADO')
 				).save(failOnError: true)
 
-		new SimCatEtapaActividad(claveActividad: 'RECEPCION CARTA',
+		new SimCatEtapaActividad(claveActividad: 'RECEPCION_CARTA',
 				nombreActividad: 'RECEPCION SOLICITUD CARTA',
 				descripcionActividad: 'RECEPCION SOLICITUD DE CARTA',
 				etapa : SimCatEtapaPrestamo.findByClaveEtapaPrestamo('SOLICITADO')
@@ -1699,6 +1699,25 @@ class BootStrap {
 				accesorio : SimCatAccesorio.findByClaveAccesorio('SEGDEU'),
 				orden : 3
 				).save(failOnError: true)
+
+		new SimProductoEtapaActividad(
+				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
+				etapaActividad : SimCatEtapaActividad.findByClaveActividad('CHECKLIST'),
+				orden: 1
+				).save(failOnError: true)
+
+		new SimProductoEtapaActividad(
+				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
+				etapaActividad : SimCatEtapaActividad.findByClaveActividad('RECEPCION_CARTA'),
+				orden: 2
+				).save(failOnError: true)
+
+		new SimProductoEtapaActividad(
+				producto : SimProducto.findByClaveProducto('SOLIDARIO'),
+				etapaActividad : SimCatEtapaActividad.findByClaveActividad('EXPEDIENTE'),
+				orden: 3
+				).save(failOnError: true)
+
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save(failOnError: true)
