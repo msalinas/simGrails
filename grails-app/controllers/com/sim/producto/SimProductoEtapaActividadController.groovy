@@ -39,6 +39,7 @@ class SimProductoEtapaActividadController {
 		}catch(SimProductoEtapaActividadException pe){
 			//INVESTIGAR QUE UTILIDAD TIENE EL TEXTO "ErrorProductoEtapaActividad"
 			simProductoEtapaActividadInstance.errors.reject("ErrorProductoEtapaActividad",pe.mensaje)
+			log.error "Failed:", pe
 			render(view: "create", model: [simProductoEtapaActividadInstance: simProductoEtapaActividadInstance])
 		}		
     }
