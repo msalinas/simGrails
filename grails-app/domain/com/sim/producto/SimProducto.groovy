@@ -5,6 +5,7 @@ import com.sim.catalogo.SimCatMetodoCalculo
 import com.sim.catalogo.SimCatPeriodicidad
 import com.sim.catalogo.SimCatFormaEntrega
 import com.sim.catalogo.SimCatTipoPersona
+import com.sim.catalogo.SimCatDocumento
 import com.sim.regional.SimSucursal
 
 class SimProducto {
@@ -24,7 +25,7 @@ class SimProducto {
 
 	SortedSet ciclos, etapasActividades
 	static hasMany = [ participantesCredito : SimCatTipoPersona, sucursales : SimSucursal, ciclos : SimProductoCiclo,
-				cargosComisiones : SimProductoCargoComision, etapasActividades : SimProductoEtapaActividad ]
+				cargosComisiones : SimProductoCargoComision, etapasActividades : SimProductoEtapaActividad, documentos : SimCatDocumento ]
 	
     static constraints = {
 		claveProducto(size:1..20, unique: true, nullable: false, blank: false)
@@ -43,6 +44,7 @@ class SimProducto {
 		sucursales()
 		cargosComisiones()
 		etapasActividades()
+		documentos()
     }
 	
 	String toString() {

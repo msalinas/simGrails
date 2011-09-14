@@ -257,15 +257,15 @@ class BootStrap {
 				descripcionDia: 'AÑO NUEVO',
 				).save(failOnError: true)
 
-		new SimCatTipoDocumento(claveTipoDocumentacion:  'CLAVE_1',
+		new SimCatTipoDocumento(claveTipoDocumentacion:  'IDENTIFICACION',
 				nombreTipoDocumentacion: 'IDENTIFICACION OFICIAL',
 				).save(failOnError: true)
 
-		new SimCatTipoDocumento(claveTipoDocumentacion:  'CLAVE_2',
+		new SimCatTipoDocumento(claveTipoDocumentacion:  'DOMICILIO',
 				nombreTipoDocumentacion: 'COMPROBANTE DE DOMICILIO',
 				).save(failOnError: true)
 
-		new SimCatTipoDocumento(claveTipoDocumentacion:  'CLAVE_3',
+		new SimCatTipoDocumento(claveTipoDocumentacion:  'LEGAL',
 				nombreTipoDocumentacion: 'LEGAL',
 				).save(failOnError: true)
 
@@ -283,25 +283,25 @@ class BootStrap {
 				nombreFuncion: 'SimReportePagareSolidario',
 				).save(failOnError: true)
 
-		new SimCatDocumento(claveDocumento:  'CLAVE7',
+		new SimCatDocumento(claveDocumento:  'INGCRE',
 				nombreDocumento: 'SOLICITUD',
 				descripcion: 'FORMA PARA INGRESAR UN CRÉDITO',
-				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_1'),
+				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('IDENTIFICACION'),
 				esReporte : 'false',
 				).save(failOnError: true)
 
-		new SimCatDocumento(claveDocumento:  'CLAVE22',
+		new SimCatDocumento(claveDocumento:  'ANEXOA',
 				nombreDocumento: 'ANEXO A',
 				descripcion: 'FORMATO ANEXO A',
-				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_3'),
+				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('LEGAL'),
 				simCatReporte : SimCatReporte.findByClaveReporte('CLAVE_1'),
 				esReporte : 'true',
 				).save(failOnError: true)
 
-		new SimCatDocumento(claveDocumento:  'CLAVE1',
+		new SimCatDocumento(claveDocumento:  'IFE',
 				nombreDocumento: 'CREDENCIAL IFE',
 				descripcion: 'CREDENCIAL IFE',
-				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('CLAVE_1'),
+				simCatTipoDocumento : SimCatTipoDocumento.findByClaveTipoDocumentacion('IDENTIFICACION'),
 				simCatReporte : SimCatReporte.findByClaveReporte('CLAVE_4'),
 				esReporte : 'false',
 				).save(failOnError: true)
@@ -1228,7 +1228,7 @@ class BootStrap {
 		personaMiguel.estadoCivil = "CASADO - BIENES MANCOMUNADOS"
 		personaMiguel.fechaNacimiento = new Date('09/30/1974')
 		personaMiguel.nombreAlterno = "MIKE RUGEIRO"
-		personaMiguel.identificacionOficial = SimCatDocumento.findByClaveDocumento('CLAVE1')
+		personaMiguel.identificacionOficial = SimCatDocumento.findByClaveDocumento('IFE')
 		personaMiguel.numeroIdentificacionOficial = "RUFM727328328"
 		personaMiguel.rfc = "RUFM89778"
 		personaMiguel.curp = "RUMD76878968"
@@ -1259,7 +1259,7 @@ class BootStrap {
 				estadoCivil : "SOLTERO",
 				fechaNacimiento : new Date('05/20/1978'),
 				nombreAlterno : "HECTORIN",
-				identificacionOficial : SimCatDocumento.findByClaveDocumento('CLAVE1'),
+				identificacionOficial : SimCatDocumento.findByClaveDocumento('IFE'),
 				numeroIdentificacionOficial : "RRHM727328328",
 				rfc : "RRHM89778",
 				curp : "RRHM76878968",
@@ -1391,7 +1391,7 @@ class BootStrap {
 				estadoCivil : "SOLTERO",
 				fechaNacimiento : new Date('03/21/1973'),
 				nombreAlterno : "EL MAESTRO",
-				identificacionOficial : SimCatDocumento.findByClaveDocumento('CLAVE1'),
+				identificacionOficial : SimCatDocumento.findByClaveDocumento('IFE'),
 				numeroIdentificacionOficial : "NAMA3328328",
 				rfc : "SDFF89778",
 				curp : "SDFSDF6878968",
@@ -1426,7 +1426,7 @@ class BootStrap {
 		//DA DE ALTA UN DOCUMENTO A UN CLIENTE
 		def documentoCliente = new RsClienteDocumentacion(
 				cliente: cliente,
-				documento : SimCatDocumento.findByClaveDocumento('CLAVE7'),
+				documento : SimCatDocumento.findByClaveDocumento('INGCRE'),
 				fechaRecibido : new Date('03/21/2011'),
 				asesorVerifico : RsEmpleado.findByPersona(RsPersona.findByEmail('hreyes@credi.com')),
 				documentacionCorrecta : true).save(failOnError: true)
@@ -1434,7 +1434,7 @@ class BootStrap {
 		//DA DE ALTA UN DOCUMENTO A UN CLIENTE
 		documentoCliente = new RsClienteDocumentacion(
 				cliente: cliente,
-				documento : SimCatDocumento.findByClaveDocumento('CLAVE22'),
+				documento : SimCatDocumento.findByClaveDocumento('ANEXOA'),
 				fechaRecibido : new Date('12/29/2011'),
 				asesorVerifico : RsEmpleado.findByPersona(RsPersona.findByEmail('asalazar@example.org')),
 				documentacionCorrecta : true).save(failOnError: true)
@@ -1458,6 +1458,10 @@ class BootStrap {
 				sucursales : [
 					SimSucursal.findByClaveSucursal('SUCURSAL1'),
 					SimSucursal.findByClaveSucursal('SUCURSAL2'),
+				],
+				documentos : [
+					SimCatDocumento.findByClaveDocumento('ANEXOA'),
+					SimCatDocumento.findByClaveDocumento('INGCRE'),
 				],
 				asignarTodasSucursales : false).save(failOnError: true)
 
@@ -1483,7 +1487,7 @@ class BootStrap {
 				estadoCivil : "SOLTERO",
 				fechaNacimiento : new Date('03/21/1963'),
 				nombreAlterno : "PERSY",
-				identificacionOficial : SimCatDocumento.findByClaveDocumento('CLAVE1'),
+				identificacionOficial : SimCatDocumento.findByClaveDocumento('IFE'),
 				numeroIdentificacionOficial : "NAMA3328329",
 				rfc : "SDFF89779",
 				curp : "SDFSDF6878969",

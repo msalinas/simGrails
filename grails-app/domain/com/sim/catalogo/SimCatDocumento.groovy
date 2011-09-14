@@ -11,7 +11,7 @@ class SimCatDocumento {
 	static belongsTo = [ simCatTipoDocumento : SimCatTipoDocumento ]
 
     static constraints = {
-		claveDocumento(size:5..15, unique: true, nullable: false, blank: false)
+		claveDocumento(size:3..15, unique: true, nullable: false, blank: false)
 		nombreDocumento(size:5..50, nullable: false, blank: false)
 		descripcion(size:10..300, nullable: true, blank: true)
 		simCatTipoDocumento(nullable:true)

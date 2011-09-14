@@ -8,8 +8,8 @@ class SimCatTipoDocumento {
 	static hasMany = [ simCatDocumento : SimCatDocumento ]
 
     static constraints = {
-		claveTipoDocumentacion(size:5..15, unique: true, nullable: false, blank: false)
-		nombreTipoDocumentacion(size:5..50, unique: true, nullable: false, blank: false)
+		claveTipoDocumentacion(size:3..15, unique: true, nullable: false, blank: false)
+		nombreTipoDocumentacion(size:3..50, unique: true, nullable: false, blank: false)
     }
 
 	String toString() {
