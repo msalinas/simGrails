@@ -205,7 +205,7 @@ class NavigationTagLib {
             def cls = "${item.active ? 'subnavigation_active ' : ''}${item.first ? 'subnavigation_first ' : ''}${item.last ? 'subnavigation_last' : ''}"
             o << "<li"
             if (cls) o << " class=\"${cls.trim()}\""
-            o << "><a href=\"${item.link.encodeAsHTML()}\">${message(code:'subnavigation.'+grp+'.'+sectionCode+'.'+title, default:item.title, encodeAs:'HTML')}</a></li><br>"
+            o << "><a href=\"${item.link.encodeAsHTML()}\">${message(code:'subnavigation.'+grp+'.'+sectionCode+'.'+title, default:item.title, encodeAs:'HTML')}</a></li><br><br>"
         })
         o << "</ul>"
     }

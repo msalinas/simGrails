@@ -67,14 +67,15 @@ Just change the color-values to apply your own color-scheme.
     list-style-type: none;
     clear: both;
     margin: 0em 0;
-    font-size: 12px;
+    font-size: 11px;
+	
     overflow: auto; /* Clearing floats */
 }
 .subnavigation li {
     float: left;
     /* background-color: #555; */
-    padding: 0em 1em; 
-    border-width: 0px 0;
+    padding: .5em 1em; 
+	border-width: 0px 0;
 }
 .subnavigation li a {
     display: inline;
