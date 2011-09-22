@@ -8,6 +8,7 @@ import com.sim.usuario.*
 import com.sim.regional.*
 import com.sim.producto.*
 import com.rs.gral.*
+import com.sim.grupo.*
 import com.sim.prueba.*
 
 class BootStrap {
@@ -1439,6 +1440,35 @@ class BootStrap {
 				asesorVerifico : RsEmpleado.findByPersona(RsPersona.findByEmail('asalazar@example.org')),
 				documentacionCorrecta : true).save(failOnError: true)
 
+		//DA DE ALTA UNA PERSONA CLIENTE
+		personaCliente = new RsPersona(
+				apellidoPaterno: "HERNANDEZ",
+				apellidoMaterno: "HERNANDEZ",
+				primerNombre: "JAVO",
+				email: "javo@hotmail.com",
+				sexo : "MASCULINO",
+				estadoCivil : "SOLTERO",
+				fechaNacimiento : new Date('03/21/1953'),
+				nombreAlterno : "EL TEACHER",
+				identificacionOficial : SimCatDocumento.findByClaveDocumento('IFE'),
+				numeroIdentificacionOficial : "NAMA3328328",
+				rfc : "SDFF89778",
+				curp : "SDFSDF6878968",
+				escolaridad  : SimCatEscolaridad.findByClaveEscolaridad('CLAVE2'),
+				tiposPersona : [
+					SimCatTipoPersona.findByClaveTipoPersona('CLIENTE')]
+				).save(failOnError: true)
+
+		//DA DE ALTA UN CLIENTE
+		cliente = new RsCliente(
+				persona :  personaCliente,
+				ingresoSemanal : 9500.50,
+				dependientesEconomicos : 4,
+				destinoDelCredito : "ADQUIRIR O COMPRAR MERCANCIA",
+				rolEnElHogar : "ESPOSO(A)",
+				listaNegra : false).save(failOnError: true)
+
+
 		//DA DE ALTA UN DOCUMENTO A UN PRODUCTO
 		def producto = new SimProducto(
 				claveProducto: "SOLIDARIO",
@@ -1722,6 +1752,14 @@ class BootStrap {
 				orden: 3
 				).save(failOnError: true)
 
+		new SimGrupo(
+				claveGrupo : '001',
+				nombreGrupo : 'LOS 4 FANTASTICOS',
+				fechaInicioActivacion: new Date('01/20/2008'),
+				integrantes: [
+					RsCliente.findByPersona(RsPersona.findByEmail('javo@hotmail.com')),
+					RsCliente.findByPersona(RsPersona.findByEmail('alex@hotmail.com'))]
+				).save(failOnError: true)
 
 		//IMPLEMENTACION DE SEGURIDAD A NIVEL Dynamic request maps
 		new Requestmap(url: '/user/**', configAttribute: 'ROLE_ADMIN').save(failOnError: true)
