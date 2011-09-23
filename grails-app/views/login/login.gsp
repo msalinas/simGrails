@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Bienvenidos</title>
+        <title>Usuario</title>
         <meta name="layout" content="main" />
     </head>
     <body>

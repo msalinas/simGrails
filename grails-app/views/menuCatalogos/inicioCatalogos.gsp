@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Catalogos</title>
+		<title>Cat&aacute;logos</title>
 		<meta name="layout" content="main" />
 	</head>
 	<body>
