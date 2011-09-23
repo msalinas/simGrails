@@ -14,7 +14,7 @@ class MenuGralController {
 			[action:'irRegional', order:60, title:"Regional"],
 			[action:'irSucursal', order:70, title:'Sucursal'],
 			[action:'irDomicilios', order:80, title:'Domicilios'],
-			[action:'irTelefonos', order:90, title:'Telefonos']
+			[action:'irTelefonos', order:90, title:'Teléfonos']
         ]
 	]
 	

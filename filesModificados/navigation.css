@@ -74,7 +74,8 @@ Just change the color-values to apply your own color-scheme.
 .subnavigation li {
     float: left;
     /* background-color: #555; */
-    padding: .5em 1em; 
+    padding: .5em 1em;  
+    width:130px;
 	border-width: 0px 0;
 }
 .subnavigation li a {
