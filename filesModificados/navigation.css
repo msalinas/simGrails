@@ -75,7 +75,7 @@ Just change the color-values to apply your own color-scheme.
     float: left;
     /* background-color: #555; */
     padding: .5em 1em;  
-    width:116px; /*FIJA EL ANCHO DE LA COLUMNA */
+    width:120px; /*FIJA EL ANCHO DE LA COLUMNA */
 	border-width: 0px 0;
 }
 .subnavigation li a {
