@@ -10,7 +10,7 @@ class MenuGralController {
 			[action:'irPersonas', order:20, title:'Personas'],
 			[action:'irEmpleados', order:30, title:'Empleados'],
 			[action:'irClientes', order:40, title:'Clientes'],
-			[action:'irGaranteDespositario', order:50, title:'Garante Depositario'],
+			[action:'irGaranteDespositario', order:50, title:'Garante Deposit.'],
 			[action:'irRegional', order:60, title:"Regional"],
 			[action:'irSucursal', order:70, title:'Sucursal'],
 			[action:'irDomicilios', order:80, title:'Domicilios'],
