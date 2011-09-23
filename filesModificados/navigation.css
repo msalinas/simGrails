@@ -24,7 +24,7 @@ Just change the color-values to apply your own color-scheme.
 .subnavigation li a { border-color: #000080; }                      /* Should be set to the same as the above */
 .subnavigation li a { color: #fff; }                                /* Text color */
 .subnavigation li a:hover { border-color: #fff; }                   /* Markings color of hovered item */
-.subnavigation li a:hover { color: #e0e0e0; }                       /* Text color of hovered item */
+.subnavigation li a:hover { color: #00FFFF; }                       /* Text color of hovered item */
 .subnavigation li.subnavigation_active a { color: #e0e0e0; }        /* Text color of active item */
 .subnavigation li.subnavigation_active a { border-color: #e0e0e0; } /* Markings color of active item */
 
