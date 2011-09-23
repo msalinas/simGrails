@@ -12,13 +12,13 @@
 				  <td>Usuario:</td><td><g:textField name="j_username"/></td>
 				</tr>
 				<tr>
-				  <td>Contrasena:</td><td><input name="j_password" type="password"/></td>
+				  <td>Contrase&ntilde;a:</td><td><input name="j_password" type="password"/></td>
 				</tr>
 				<tr>
 				  <td colspan="2"><g:submitButton name="login" value="Login"/></td>
 				</tr>
 				<tr>
-				  <td colspan="2">Intenta Usuario:"admin", Contrasena:"4321"</td>
+				  <td colspan="2">Intenta Usuario:"admin", Contrase&ntilde;a:"4321"</td>
 				</tr>
 			  </table>
 			</form>
