@@ -34,7 +34,8 @@
 						
 					</sec:ifNotLoggedIn>
 					<sec:ifLoggedIn>
-						<h2>Bienvenido: <sec:username /></h2>
+						<h4>${usuario?.persona}</h4>
+						<h3><sec:username /></h3>
 						<br>
 						<h3><g:link controller="logout">Salir</g:link></h3>
 					</sec:ifLoggedIn>
