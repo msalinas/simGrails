@@ -1,6 +1,6 @@
-package com.sim.catalogos
+package com.sim.catalogo
 
-class CatalogosController {
+class MenuCatalogosController {
 
     static navigation = [
         group: 'tabs', action: 'inicioCatalogos',title: 'Catalogos', order: 0,

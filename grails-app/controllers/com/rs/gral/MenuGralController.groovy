@@ -1,6 +1,6 @@
 package com.rs.gral
 
-class RsGralMenuController {
+class MenuGralController {
 
     static navigation = [
         group: 'tabs', action: 'inicioEntidades',title: 'Empresa', order: 5,

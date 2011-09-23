@@ -2,7 +2,7 @@ package com.sim.catalogos
 
 import grails.test.*
 
-class CatalogosControllerTests extends ControllerUnitTestCase {
+class MenuCatalogosControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()
     }
