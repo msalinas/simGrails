@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-println "cp /home/miguel/desarrollo/grails/sim/filesModificados/NavigationTagLib.groovy /home/miguel/.grails/1.3.7/projects/sim/plugins/navigation-1.2/grails-app/taglib".execute().text
+println "cp /home/miguel/desarrollo/grails/sim/filesModificados/NavigationTagLib.groovy /home/miguel/.grails/1.3.7/projects/sim/plugins/navigation-1.3/grails-app/taglib".execute().text
 
 println "cp /home/miguel/desarrollo/grails/sim/filesModificados/i18n-templates.properties /home/miguel/.grails/1.3.7/projects/sim/plugins/i18n-templates-1.1.0.1/grails-app/i18n".execute().text
 
