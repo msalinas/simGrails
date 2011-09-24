@@ -45,7 +45,7 @@
 	</table>
 	
 	<nav:render group="tabs" />
-	
+	<br>
 	<nav:renderSubItems group="tabs" />
 	
 	<g:layoutBody />
