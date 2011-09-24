@@ -5,13 +5,9 @@ Este archivo contiene los archivos modificados de los plugins descargados, conti
 .classpath
 .project
 
--- CORRECCION AL TAG DE NAVEGACION PARA EL FUNCIONAMIENTO DE LOS SUBS DE NAVEGACION
-/home/miguel/.grails/1.3.7/projects/sim/plugins/navigation-1.2/grails-app/taglib
+-- CORRECCION AL TAG DE NAVEGACION PARA MOSTRAR LOS SUBITEMS EN FORMA VERTICAL
+/home/miguel/.grails/1.3.7/projects/sim/plugins/navigation-1.3/grails-app/taglib
 NavigationTagLib.groovy
-
--- CAMBIO DE COLORES A LA HOJA DE ESTILO DE COMPONENTE DE NAVEGACION
-/home/miguel/.grails/1.3.7/projects/sim/plugins/navigation-1.2/web-app/css
-navigation.css
 
 -- ARCHIVO PARA INTERNACIONALIZACION
 /home/miguel/.grails/1.3.7/projects/sim/plugins/i18n-templates-1.1.0.1/grails-app/i18n
