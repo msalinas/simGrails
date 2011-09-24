@@ -1,7 +1,5 @@
 package com.sim.producto
 
-import java.math.BigDecimal;
-
 import com.sim.catalogo.SimCatPeriodicidad
 
 class SimProductoCiclo implements Comparable {

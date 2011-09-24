@@ -1,6 +1,5 @@
 package com.sim.producto
 
-import java.math.BigDecimal
 import com.sim.catalogo.SimCatMetodoCalculo
 import com.sim.catalogo.SimCatPeriodicidad
 import com.sim.catalogo.SimCatFormaEntrega

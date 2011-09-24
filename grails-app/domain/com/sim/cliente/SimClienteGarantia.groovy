@@ -1,6 +1,5 @@
 package com.sim.cliente
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 import com.sim.catalogo.SimCatTipoGarantia
