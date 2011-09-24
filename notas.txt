@@ -7,4 +7,5 @@ grails generate-i18n-messages <domainClass>
 
 Ejemplo de ordenar registros: SimProducto -> SimProductoCiclo -> SimProductoCicloAccesorios
 
-Para modificar la hoja de estilo del plugin Navigator solo funciona en Firefox, en ocaciones hay que eliminar el historial del navegador para ver cambios directos sin necesidad de detener la aplicación 
+Para modificar la hoja de estilo del plugin Navigator solo funciona en Firefox, en ocaciones hay que eliminar el historial del navegador para ver cambios directos sin necesidad de detener la aplicación
+La hoja de estilo del plugin Navigator se copio dentro de la hoja de estilo main.css 

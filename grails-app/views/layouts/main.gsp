@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>SIM &raquo; <g:layoutTitle default="Bienvenido" /></title>
-<nav:resources />
+<nav:resources override="true"/>
 <link rel="stylesheet" href="${resource(dir:'css',file:'main.css')}" />
 <link rel="shortcut icon"
 	href="${resource(dir:'images',file:'sim.jpg')}" type="image/x-icon" />
@@ -43,7 +43,7 @@
 			</td>
 		</tr>
 	</table>
-
+	
 	<nav:render group="tabs" />
 	
 	<nav:renderSubItems group="tabs" />
